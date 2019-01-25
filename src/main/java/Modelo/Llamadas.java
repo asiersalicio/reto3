@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 
 import ControladoresPaneles.ControladorSelTrayecto;
 
@@ -58,16 +59,21 @@ public class Llamadas {
 	{
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
-				String query = "select Cod_Linea, Nombre from linea where upper(nombre) like '" + busqueda + "';";
+				int contador = 1;
+				String query = "select Nombre, Cod_linea from linea where upper(Nombre) like '%" + busqueda.toUpperCase() + "%'";
 				//Inicio programa:
 				try {
 					stmt = con.createStatement(); 
 					ResultSet rs = stmt.executeQuery (query);
 					while (rs.next()) {
-						controladorSelTrayecto.codLinea=rs.getString("Cod_Linea");
-						System.out.println(controladorSelTrayecto.codLinea);
-						controladorSelTrayecto.busqueda=rs.getString("Nombre");
+
+						controladorSelTrayecto.resultadoBusqueda=Arrays.copyOf(controladorSelTrayecto.resultadoBusqueda, contador); 
+						controladorSelTrayecto.resultadoBusquedaCod=Arrays.copyOf(controladorSelTrayecto.resultadoBusquedaCod, contador);
+						controladorSelTrayecto.resultadoBusquedaCod[contador-1]=rs.getString("Cod_Linea");
+						controladorSelTrayecto.resultadoBusqueda[contador-1]=rs.getString("Nombre");
+						contador++;
 					}
+					
 				} catch (SQLException ex){
 					printSQLException(ex);
 				} finally {
@@ -79,6 +85,8 @@ public class Llamadas {
 				}
 				}
 	}
+
+
 	
 	public static void verLinea (Connection con, String nombreBBDD) 
 	{

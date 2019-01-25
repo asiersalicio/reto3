@@ -3,6 +3,7 @@ package ControladoresPaneles;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -16,6 +17,8 @@ public class ControladorSelTrayecto {
 	
 	public JTextField activeTextfield;
 	public String busqueda;
+	public String[] resultadoBusqueda;
+	public String[] resultadoBusquedaCod;
 	public String codLinea;
 	public ControladorSelTrayecto controladorSelTrayecto;
 	
@@ -31,18 +34,27 @@ public class ControladorSelTrayecto {
 				paneSelTrayecto.FieldBusqueda.requestFocus();
 			}
 		});
-		JTextField editorComponent = (JTextField) paneSelTrayecto.comboBoxBusqueda.getEditor().getEditorComponent();
-		editorComponent.getDocument().addDocumentListener(new DocumentListener() {
+		
+		paneSelTrayecto.FieldBusqueda.getDocument().addDocumentListener(new DocumentListener() {
 			
 			@Override
 			public void removeUpdate(DocumentEvent e) {}
 			
 			@Override
 			public void insertUpdate(DocumentEvent e) {
-				System.out.println("Buscar en BBDD: " + editorComponent.getText());
-				Llamadas.busquedaTrayecto(BBDD.connection, editorComponent.getText(), controladorSelTrayecto);
+				System.out.println("Buscar en BBDD: " + paneSelTrayecto.FieldBusqueda.getText());
+				resultadoBusqueda = new String[1];
+				resultadoBusquedaCod = new String[1];
+				Llamadas.busquedaTrayecto(BBDD.connection, paneSelTrayecto.FieldBusqueda.getText(), controladorSelTrayecto);
+				DefaultComboBoxModel model = new DefaultComboBoxModel(controladorSelTrayecto.resultadoBusqueda);
+				paneSelTrayecto.comboBoxBusqueda.setModel(model);
 				paneSelTrayecto.comboBoxBusqueda.showPopup();
-				//paneSelTrayecto.comboBoxBusqueda.setModel();
+				
+				for(int i=0;i<resultadoBusqueda.length;i++)
+				{
+					System.out.println(resultadoBusqueda[i]);
+					System.out.println(resultadoBusquedaCod[i]);
+				}
 			}
 			
 			@Override
