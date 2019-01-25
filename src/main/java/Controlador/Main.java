@@ -21,7 +21,7 @@ public class Main {
 		//Crea un controlador de interfaz
 		ControlInterfaz controlInterfaz = new ControlInterfaz();
 		//Ejecuta el proceso para la creacion de la interfaz
-		controlInterfaz.InicializarInterfaz();
+		ControlInterfaz.InicializarInterfaz();
 		
 		if(debug)
 		{

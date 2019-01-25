@@ -36,22 +36,30 @@ public class PaneBienvenida {
 				ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
 			}
 		});
-		btnTocaParaEmpezar.setForeground(Color.BLACK);
+		btnTocaParaEmpezar.setForeground(new Color(0, 51, 102));
 		btnTocaParaEmpezar.setBackground(Color.WHITE);
 		btnTocaParaEmpezar.setBounds(263, 227, 280, 64);
 		paneBienvenida.add(btnTocaParaEmpezar);
 		
-		JLabel lblTocaParaEmpezar = new JLabel("");
-		lblTocaParaEmpezar.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/Vista/termiLOGO.png")));
-		lblTocaParaEmpezar.setBackground(Color.WHITE);
-		lblTocaParaEmpezar.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
-		lblTocaParaEmpezar.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTocaParaEmpezar.setBounds(0, 0, 800, 600);
-		paneBienvenida.add(lblTocaParaEmpezar);
-		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(414, 386, 6, 20);
 		paneBienvenida.add(passwordField);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/ImagenesVista/logo-termibus.png")));
+		lblNewLabel.setBounds(489, 11, 301, 117);
+		paneBienvenida.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
+		lblNewLabel_1.setBounds(10, 505, 70, 64);
+		paneBienvenida.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("ASALBA Solutions");
+		lblNewLabel_2.setForeground(new Color(0, 51, 102));
+		lblNewLabel_2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
+		lblNewLabel_2.setBounds(608, 539, 116, 14);
+		paneBienvenida.add(lblNewLabel_2);
 		paneBienvenida.setVisible(false);
 	}
 	

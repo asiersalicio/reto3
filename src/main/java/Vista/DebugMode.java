@@ -44,7 +44,7 @@ public class DebugMode {
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				controlInterfaz.setPanel(controlInterfaz.paneLogin.paneLogin);
+				ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
 			}
 		});
 		btnLogin.setBounds(10, 29, 89, 23);
@@ -54,7 +54,7 @@ public class DebugMode {
 		btnRegistro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlInterfaz.setPanel(controlInterfaz.paneRegister.paneRegister);
+				ControlInterfaz.setPanel(ControlInterfaz.paneRegister.paneRegister);
 			}
 		});
 		btnRegistro.setBounds(116, 29, 89, 23);
@@ -64,7 +64,7 @@ public class DebugMode {
 		btnSelecciontr.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlInterfaz.setPanel(controlInterfaz.paneSelTrayecto.pane);
+				ControlInterfaz.setPanel(ControlInterfaz.paneSelTrayecto.pane);
 			}
 		});
 		btnSelecciontr.setBounds(10, 63, 89, 23);
