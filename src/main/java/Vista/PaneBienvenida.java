@@ -42,7 +42,7 @@ public class PaneBienvenida {
 		paneBienvenida.add(btnTocaParaEmpezar);
 		
 		JLabel lblTocaParaEmpezar = new JLabel("");
-		lblTocaParaEmpezar.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/Vista/img/termiLOGO.png")));
+		lblTocaParaEmpezar.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/Vista/termiLOGO.png")));
 		lblTocaParaEmpezar.setBackground(Color.WHITE);
 		lblTocaParaEmpezar.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
 		lblTocaParaEmpezar.setHorizontalAlignment(SwingConstants.CENTER);
