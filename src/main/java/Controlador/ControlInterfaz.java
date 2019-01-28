@@ -11,6 +11,7 @@ import ControladoresPaneles.ControladorSelTrayecto;
 import Vista.Frame1;
 import Vista.PaneBienvenida;
 import Vista.PaneLogin;
+import Vista.PanePago;
 import Vista.PaneRegister;
 import Vista.PaneSelTrayecto;
 
@@ -21,6 +22,7 @@ public class ControlInterfaz {
 	public static PaneLogin paneLogin;
 	public static PaneRegister paneRegister;
 	public static PaneSelTrayecto paneSelTrayecto;
+	public static PanePago panePago;
 	public static ControladorLogin controladorLogin;
 	public static ControladorSelTrayecto controladorSelTrayecto;
 	
@@ -35,7 +37,7 @@ public class ControlInterfaz {
 		 paneRegister = new PaneRegister(frame1);
 		paneLogin = new PaneLogin(frame1);
 		controladorLogin = new ControladorLogin(paneLogin);
-		
+		//panePago= new PanePago(frame1);
 		paneRegister = new PaneRegister(frame1);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
 		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto);
