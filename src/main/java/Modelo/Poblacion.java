@@ -13,8 +13,8 @@ public class Poblacion{
 	//Métodos 
 	//constructor1: 
 	public Poblacion(int codPostal, String nombrePoblacion ) {
-		this.setCodPostal(codPostal);
-		this.setNombrePoblacion(nombrePoblacion);
+		this.codPostal=codPostal;
+		this.nombrePoblacion=nombrePoblacion;
 		
 	}
 	//Geters y Seters

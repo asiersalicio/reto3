@@ -1,5 +1,8 @@
 package Modelo;
 
+import java.sql.Date;
+import java.sql.Time;
+
 /**
  *Clase Billete: 
  * @param codBillete
@@ -23,24 +26,22 @@ public class Billete{
 	public int codBus;
 	public int codParadaInicio;
 	public int codParadaFin;
-	public int fecha;
-	public int hora;
+	public String fecha;
 	public String DNI;
 	public float precio;
 	
 	//Métodos 
 	//constructor1: 
-	public Billete(int codBillete, int nTrayecto, String codLinea, int codBus, int codParadaInicio, int codParadaFin, int fecha, int hora, String DNI, float precio) {
-		this.setCodBillete(codBillete);
-		this.setnTrayecto(nTrayecto);
-		this.setCodLinea(codLinea);	
-		this.setCodBus(codBus);	
-		this.setCodParadaInicio(codParadaInicio);	
-		this.setCodParadaFin(codParadaFin);	
-		this.setFecha(fecha);	
-		this.setHora(hora);	
-		this.setDNI(DNI);	
-		this.setPrecio(precio);	
+	public Billete(int codBillete, int nTrayecto, String codLinea, int codBus, int codParadaInicio, int codParadaFin, String fecha, String DNI, float precio) {
+		this.codBillete=codBillete;
+		this.nTrayecto=nTrayecto;
+		this.codLinea=codLinea;	
+		this.codBus=codBus;	
+		this.codParadaInicio=codParadaInicio;	
+		this.codParadaFin=codParadaFin;	
+		this.fecha=fecha;	
+		this.DNI=DNI;	
+		this.precio=precio;	
 	}
 	
 	//Geters y Seters
@@ -92,20 +93,12 @@ public class Billete{
 		this.codParadaFin = codParadaFin;
 	}
 
-	public int getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(int fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
-	}
-
-	public int getHora() {
-		return hora;
-	}
-
-	public void setHora(int hora) {
-		this.hora = hora;
 	}
 
 	public String getDNI() {
