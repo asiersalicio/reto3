@@ -21,11 +21,11 @@ public class Parada{
 	//Métodos 
 	//constructor1: 
 	public Parada(int codParada, String nombreParada, String calle, float latitud, float longitud) {
-		this.setCodParada(codParada);
-		this.setNombreParada(nombreParada);
-		this.setCalle(calle);
-		this.setLatitud(latitud);
-		this.setLongitud(longitud);
+		this.codParada=codParada;
+		this.nombreParada=nombreParada;
+		this.calle=calle;
+		this.latitud=latitud;
+		this.longitud=longitud;
 	}
 	//Geters y Seters
 

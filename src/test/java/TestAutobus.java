@@ -5,14 +5,22 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Modelo.Autobus;
+/**
+ *Clase TestAutobus: 
+ * @param codBus
+ * @param nPlazas
+ * @param consumoKM
+ * @param color
+ * 
+ */
 
 public class TestAutobus {
 	
 	//las variables las sacamos fuera de las clases para usarlas en todos los test, además las pone privadas porque no las va a utilizar nadie.
-	public int codBus=1001;
-	public int nPlazas=40;
-	public float consumoKM=(float) 0.32;
-	public String color="Rojo";
+	private int codBus=1001;
+	private int nPlazas=40;
+	private float consumoKM=(float) 0.32;
+	private String color="Rojo";
 	
 	//para el test del Constructor:
 	public Autobus autobusTest1 = new Autobus(codBus, nPlazas, consumoKM, color); 

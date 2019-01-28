@@ -5,11 +5,18 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Modelo.LineaAutobus;
+/**
+ *Clase TestLineaAutobus: 
+ * @param codLinea
+ * @param codBus
+ * 
+ */
+
 
 public class TestLineaAutobus {
 	//Atributos o propiedades:
-	public String codLinea;
-	public int codBus;
+	private String codLinea;
+	private int codBus;
 	
 	//para el test del Constructor:
 	public LineaAutobus lineaAutobusTest1 = new LineaAutobus(codLinea, codBus); 

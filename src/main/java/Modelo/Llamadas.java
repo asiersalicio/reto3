@@ -1,9 +1,11 @@
 package Modelo;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import java.util.Arrays;
 
 import ControladoresPaneles.ControladorSelTrayecto;
@@ -33,13 +35,13 @@ public class Llamadas {
 			stmt = con.createStatement(); 
 			System.out.println("Execute query");
 			ResultSet rs = stmt.executeQuery (query);
-			System.out.println("PRUEBA");
+			System.out.println("PRUEBA"); 
 			while (rs.next()) {
 				cliente.setDNI(rs.getString("DNI"));
 				cliente.setNombreCliente(rs.getString("Nombre"));
 				cliente.setApellidos(rs.getString("Apellidos"));
 				cliente.setFechaNac(rs.getString("Fecha_nac"));
-				cliente.setSexo(rs.getString("Sexo"));
+				cliente.setSexo(rs.getString("sexo"));
 				cliente.setContrasena(rs.getString("Contrasena"));
 			}
 		} catch (SQLException ex){
@@ -152,7 +154,7 @@ public class Llamadas {
 			stmt = con.createStatement(); 
 			ResultSet rs = stmt.executeQuery (query);
 			while (rs.next()) {
-				String NombreParada = rs.getString("Nombre");
+				String nombreParada = rs.getString("Nombre");
 			}
 		} catch (SQLException ex){
 			printSQLException(ex);
@@ -176,8 +178,8 @@ public class Llamadas {
 				int codBus = rs.getInt("Cod_Bus");
 				int codParadaInicio = rs.getInt("Cod_Parada_Inicio");
 				int codParadaFin = rs.getInt("Cod_Parada_Fin");
-				int fecha = rs.getInt("Fecha");
-				int hora = rs.getInt("Hora");
+				Date fecha = rs.getDate("Fecha");
+				Time hora = rs.getTime("Hora");
 				String DNI = rs.getString("DNI");
 				float precio = rs.getFloat("Precio");
 			}
@@ -217,7 +219,7 @@ public class Llamadas {
 	//Insertar datos en las tablas utilizando Resulset
 	//para añadir cliente o billetes de autobus
 	
-	public static void insertarCliente(Connection con, String termibus, int DNI, String nombreCliente, String apellidos, String fechaNac, String sexo, String contrasena) throws SQLException {
+	public static void insertarCliente(Connection con, String termibus, int DNI, String nombreCliente, String apellidos, Date fechaNac, String sexo, String contrasena) throws SQLException {
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
 		//Inicio programa:	
@@ -230,7 +232,7 @@ public class Llamadas {
 			rs.updateInt("DNI", DNI);
 			rs.updateString("Nombre", nombreCliente);
 			rs.updateString("Apellidos", apellidos);
-			rs.updateString("Fecha_nac", fechaNac);
+			rs.updateDate("Fecha_nac", fechaNac);
 			rs.updateString("Sexo", sexo);
 			rs.updateString("Contraseña", contrasena);
 		} catch (SQLException e) {
@@ -240,7 +242,7 @@ public class Llamadas {
 		}
 	}
 	
-	public static void insertarBillete(Connection con, String termibus, int codBillete, int nTrayecto, int codLinea, int codBus, int codParadaInicio, int codParadaFin, int fecha, int hora, String DNI, float precio) throws SQLException {
+	public static void insertarBillete(Connection con, String termibus, int codBillete, int nTrayecto, int codLinea, int codBus, int codParadaInicio, int codParadaFin, Date fecha, Time hora, String DNI, float precio) throws SQLException {
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
 		//Inicio programa:	
@@ -256,8 +258,8 @@ public class Llamadas {
 			rs.updateInt("Cod_Bus", codBus);
 			rs.updateInt("Cod_Parada_Inicio", codParadaInicio);
 			rs.updateInt("Cod_Parada_Fin", codParadaFin);
-			rs.updateInt("Fecha", fecha);
-			rs.updateInt("Hora", hora);
+			rs.updateDate("Fecha", fecha);
+			rs.updateTime("Hora", hora);
 			rs.updateString("DNI", DNI);
 			rs.updateFloat("Precio", precio);
 		} catch (SQLException e) {
@@ -305,4 +307,95 @@ public class Llamadas {
 				return resultado;
 	}
 	
+	public static boolean validarContrasena(String contrasena, String dni) {
+		//Declaración e inicialización de variables:
+				Statement stmt = null;
+				boolean resultado = false;
+				//Inicio programa:
+				try {
+					stmt = BBDD.connection.createStatement(); 
+					ResultSet rs = stmt.executeQuery ("SELECT contrasena FROM CLIENTE WHERE DNI='"+ dni.toUpperCase() +"';");
+					while (rs.next()) {
+						if(rs.getString(1).equals(contrasena))
+						{
+							resultado = true;
+						}
+						else
+						{
+							resultado = false;
+						}
+	
+					}
+				} catch (SQLException ex){
+					printSQLException(ex);
+				} finally {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				}
+				return resultado;
+	}
+
+
+
+public static void verParadasOrdenadasL1 (Connection con, String termibus) throws SQLException
+	{
+		//Declaración e inicialización de variables:
+		Statement stmt = null;
+		String query = "SELECT NOMBRE, (SQRT(POWER((LATITUD-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=1)),2) + POWER((LONGITUD-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=1)),2))) \"DISTANCIA\" FROM PARADA WHERE COD_PARADA IN(SELECT COD_PARADA FROM LINEA_PARADA WHERE COD_LINEA ='L1') ORDER BY DISTANCIA ASC;";
+		//Inicio programa:
+		try {
+			stmt = con.createStatement(); 
+			ResultSet rs = stmt.executeQuery (query);
+			while (rs.next()) {
+				String paradasOrdenadasL1 = rs.getString("Nombre");
+			}
+		} catch (SQLException ex){
+			printSQLException(ex);
+		} finally {
+		stmt.close();
+		}
+	}
+
+public static void verParadasOrdenadasL2 (Connection con, String termibus) throws SQLException
+	{
+		//Declaración e inicialización de variables:
+		Statement stmt = null;
+		String query = "SELECT NOMBRE, (SQRT(POWER((LATITUD-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=1)),2) + POWER((LONGITUD-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=1)),2))) \"DISTANCIA\" FROM PARADA WHERE COD_PARADA IN(SELECT COD_PARADA FROM LINEA_PARADA WHERE COD_LINEA ='L2') ORDER BY DISTANCIA ASC;";
+		//Inicio programa:
+		try {
+			stmt = con.createStatement(); 
+			ResultSet rs = stmt.executeQuery (query);
+			while (rs.next()) {
+				String paradasOrdenadasL2 = rs.getString("Nombre");
+			}
+		} catch (SQLException ex){
+			printSQLException(ex);
+		} finally {
+		stmt.close();
+		}
+	}
+
+public static void verParadasOrdenadasL3 (Connection con, String termibus) throws SQLException
+	{
+		//Declaración e inicialización de variables:
+		Statement stmt = null;
+		String query = "SELECT NOMBRE, (SQRT(POWER((LATITUD-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=1)),2) + POWER((LONGITUD-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=1)),2))) \"DISTANCIA\" FROM PARADA WHERE COD_PARADA IN(SELECT COD_PARADA FROM LINEA_PARADA WHERE COD_LINEA ='L3') ORDER BY DISTANCIA ASC;";
+		//Inicio programa:
+		try {
+			stmt = con.createStatement(); 
+			ResultSet rs = stmt.executeQuery (query);
+			while (rs.next()) {
+				String paradasOrdenadasL3 = rs.getString("Nombre");
+			}
+		} catch (SQLException ex){
+			printSQLException(ex);
+		} finally {
+		stmt.close();
+		}
+	}
 }
