@@ -49,7 +49,7 @@ public class PanePago {
 		JButton Boton1cent = new JButton("");
 		Boton1cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(13,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(13,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 
 			}
 		});
@@ -63,7 +63,7 @@ public class PanePago {
 		JButton Boton50cent = new JButton("");
 		Boton50cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(8,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(8,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 
 			}
 		});
@@ -77,7 +77,7 @@ public class PanePago {
 		JButton Boton20cent = new JButton("");
 		Boton20cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(9,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(9,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 
 			}
 		});
@@ -91,7 +91,7 @@ public class PanePago {
 		JButton Boton10cent = new JButton("");
 		Boton10cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(10,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(10,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 
 				
 			}
@@ -106,7 +106,7 @@ public class PanePago {
 		JButton Boton5cent = new JButton("");
 		Boton5cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(11,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(11,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 
 			}
 		});
@@ -120,7 +120,7 @@ public class PanePago {
 		JButton Boton2cent = new JButton("");
 		Boton2cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(12,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(12,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 
 			}
 		});
@@ -134,7 +134,7 @@ public class PanePago {
 		JButton Boton1euro = new JButton("");
 		Boton1euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(7,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(7,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 
 			}
 		});
@@ -148,7 +148,7 @@ public class PanePago {
 		JButton Boton2euro = new JButton("");
 		Boton2euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(8,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(8,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 				
 			}
 		});
@@ -162,7 +162,7 @@ public class PanePago {
 		JButton Boton200euro = new JButton("");
 		Boton200euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(1,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(1,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 				
 			}
 		});
@@ -176,7 +176,7 @@ public class PanePago {
 		JButton Boton100euro = new JButton("");
 		Boton100euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(2,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(2,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 			}
 		});
 		Boton100euro.setIcon(new ImageIcon(PanePago.class.getResource("/ImagenesVista/100euro.png")));
@@ -189,7 +189,7 @@ public class PanePago {
 		JButton Boton50euro = new JButton("");
 		Boton50euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Pagar.porPagar(3,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);	
+				//Pagar.porPagar(3,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);	
 			}
 		});
 		Boton50euro.setIcon(new ImageIcon(PanePago.class.getResource("/ImagenesVista/50euro.png")));
@@ -202,7 +202,7 @@ public class PanePago {
 		JButton Boton20euro = new JButton("");
 		Boton20euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(4,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(4,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 				
 			}
 		});
@@ -216,7 +216,7 @@ public class PanePago {
 		JButton Boton10euro = new JButton("");
 		Boton10euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(5,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(5,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 				
 			}
 		});
@@ -230,7 +230,7 @@ public class PanePago {
 		JButton Boton5euro = new JButton("");
 		Boton5euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar.porPagar(6,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
+				//Pagar.porPagar(6,aPagar,txtCambio2,txtfaltaporpagar,BotonValidar);
 				
 			}
 		});
@@ -268,13 +268,13 @@ public class PanePago {
 		
 		txtfaltaporpagar = new JTextField();
 		txtfaltaporpagar.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 19));
-		txtfaltaporpagar.setText(String.valueOf(aPagar));
+		//txtfaltaporpagar.setText(String.valueOf(aPagar));
 		txtfaltaporpagar.setBounds(282, 496, 85, 28);
 		panePago.add(txtfaltaporpagar);
 		txtfaltaporpagar.setColumns(10);
 		
 		txtaPagar2 = new JTextField();
-		txtaPagar2.setText(String.valueOf(aPagar));
+		//txtaPagar2.setText(String.valueOf(aPagar));
 		txtaPagar2.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 19));
 		txtaPagar2.setColumns(10);
 		txtaPagar2.setBounds(282, 463, 85, 28);
