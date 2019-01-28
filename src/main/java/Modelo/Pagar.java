@@ -6,7 +6,7 @@ import javax.swing.JTextField;
 public class Pagar {
 	
 
-		static double porPagar(int dineroIntroducido,double aPagar,JTextField txtCambio2,JTextField txtfaltaporpagar,JButton BotonValidar)
+		public static double porPagar(int dineroIntroducido,double aPagar,JTextField txtCambio2,JTextField txtfaltaporpagar,JButton BotonValidar)
 		{
 			float valorBillete=0;
 			switch (dineroIntroducido)            // Mostramos al usuario su dinero introducido
