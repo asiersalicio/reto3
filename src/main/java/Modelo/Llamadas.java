@@ -55,13 +55,15 @@ public class Llamadas {
 		}
 	}
 	
-	public static void busquedaTrayecto(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto)
+	public static void busquedaLinea(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto)
 	{
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
 				int contador = 1;
-				String query = "select Nombre, Cod_linea from linea where upper(Nombre) like '%" + busqueda.toUpperCase() + "%'";
-				//Inicio programa:
+				String query;
+				query = "select nombre, cod_linea from linea where upper(nombre) like '%" + busqueda.toUpperCase() + "%'";	
+				System.out.println("Query: " + query);
+					//Inicio programa:
 				try {
 					stmt = con.createStatement(); 
 					ResultSet rs = stmt.executeQuery (query);
@@ -69,8 +71,41 @@ public class Llamadas {
 
 						controladorSelTrayecto.resultadoBusqueda=Arrays.copyOf(controladorSelTrayecto.resultadoBusqueda, contador); 
 						controladorSelTrayecto.resultadoBusquedaCod=Arrays.copyOf(controladorSelTrayecto.resultadoBusquedaCod, contador);
-						controladorSelTrayecto.resultadoBusquedaCod[contador-1]=rs.getString("Cod_Linea");
-						controladorSelTrayecto.resultadoBusqueda[contador-1]=rs.getString("Nombre");
+						controladorSelTrayecto.resultadoBusquedaCod[contador-1]=rs.getString("cod_linea");
+						controladorSelTrayecto.resultadoBusqueda[contador-1]=rs.getString("nombre");
+						contador++;
+					}
+					
+				} catch (SQLException ex){
+					printSQLException(ex);
+				} finally {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+	}
+	
+	public static void busquedaParada(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto, String codLinea)
+	{
+		//Declaración e inicialización de variables:
+				Statement stmt = null;
+				int contador = 1;
+				String query;
+				query = "select nombre, cod_parada from parada where upper(nombre) like '%" + busqueda.toUpperCase() + "%' and cod_parada in(select cod_parada from linea_parada where cod_linea='" + codLinea + "');";
+				System.out.println("Query: " + query);
+					//Inicio programa:
+				try {
+					stmt = con.createStatement(); 
+					ResultSet rs = stmt.executeQuery (query);
+					while (rs.next()) {
+
+						controladorSelTrayecto.resultadoBusqueda=Arrays.copyOf(controladorSelTrayecto.resultadoBusqueda, contador); 
+						controladorSelTrayecto.resultadoBusquedaCod=Arrays.copyOf(controladorSelTrayecto.resultadoBusquedaCod, contador);
+						controladorSelTrayecto.resultadoBusquedaCod[contador-1]=rs.getString("cod_parada");
+						controladorSelTrayecto.resultadoBusqueda[contador-1]=rs.getString("nombre");
 						contador++;
 					}
 					
@@ -87,7 +122,6 @@ public class Llamadas {
 	}
 
 
-	
 	public static void verLinea (Connection con, String nombreBBDD) 
 	{
 		//Declaración e inicialización de variables:

@@ -1,7 +1,7 @@
 package Modelo;
 /**
  *Clase Linea: 
- * @param codLinea
+ * @param codLineaTemp
  * @param nombreLinea
  * 
  */

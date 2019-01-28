@@ -33,11 +33,9 @@ public class BBDD {
 				connection= DriverManager.getConnection ("jdbc:" + urlBBDD,  username, password);
 				System.out.println("¡Conexion con BBDD establecida con exito!");
 			} catch (com.mysql.jdbc.exceptions.jdbc4.CommunicationsException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				System.out.println("Error en conexion con BBDD");
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
