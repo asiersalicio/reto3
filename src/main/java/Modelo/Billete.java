@@ -4,7 +4,7 @@ package Modelo;
  *Clase Billete: 
  * @param codBillete
  * @param nTrayecto
- * @param codLinea
+ * @param codLineaTemp
  * @param codBus
  * @param codParadaInicio
  * @param codParadaFin
