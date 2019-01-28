@@ -24,8 +24,8 @@ public class PaneLogin {
 	public JButton btnLogin;
 	public JLabel lblNewLabel;
 	public JButton btnRegister;
-	private JLabel label;
-	private JLabel label_1;
+	private JLabel logoGrande;
+	private JLabel logoPeke;
 	
 	public PaneLogin(Frame1 frame1)
 	{
@@ -81,15 +81,15 @@ public class PaneLogin {
 		
 		frame1.frame1.getContentPane().add(paneLogin);
 		
-		label = new JLabel("");
-		label.setIcon(new ImageIcon(PaneLogin.class.getResource("/ImagenesVista/logo-termibus.png")));
-		label.setBounds(489, 11, 301, 117);
-		paneLogin.add(label);
+		logoGrande = new JLabel("");
+		logoGrande.setIcon(new ImageIcon(PaneLogin.class.getResource("/ImagenesVista/logo-termibus.png")));
+		logoGrande.setBounds(489, 11, 301, 117);
+		paneLogin.add(logoGrande);
 		
-		label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(PaneLogin.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
-		label_1.setBounds(10, 505, 70, 64);
-		paneLogin.add(label_1);
+		logoPeke = new JLabel("");
+		logoPeke.setIcon(new ImageIcon(PaneLogin.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
+		logoPeke.setBounds(10, 505, 70, 64);
+		paneLogin.add(logoPeke);
 		paneLogin.setVisible(false);
 	}
 	

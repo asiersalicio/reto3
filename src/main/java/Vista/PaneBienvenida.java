@@ -17,7 +17,6 @@ import java.awt.Color;
 public class PaneBienvenida {
 	
 	public JPanel paneBienvenida;
-	private JPasswordField passwordField;
 	
 	public PaneBienvenida(Frame1 frame1)
 	{
@@ -40,10 +39,6 @@ public class PaneBienvenida {
 		btnTocaParaEmpezar.setBackground(Color.WHITE);
 		btnTocaParaEmpezar.setBounds(263, 227, 280, 64);
 		paneBienvenida.add(btnTocaParaEmpezar);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(414, 386, 6, 20);
-		paneBienvenida.add(passwordField);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/ImagenesVista/logo-termibus.png")));

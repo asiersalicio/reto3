@@ -63,18 +63,18 @@ public class PaneRegister {
 		btnVolverALogin.setForeground(new Color(0, 51, 102));
 		btnVolverALogin.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		
-		btnVolverALogin.setBounds(577, 505, 185, 39);
+		btnVolverALogin.setBounds(90, 505, 185, 39);
 		paneRegister.add(btnVolverALogin);
 		
-		JLabel logoTermibus = new JLabel("");
-		logoTermibus.setIcon(new ImageIcon(PaneRegister.class.getResource("/ImagenesVista/logo-termibus.png")));
-		logoTermibus.setBounds(489, 11, 301, 117);
-		paneRegister.add(logoTermibus);
+		JLabel logoGrande = new JLabel("");
+		logoGrande.setIcon(new ImageIcon(PaneRegister.class.getResource("/ImagenesVista/logo-termibus.png")));
+		logoGrande.setBounds(489, 11, 301, 117);
+		paneRegister.add(logoGrande);
 		
-		JLabel iconopeke = new JLabel("");
-		iconopeke.setIcon(new ImageIcon(PaneRegister.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
-		iconopeke.setBounds(10, 505, 70, 64);
-		paneRegister.add(iconopeke);
+		JLabel logoPeke = new JLabel("");
+		logoPeke.setIcon(new ImageIcon(PaneRegister.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
+		logoPeke.setBounds(10, 505, 70, 64);
+		paneRegister.add(logoPeke);
 		
 		JLabel lblUsuariodni = new JLabel("Usuario(DNI) :");
 		lblUsuariodni.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -126,11 +126,24 @@ public class PaneRegister {
 		lblFechaNacimiento.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblFechaNacimiento.setBounds(55, 327, 135, 39);
 		paneRegister.add(lblFechaNacimiento);
+		
+		JLabel lblRegistrese = new JLabel("Reg\u00EDstrese ahora :");
+		lblRegistrese.setForeground(new Color(0, 51, 102));
+		lblRegistrese.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
+		lblRegistrese.setBounds(32, 108, 229, 45);
+		paneRegister.add(lblRegistrese);
+		
+		JButton btnRegistarse = new JButton("Registarse");
+		btnRegistarse.setForeground(new Color(0, 51, 102));
+		btnRegistarse.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+		btnRegistarse.setBackground(Color.WHITE);
+		btnRegistarse.setBounds(542, 505, 185, 39);
+		paneRegister.add(btnRegistarse);
 		paneRegister.setVisible(false);
 		
-		Date fechaNacimiento=fechaNac.getDate();
+		/*Date fechaNacimiento=fechaNac.getDate();
 		String nombre="";
-		String apellidos="";
+		String apellidos="";*/
 		
 	}
 }
