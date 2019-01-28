@@ -148,6 +148,7 @@ public class Llamadas {
 		}
 		}
 	}
+
 	
 	public static void verLineas (Connection con)
 	{
@@ -253,7 +254,7 @@ public class Llamadas {
 	//Insertar datos en las tablas utilizando Resulset
 	//para añadir cliente o billetes de autobus
 	
-	public static void insertarCliente(Connection con, String termibus, int DNI, String nombreCliente, String apellidos, Date fechaNac, String sexo, String contrasena) throws SQLException {
+	public static void insertarCliente(Connection con, String DNI, String nombreCliente, String apellidos, Date fechaNac, String sexo, String contrasena) throws SQLException {
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
 		//Inicio programa:	
@@ -261,9 +262,9 @@ public class Llamadas {
 			//ResultSet.TYPE_SCROLL_SENSITIVE: trabaja datos actuales
 			//ResultSet.CONCUR_UPDATABLE:para que ResultSet pueda ser actualizado
 			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			ResultSet rs = stmt.executeQuery("select * from" + termibus + ".cliente");
+			ResultSet rs = stmt.executeQuery("select * from cliente");
 			rs.moveToInsertRow();
-			rs.updateInt("DNI", DNI);
+			rs.updateString("DNI", DNI);
 			rs.updateString("Nombre", nombreCliente);
 			rs.updateString("Apellidos", apellidos);
 			rs.updateDate("Fecha_nac", fechaNac);
@@ -341,23 +342,17 @@ public class Llamadas {
 				return resultado;
 	}
 	
-	public static boolean validarContrasena(String contrasena, String dni) {
+	public static String ObtenerContrasena(String dni) {
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
-				boolean resultado = false;
+				String resultado = "";
 				//Inicio programa:
 				try {
 					stmt = BBDD.connection.createStatement(); 
 					ResultSet rs = stmt.executeQuery ("SELECT contrasena FROM CLIENTE WHERE DNI='"+ dni.toUpperCase() +"';");
 					while (rs.next()) {
-						if(rs.getString(1).equals(contrasena))
-						{
-							resultado = true;
-						}
-						else
-						{
-							resultado = false;
-						}
+						resultado=rs.getString(1);
+						System.out.println("Contraseña encriptada: " + resultado);
 	
 					}
 				} catch (SQLException ex){

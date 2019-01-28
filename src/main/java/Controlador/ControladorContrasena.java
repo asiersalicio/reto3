@@ -3,6 +3,8 @@ package Controlador;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import Modelo.Llamadas;
+
 public class ControladorContrasena {
 	
 	public static String encriptarContrasena(String contrasena)
@@ -25,5 +27,13 @@ public class ControladorContrasena {
 		
 		return contrasenaEncriptada;
 		
+	}
+	
+	public static boolean CombrobarContrasena(String contrasenaEncriptada, String dni)
+	{
+		if(Llamadas.ObtenerContrasena(dni).equals(contrasenaEncriptada))		
+		return true;
+		else
+		return false;
 	}
 }

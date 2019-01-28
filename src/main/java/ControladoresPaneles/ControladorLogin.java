@@ -3,8 +3,11 @@ package ControladoresPaneles;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.security.auth.login.LoginContext;
+
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
+import Controlador.ControladorContrasena;
 import Modelo.Llamadas;
 import Vista.PaneLogin;
 import Vista.PaneSelTrayecto;
@@ -23,9 +26,13 @@ public class ControladorLogin {
 		paneLogin.btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				boolean dniValido;
-				dniValido=Llamadas.validarDNI(paneLogin.textfieldUsername.getText());
-				if(dniValido)
+				boolean dniValido = false;
+				boolean contrasenaValida = false;
+				String dni = paneLogin.textfieldUsername.getText();
+				dniValido=Llamadas.validarDNI(dni);
+				String contrasena=paneLogin.fieldPassword.getPassword().toString();
+				contrasenaValida=ControladorContrasena.CombrobarContrasena(ControladorContrasena.encriptarContrasena(contrasena), dni);
+				if(dniValido && contrasenaValida)
 				{
 					System.out.println("El dni es valido" + paneLogin.textfieldUsername.getText());
 					ControlModelo.EstablecerClienteActual(paneLogin.textfieldUsername.getText());
