@@ -1,9 +1,11 @@
 package Modelo;
 
+import java.sql.Date;
+
 /**
  *Clase Cliente: 
  * @param DNI
- * @param nombreCliente
+ * @param nombreCliente 
  * @param apellidos
  * @param fechaNac
  * @param sexo
@@ -13,24 +15,24 @@ package Modelo;
 
 public class Cliente{
 	//Atributos o propiedades:
-	public String DNI;
-	public String nombreCliente;
-	public String apellidos;
-	public String fechaNac;
-	public String sexo;
-	public String contrasena;
+	private String DNI;
+	private String nombreCliente;
+	private String apellidos;
+	private String fechaNac;
+	private String sexo;
+	private String contrasena;
 
 	//Métodos 
 	//constructor1: 
 	public Cliente(String DNI, String nombreCliente, String apellidos, String fechaNac, String sexo, String contrasena) {
-		this.setDNI(DNI);
-		this.setNombreCliente(nombreCliente);
-		this.setApellidos(apellidos);
-		this.setFechaNac(fechaNac);
-		this.setSexo(sexo);
-		this.setContrasena(contrasena);
+		this.DNI=DNI;
+		this.nombreCliente=nombreCliente;
+		this.apellidos=apellidos;
+		this.fechaNac=fechaNac;
+		this.sexo=sexo;
+		this.contrasena=contrasena;
 	}
-
+	//Geters y Seters
 	public Cliente() {
 	}
 
@@ -62,16 +64,16 @@ public class Cliente{
 		return fechaNac;
 	}
 
-	public void setFechaNac(String fechaNac) {
-		this.fechaNac = fechaNac;
+	public void setFechaNac(String date) {
+		this.fechaNac = date;
 	}
 
 	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public void setSexo(String string) {
+		this.sexo = string;
 	}
 
 	public String getContrasena() {
@@ -82,6 +84,6 @@ public class Cliente{
 		this.contrasena = contrasena;
 	}
 
-	//Geters y Seters
+	
 
 }

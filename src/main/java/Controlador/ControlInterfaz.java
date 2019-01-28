@@ -37,7 +37,7 @@ public class ControlInterfaz {
 		 paneRegister = new PaneRegister(frame1);
 		paneLogin = new PaneLogin(frame1);
 		controladorLogin = new ControladorLogin(paneLogin);
-		panePago= new PanePago(frame1);
+		//panePago= new PanePago(frame1);
 		paneRegister = new PaneRegister(frame1);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
 		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto);

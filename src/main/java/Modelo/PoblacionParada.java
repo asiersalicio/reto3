@@ -15,8 +15,8 @@ public class PoblacionParada{
 	//Métodos 
 	//constructor1: 
 	public PoblacionParada(int codParada, int codPostal) {
-		this.setCodParada(codParada);
-		this.setCodPostal(codPostal);
+		this.codParada=codParada;
+		this.codPostal=codPostal;
 	}
 	//Geters y Seters
 	public int getCodParada() {

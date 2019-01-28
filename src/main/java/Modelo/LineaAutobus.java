@@ -2,7 +2,7 @@ package Modelo;
 
 /**
  *Clase LineaAutobus: 
- * @param codLinea
+ * @param codLineaTemp
  * @param codBus
  * 
  */

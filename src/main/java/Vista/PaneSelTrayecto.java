@@ -21,6 +21,7 @@ import java.awt.Label;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
 
 public class PaneSelTrayecto {
 	
@@ -31,6 +32,12 @@ public class PaneSelTrayecto {
 	public JTextField FieldOrigen;
 	public JTextField FieldBusqueda;
 	public JComboBox comboBoxBusqueda;
+	public JButton btnSelLinea;
+	public JButton btnSelOrigen;
+	public JTextField FieldDestino;
+	public JButton btnSelDestino;
+	public JDateChooser dateChooserVuelta;
+	public JCheckBox chckbxVuelta;
 	
 	
 	public PaneSelTrayecto(Frame1 frame1)
@@ -62,12 +69,9 @@ public class PaneSelTrayecto {
 		pane.add(lblDestino);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		
 		btnBuscar.setBounds(363, 425, 173, 36);
 		pane.add(btnBuscar);
-		
-		JButton btnCargarLineas = new JButton("Cargar lineas");
-		btnCargarLineas.setBounds(193, 184, 135, 23);
-		pane.add(btnCargarLineas);
 		
 		JDateChooser dateChooserIda = new JDateChooser();
 		dateChooserIda.setBounds(569, 241, 148, 39);
@@ -77,12 +81,13 @@ public class PaneSelTrayecto {
 		label.setBounds(569, 207, 115, 24);
 		pane.add(label);
 		
-		JDateChooser dateChooserVuelta = new JDateChooser();
-		dateChooserVuelta.setBounds(569, 373, 148, 36);
+		dateChooserVuelta = new JDateChooser();
+		dateChooserVuelta.setEnabled(false);
+		dateChooserVuelta.setBounds(569, 425, 148, 36);
 		pane.add(dateChooserVuelta);
 		
 		Label label_1 = new Label("Fecha de vuelta");
-		label_1.setBounds(569, 332, 148, 24);
+		label_1.setBounds(569, 384, 148, 24);
 		pane.add(label_1);
 		
 		JLabel lblSeleccioneLineaDe = new JLabel("Seleccione Linea De operacion");
@@ -90,13 +95,15 @@ public class PaneSelTrayecto {
 		pane.add(lblSeleccioneLineaDe);
 		
 		FieldLinea = new JTextField();
+		FieldLinea.setEditable(false);
 
-		FieldLinea.setBounds(194, 244, 344, 31);
+		FieldLinea.setBounds(194, 244, 231, 31);
 		pane.add(FieldLinea);
 		FieldLinea.setColumns(10);
 		
 		FieldOrigen = new JTextField();
-		FieldOrigen.setBounds(194, 305, 344, 30);
+		FieldOrigen.setEditable(false);
+		FieldOrigen.setBounds(194, 305, 231, 30);
 		pane.add(FieldOrigen);
 		FieldOrigen.setColumns(10);
 		
@@ -108,6 +115,29 @@ public class PaneSelTrayecto {
 		pane.add(FieldBusqueda);
 		FieldBusqueda.setColumns(10);
 		
+		btnSelLinea = new JButton("Seleccionar");
+		btnSelLinea.setBounds(427, 247, 109, 25);
+		pane.add(btnSelLinea);
+		
+		btnSelOrigen = new JButton("Seleccionar");
+		btnSelOrigen.setEnabled(false);
+		btnSelOrigen.setBounds(427, 308, 109, 25);
+		pane.add(btnSelOrigen);
+		
+		FieldDestino = new JTextField();
+		FieldDestino.setEditable(false);
+		FieldDestino.setColumns(10);
+		FieldDestino.setBounds(194, 351, 231, 30);
+		pane.add(FieldDestino);
+		
+		btnSelDestino = new JButton("Seleccionar");
+		btnSelDestino.setEnabled(false);
+		btnSelDestino.setBounds(427, 354, 109, 25);
+		pane.add(btnSelDestino);
+		
+		chckbxVuelta = new JCheckBox("Viaje de vuelta");
+		chckbxVuelta.setBounds(571, 351, 159, 25);
+		pane.add(chckbxVuelta);
 		
 		pane.setVisible(false);
 	}

@@ -2,7 +2,7 @@ package Modelo;
 
 /**
  *Clase LineaParada: 
- * @param codLinea
+ * @param codLineaTemp
  * @param codParada
  * 
  */
@@ -10,13 +10,13 @@ package Modelo;
 public class LineaParada{
 	//Atributos o propiedades:
 	public String codLinea;
-	public String codParada;
+	public int codParada;
 	
 	//Métodos 
 	//constructor1: 
-	public LineaParada(String codLinea, String codParada) {
-		this.setCodLinea(codLinea);
-		this.setCodParada(codParada);	
+	public LineaParada(String codLinea, int codParada) {
+		this.codLinea=codLinea;
+		this.codParada=codParada;	
 	}
 
 	//Geters y Seters
@@ -28,11 +28,11 @@ public class LineaParada{
 		this.codLinea = codLinea;
 	}
 
-	public String getCodParada() {
+	public int getCodParada() {
 		return codParada;
 	}
 
-	public void setCodParada(String codParada) {
+	public void setCodParada(int codParada) {
 		this.codParada = codParada;
 	}
 
