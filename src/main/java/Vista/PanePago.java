@@ -3,6 +3,8 @@ package Vista;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -335,10 +337,13 @@ public class PanePago {
 		panePago.add(lblSeleccionePago);
 		
 		JButton btnImpresionBillete = new JButton("Siguiente");
-		btnImpresionBillete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnImpresionBillete.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ControlInterfaz.setPanel(ControlInterfaz.paneCambioFinal.paneCambioFinal);
 			}
 		});
+	
 		btnImpresionBillete.setForeground(new Color(0, 51, 102));
 		btnImpresionBillete.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnImpresionBillete.setBackground(Color.WHITE);

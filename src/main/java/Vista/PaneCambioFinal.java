@@ -7,6 +7,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 
 import Controlador.ControlInterfaz;
+import Modelo.Devolucion;
+import Modelo.ManejoBilletes;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -32,24 +34,24 @@ public class PaneCambioFinal {
 
 		
 		DefaultListModel<String> modelo2=new DefaultListModel<String>();
-		JList<String> list = new JList<String>(modelo2);
-		list.setBackground(Color.WHITE);
-		list.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, new Color(212, 208, 200), null, null, null), "Su Cambio :", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(85, 107, 47)));
-		list.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 19));
-		list.setBounds(243, 167, 259, 343);
-		paneCambioFinal.add(list);
+		JList<String> listaCambio = new JList<String>(modelo2);
+		listaCambio.setBackground(Color.WHITE);
+		listaCambio.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, new Color(212, 208, 200), null, null, null), "Su Cambio :", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(85, 107, 47)));
+		listaCambio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		listaCambio.setBounds(243, 167, 259, 343);
+		paneCambioFinal.add(listaCambio);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/logo-termibus.png")));
-		label.setBounds(489, 11, 301, 117);
-		paneCambioFinal.add(label);
+		JLabel lblLogoGrande = new JLabel("");
+		lblLogoGrande.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/logo-termibus.png")));
+		lblLogoGrande.setBounds(489, 11, 301, 117);
+		paneCambioFinal.add(lblLogoGrande);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
-		label_1.setBounds(10, 505, 70, 64);
-		paneCambioFinal.add(label_1);
+		JLabel lblLogoPeke = new JLabel("");
+		lblLogoPeke.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
+		lblLogoPeke.setBounds(10, 505, 70, 64);
+		paneCambioFinal.add(lblLogoPeke);
 		
-		/*
+		
 		ManejoBilletes[] listaBilletes=new ManejoBilletes[14];
 		listaBilletes[0]=new ManejoBilletes("Billete de 200",0);
 		listaBilletes[1]=new ManejoBilletes("Billete de 100",0);
@@ -78,7 +80,7 @@ public class PaneCambioFinal {
 		}
 		
 	}
-		*/
+		
 		
 		
 		

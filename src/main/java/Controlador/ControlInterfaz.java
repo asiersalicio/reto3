@@ -10,6 +10,7 @@ import ControladoresPaneles.ControladorLogin;
 import ControladoresPaneles.ControladorSelTrayecto;
 import Vista.Frame1;
 import Vista.PaneBienvenida;
+import Vista.PaneCambioFinal;
 import Vista.PaneLogin;
 import Vista.PanePago;
 import Vista.PaneRegister;
@@ -25,23 +26,23 @@ public class ControlInterfaz {
 	public static PanePago panePago;
 	public static ControladorLogin controladorLogin;
 	public static ControladorSelTrayecto controladorSelTrayecto;
-	
+	public static PaneCambioFinal paneCambioFinal;
 	
 	public static void InicializarInterfaz()
 	{
 		//Crea el frame pero no visible
 		frame1 = new Frame1();
 		//Crea los paneles
-		 paneBienvenida = new PaneBienvenida(frame1);
-		 paneLogin = new PaneLogin(frame1);
-		 paneRegister = new PaneRegister(frame1);
+		paneBienvenida = new PaneBienvenida(frame1);
 		paneLogin = new PaneLogin(frame1);
-		controladorLogin = new ControladorLogin(paneLogin);
-		//panePago= new PanePago(frame1);
+		paneRegister = new PaneRegister(frame1);
+		paneLogin = new PaneLogin(frame1);
+		paneCambioFinal = new PaneCambioFinal(frame1);
 		paneRegister = new PaneRegister(frame1);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
-		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto);
 		
+		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto);
+		controladorLogin = new ControladorLogin(paneLogin);
 		
 		
 		//Establece como visible el JFrame
