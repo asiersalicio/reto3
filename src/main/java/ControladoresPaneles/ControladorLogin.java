@@ -30,8 +30,9 @@ public class ControladorLogin {
 				boolean contrasenaValida = false;
 				String dni = paneLogin.textfieldUsername.getText();
 				dniValido=Llamadas.validarDNI(dni);
-				String contrasena=paneLogin.fieldPassword.getPassword().toString();
+				String contrasena=String.valueOf(paneLogin.fieldPassword.getPassword());
 				contrasenaValida=ControladorContrasena.CombrobarContrasena(ControladorContrasena.encriptarContrasena(contrasena), dni);
+				
 				if(dniValido && contrasenaValida)
 				{
 					System.out.println("El dni es valido" + paneLogin.textfieldUsername.getText());

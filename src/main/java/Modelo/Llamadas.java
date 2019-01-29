@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.sql.Time;
 import java.util.Arrays;
 
+import Controlador.ControlModelo;
 import ControladoresPaneles.ControladorSelTrayecto;
 
 
@@ -124,18 +125,18 @@ public class Llamadas {
 	}
 
 
-	public static void verLinea (Connection con, String nombreBBDD) 
+	public static void verLinea (Connection con) 
 	{
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
-		String query = "select Cod_Linea, Nombre" + "from" + nombreBBDD + ".linea";
+		String query = "select Cod_Linea, Nombre from linea";
 		//Inicio programa:
 		try {
 			stmt = con.createStatement(); 
 			ResultSet rs = stmt.executeQuery (query);
 			while (rs.next()) {
 				String codLinea = rs.getString("Cod_Linea");
-				 System.out.println("codLinea es: " + codLinea);
+				String nombreLinea = rs.getString("Nombre");
 			}
 		} catch (SQLException ex){
 			printSQLException(ex);
@@ -426,5 +427,159 @@ public static void verParadasOrdenadasL3 (Connection con, String termibus) throw
 		} finally {
 		stmt.close();
 		}
+	}
+
+public static void RellenarLinea(Connection con, Linea linea, String codLinea) {
+	//Declaración e inicialización de variables:
+			Statement stmt = null;
+			
+			String query = "select Nombre, Cod_linea from linea where Cod_linea='" + codLinea + "';";
+			//Inicio programa:
+			try {
+				System.out.println("Crear statement");
+				stmt = con.createStatement(); 
+				System.out.println("Execute query");
+				ResultSet rs = stmt.executeQuery (query);
+				while (rs.next()) {
+					linea.setCodLinea(rs.getString("cod_linea"));
+					linea.setNombreLinea(rs.getString("Nombre"));
+				}
+			} catch (SQLException ex){
+				printSQLException(ex);
+			} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				System.out.println("PRUEBA2");
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+	
+}
+
+public static void RellenarParada(Connection con, Parada parada, String codParada) {
+	//Declaración e inicialización de variables:
+	Statement stmt = null;
+	
+	String query = "select Nombre, Cod_parada from parada where Cod_parada='" + codParada + "';";
+	//Inicio programa:
+	try {
+		System.out.println("Crear statement");
+		stmt = con.createStatement(); 
+		System.out.println("Execute query");
+		ResultSet rs = stmt.executeQuery (query);
+		while (rs.next()) {
+			parada.setCodParada(rs.getString("cod_parada"));
+			parada.setNombreParada(rs.getString("Nombre"));
+		}
+	} catch (SQLException ex){
+		printSQLException(ex);
+	} finally {
+	try {
+		stmt.close();
+	} catch (SQLException e) {
+		System.out.println("PRUEBA2");
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+	
+}
+
+	public static int SeleccionarAutobus(Connection con, String codLinea)
+	{
+		
+		//Declaración e inicialización de variables:
+				Statement stmt = null;
+				int codBus = 0;
+				String query = "select cod_bus from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + codLinea + "') order by n_plazas desc;";
+				//Inicio programa:
+				try {
+					stmt = con.createStatement(); 
+					ResultSet rs = stmt.executeQuery (query);
+					while (rs.next()) {
+						codBus = rs.getInt(1);
+					}
+					
+				} catch (SQLException ex){
+					printSQLException(ex);
+				} finally {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				return codBus;
+
+	}
+	
+	public static void RellenarAutobus(Connection con, int codBus, Autobus autobus)
+	{
+		//Declaración e inicialización de variables:
+		Statement stmt = null;
+		
+		String query = "select * from autbos where Cod_bus='" + codBus + "';";
+		//Inicio programa:
+		try {
+			System.out.println("Crear statement");
+			stmt = con.createStatement(); 
+			System.out.println("Execute query");
+			ResultSet rs = stmt.executeQuery (query);
+			while (rs.next()) {
+				autobus.setCodBus(rs.getInt("cod_bus"));
+				autobus.setnPlazas(rs.getInt("Nombre"));
+				autobus.setConsumoKM(rs.getFloat("Nombre"));
+				autobus.setColor(rs.getString("Nombre"));
+			}
+		} catch (SQLException ex){
+			printSQLException(ex);
+		} finally {
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println("PRUEBA2");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+	}
+	
+	public static float CalcularDistanciaEuclidea(Connection con, String cod_paradaOrigen, String cod_paradaDestino)
+	{
+			//Declaración e inicialización de variables:
+			Statement stmt = null;
+			float distancia = 0;
+			String query = "SELECT (SQRT(POWER(((SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + cod_paradaDestino + ")-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + cod_paradaOrigen + ")),2) + POWER(((SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + cod_paradaDestino + ")-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + cod_paradaOrigen + ")),2))) \"DISTANCIA\" FROM DUAL;";
+			System.out.println("Query: " + query);
+			//Inicio programa:
+			try {
+				stmt = con.createStatement(); 
+				ResultSet rs = stmt.executeQuery (query);
+				while (rs.next()) {
+					distancia= rs.getFloat("distancia");
+				}
+			} catch (SQLException ex){
+				printSQLException(ex);
+			} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		
+		return distancia;
+	}
+
+	public static float CalcularPrecioBillete(Connection connection, Linea linea, Parada paradaOrigen,
+			Parada paradaDestino, Autobus autobus) {
+			float distancia;
+		 distancia=CalcularDistanciaEuclidea(BBDD.connection, "4", "3");
+			System.out.println("Distancia: " + distancia);
+		return 0;
 	}
 }

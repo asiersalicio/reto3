@@ -16,7 +16,7 @@ import Modelo.Parada;
 
 	public class TestParada {
 	//Atributos o propiedades:
-	public int codParada=1;
+	public String codParada="1";
 	public String nombreParada="Termibus-Bilbao";
 	public String calle="Luis Briñas";
 	public float latitud=(float) 43.2614;

@@ -38,6 +38,7 @@ public class PaneSelTrayecto {
 	public JButton btnSelDestino;
 	public JDateChooser dateChooserVuelta;
 	public JCheckBox chckbxVuelta;
+	public JButton btnBuscar;
 	
 	
 	public PaneSelTrayecto(Frame1 frame1)
@@ -68,7 +69,8 @@ public class PaneSelTrayecto {
 		lblDestino.setBounds(56, 351, 126, 25);
 		pane.add(lblDestino);
 		
-		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar = new JButton("Buscar");
+		
 		
 		btnBuscar.setBounds(363, 425, 173, 36);
 		pane.add(btnBuscar);

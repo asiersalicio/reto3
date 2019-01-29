@@ -7,10 +7,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import ControladoresPaneles.ControladorLogin;
+import ControladoresPaneles.ControladorMostrarCompra;
 import ControladoresPaneles.ControladorSelTrayecto;
 import Vista.Frame1;
 import Vista.PaneBienvenida;
 import Vista.PaneLogin;
+import Vista.PaneMostrarCompra;
 import Vista.PanePago;
 import Vista.PaneRegister;
 import Vista.PaneSelTrayecto;
@@ -25,7 +27,8 @@ public class ControlInterfaz {
 	public static PanePago panePago;
 	public static ControladorLogin controladorLogin;
 	public static ControladorSelTrayecto controladorSelTrayecto;
-	
+	public static PaneMostrarCompra paneMostrarCompra;
+	public static ControladorMostrarCompra controladorMostrarCompra;
 	
 	public static void InicializarInterfaz()
 	{
@@ -41,7 +44,7 @@ public class ControlInterfaz {
 		paneRegister = new PaneRegister(frame1);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
 		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto);
-		
+		paneMostrarCompra = new PaneMostrarCompra(frame1);
 		
 		
 		//Establece como visible el JFrame

@@ -11,6 +11,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import Controlador.ControlInterfaz;
+import Controlador.ControlModelo;
 import Modelo.BBDD;
 import Modelo.Llamadas;
 import Vista.PaneSelTrayecto;
@@ -150,6 +151,18 @@ public class ControladorSelTrayecto {
 					paneSelTrayecto.dateChooserVuelta.setEnabled(true);
 				else
 					paneSelTrayecto.dateChooserVuelta.setEnabled(false);
+			}
+		});
+		
+		paneSelTrayecto.btnBuscar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ControlModelo.EstablecerLinea(codLinea);
+				ControlModelo.EstablecerParadaOrigen(codParadaOrigen);
+				ControlModelo.EstablecerParadaDestino(codParadaDestino);
+				ControlModelo.CalcularDatosCompra();
+				//ControlInterfaz.controladorMostrarCompra.RellenarDatos();
+				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.getPane());
 			}
 		});
 	}
