@@ -36,7 +36,7 @@ public class PaneCambioFinal {
 		DefaultListModel<String> modelo2=new DefaultListModel<String>();
 		JList<String> listaCambio = new JList<String>(modelo2);
 		listaCambio.setBackground(Color.WHITE);
-		listaCambio.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, new Color(212, 208, 200), null, null, null), "Su Cambio :", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(85, 107, 47)));
+		listaCambio.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, new Color(212, 208, 200), null, null, null), "Su Cambio :", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(153, 0, 0)));
 		listaCambio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		listaCambio.setBounds(243, 167, 259, 343);
 		paneCambioFinal.add(listaCambio);
@@ -50,6 +50,13 @@ public class PaneCambioFinal {
 		lblLogoPeke.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
 		lblLogoPeke.setBounds(10, 505, 70, 64);
 		paneCambioFinal.add(lblLogoPeke);
+		
+		JLabel lblGraciasYBuen = new JLabel("Gracias y buen viaje ! Imprimiendo sus billetes....");
+		lblGraciasYBuen.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGraciasYBuen.setForeground(new Color(0, 51, 102));
+		lblGraciasYBuen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+		lblGraciasYBuen.setBounds(169, 521, 397, 25);
+		paneCambioFinal.add(lblGraciasYBuen);
 		
 		
 		ManejoBilletes[] listaBilletes=new ManejoBilletes[14];
@@ -69,6 +76,7 @@ public class PaneCambioFinal {
 		listaBilletes[13]=new ManejoBilletes("Moneda de 1c",0);
 
 		
+		int cambio=100; // Para borrar, solo para pruebas !
 		Devolucion.Dinero(cambio, listaBilletes);
 		
 		for (int i=0;i<listaBilletes.length;i++)
@@ -78,14 +86,9 @@ public class PaneCambioFinal {
 			modelo2.addElement(listaBilletes[i].contadorBillete+" x "+listaBilletes[i].nombreBillete);
 			}
 		}
-		
-	}
-		
-		
-		
-		
 		paneCambioFinal.setVisible(false);
 	}
-	
-	
 }
+	
+	
+

@@ -9,8 +9,8 @@ public class Devolucion {
 		// Inicio
 		
 		int parteEntera=(int) cambio; 						// Casteammos cambio a int para coger solo la parte entera
-		double parteDecimal=cambio-parteEntera;	
-		parteDecimal=Formato2dec.formateador(parteDecimal);
+		double parteDecimal=cambio-parteEntera;				// Restamos la parte entera a la parte total, nos quedamos solo con los decimales.
+		parteDecimal=Formato2dec.formateador(parteDecimal); // Pasamos el formateador para reducir a dos decimales
 		parteDecimal=parteDecimal*100;
 
 		if (parteEntera>=100)

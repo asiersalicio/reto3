@@ -9,11 +9,11 @@ public class Pagar {
 		public static double porPagar(int dineroIntroducido,double aPagar,JTextField txtCambio2,JTextField txtfaltaporpagar,JButton BotonValidar)
 		{
 			float valorBillete=0;
-			switch (dineroIntroducido)            // Mostramos al usuario su dinero introducido
+			switch (dineroIntroducido)            // Restamos la cantidad de dinero introducido a la cantidad total.
 			{
 				case 1: valorBillete=200;
 					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
+					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0) // Cogemos el valor del txt lo pasamos a float, le pasamos el formateador y le restamos la cantidad introducida.
 					{
 						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
 					}
