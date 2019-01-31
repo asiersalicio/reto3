@@ -14,6 +14,7 @@ import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
 import Modelo.BBDD;
 import Modelo.Llamadas;
+import Vista.PaneMostrarCompra;
 import Vista.PaneSelTrayecto;
 import java.io.IOException;
 
@@ -38,7 +39,7 @@ public class ControladorSelTrayecto {
 	boolean btnDestinoEnabled = false;
 	
 	
-	public ControladorSelTrayecto(PaneSelTrayecto paneSelTrayecto)
+	public ControladorSelTrayecto(PaneSelTrayecto paneSelTrayecto, PaneMostrarCompra paneMostrarCompra)
 	{
 		controladorSelTrayecto=this;
 		this.paneSelTrayecto=paneSelTrayecto;
@@ -160,9 +161,10 @@ public class ControladorSelTrayecto {
 				ControlModelo.EstablecerLinea(codLinea);
 				ControlModelo.EstablecerParadaOrigen(codParadaOrigen);
 				ControlModelo.EstablecerParadaDestino(codParadaDestino);
+				ControlModelo.fechaIda=paneSelTrayecto.dateChooserIda.getCalendar().getTime();
 				ControlModelo.CalcularDatosCompra();
-				//ControlInterfaz.controladorMostrarCompra.RellenarDatos();
-				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.getPane());
+				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.PaneMostrarCompra);
+				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra);
 			}
 		});
 	}
@@ -172,6 +174,7 @@ public class ControladorSelTrayecto {
 		if(truefalse) {
 		paneSelTrayecto.FieldBusqueda.setVisible(true);
 		paneSelTrayecto.comboBoxBusqueda.setVisible(true);
+		paneSelTrayecto.FieldBusqueda.setText("");
 		paneSelTrayecto.FieldBusqueda.requestFocus();
 		try {
 			Runtime.getRuntime().exec("cmd /c osk");

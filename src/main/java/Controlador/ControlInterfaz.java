@@ -40,11 +40,12 @@ public class ControlInterfaz {
 		 paneRegister = new PaneRegister(frame1);
 		paneLogin = new PaneLogin(frame1);
 		controladorLogin = new ControladorLogin(paneLogin);
-		//panePago= new PanePago(frame1);
+		panePago= new PanePago(frame1);
 		paneRegister = new PaneRegister(frame1);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
-		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto);
+		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
 		paneMostrarCompra = new PaneMostrarCompra(frame1);
+		controladorMostrarCompra = new ControladorMostrarCompra();
 		
 		
 		//Establece como visible el JFrame

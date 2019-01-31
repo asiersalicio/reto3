@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 
 import Controlador.ControlInterfaz;
+import Controlador.ControlModelo;
 
 public class DebugMode {
 	
@@ -78,11 +79,21 @@ public class DebugMode {
 		btnMostrarCompra.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.getPane());
+				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.PaneMostrarCompra);
 			}
 		});
 		btnMostrarCompra.setBounds(116, 62, 89, 23);
 		panel.add(btnMostrarCompra);
+		
+		JButton btnPago = new JButton("Pago");
+		btnPago.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ControlInterfaz.setPanel(ControlInterfaz.panePago.panePago);
+			}
+		});
+		btnPago.setBounds(221, 28, 89, 23);
+		panel.add(btnPago);
 		esteJPanel.setVisible(true);
 		debugFrame.setVisible(true);
 		System.out.println("Debug mode started!");

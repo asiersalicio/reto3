@@ -22,6 +22,7 @@ import ControladoresPaneles.ControladorSelTrayecto;
 	
 public class Llamadas {
 	
+	public static final float precioGasolina = 0.8F;
 	
 	//Realizar una consulta a la BBDD: Recuperar información:
 	public static void RellenarCliente (Connection con, Cliente cliente, String dni)
@@ -458,7 +459,7 @@ public static void RellenarLinea(Connection con, Linea linea, String codLinea) {
 	
 }
 
-public static void RellenarParada(Connection con, Parada parada, String codParada) {
+public static Parada RellenarParada(Connection con, Parada parada, String codParada) {
 	//Declaración e inicialización de variables:
 	Statement stmt = null;
 	
@@ -470,30 +471,35 @@ public static void RellenarParada(Connection con, Parada parada, String codParad
 		System.out.println("Execute query");
 		ResultSet rs = stmt.executeQuery (query);
 		while (rs.next()) {
-			parada.setCodParada(rs.getString("cod_parada"));
-			parada.setNombreParada(rs.getString("Nombre"));
+			String resultadoCod=rs.getString("cod_parada");
+			parada.setCodParada(resultadoCod);
+			String resultadoNom=rs.getString("nombre");
+			parada.setNombreParada(resultadoNom);
 		}
+		
 	} catch (SQLException ex){
 		printSQLException(ex);
 	} finally {
 	try {
 		stmt.close();
+		
 	} catch (SQLException e) {
 		System.out.println("PRUEBA2");
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	}
+	return parada;
 	
 }
 
-	public static int SeleccionarAutobus(Connection con, String codLinea)
+	public static int SeleccionarAutobus(Connection con)
 	{
 		
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
 				int codBus = 0;
-				String query = "select cod_bus from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + codLinea + "') order by n_plazas desc;";
+				String query = "select cod_bus from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + ControlModelo.linea.getCodLinea() + "') order by n_plazas desc;";
 				//Inicio programa:
 				try {
 					stmt = con.createStatement(); 
@@ -516,12 +522,12 @@ public static void RellenarParada(Connection con, Parada parada, String codParad
 
 	}
 	
-	public static void RellenarAutobus(Connection con, int codBus, Autobus autobus)
+	public static Autobus RellenarAutobus(Connection con, int codBus, Autobus autobus)
 	{
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
 		
-		String query = "select * from autbos where Cod_bus='" + codBus + "';";
+		String query = "select * from autobus where Cod_bus='" + codBus + "';";
 		//Inicio programa:
 		try {
 			System.out.println("Crear statement");
@@ -530,9 +536,9 @@ public static void RellenarParada(Connection con, Parada parada, String codParad
 			ResultSet rs = stmt.executeQuery (query);
 			while (rs.next()) {
 				autobus.setCodBus(rs.getInt("cod_bus"));
-				autobus.setnPlazas(rs.getInt("Nombre"));
-				autobus.setConsumoKM(rs.getFloat("Nombre"));
-				autobus.setColor(rs.getString("Nombre"));
+				autobus.setnPlazas(rs.getInt("n_plazas"));
+				autobus.setConsumoKM(rs.getFloat("Consumo_km"));
+				autobus.setColor(rs.getString("color"));
 			}
 		} catch (SQLException ex){
 			printSQLException(ex);
@@ -540,19 +546,19 @@ public static void RellenarParada(Connection con, Parada parada, String codParad
 		try {
 			stmt.close();
 		} catch (SQLException e) {
-			System.out.println("PRUEBA2");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		}
+		return autobus;
 	}
 	
-	public static float CalcularDistanciaEuclidea(Connection con, String cod_paradaOrigen, String cod_paradaDestino)
+	public static float CalcularDistanciaEuclidea(Connection con)
 	{
 			//Declaración e inicialización de variables:
 			Statement stmt = null;
 			float distancia = 0;
-			String query = "SELECT (SQRT(POWER(((SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + cod_paradaDestino + ")-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + cod_paradaOrigen + ")),2) + POWER(((SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + cod_paradaDestino + ")-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + cod_paradaOrigen + ")),2))) \"DISTANCIA\" FROM DUAL;";
+			String query = "SELECT (SQRT(POWER(((SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + ControlModelo.paradaDestino.getCodParada() + ")-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + ControlModelo.paradaOrigen.getCodParada() + ")),2) + POWER(((SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + ControlModelo.paradaDestino.getCodParada() + ")-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + ControlModelo.paradaOrigen.getCodParada() + ")),2))) \"DISTANCIA\" FROM DUAL;";
 			System.out.println("Query: " + query);
 			//Inicio programa:
 			try {
@@ -561,6 +567,8 @@ public static void RellenarParada(Connection con, Parada parada, String codParad
 				while (rs.next()) {
 					distancia= rs.getFloat("distancia");
 				}
+				//Convertir distancia en grados a KM
+				distancia=distancia*111.325F;
 			} catch (SQLException ex){
 				printSQLException(ex);
 			} finally {
@@ -574,12 +582,23 @@ public static void RellenarParada(Connection con, Parada parada, String codParad
 		
 		return distancia;
 	}
+	
+	public static float CalcularPrecioBus()
+	{
+		float consumoBus = ControlModelo.autobus.getConsumoKM();
+		return consumoBus*precioGasolina;
+	}
 
-	public static float CalcularPrecioBillete(Connection connection, Linea linea, Parada paradaOrigen,
-			Parada paradaDestino, Autobus autobus) {
+	public static float CalcularPrecioBillete(Connection connection) {
 			float distancia;
-		 distancia=CalcularDistanciaEuclidea(BBDD.connection, "4", "3");
+			float precioKM;
+			float precio;
+			distancia=CalcularDistanciaEuclidea(BBDD.connection);
+			precioKM=CalcularPrecioBus();
 			System.out.println("Distancia: " + distancia);
-		return 0;
+			System.out.println("PrecioKM: " + precioKM);
+			precio=precioKM*distancia;
+			System.out.println("Precio del billete: " + precio + "€");
+		return precio;
 	}
 }

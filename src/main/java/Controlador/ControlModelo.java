@@ -1,5 +1,7 @@
 package Controlador;
 
+import java.util.Date;
+
 import Modelo.Autobus;
 import Modelo.BBDD;
 import Modelo.Cliente;
@@ -16,6 +18,8 @@ public class ControlModelo {
 	public static Parada paradaDestino;
 	public static LineaParada lineaParada;
 	public static Autobus autobus;
+	public static float precio;
+	public static Date fechaIda;
 	
 	public static void EstablecerClienteActual(String dni)
 	{
@@ -32,22 +36,23 @@ public class ControlModelo {
 	public static void EstablecerParadaOrigen(String codParadaOrigen)
 	{
 		paradaOrigen = new Parada();
-		Llamadas.RellenarParada(BBDD.connection, paradaOrigen, codParadaOrigen);
+		paradaOrigen=Llamadas.RellenarParada(BBDD.connection, paradaOrigen, codParadaOrigen);
+		System.out.println("Parada origen: " + paradaOrigen.getNombreParada());
 	}
 	
 	public static void EstablecerParadaDestino(String codParadaDestino)
 	{
 		paradaDestino = new Parada();
-		Llamadas.RellenarParada(BBDD.connection, paradaDestino, codParadaDestino);
+		paradaDestino=Llamadas.RellenarParada(BBDD.connection, paradaDestino, codParadaDestino);
+		System.out.println("Parada destino: " + paradaDestino.getNombreParada());
 	}
 
 	public static void CalcularDatosCompra() {
 		int codBus;
-		float precio;
-		codBus=Llamadas.SeleccionarAutobus(BBDD.connection, linea.getCodLinea());
+		codBus=Llamadas.SeleccionarAutobus(BBDD.connection);
 		autobus = new Autobus();
-		Llamadas.RellenarAutobus(BBDD.connection, codBus, autobus);
-		precio=Llamadas.CalcularPrecioBillete(BBDD.connection, linea, paradaOrigen, paradaDestino, autobus);
-		
+		autobus=Llamadas.RellenarAutobus(BBDD.connection, codBus, autobus);
+		System.out.println("Calulando distancia entre " + paradaOrigen.getNombreParada() + " y " + paradaDestino.getNombreParada() + "...");
+		precio=Llamadas.CalcularPrecioBillete(BBDD.connection);
 	}
 }

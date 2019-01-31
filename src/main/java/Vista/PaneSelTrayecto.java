@@ -26,8 +26,6 @@ import javax.swing.JCheckBox;
 public class PaneSelTrayecto {
 	
 	public JPanel pane;
-	String[] resultado = new String[1];
-	String[] resultado2 = {"d","p"};
 	public JTextField FieldLinea;
 	public JTextField FieldOrigen;
 	public JTextField FieldBusqueda;
@@ -36,6 +34,7 @@ public class PaneSelTrayecto {
 	public JButton btnSelOrigen;
 	public JTextField FieldDestino;
 	public JButton btnSelDestino;
+	public JDateChooser dateChooserIda;
 	public JDateChooser dateChooserVuelta;
 	public JCheckBox chckbxVuelta;
 	public JButton btnBuscar;
