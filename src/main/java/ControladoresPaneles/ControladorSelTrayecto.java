@@ -17,6 +17,7 @@ import Modelo.Llamadas;
 import Vista.PaneMostrarCompra;
 import Vista.PaneSelTrayecto;
 import java.io.IOException;
+import java.util.Calendar;
 
 public class ControladorSelTrayecto {
 	
@@ -162,6 +163,7 @@ public class ControladorSelTrayecto {
 				ControlModelo.EstablecerParadaOrigen(codParadaOrigen);
 				ControlModelo.EstablecerParadaDestino(codParadaDestino);
 				ControlModelo.fechaIda=paneSelTrayecto.dateChooserIda.getCalendar().getTime();
+				System.out.println("Fecha: " + ControlModelo.fechaIda);
 				ControlModelo.CalcularDatosCompra();
 				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.PaneMostrarCompra);
 				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra);

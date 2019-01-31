@@ -32,6 +32,8 @@ public class PaneMostrarCompra {
 	public JTextField fieldFechaIda;
 	public JTextField fieldFechaVuelta;
 	public JFormattedTextField fieldPrecio;
+	public JButton btnVolverALogin;
+	public JButton btnSiguiente;
 	
 	public PaneMostrarCompra(Frame1 frame1)
 	{
@@ -54,7 +56,8 @@ public class PaneMostrarCompra {
 		PaneMostrarCompra.setVisible(false);
 		
 		
-		JButton btnVolverALogin = new JButton("Volver");
+		btnVolverALogin = new JButton("Volver");
+		
 
 		btnVolverALogin.setBackground(Color.WHITE);
 		btnVolverALogin.setForeground(new Color(0, 51, 102));
@@ -111,7 +114,7 @@ public class PaneMostrarCompra {
 		lblPrecio.setBounds(108, 413, 135, 39);
 		PaneMostrarCompra.add(lblPrecio);
 		
-		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setBackground(Color.WHITE);
 		btnSiguiente.setForeground(new Color(0, 51, 102));
 		btnSiguiente.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));

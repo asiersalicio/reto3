@@ -35,18 +35,17 @@ public class ControlInterfaz {
 		//Crea el frame pero no visible
 		frame1 = new Frame1();
 		//Crea los paneles
-		 paneBienvenida = new PaneBienvenida(frame1);
-		 paneLogin = new PaneLogin(frame1);
-		 paneRegister = new PaneRegister(frame1);
+		paneBienvenida = new PaneBienvenida(frame1);
+		paneLogin = new PaneLogin(frame1);
+		paneRegister = new PaneRegister(frame1);
 		paneLogin = new PaneLogin(frame1);
 		controladorLogin = new ControladorLogin(paneLogin);
 		panePago= new PanePago(frame1);
 		paneRegister = new PaneRegister(frame1);
+		paneMostrarCompra = new PaneMostrarCompra(frame1);
+		controladorMostrarCompra = new ControladorMostrarCompra(paneMostrarCompra);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
 		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
-		paneMostrarCompra = new PaneMostrarCompra(frame1);
-		controladorMostrarCompra = new ControladorMostrarCompra();
-		
 		
 		//Establece como visible el JFrame
 		frame1.frame1.setVisible(true);

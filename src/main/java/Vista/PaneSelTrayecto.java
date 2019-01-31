@@ -74,7 +74,7 @@ public class PaneSelTrayecto {
 		btnBuscar.setBounds(363, 425, 173, 36);
 		pane.add(btnBuscar);
 		
-		JDateChooser dateChooserIda = new JDateChooser();
+		dateChooserIda = new JDateChooser();
 		dateChooserIda.setBounds(569, 241, 148, 39);
 		pane.add(dateChooserIda);
 		
