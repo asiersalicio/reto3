@@ -23,6 +23,10 @@ public class Autobus {
 		this.color=color;	
 	}
 
+	public Autobus() {
+		// TODO Auto-generated constructor stub
+	}
+
 	//Geters y Seters
 	public int getCodBus() {
 		return codBus;

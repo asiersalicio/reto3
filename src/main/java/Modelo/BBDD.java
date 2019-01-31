@@ -13,8 +13,7 @@ import java.sql.*;
 public class BBDD {
 	
 	public static Connection connection;
-	public static 
-	Statement s = null;
+	public static Statement s = null;
 	ResultSet rs = null;
 
 

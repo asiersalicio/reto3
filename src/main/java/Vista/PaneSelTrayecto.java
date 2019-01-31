@@ -26,8 +26,6 @@ import javax.swing.JCheckBox;
 public class PaneSelTrayecto {
 	
 	public JPanel pane;
-	String[] resultado = new String[1];
-	String[] resultado2 = {"d","p"};
 	public JTextField FieldLinea;
 	public JTextField FieldOrigen;
 	public JTextField FieldBusqueda;
@@ -36,8 +34,10 @@ public class PaneSelTrayecto {
 	public JButton btnSelOrigen;
 	public JTextField FieldDestino;
 	public JButton btnSelDestino;
+	public JDateChooser dateChooserIda;
 	public JDateChooser dateChooserVuelta;
 	public JCheckBox chckbxVuelta;
+	public JButton btnBuscar;
 	
 	
 	public PaneSelTrayecto(Frame1 frame1)
@@ -68,12 +68,13 @@ public class PaneSelTrayecto {
 		lblDestino.setBounds(56, 351, 126, 25);
 		pane.add(lblDestino);
 		
-		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar = new JButton("Buscar");
+		
 		
 		btnBuscar.setBounds(363, 425, 173, 36);
 		pane.add(btnBuscar);
 		
-		JDateChooser dateChooserIda = new JDateChooser();
+		dateChooserIda = new JDateChooser();
 		dateChooserIda.setBounds(569, 241, 148, 39);
 		pane.add(dateChooserIda);
 		

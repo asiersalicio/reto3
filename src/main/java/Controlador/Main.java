@@ -22,7 +22,6 @@ public class Main {
 		ControlInterfaz controlInterfaz = new ControlInterfaz();
 		//Ejecuta el proceso para la creacion de la interfaz
 		ControlInterfaz.InicializarInterfaz();
-		
 		if(debug)
 		{
 			new DebugMode(controlInterfaz);

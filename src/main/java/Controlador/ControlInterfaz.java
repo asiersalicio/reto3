@@ -7,11 +7,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import ControladoresPaneles.ControladorLogin;
+import ControladoresPaneles.ControladorMostrarCompra;
 import ControladoresPaneles.ControladorSelTrayecto;
 import Vista.Frame1;
 import Vista.PaneBienvenida;
 import Vista.PaneCambioFinal;
 import Vista.PaneLogin;
+import Vista.PaneMostrarCompra;
 import Vista.PanePago;
 import Vista.PaneRegister;
 import Vista.PaneSelTrayecto;
@@ -27,6 +29,8 @@ public class ControlInterfaz {
 	public static ControladorLogin controladorLogin;
 	public static ControladorSelTrayecto controladorSelTrayecto;
 	public static PaneCambioFinal paneCambioFinal;
+	public static PaneMostrarCompra paneMostrarCompra;
+	public static ControladorMostrarCompra controladorMostrarCompra;
 	
 	public static void InicializarInterfaz()
 	{
@@ -38,12 +42,21 @@ public class ControlInterfaz {
 		paneRegister = new PaneRegister(frame1);
 		paneLogin = new PaneLogin(frame1);
 		paneCambioFinal = new PaneCambioFinal(frame1);
+		paneLogin = new PaneLogin(frame1);
 		paneRegister = new PaneRegister(frame1);
+		paneLogin = new PaneLogin(frame1);
+		controladorLogin = new ControladorLogin(paneLogin);
+		panePago= new PanePago(frame1);
+		paneRegister = new PaneRegister(frame1);
+		paneMostrarCompra = new PaneMostrarCompra(frame1);
+		controladorMostrarCompra = new ControladorMostrarCompra(paneMostrarCompra);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
 		
-		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto);
+		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
 		controladorLogin = new ControladorLogin(paneLogin);
 		
+		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
+
 		
 		//Establece como visible el JFrame
 		frame1.frame1.setVisible(true);

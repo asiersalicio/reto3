@@ -3,6 +3,9 @@ package Vista;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
+import javax.swing.text.NumberFormatter;
 
 import Controlador.ControlInterfaz;
 
@@ -12,20 +15,25 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JFormattedTextField;
 
 public class PaneMostrarCompra {
 	
-	private JPanel PaneMostrarCompra;
-	private JTextField fieldTipoBillete;
-	private JTextField fieldTrayectoria;
-	private JTextField fieldLinea;
-	private JTextField fieldFechaIda;
-	private JTextField fieldFechaVuelta;
-	private JTextField fieldPrecio;
+	public JPanel PaneMostrarCompra;
+	public JTextField fieldTipoBillete;
+	public JTextField fieldTrayectoria;
+	public JTextField fieldLinea;
+	public JTextField fieldFechaIda;
+	public JTextField fieldFechaVuelta;
+	public JFormattedTextField fieldPrecio;
+	public JButton btnVolverALogin;
+	public JButton btnSiguiente;
 	
 	public PaneMostrarCompra(Frame1 frame1)
 	{
@@ -48,18 +56,10 @@ public class PaneMostrarCompra {
 		PaneMostrarCompra.setVisible(false);
 		
 		
-		JButton btnVolverALogin = new JButton("Volver");
-		btnVolverALogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnVolverALogin = new JButton("Volver");
+		
+
 		btnVolverALogin.setBackground(Color.WHITE);
-		btnVolverALogin.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
-			}
-		});
 		btnVolverALogin.setForeground(new Color(0, 51, 102));
 		btnVolverALogin.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		
@@ -114,18 +114,8 @@ public class PaneMostrarCompra {
 		lblPrecio.setBounds(108, 413, 135, 39);
 		PaneMostrarCompra.add(lblPrecio);
 		
-		JButton btnSiguiente = new JButton("Siguiente");
-		btnSiguiente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setBackground(Color.WHITE);
-		btnSiguiente.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ControlInterfaz.setPanel(ControlInterfaz.panePago.panePago);
-			}
-		});
 		btnSiguiente.setForeground(new Color(0, 51, 102));
 		btnSiguiente.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnSiguiente.setBackground(Color.WHITE);
@@ -162,16 +152,19 @@ public class PaneMostrarCompra {
 		fieldFechaVuelta.setBounds(253, 365, 236, 37);
 		PaneMostrarCompra.add(fieldFechaVuelta);
 		
-		fieldPrecio = new JTextField();
+		MaskFormatter mfCC = null;
+		try {
+			mfCC = new MaskFormatter("#.##€");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mfCC.setPlaceholderCharacter('0');
+		fieldPrecio = new JFormattedTextField(mfCC);
 		fieldPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldPrecio.setColumns(10);
 		fieldPrecio.setBounds(253, 413, 236, 37);
 		PaneMostrarCompra.add(fieldPrecio);
 		
-	}
-	
-	public JPanel getPane()
-	{
-		return this.PaneMostrarCompra;
 	}
 }

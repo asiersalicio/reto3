@@ -11,10 +11,13 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import Controlador.ControlInterfaz;
+import Controlador.ControlModelo;
 import Modelo.BBDD;
 import Modelo.Llamadas;
+import Vista.PaneMostrarCompra;
 import Vista.PaneSelTrayecto;
 import java.io.IOException;
+import java.util.Calendar;
 
 public class ControladorSelTrayecto {
 	
@@ -37,7 +40,7 @@ public class ControladorSelTrayecto {
 	boolean btnDestinoEnabled = false;
 	
 	
-	public ControladorSelTrayecto(PaneSelTrayecto paneSelTrayecto)
+	public ControladorSelTrayecto(PaneSelTrayecto paneSelTrayecto, PaneMostrarCompra paneMostrarCompra)
 	{
 		controladorSelTrayecto=this;
 		this.paneSelTrayecto=paneSelTrayecto;
@@ -152,6 +155,20 @@ public class ControladorSelTrayecto {
 					paneSelTrayecto.dateChooserVuelta.setEnabled(false);
 			}
 		});
+		
+		paneSelTrayecto.btnBuscar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ControlModelo.EstablecerLinea(codLinea);
+				ControlModelo.EstablecerParadaOrigen(codParadaOrigen);
+				ControlModelo.EstablecerParadaDestino(codParadaDestino);
+				ControlModelo.fechaIda=paneSelTrayecto.dateChooserIda.getCalendar().getTime();
+				System.out.println("Fecha: " + ControlModelo.fechaIda);
+				ControlModelo.CalcularDatosCompra();
+				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.PaneMostrarCompra);
+				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra);
+			}
+		});
 	}
 	
 	void setBuscadorVisible(boolean truefalse)
@@ -159,6 +176,7 @@ public class ControladorSelTrayecto {
 		if(truefalse) {
 		paneSelTrayecto.FieldBusqueda.setVisible(true);
 		paneSelTrayecto.comboBoxBusqueda.setVisible(true);
+		paneSelTrayecto.FieldBusqueda.setText("");
 		paneSelTrayecto.FieldBusqueda.requestFocus();
 		try {
 			Runtime.getRuntime().exec("cmd /c osk");
