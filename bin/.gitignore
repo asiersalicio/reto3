@@ -1,17 +1,4 @@
-/ImagenesVista/
-<<<<<<< HEAD
 /Modelo/
-/Vista/
-/Controlador/
-=======
-/TestBillete.class
-/TestCliente.class
-/TestLineaParada.class
-/TestParada.class
-/TestPoblacion.class
-/TestPoblacionParada.class
-/Controlador/
-/Modelo/
-/Vista/
->>>>>>> rama3
 /ControladoresPaneles/
+/Vista/
+/Controlador/

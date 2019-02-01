@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import ControladoresPaneles.ControladorLogin;
 import ControladoresPaneles.ControladorMostrarCompra;
+import ControladoresPaneles.ControladorRegister;
 import ControladoresPaneles.ControladorSelTrayecto;
 import Vista.Frame1;
 import Vista.PaneBienvenida;
@@ -31,6 +32,7 @@ public class ControlInterfaz {
 	public static PaneCambioFinal paneCambioFinal;
 	public static PaneMostrarCompra paneMostrarCompra;
 	public static ControladorMostrarCompra controladorMostrarCompra;
+	public static ControladorRegister controladorRegister;
 	
 	public static void InicializarInterfaz()
 	{
@@ -39,15 +41,14 @@ public class ControlInterfaz {
 		//Crea los paneles
 		paneBienvenida = new PaneBienvenida(frame1);
 		paneLogin = new PaneLogin(frame1);
-		paneRegister = new PaneRegister(frame1);
 		paneLogin = new PaneLogin(frame1);
 		paneCambioFinal = new PaneCambioFinal(frame1);
 		paneLogin = new PaneLogin(frame1);
 		paneRegister = new PaneRegister(frame1);
+		controladorRegister = new ControladorRegister(paneRegister, paneLogin);
 		paneLogin = new PaneLogin(frame1);
 		controladorLogin = new ControladorLogin(paneLogin);
 		panePago= new PanePago(frame1);
-		paneRegister = new PaneRegister(frame1);
 		paneMostrarCompra = new PaneMostrarCompra(frame1);
 		controladorMostrarCompra = new ControladorMostrarCompra(paneMostrarCompra);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);

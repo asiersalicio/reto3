@@ -1,5 +1,6 @@
 package Controlador;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 import Modelo.Autobus;
@@ -9,6 +10,7 @@ import Modelo.Linea;
 import Modelo.LineaParada;
 import Modelo.Llamadas;
 import Modelo.Parada;
+import Vista.PaneRegister;
 
 public class ControlModelo {
 	
@@ -25,6 +27,23 @@ public class ControlModelo {
 	{
 		cliente = new Cliente();
 		Llamadas.RellenarCliente(BBDD.connection, cliente, dni);
+	}
+	
+	public static void RegistrarCliente(PaneRegister paneRegister)
+	{
+		String DNI=paneRegister.fieldDNI.getText();
+		String nombreCliente=paneRegister.fieldNombre.getText();
+		String apellidos=paneRegister.fieldApellidos.getText();
+		//Date fechaNac=paneRegister.fechaNac.getDate();
+		//String sexo=(String) paneRegister.comboBoxSexo.getSelectedItem();
+		String contrasena=paneRegister.fieldPassword.getText();
+			try {
+				Llamadas.insertarCliente(BBDD.connection, DNI, nombreCliente, apellidos, contrasena);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 	}
 	
 	public static void EstablecerLinea(String codLinea)
@@ -55,4 +74,6 @@ public class ControlModelo {
 		System.out.println("Calulando distancia entre " + paradaOrigen.getNombreParada() + " y " + paradaDestino.getNombreParada() + "...");
 		precio=Llamadas.CalcularPrecioBillete(BBDD.connection);
 	}
+	
+	
 }

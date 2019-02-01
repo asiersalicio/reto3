@@ -18,13 +18,13 @@ public class Cliente{
 	private String DNI;
 	private String nombreCliente;
 	private String apellidos;
-	private String fechaNac;
+	private Date fechaNac;
 	private String sexo;
 	private String contrasena;
 
 	//Métodos 
 	//constructor1: 
-	public Cliente(String DNI, String nombreCliente, String apellidos, String fechaNac, String sexo, String contrasena) {
+	public Cliente(String DNI, String nombreCliente, String apellidos, Date fechaNac, String sexo, String contrasena) {
 		this.DNI=DNI;
 		this.nombreCliente=nombreCliente;
 		this.apellidos=apellidos;
@@ -60,11 +60,11 @@ public class Cliente{
 		this.apellidos = apellidos;
 	}
 
-	public String getFechaNac() {
+	public Date getFechaNac() {
 		return fechaNac;
 	}
 
-	public void setFechaNac(String date) {
+	public void setFechaNac(Date date) {
 		this.fechaNac = date;
 	}
 
