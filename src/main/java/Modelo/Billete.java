@@ -26,24 +26,24 @@ public class Billete{
 	public Autobus autobus;
 	public Parada paradaInicio;
 	public Parada paradaFin;
-	public Date fecha;
-	public String DNI;
+	public java.util.Date fecha;
 	public float precio;
+	public Cliente cliente;
 	
 	//Métodos 
 	//constructor1: 
-	public Billete(int codBillete, int nTrayecto, String codLinea, Autobus autobus, Parada paradaInicio, Parada paradaFin, Date fecha, Cliente cliente, float precio) {
+	public Billete(int codBillete, int nTrayecto, String codLinea, Autobus autobus, Parada paradaInicio, Parada paradaFin, java.util.Date fechaIda, Cliente cliente, float precio) {
 		this.codBillete=codBillete;
 		this.nTrayecto=nTrayecto;
 		this.codLinea=codLinea;	
 		this.autobus=autobus;	
 		this.paradaInicio=paradaInicio;	
 		this.paradaFin=paradaFin;	
-		this.fecha=fecha;	
-		this.DNI=DNI;	
+		this.fecha=fechaIda;	
+		this.cliente=cliente;	
 		this.precio=precio;	
 	}
-	
+
 	//Geters y Seters
 	public int getCodBillete() {
 		return codBillete;
@@ -93,7 +93,7 @@ public class Billete{
 		this.paradaFin = paradaFin;
 	}
 
-	public Date getFecha() {
+	public java.util.Date getFecha() {
 		return fecha;
 	}
 
@@ -101,12 +101,12 @@ public class Billete{
 		this.fecha = fecha;
 	}
 
-	public String getDNI() {
-		return DNI;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setCliente(Cliente cliente) {
+		this.cliente=cliente;
 	}
 
 	public float getPrecio() {

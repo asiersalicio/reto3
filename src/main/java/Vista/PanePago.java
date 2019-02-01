@@ -203,6 +203,7 @@ public class PanePago {
 		btnImpresionBillete.setBackground(Color.WHITE);
 		btnImpresionBillete.setBounds(585, 505, 185, 39);
 		panePago.add(btnImpresionBillete);
+		btnImpresionBillete.setVisible(false);
 		
 		lblaPagar = new JLabel("Total :");
 		lblaPagar.setHorizontalAlignment(SwingConstants.TRAILING);

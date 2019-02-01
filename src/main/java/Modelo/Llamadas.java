@@ -279,7 +279,7 @@ public class Llamadas {
 		}
 	}
 	
-	public static void insertarBillete(Connection con, String termibus, int codBillete, int nTrayecto, int codLinea, int codBus, int codParadaInicio, int codParadaFin, Date fecha, Time hora, String DNI, float precio) throws SQLException {
+	public static void insertarBillete(Connection con, Billete billete) throws SQLException {
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
 		//Inicio programa:	
@@ -287,18 +287,18 @@ public class Llamadas {
 			//ResultSet.TYPE_SCROLL_SENSITIVE: trabaja datos actuales
 			//ResultSet.CONCUR_UPDATABLE:para que ResultSet pueda ser actualizado
 			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			ResultSet rs = stmt.executeQuery("select * from" + termibus + ".billete");
+			ResultSet rs = stmt.executeQuery("select * from billete");
 			rs.moveToInsertRow();
-			rs.updateInt("Cod_Billete", codBillete);
-			rs.updateInt("NTrayecto", nTrayecto);
-			rs.updateInt("Cod_Linea", codLinea);
-			rs.updateInt("Cod_Bus", codBus);
-			rs.updateInt("Cod_Parada_Inicio", codParadaInicio);
-			rs.updateInt("Cod_Parada_Fin", codParadaFin);
-			rs.updateDate("Fecha", fecha);
-			rs.updateTime("Hora", hora);
-			rs.updateString("DNI", DNI);
-			rs.updateFloat("Precio", precio);
+			rs.updateInt("Cod_Billete", billete.getCodBillete());
+			rs.updateInt("NTrayecto", billete.getnTrayecto());
+			rs.updateString("Cod_Linea", billete.getCodLinea());
+			rs.updateInt("Cod_Bus", billete.getAutobus().getCodBus());
+			rs.updateInt("Cod_Parada_Inicio", billete.getCodParadaInicio().getCodParada());
+			rs.updateInt("Cod_Parada_Fin", billete.getCodParadaFin().getCodParada());
+			//rs.updateDate("Fecha", billete.getFecha();
+			//rs.updateTime("Hora", null);
+			rs.updateString("DNI", billete.getCliente().getDNI());
+			rs.updateFloat("Precio", billete.precio);
 		} catch (SQLException e) {
 			printSQLException(e);
 		} finally {

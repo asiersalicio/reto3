@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import Controlador.ControlInterfaz;
+import Controlador.ControlModelo;
 import Modelo.Pagar;
 import Vista.PanePago;
 
@@ -13,7 +14,7 @@ import Vista.PanePago;
 public class ControladorPago {
 	public ControladorPago controladorPago;
 	public PanePago panePago;
-	public double aPagar=100; // // Valor de ejemplo a cambiar por la cantindad a pagar.
+	public double aPagar=ControlModelo.precio; // // Valor de ejemplo a cambiar por la cantindad a pagar.
 	public ControladorPago(PanePago panePago, ControlInterfaz controlInterfaz)
 	{	
 		controladorPago=this;

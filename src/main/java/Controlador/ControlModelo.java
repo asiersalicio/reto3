@@ -1,5 +1,6 @@
 package Controlador;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 import Modelo.Autobus;
@@ -62,6 +63,12 @@ public class ControlModelo {
 	{
 		int codBillete;
 		codBillete=Llamadas.CalcularCodBillete(BBDD.connection);
-		billete = new Billete(codBillete, 0, linea.getCodLinea(), autobus, paradaOrigen, paradaDestino, fechaIda, cliente.getDNI(), precio);
+		billete = new Billete(codBillete, 0, linea.getCodLinea(), autobus, paradaOrigen, paradaDestino, fechaIda, cliente, precio);
+		try {
+			Llamadas.insertarBillete(BBDD.connection, billete);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
