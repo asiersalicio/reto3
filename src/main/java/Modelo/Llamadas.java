@@ -392,43 +392,7 @@ public static void verParadasOrdenadasL1 (Connection con, String termibus) throw
 		}
 	}
 
-public static void verParadasOrdenadasL2 (Connection con, String termibus) throws SQLException
-	{
-		//Declaración e inicialización de variables:
-		Statement stmt = null;
-		String query = "SELECT NOMBRE, (SQRT(POWER((LATITUD-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=1)),2) + POWER((LONGITUD-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=1)),2))) \"DISTANCIA\" FROM PARADA WHERE COD_PARADA IN(SELECT COD_PARADA FROM LINEA_PARADA WHERE COD_LINEA ='L2') ORDER BY DISTANCIA ASC;";
-		//Inicio programa:
-		try {
-			stmt = con.createStatement(); 
-			ResultSet rs = stmt.executeQuery (query);
-			while (rs.next()) {
-				String paradasOrdenadasL2 = rs.getString("Nombre");
-			}
-		} catch (SQLException ex){
-			printSQLException(ex);
-		} finally {
-		stmt.close();
-		}
-	}
 
-public static void verParadasOrdenadasL3 (Connection con, String termibus) throws SQLException
-	{
-		//Declaración e inicialización de variables:
-		Statement stmt = null;
-		String query = "SELECT NOMBRE, (SQRT(POWER((LATITUD-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=1)),2) + POWER((LONGITUD-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=1)),2))) \"DISTANCIA\" FROM PARADA WHERE COD_PARADA IN(SELECT COD_PARADA FROM LINEA_PARADA WHERE COD_LINEA ='L3') ORDER BY DISTANCIA ASC;";
-		//Inicio programa:
-		try {
-			stmt = con.createStatement(); 
-			ResultSet rs = stmt.executeQuery (query);
-			while (rs.next()) {
-				String paradasOrdenadasL3 = rs.getString("Nombre");
-			}
-		} catch (SQLException ex){
-			printSQLException(ex);
-		} finally {
-		stmt.close();
-		}
-	}
 
 public static void RellenarLinea(Connection con, Linea linea, String codLinea) {
 	//Declaración e inicialización de variables:
@@ -471,7 +435,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 		System.out.println("Execute query");
 		ResultSet rs = stmt.executeQuery (query);
 		while (rs.next()) {
-			String resultadoCod=rs.getString("cod_parada");
+			int resultadoCod=rs.getInt("cod_parada");
 			parada.setCodParada(resultadoCod);
 			String resultadoNom=rs.getString("nombre");
 			parada.setNombreParada(resultadoNom);
@@ -581,6 +545,35 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 			}
 		
 		return distancia;
+	}
+	
+	public static int CalcularCodBillete(Connection con)
+	{
+			//Declaración e inicialización de variables:
+			Statement stmt = null;
+			int codBillete = 0;
+			String query = "SELECT COUNT(*) FROM BILLETE";
+			System.out.println("Query: " + query);
+			//Inicio programa:
+			try {
+				stmt = con.createStatement(); 
+				ResultSet rs = stmt.executeQuery (query);
+				while (rs.next()) {
+					codBillete= rs.getInt(1);
+				}
+				//Convertir distancia en grados a KM
+			} catch (SQLException ex){
+				printSQLException(ex);
+			} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		
+		return codBillete;
 	}
 	
 	public static float CalcularPrecioBus()

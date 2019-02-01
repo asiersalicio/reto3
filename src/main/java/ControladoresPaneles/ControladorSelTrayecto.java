@@ -173,7 +173,7 @@ public class ControladorSelTrayecto {
 		paneSelTrayecto.btnCerrarBusqueda.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				setBuscadorVisible(false);
 			}
 		});
 	}
@@ -183,6 +183,7 @@ public class ControladorSelTrayecto {
 		if(truefalse) {
 		paneSelTrayecto.FieldBusqueda.setVisible(true);
 		paneSelTrayecto.comboBoxBusqueda.setVisible(true);
+		paneSelTrayecto.btnCerrarBusqueda.setVisible(true);
 		paneSelTrayecto.FieldBusqueda.setText("");
 		paneSelTrayecto.FieldBusqueda.requestFocus();
 		try {
@@ -199,6 +200,7 @@ public class ControladorSelTrayecto {
 		{
 		paneSelTrayecto.FieldBusqueda.setVisible(false);
 		paneSelTrayecto.comboBoxBusqueda.setVisible(false);
+		paneSelTrayecto.btnCerrarBusqueda.setVisible(false);
 		try {
 			Runtime.getRuntime().exec("cmd /c taskkill /IM osk.exe /T /F");
 		} catch (IOException e) {

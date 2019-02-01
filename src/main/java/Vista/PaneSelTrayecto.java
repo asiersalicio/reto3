@@ -54,8 +54,9 @@ public class PaneSelTrayecto {
 		comboBoxBusqueda.setVisible(false);
 		
 		btnCerrarBusqueda = new JButton("X");
+		btnCerrarBusqueda.setVisible(false);
 		btnCerrarBusqueda.setBackground(Color.RED);
-		btnCerrarBusqueda.setBounds(726, 8, 50, 50);
+		btnCerrarBusqueda.setBounds(740, 8, 50, 50);
 		pane.add(btnCerrarBusqueda);
 		
 		comboBoxBusqueda.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -120,7 +121,7 @@ public class PaneSelTrayecto {
 		FieldBusqueda.setVisible(false);
 		FieldBusqueda.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		FieldBusqueda.setToolTipText("");
-		FieldBusqueda.setBounds(0, 0, 800, 64);
+		FieldBusqueda.setBounds(0, 0, 728, 64);
 		pane.add(FieldBusqueda);
 		FieldBusqueda.setColumns(10);
 		

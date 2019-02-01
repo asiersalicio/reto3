@@ -23,22 +23,22 @@ public class Billete{
 	public int codBillete;
 	public int nTrayecto;
 	public String codLinea;
-	public int codBus;
-	public int codParadaInicio;
-	public int codParadaFin;
-	public String fecha;
+	public Autobus autobus;
+	public Parada paradaInicio;
+	public Parada paradaFin;
+	public Date fecha;
 	public String DNI;
 	public float precio;
 	
 	//Métodos 
 	//constructor1: 
-	public Billete(int codBillete, int nTrayecto, String codLinea, int codBus, int codParadaInicio, int codParadaFin, String fecha, String DNI, float precio) {
+	public Billete(int codBillete, int nTrayecto, String codLinea, Autobus autobus, Parada paradaInicio, Parada paradaFin, Date fecha, Cliente cliente, float precio) {
 		this.codBillete=codBillete;
 		this.nTrayecto=nTrayecto;
 		this.codLinea=codLinea;	
-		this.codBus=codBus;	
-		this.codParadaInicio=codParadaInicio;	
-		this.codParadaFin=codParadaFin;	
+		this.autobus=autobus;	
+		this.paradaInicio=paradaInicio;	
+		this.paradaFin=paradaFin;	
 		this.fecha=fecha;	
 		this.DNI=DNI;	
 		this.precio=precio;	
@@ -69,35 +69,35 @@ public class Billete{
 		this.codLinea = codLinea;
 	}
 
-	public int getCodBus() {
-		return codBus;
+	public Autobus getAutobus() {
+		return autobus;
 	}
 
-	public void setCodBus(int codBus) {
-		this.codBus = codBus;
+	public void setAutobus(Autobus autobus) {
+		this.autobus = autobus;
 	}
 
-	public int getCodParadaInicio() {
-		return codParadaInicio;
+	public Parada getCodParadaInicio() {
+		return paradaInicio;
 	}
 
-	public void setCodParadaInicio(int codParadaInicio) {
-		this.codParadaInicio = codParadaInicio;
+	public void setCodParadaInicio(Parada codParadaInicio) {
+		this.paradaInicio = codParadaInicio;
 	}
 
-	public int getCodParadaFin() {
-		return codParadaFin;
+	public Parada getCodParadaFin() {
+		return paradaFin;
 	}
 
-	public void setCodParadaFin(int codParadaFin) {
-		this.codParadaFin = codParadaFin;
+	public void setCodParadaFin(Parada paradaFin) {
+		this.paradaFin = paradaFin;
 	}
 
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

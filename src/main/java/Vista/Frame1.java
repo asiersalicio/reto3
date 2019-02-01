@@ -14,6 +14,7 @@ public class Frame1 {
 	public Frame1()
 	{
 		frame1 = new JFrame();
+		frame1.setTitle("Ticket vending");
 		frame1.setBounds(0, 0, 800, 600);		
 		
 		frame1.addWindowListener(new WindowAdapter() {
