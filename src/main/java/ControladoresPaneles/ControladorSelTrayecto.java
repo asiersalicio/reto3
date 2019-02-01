@@ -165,7 +165,7 @@ public class ControladorSelTrayecto {
 				ControlModelo.fechaIda=paneSelTrayecto.dateChooserIda.getCalendar().getTime();
 				System.out.println("Fecha: " + ControlModelo.fechaIda);
 				ControlModelo.CalcularDatosCompra();
-				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.PaneMostrarCompra);
+				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.paneMostrarCompra);
 				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra);
 			}
 		});
