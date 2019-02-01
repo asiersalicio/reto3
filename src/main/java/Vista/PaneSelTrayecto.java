@@ -22,6 +22,7 @@ import java.awt.Label;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
+import java.awt.Color;
 
 public class PaneSelTrayecto {
 	
@@ -38,6 +39,7 @@ public class PaneSelTrayecto {
 	public JDateChooser dateChooserVuelta;
 	public JCheckBox chckbxVuelta;
 	public JButton btnBuscar;
+	public JButton btnCerrarBusqueda;
 	
 	
 	public PaneSelTrayecto(Frame1 frame1)
@@ -50,6 +52,12 @@ public class PaneSelTrayecto {
 		
 		comboBoxBusqueda = new JComboBox();
 		comboBoxBusqueda.setVisible(false);
+		
+		btnCerrarBusqueda = new JButton("X");
+		btnCerrarBusqueda.setBackground(Color.RED);
+		btnCerrarBusqueda.setBounds(726, 8, 50, 50);
+		pane.add(btnCerrarBusqueda);
+		
 		comboBoxBusqueda.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		comboBoxBusqueda.setBounds(0, 63, 800, 4);
 		

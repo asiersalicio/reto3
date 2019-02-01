@@ -39,7 +39,7 @@ public class ControladorSelTrayecto {
 	boolean btnOrigenEnabled = false;
 	boolean btnDestinoEnabled = false;
 	
-	
+	//Listeners de los botones
 	public ControladorSelTrayecto(PaneSelTrayecto paneSelTrayecto, PaneMostrarCompra paneMostrarCompra)
 	{
 		controladorSelTrayecto=this;
@@ -169,8 +169,15 @@ public class ControladorSelTrayecto {
 				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra);
 			}
 		});
+		
+		paneSelTrayecto.btnCerrarBusqueda.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+			}
+		});
 	}
-	
+	//Hace visible o invisible la barra de busqueda
 	void setBuscadorVisible(boolean truefalse)
 	{
 		if(truefalse) {
@@ -179,6 +186,7 @@ public class ControladorSelTrayecto {
 		paneSelTrayecto.FieldBusqueda.setText("");
 		paneSelTrayecto.FieldBusqueda.requestFocus();
 		try {
+			//Muestra el teclado en pantalla
 			Runtime.getRuntime().exec("cmd /c osk");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

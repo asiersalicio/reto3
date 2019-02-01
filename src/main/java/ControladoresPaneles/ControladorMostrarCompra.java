@@ -16,7 +16,13 @@ public class ControladorMostrarCompra {
 		paneMostrarCompra.btnVolverALogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ControlInterfaz.setPanel(ControlInterfaz.controladorSelTrayecto.paneSelTrayecto.pane);
+				ControlInterfaz.setPanel(ControlInterfaz.paneSelTrayecto.pane);
+			}
+		});
+		paneMostrarCompra.btnSiguiente.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ControlInterfaz.setPanel(ControlInterfaz.panePago.panePago);
 			}
 		});
 	}

@@ -114,7 +114,7 @@ public class PaneMostrarCompra {
 		lblPrecio.setBounds(108, 413, 135, 39);
 		PaneMostrarCompra.add(lblPrecio);
 		
-		btnSiguiente = new JButton("Siguiente");
+		btnSiguiente = new JButton("Confirmar");
 		btnSiguiente.setBackground(Color.WHITE);
 		btnSiguiente.setForeground(new Color(0, 51, 102));
 		btnSiguiente.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
@@ -165,6 +165,10 @@ public class PaneMostrarCompra {
 		fieldPrecio.setColumns(10);
 		fieldPrecio.setBounds(253, 413, 236, 37);
 		PaneMostrarCompra.add(fieldPrecio);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(508, 176, 262, 276);
+		PaneMostrarCompra.add(lblNewLabel);
 		
 	}
 }
