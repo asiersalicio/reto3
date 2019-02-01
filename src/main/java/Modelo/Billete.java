@@ -23,27 +23,27 @@ public class Billete{
 	public int codBillete;
 	public int nTrayecto;
 	public String codLinea;
-	public int codBus;
-	public int codParadaInicio;
-	public int codParadaFin;
-	public String fecha;
-	public String DNI;
+	public Autobus autobus;
+	public Parada paradaInicio;
+	public Parada paradaFin;
+	public java.util.Date fecha;
 	public float precio;
+	public Cliente cliente;
 	
 	//Métodos 
 	//constructor1: 
-	public Billete(int codBillete, int nTrayecto, String codLinea, int codBus, int codParadaInicio, int codParadaFin, String fecha, String DNI, float precio) {
+	public Billete(int codBillete, int nTrayecto, String codLinea, Autobus autobus, Parada paradaInicio, Parada paradaFin, java.util.Date fechaIda, Cliente cliente, float precio) {
 		this.codBillete=codBillete;
 		this.nTrayecto=nTrayecto;
 		this.codLinea=codLinea;	
-		this.codBus=codBus;	
-		this.codParadaInicio=codParadaInicio;	
-		this.codParadaFin=codParadaFin;	
-		this.fecha=fecha;	
-		this.DNI=DNI;	
+		this.autobus=autobus;	
+		this.paradaInicio=paradaInicio;	
+		this.paradaFin=paradaFin;	
+		this.fecha=fechaIda;	
+		this.cliente=cliente;	
 		this.precio=precio;	
 	}
-	
+
 	//Geters y Seters
 	public int getCodBillete() {
 		return codBillete;
@@ -69,44 +69,44 @@ public class Billete{
 		this.codLinea = codLinea;
 	}
 
-	public int getCodBus() {
-		return codBus;
+	public Autobus getAutobus() {
+		return autobus;
 	}
 
-	public void setCodBus(int codBus) {
-		this.codBus = codBus;
+	public void setAutobus(Autobus autobus) {
+		this.autobus = autobus;
 	}
 
-	public int getCodParadaInicio() {
-		return codParadaInicio;
+	public Parada getCodParadaInicio() {
+		return paradaInicio;
 	}
 
-	public void setCodParadaInicio(int codParadaInicio) {
-		this.codParadaInicio = codParadaInicio;
+	public void setCodParadaInicio(Parada codParadaInicio) {
+		this.paradaInicio = codParadaInicio;
 	}
 
-	public int getCodParadaFin() {
-		return codParadaFin;
+	public Parada getCodParadaFin() {
+		return paradaFin;
 	}
 
-	public void setCodParadaFin(int codParadaFin) {
-		this.codParadaFin = codParadaFin;
+	public void setCodParadaFin(Parada paradaFin) {
+		this.paradaFin = paradaFin;
 	}
 
-	public String getFecha() {
+	public java.util.Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
-	public String getDNI() {
-		return DNI;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setCliente(Cliente cliente) {
+		this.cliente=cliente;
 	}
 
 	public float getPrecio() {

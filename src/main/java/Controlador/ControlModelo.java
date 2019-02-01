@@ -5,6 +5,7 @@ import java.util.Date;
 
 import Modelo.Autobus;
 import Modelo.BBDD;
+import Modelo.Billete;
 import Modelo.Cliente;
 import Modelo.Linea;
 import Modelo.LineaParada;
@@ -19,6 +20,7 @@ public class ControlModelo {
 	public static Parada paradaOrigen;
 	public static Parada paradaDestino;
 	public static LineaParada lineaParada;
+	public static Billete billete;
 	public static Autobus autobus;
 	public static float precio;
 	public static Date fechaIda;
@@ -75,5 +77,12 @@ public class ControlModelo {
 		precio=Llamadas.CalcularPrecioBillete(BBDD.connection);
 	}
 	
-	
+
+	public static void GenerarBillete()
+	{
+		int codBillete;
+		codBillete=Llamadas.CalcularCodBillete(BBDD.connection);
+		billete = new Billete(codBillete, 0, linea.getCodLinea(), autobus, paradaOrigen, paradaDestino, fechaIda, cliente, precio);
+		//Llamadas.insertarBillete(BBDD.connection, billete);
+	}
 }

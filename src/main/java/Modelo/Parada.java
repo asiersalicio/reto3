@@ -12,7 +12,7 @@ package Modelo;
 
 public class Parada{
 	//Atributos o propiedades:
-	public String codParada;
+	public int codParada;
 	public String nombreParada;
 	public String calle;
 	public float latitud;
@@ -20,8 +20,8 @@ public class Parada{
 
 	//Métodos 
 	//constructor1: 
-	public Parada(String codParada2, String nombreParada, String calle, float latitud, float longitud) {
-		this.codParada=codParada2;
+	public Parada(int codParada, String nombreParada, String calle, float latitud, float longitud) {
+		this.codParada=codParada;
 		this.nombreParada=nombreParada;
 		this.calle=calle;
 		this.latitud=latitud;
@@ -33,12 +33,12 @@ public class Parada{
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getCodParada() {
+	public int getCodParada() {
 		return codParada;
 	}
 
-	public void setCodParada(String string) {
-		this.codParada = string;
+	public void setCodParada(int codParada) {
+		this.codParada = codParada;
 	}
 
 	public String getNombreParada() {

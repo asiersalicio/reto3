@@ -79,7 +79,7 @@ public class DebugMode {
 		btnMostrarCompra.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.PaneMostrarCompra);
+				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.paneMostrarCompra);
 			}
 		});
 		btnMostrarCompra.setBounds(116, 62, 89, 23);
