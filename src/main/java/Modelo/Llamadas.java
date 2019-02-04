@@ -42,7 +42,7 @@ public class Llamadas {
 				cliente.setDNI(rs.getString("DNI"));
 				cliente.setNombreCliente(rs.getString("Nombre"));
 				cliente.setApellidos(rs.getString("Apellidos"));
-				cliente.setFechaNac(rs.getString("Fecha_nac"));
+				cliente.setFechaNac(rs.getDate("Fecha_nac"));
 				cliente.setSexo(rs.getString("sexo"));
 				cliente.setContrasena(rs.getString("Contrasena"));
 			}
@@ -230,7 +230,7 @@ public class Llamadas {
 	//Modificar datos en las tablas utlizando Resultset
 	//Para modificar el nPlazas del autobus ((también podría ser una transacción!!!!Pag246 libro Programación(RaMa))
 	
-	public static void modificarNumeroPlazasLibres(Connection con, String termibus) throws SQLException {
+	public static void modificarNumeroPlazasLibres(Connection con) throws SQLException {
 		//Declaración e inicialización de variables:
 		int ocupaPlaza=1;
 		Statement stmt = null;
@@ -240,7 +240,7 @@ public class Llamadas {
 			//ResultSet.TYPE_SCROLL_SENSITIVE: trabaja datos actuales
 			//ResultSet.CONCUR_UPDATABLE:para que ResultSet pueda ser actualizado
 			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			ResultSet rs = stmt.executeQuery("select N_plazas from" + termibus + ".autobus");
+			ResultSet rs = stmt.executeQuery("select N_plazas from autobus ");
 			while(rs.next()) {
 				int i = rs.getInt("N_plazas");
 				rs.updateInt("N_plazas", i + ocupaPlaza);//modifica l
@@ -256,22 +256,16 @@ public class Llamadas {
 	//Insertar datos en las tablas utilizando Resulset
 	//para añadir cliente o billetes de autobus
 	
-	public static void insertarCliente(Connection con, String DNI, String nombreCliente, String apellidos, Date fechaNac, String sexo, String contrasena) throws SQLException {
+	
+	
+	public static void insertarCliente(Connection con, String DNI, String nombreCliente, String apellidos, String contrasena) throws SQLException {
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
+		String query="INSERT INTO cliente(DNI, Nombre, Apellidos, fecha_nac, sexo, Contrasena) values ('" + DNI + "', '" + nombreCliente + "', '" + apellidos + "', 20000101, 'V', '" + contrasena + "'); ";		System.out.println(query);
 		//Inicio programa:	
 		try {
-			//ResultSet.TYPE_SCROLL_SENSITIVE: trabaja datos actuales
-			//ResultSet.CONCUR_UPDATABLE:para que ResultSet pueda ser actualizado
-			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			ResultSet rs = stmt.executeQuery("select * from cliente");
-			rs.moveToInsertRow();
-			rs.updateString("DNI", DNI);
-			rs.updateString("Nombre", nombreCliente);
-			rs.updateString("Apellidos", apellidos);
-			rs.updateDate("Fecha_nac", fechaNac);
-			rs.updateString("Sexo", sexo);
-			rs.updateString("Contraseña", contrasena);
+			stmt = con.createStatement();
+			stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			printSQLException(e);
 		} finally {
@@ -279,33 +273,8 @@ public class Llamadas {
 		}
 	}
 	
-	public static void insertarBillete(Connection con, Billete billete) throws SQLException {
-		//Declaración e inicialización de variables:
-		Statement stmt = null;
-		//Inicio programa:	
-		try {
-			//ResultSet.TYPE_SCROLL_SENSITIVE: trabaja datos actuales
-			//ResultSet.CONCUR_UPDATABLE:para que ResultSet pueda ser actualizado
-			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			ResultSet rs = stmt.executeQuery("select * from billete");
-			rs.moveToInsertRow();
-			rs.updateInt("Cod_Billete", billete.getCodBillete());
-			rs.updateInt("NTrayecto", billete.getnTrayecto());
-			rs.updateString("Cod_Linea", billete.getCodLinea());
-			rs.updateInt("Cod_Bus", billete.getAutobus().getCodBus());
-			rs.updateInt("Cod_Parada_Inicio", billete.getCodParadaInicio().getCodParada());
-			rs.updateInt("Cod_Parada_Fin", billete.getCodParadaFin().getCodParada());
-			//rs.updateDate("Fecha", billete.getFecha();
-			//rs.updateTime("Hora", null);
-			rs.updateString("DNI", billete.getCliente().getDNI());
-			rs.updateFloat("Precio", billete.precio);
-		} catch (SQLException e) {
-			printSQLException(e);
-		} finally {
-			stmt.close(); 
-		}
-	}
-
+	
+	
 	private static void printSQLException(SQLException e) {
 		// TODO Auto-generated method stub
 		
@@ -594,4 +563,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 			System.out.println("Precio del billete: " + precio + "€");
 		return precio;
 	}
+	
+	
+	
 }

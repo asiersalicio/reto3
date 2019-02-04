@@ -1,6 +1,7 @@
 package Vista;
 
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -18,6 +19,8 @@ import java.util.Date;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class PaneRegister {
 
@@ -25,9 +28,12 @@ public class PaneRegister {
 	public JTextField fieldDNI;
 	public JTextField fieldNombre;
 	public JButton btnVolverALogin;
-	private JTextField fieldApellidos;
-	private JTextField fieldPassword;
-	
+	public JTextField fieldApellidos;
+	public JPasswordField fieldPassword;
+	public JButton btnRegistarse;
+	public JLabel lblFechaNacimiento;
+	public JDateChooser fechaNac;
+	public JComboBox comboBoxSexo;
 	
 	public PaneRegister(Frame1 frame1)
 	{
@@ -54,12 +60,6 @@ public class PaneRegister {
 		
 		btnVolverALogin = new JButton("Volver");
 		btnVolverALogin.setBackground(Color.WHITE);
-		btnVolverALogin.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
-			}
-		});
 		btnVolverALogin.setForeground(new Color(0, 51, 102));
 		btnVolverALogin.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		
@@ -110,7 +110,7 @@ public class PaneRegister {
 		fieldApellidos.setBounds(200, 280, 236, 37);
 		paneRegister.add(fieldApellidos);
 		
-		fieldPassword = new JTextField();
+		fieldPassword = new JPasswordField();
 		fieldPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldPassword.setColumns(10);
 		fieldPassword.setBounds(200, 374, 236, 37);
@@ -133,12 +133,24 @@ public class PaneRegister {
 		lblRegistrese.setBounds(32, 108, 229, 45);
 		paneRegister.add(lblRegistrese);
 		
-		JButton btnRegistarse = new JButton("Registarse");
+		btnRegistarse = new JButton("Registarse");
 		btnRegistarse.setForeground(new Color(0, 51, 102));
 		btnRegistarse.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnRegistarse.setBackground(Color.WHITE);
 		btnRegistarse.setBounds(542, 505, 185, 39);
 		paneRegister.add(btnRegistarse);
+		
+		comboBoxSexo = new JComboBox();
+		comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"Mujer", "Hombre", "Otros"}));
+		comboBoxSexo.setBounds(633, 323, 78, 20);
+		paneRegister.add(comboBoxSexo);
+		
+		JLabel lblSexo = new JLabel("Sexo:");
+		lblSexo.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblSexo.setForeground(Color.DARK_GRAY);
+		lblSexo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+		lblSexo.setBounds(489, 312, 135, 39);
+		paneRegister.add(lblSexo);
 		paneRegister.setVisible(false);
 		
 		/*Date fechaNacimiento=fechaNac.getDate();
