@@ -9,6 +9,8 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 
+import Controlador.ControlModelo;
+
 public class PanePago {
 
 	public JPanel panePago;
@@ -36,7 +38,7 @@ public class PanePago {
 	public JLabel lblaPagar;
 	public JLabel lblPorPagar;
 	public JLabel lblCambio;
-	public double aPagar=100; // Valor de ejemplo a cambiar por la cantindad a pagar.
+	public double aPagar;
 	
 	public PanePago(Frame1 frame1)
 	{
@@ -44,7 +46,6 @@ public class PanePago {
 		panePago.setBackground(Color.WHITE);
 		panePago.setBounds(0, 0, 800, 600);
 		panePago.setLayout(null);
-		
 		frame1.frame1.getContentPane().add(panePago);
 		
 		logoGrande = new JLabel("");
