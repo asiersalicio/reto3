@@ -46,11 +46,21 @@ public class ControlModelo {
 		String nombreCliente=paneRegister.fieldNombre.getText();
 		String apellidos=paneRegister.fieldApellidos.getText();
 		//Date fechaNac=paneRegister.fechaNac.getDate();
-		//String sexo=(String) paneRegister.comboBoxSexo.getSelectedItem();
+		String sexo = null;
+		
+		switch (paneRegister.comboBoxSexo.getSelectedIndex()) {
+		case 1: sexo="M";
+			break;
+		case 2: sexo="H";
+			break;
+		case 3: sexo="O";
+			break;
+		}
+
 		String contrasena=ControladorContrasena.encriptarContrasena(String.valueOf(paneRegister.fieldPassword.getPassword()));
 		System.out.println("Registrando usuario: " + DNI + "/" + contrasena);
 		try {
-				Llamadas.insertarCliente(BBDD.connection, DNI, nombreCliente, apellidos, contrasena);
+				Llamadas.insertarCliente(BBDD.connection, DNI, nombreCliente, apellidos, contrasena, sexo);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
