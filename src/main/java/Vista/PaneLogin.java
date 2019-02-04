@@ -13,6 +13,9 @@ import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 public class PaneLogin {
 	
@@ -26,6 +29,7 @@ public class PaneLogin {
 	public JButton btnRegister;
 	private JLabel logoGrande;
 	private JLabel logoPeke;
+	public JLabel lblUsConNoValido;
 	
 	public PaneLogin(Frame1 frame1)
 	{
@@ -90,8 +94,13 @@ public class PaneLogin {
 		logoPeke.setIcon(new ImageIcon(PaneLogin.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
 		logoPeke.setBounds(10, 505, 70, 64);
 		paneLogin.add(logoPeke);
+		
+		lblUsConNoValido = new JLabel("    *El usuario o contrase\u00F1a no es valido");
+		lblUsConNoValido.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblUsConNoValido.setVisible(false);
+		lblUsConNoValido.setForeground(Color.RED);
+		lblUsConNoValido.setBounds(204, 153, 246, 29);
+		paneLogin.add(lblUsConNoValido);
 		paneLogin.setVisible(false);
 	}
-	
-	
 }

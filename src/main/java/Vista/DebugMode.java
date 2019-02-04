@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ResourceBundle.Control;
 import java.awt.Window.Type;
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
@@ -24,7 +25,6 @@ public class DebugMode {
 	{
 		System.out.println("Starting debug mode...");
 		JFrame debugFrame = new JFrame();
-		debugFrame.setType(Type.UTILITY);
 		debugFrame.setBounds(0, 0 , 401, 423);
 		
 		esteJPanel = new JPanel();
@@ -94,6 +94,16 @@ public class DebugMode {
 		});
 		btnPago.setBounds(221, 28, 89, 23);
 		panel.add(btnPago);
+		
+		JButton btnImprimirBillete = new JButton("Imprimir billete");
+		btnImprimirBillete.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ControlModelo.GenerarBilletes();
+			}
+		});
+		btnImprimirBillete.setBounds(10, 200, 131, 25);
+		panel.add(btnImprimirBillete);
 		esteJPanel.setVisible(true);
 		debugFrame.setVisible(true);
 		System.out.println("Debug mode started!");

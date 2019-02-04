@@ -150,9 +150,15 @@ public class ControladorSelTrayecto {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(paneSelTrayecto.chckbxVuelta.isSelected())
+				{
 					paneSelTrayecto.dateChooserVuelta.setEnabled(true);
+					ControlModelo.viajeDeVuelta=true;
+				}
 				else
+				{
 					paneSelTrayecto.dateChooserVuelta.setEnabled(false);
+					ControlModelo.viajeDeVuelta=false;
+				}
 			}
 		});
 		
@@ -163,7 +169,12 @@ public class ControladorSelTrayecto {
 				ControlModelo.EstablecerParadaOrigen(codParadaOrigen);
 				ControlModelo.EstablecerParadaDestino(codParadaDestino);
 				ControlModelo.fechaIda=paneSelTrayecto.dateChooserIda.getCalendar().getTime();
-				System.out.println("Fecha: " + ControlModelo.fechaIda);
+				System.out.println("Fecha de ida: " + ControlModelo.fechaIda);
+				if(paneSelTrayecto.chckbxVuelta.isSelected())
+				{
+				ControlModelo.fechaVuelta=paneSelTrayecto.dateChooserVuelta.getCalendar().getTime();
+				System.out.println("Fecha de vuelta: " + ControlModelo.fechaVuelta);
+				}
 				ControlModelo.CalcularDatosCompra();
 				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.paneMostrarCompra);
 				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra, ControlInterfaz.panePago);

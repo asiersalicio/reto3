@@ -30,18 +30,20 @@ public class ControladorLogin {
 				boolean contrasenaValida = false;
 				String dni = paneLogin.textfieldUsername.getText();
 				dniValido=Llamadas.validarDNI(dni);
+				System.out.println("El dni es valido? " + dniValido);
 				String contrasena=String.valueOf(paneLogin.fieldPassword.getPassword());
 				contrasenaValida=ControladorContrasena.CombrobarContrasena(ControladorContrasena.encriptarContrasena(contrasena), dni);
 				
 				if(dniValido && contrasenaValida)
 				{
-					System.out.println("El dni es valido" + paneLogin.textfieldUsername.getText());
+					System.out.println("El dni es valido " + paneLogin.textfieldUsername.getText());
 					ControlModelo.EstablecerClienteActual(paneLogin.textfieldUsername.getText());
 					ControlInterfaz.setPanel(ControlInterfaz.paneSelTrayecto.pane);
 				}
 				else
 				{
-					System.out.println("El dni no es valido" + paneLogin.textfieldUsername.getText());
+					System.out.println("El dni o la contraseña no es valida " + paneLogin.textfieldUsername.getText());
+					paneLogin.lblUsConNoValido.setVisible(true);
 				}
 				
 				

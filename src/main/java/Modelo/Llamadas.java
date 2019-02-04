@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.util.Arrays;
+import java.util.BitSet;
 
 import Controlador.ControlModelo;
 import ControladoresPaneles.ControladorSelTrayecto;
@@ -273,6 +274,40 @@ public class Llamadas {
 		}
 	}
 	
+	public static void insertarBillete(Connection con, Billete billete, boolean billeteVuelta){
+		//Declaración e inicialización de variables:
+		int codBillete=billete.getCodBillete();
+		int nTrayecto = billete.getnTrayecto();
+		String codLinea=billete.getCodLinea();
+		int codBus=billete.getAutobus().getCodBus();
+		int codParadaInicio=billete.getCodParadaInicio().getCodParada();
+		int codParadaFin=billete.getCodParadaFin().getCodParada();
+		String fecha="20000101";
+		String hora="0000";
+		String dni=billete.getCliente().getDNI();
+		float precio=billete.getPrecio();
+
+		String query="INSERT INTO billete(Cod_Billete, Ntrayecto, COD_LINEA, COD_BUS, COD_PARADA_INICIO, COD_PARADA_FIN, FECHA, HORA, DNI, PRECIO) values (" + codBillete + ", " + nTrayecto + ", '" + codLinea + "', " + codBus + ", " + codParadaInicio  + ", " + codParadaFin + ", " + fecha + ", " + hora + ", '" + dni + "', " + precio + ");";		System.out.println(query);
+		
+		Statement stmt = null;
+
+		
+		//Inicio programa:	
+		try {
+			stmt = con.createStatement();
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			printSQLException(e);
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
+	}
+	
 	
 	
 	private static void printSQLException(SQLException e) {
@@ -287,7 +322,10 @@ public class Llamadas {
 				//Inicio programa:
 				try {
 					stmt = BBDD.connection.createStatement(); 
-					ResultSet rs = stmt.executeQuery ("SELECT DNI FROM CLIENTE WHERE DNI='"+ dni.toUpperCase() +"';");
+					String query="SELECT DNI FROM CLIENTE WHERE UPPER(DNI)='"+ dni.toUpperCase() +"';";
+					System.out.println(query);
+					ResultSet rs = stmt.executeQuery (query);
+					System.out.println();
 					while (rs.next()) {
 						if(rs.getString(1).equals(dni))
 						{
@@ -320,7 +358,7 @@ public class Llamadas {
 				//Inicio programa:
 				try {
 					stmt = BBDD.connection.createStatement(); 
-					ResultSet rs = stmt.executeQuery ("SELECT contrasena FROM CLIENTE WHERE DNI='"+ dni.toUpperCase() +"';");
+					ResultSet rs = stmt.executeQuery ("SELECT contrasena FROM CLIENTE WHERE UPPER(DNI)='"+ dni.toUpperCase() +"';");
 					while (rs.next()) {
 						resultado=rs.getString(1);
 						System.out.println("Contraseña encriptada: " + resultado);
@@ -530,6 +568,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 				while (rs.next()) {
 					codBillete= rs.getInt(1);
 				}
+				codBillete--;
 				//Convertir distancia en grados a KM
 			} catch (SQLException ex){
 				printSQLException(ex);

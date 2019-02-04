@@ -20,10 +20,13 @@ public class ControlModelo {
 	public static Parada paradaOrigen;
 	public static Parada paradaDestino;
 	public static LineaParada lineaParada;
-	public static Billete billete;
+	public static Billete billeteIda;
+	public static Billete billeteVuelta;
 	public static Autobus autobus;
 	public static float precio;
 	public static Date fechaIda;
+	public static Date fechaVuelta;
+	public static boolean viajeDeVuelta;
 	
 	public static void EstablecerClienteActual(String dni)
 	{
@@ -79,11 +82,17 @@ public class ControlModelo {
 	}
 	
 
-	public static void GenerarBillete()
+	public static void GenerarBilletes()
 	{
 		int codBillete;
 		codBillete=Llamadas.CalcularCodBillete(BBDD.connection);
-		billete = new Billete(codBillete, 0, linea.getCodLinea(), autobus, paradaOrigen, paradaDestino, fechaIda, cliente, precio);
-		//Llamadas.insertarBillete(BBDD.connection, billete);
+		billeteIda = new Billete(codBillete, 0, linea.getCodLinea(), autobus, paradaOrigen, paradaDestino, fechaIda, cliente, precio);
+		Llamadas.insertarBillete(BBDD.connection, billeteIda, viajeDeVuelta);
+		
+		if(ControlModelo.viajeDeVuelta) {
+		codBillete=Llamadas.CalcularCodBillete(BBDD.connection);
+		billeteVuelta = new Billete(codBillete, 1, linea.getCodLinea(), autobus, paradaOrigen, paradaDestino, fechaIda, cliente, precio);
+		Llamadas.insertarBillete(BBDD.connection, billeteVuelta, viajeDeVuelta);
+		}
 	}
 }

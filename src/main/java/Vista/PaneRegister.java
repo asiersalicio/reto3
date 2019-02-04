@@ -34,6 +34,13 @@ public class PaneRegister {
 	public JLabel lblFechaNacimiento;
 	public JDateChooser fechaNac;
 	public JComboBox comboBoxSexo;
+	private JPasswordField passwordField;
+	public JLabel lblErrUs;
+	public JLabel lblErrNom;
+	public JLabel lblRepitaSuContrasea;
+	public JLabel lblErrApe;
+	public JLabel lblErrFechaNac;
+	public JLabel lblErrCont;
 	
 	public PaneRegister(Frame1 frame1)
 	{
@@ -63,7 +70,7 @@ public class PaneRegister {
 		btnVolverALogin.setForeground(new Color(0, 51, 102));
 		btnVolverALogin.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		
-		btnVolverALogin.setBounds(90, 505, 185, 39);
+		btnVolverALogin.setBounds(92, 530, 185, 39);
 		paneRegister.add(btnVolverALogin);
 		
 		JLabel logoGrande = new JLabel("");
@@ -137,20 +144,73 @@ public class PaneRegister {
 		btnRegistarse.setForeground(new Color(0, 51, 102));
 		btnRegistarse.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnRegistarse.setBackground(Color.WHITE);
-		btnRegistarse.setBounds(542, 505, 185, 39);
+		btnRegistarse.setBounds(542, 530, 185, 39);
 		paneRegister.add(btnRegistarse);
 		
 		comboBoxSexo = new JComboBox();
 		comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"Mujer", "Hombre", "Otros"}));
-		comboBoxSexo.setBounds(633, 323, 78, 20);
+		comboBoxSexo.setBounds(209, 487, 78, 20);
 		paneRegister.add(comboBoxSexo);
 		
 		JLabel lblSexo = new JLabel("Sexo:");
 		lblSexo.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblSexo.setForeground(Color.DARK_GRAY);
 		lblSexo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblSexo.setBounds(489, 312, 135, 39);
+		lblSexo.setBounds(55, 478, 135, 39);
 		paneRegister.add(lblSexo);
+		
+		lblErrUs = new JLabel("*El usuario ya existe");
+		lblErrUs.setVisible(false);
+		lblErrUs.setForeground(Color.RED);
+		lblErrUs.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblErrUs.setBounds(448, 195, 250, 20);
+		paneRegister.add(lblErrUs);
+		
+		JLabel lblNotaTodosLos = new JLabel("Nota: Todos los campos son obligatorios");
+		lblNotaTodosLos.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblNotaTodosLos.setBounds(209, 122, 546, 20);
+		paneRegister.add(lblNotaTodosLos);
+		
+		lblErrNom = new JLabel("*Es obligatorio el campo de nombre");
+		lblErrNom.setVisible(false);
+		lblErrNom.setForeground(Color.RED);
+		lblErrNom.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblErrNom.setBounds(448, 243, 250, 20);
+		paneRegister.add(lblErrNom);
+		
+		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Dialog", Font.PLAIN, 14));
+		passwordField.setColumns(10);
+		passwordField.setBounds(200, 428, 236, 37);
+		paneRegister.add(passwordField);
+		
+		lblRepitaSuContrasea = new JLabel("Repita su contrase\u00F1a :");
+		lblRepitaSuContrasea.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblRepitaSuContrasea.setForeground(Color.DARK_GRAY);
+		lblRepitaSuContrasea.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblRepitaSuContrasea.setBounds(12, 425, 178, 39);
+		paneRegister.add(lblRepitaSuContrasea);
+		
+		lblErrApe = new JLabel("*Es obligatorio el campo de apellidos");
+		lblErrApe.setVisible(false);
+		lblErrApe.setForeground(Color.RED);
+		lblErrApe.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblErrApe.setBounds(448, 289, 250, 20);
+		paneRegister.add(lblErrApe);
+		
+		lblErrFechaNac = new JLabel("*Es obligatorio introducir una fecha de nacimiento");
+		lblErrFechaNac.setVisible(false);
+		lblErrFechaNac.setForeground(Color.RED);
+		lblErrFechaNac.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblErrFechaNac.setBounds(448, 337, 307, 20);
+		paneRegister.add(lblErrFechaNac);
+		
+		lblErrCont = new JLabel("*La contrase\u00F1a debe tener entre 8 y 16 caracteres");
+		lblErrCont.setVisible(false);
+		lblErrCont.setForeground(Color.RED);
+		lblErrCont.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblErrCont.setBounds(448, 408, 307, 20);
+		paneRegister.add(lblErrCont);
 		paneRegister.setVisible(false);
 		
 		/*Date fechaNacimiento=fechaNac.getDate();
