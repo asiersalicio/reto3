@@ -20,6 +20,12 @@ import Vista.PanePago;
 import Vista.PaneRegister;
 import Vista.PaneSelTrayecto;
 
+/**
+ * Clase ControlInterfaz: contiene las instancias de los Frame, Pane y Controladores de los diferentes paneles de la interfaz
+ * @author IN1DM3B_18
+ *
+ */
+
 public class ControlInterfaz {
 	
 	public static Frame1 frame1;
@@ -45,18 +51,14 @@ public class ControlInterfaz {
 		//Crea los paneles
 		paneBienvenida = new PaneBienvenida(frame1);
 		paneLogin = new PaneLogin(frame1);
-		paneLogin = new PaneLogin(frame1);
 		paneCambioFinal = new PaneCambioFinal(frame1);
-		paneLogin = new PaneLogin(frame1);
 		paneRegister = new PaneRegister(frame1);
 		controladorRegister = new ControladorRegister(paneRegister, paneLogin);
-		paneLogin = new PaneLogin(frame1);
 		controladorLogin = new ControladorLogin(paneLogin);
 		panePago= new PanePago(frame1);
 		paneMostrarCompra = new PaneMostrarCompra(frame1);
 		controladorMostrarCompra = new ControladorMostrarCompra(paneMostrarCompra);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
-		
 		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
 		controladorLogin = new ControladorLogin(paneLogin);
 		controladorPago = new ControladorPago(panePago);

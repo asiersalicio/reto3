@@ -20,6 +20,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Panel;
 
+
+/*
+ * Clase PaneCambioFinal
+ */
+
 public class PaneCambioFinal {
 	
 	public JPanel paneCambioFinal;

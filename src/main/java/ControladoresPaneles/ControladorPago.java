@@ -11,7 +11,11 @@ import Modelo.Devolucion;
 import Modelo.ManejoBilletes;
 import Modelo.Pagar;
 import Vista.PanePago;
-
+/**
+ * Clase: ControladorPago
+ * @author IN1DM3B_18
+ *
+ */
 
 public class ControladorPago {
 	public ControladorPago controladorPago;

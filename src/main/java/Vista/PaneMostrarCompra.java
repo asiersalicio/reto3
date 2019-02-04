@@ -22,7 +22,11 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFormattedTextField;
-
+/**
+ * Clase PaneMostrarCompra
+ * @author IN1DM3B_18
+ *
+ */
 public class PaneMostrarCompra {
 	
 	public JPanel paneMostrarCompra;

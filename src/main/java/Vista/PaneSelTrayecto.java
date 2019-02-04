@@ -23,8 +23,16 @@ import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import java.awt.Color;
+
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+
+
+/**
+ * Clase PaneSelTrayecto
+ * @author IN1DM3B_18
+ *
+ */
 
 public class PaneSelTrayecto {
 	
