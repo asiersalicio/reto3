@@ -52,7 +52,7 @@ public class ControlInterfaz {
 		paneBienvenida = new PaneBienvenida(frame1);
 		paneLogin = new PaneLogin(frame1);
 		paneCambioFinal = new PaneCambioFinal(frame1);
-		paneRegister = new PaneRegister(frame1);
+		
 		panePago= new PanePago(frame1);
 		paneMostrarCompra = new PaneMostrarCompra(frame1);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
@@ -61,6 +61,8 @@ public class ControlInterfaz {
 		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
 		controladorLogin = new ControladorLogin(paneLogin);
 		controladorPago = new ControladorPago(panePago);
+		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
+		paneRegister = new PaneRegister(frame1);
 		controladorRegister = new ControladorRegister(paneRegister, paneLogin);
 
 		
