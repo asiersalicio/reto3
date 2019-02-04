@@ -18,7 +18,6 @@ import javax.swing.JList;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Panel;
 
 
 /*
@@ -31,6 +30,7 @@ public class PaneCambioFinal {
 	public static DefaultListModel<String> modelo2;
 	public JList<String> listaCambio;
 	public JLabel lblGraciasYBuen;
+
 	
 	
 	public PaneCambioFinal(Frame1 frame1)
@@ -45,6 +45,7 @@ public class PaneCambioFinal {
 		
 		modelo2=new DefaultListModel<String>();
 		listaCambio = new JList<String>(modelo2);
+		listaCambio.setForeground(new Color(0, 51, 102));
 		listaCambio.setBackground(Color.WHITE);
 		listaCambio.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, new Color(212, 208, 200), null, null, null), "Su Cambio :", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(153, 0, 0)));
 		listaCambio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
@@ -65,8 +66,9 @@ public class PaneCambioFinal {
 		lblGraciasYBuen.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGraciasYBuen.setForeground(new Color(0, 51, 102));
 		lblGraciasYBuen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblGraciasYBuen.setBounds(73, 396, 397, 25);
+		lblGraciasYBuen.setBounds(190, 505, 397, 25);
 		paneCambioFinal.add(lblGraciasYBuen);
+		
 		
 		
 		paneCambioFinal.setVisible(false);

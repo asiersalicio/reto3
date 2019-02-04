@@ -34,11 +34,11 @@ public class ControlInterfaz {
 	public static PaneRegister paneRegister;
 	public static PaneSelTrayecto paneSelTrayecto;
 	public static PanePago panePago;
-	public static ControladorLogin controladorLogin;
-	public static ControladorSelTrayecto controladorSelTrayecto;
 	public static PaneCambioFinal paneCambioFinal;
 	public static PaneMostrarCompra paneMostrarCompra;
 
+	public static ControladorLogin controladorLogin;
+	public static ControladorSelTrayecto controladorSelTrayecto;
 	public static ControladorMostrarCompra controladorMostrarCompra;
 	public static ControladorPago controladorPago;
 	public static ControladorRegister controladorRegister;
@@ -53,16 +53,15 @@ public class ControlInterfaz {
 		paneLogin = new PaneLogin(frame1);
 		paneCambioFinal = new PaneCambioFinal(frame1);
 		paneRegister = new PaneRegister(frame1);
-		controladorRegister = new ControladorRegister(paneRegister, paneLogin);
-		controladorLogin = new ControladorLogin(paneLogin);
 		panePago= new PanePago(frame1);
 		paneMostrarCompra = new PaneMostrarCompra(frame1);
-		controladorMostrarCompra = new ControladorMostrarCompra(paneMostrarCompra);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
+		
+		controladorMostrarCompra = new ControladorMostrarCompra(paneMostrarCompra);
 		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
 		controladorLogin = new ControladorLogin(paneLogin);
 		controladorPago = new ControladorPago(panePago);
-		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
+		controladorRegister = new ControladorRegister(paneRegister, paneLogin);
 
 		
 		//Establece como visible el JFrame

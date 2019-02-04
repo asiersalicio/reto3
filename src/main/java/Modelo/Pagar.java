@@ -101,7 +101,7 @@ public class Pagar {
 					aPagar=aPagar-valorBillete;
 					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 					}
 					else
 					{
@@ -119,7 +119,7 @@ public class Pagar {
 					aPagar=aPagar-valorBillete;
 					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 					}
 					else
 					{
@@ -135,9 +135,9 @@ public class Pagar {
 				
 				case 8: valorBillete=1;
 					aPagar=aPagar-valorBillete;
-					if ((faltaPorPagar - valorBillete)>0)
+					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
 					{
-						txtfaltaporpagar.setText(Float.toString((float) (faltaPorPagar - valorBillete)));
+						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 					}
 					else
 					{
@@ -155,7 +155,7 @@ public class Pagar {
 					aPagar=aPagar-valorBillete;
 					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 					}
 					else
 					{
@@ -173,7 +173,7 @@ public class Pagar {
 					aPagar=aPagar-valorBillete;
 					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 					}
 					else
 					{
@@ -191,7 +191,7 @@ public class Pagar {
 					aPagar=aPagar-valorBillete;
 					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 					}
 					else
 					{
@@ -209,7 +209,7 @@ public class Pagar {
 					aPagar=aPagar-valorBillete;
 					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 					}
 					else
 					{
@@ -227,7 +227,7 @@ public class Pagar {
 					aPagar=aPagar-valorBillete;
 					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 					}
 					else
 					{
@@ -242,9 +242,10 @@ public class Pagar {
 					break;
 				
 				case 14: valorBillete=(float) 0.01;
+					aPagar=aPagar-valorBillete;
 				if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
 				{
-					txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+					txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 				}
 				else
 				{

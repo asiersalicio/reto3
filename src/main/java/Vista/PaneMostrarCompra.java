@@ -38,6 +38,13 @@ public class PaneMostrarCompra {
 	public JFormattedTextField fieldPrecio;
 	public JButton btnVolverALogin;
 	public JButton btnSiguiente;
+	public JLabel lblDetalles;
+	public JLabel lblTipoDeBillete;
+	public JLabel lblTrayetoria;
+	public JLabel lblLinea;
+	public JLabel lblFechaIda;
+	public JLabel lblFechaVuelta;
+	public JLabel lblPrecio;
 	
 	public PaneMostrarCompra(Frame1 frame1)
 	{
@@ -70,48 +77,48 @@ public class PaneMostrarCompra {
 		btnVolverALogin.setBounds(82, 505, 185, 39);
 		paneMostrarCompra.add(btnVolverALogin);
 		
-		JLabel lblDetalles = new JLabel("Detalles de su compra :");
+		lblDetalles = new JLabel("Detalles de su compra :");
 		lblDetalles.setForeground(new Color(0, 51, 102));
 		lblDetalles.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
 		lblDetalles.setBounds(32, 108, 229, 45);
 		paneMostrarCompra.add(lblDetalles);
 		
-		JLabel lblTipoDeBillete = new JLabel("Tipo de Billete :");
+		lblTipoDeBillete = new JLabel("Tipo de Billete :");
 		lblTipoDeBillete.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblTipoDeBillete.setForeground(Color.DARK_GRAY);
 		lblTipoDeBillete.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblTipoDeBillete.setBounds(108, 164, 135, 39);
 		paneMostrarCompra.add(lblTipoDeBillete);
 		
-		JLabel lblTrayetoria = new JLabel("Trayetoria :");
+		lblTrayetoria = new JLabel("Trayetoria :");
 		lblTrayetoria.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblTrayetoria.setForeground(Color.DARK_GRAY);
 		lblTrayetoria.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblTrayetoria.setBounds(108, 214, 135, 39);
 		paneMostrarCompra.add(lblTrayetoria);
 		
-		JLabel lblLinea = new JLabel("Linea :");
+		lblLinea = new JLabel("Linea :");
 		lblLinea.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblLinea.setForeground(Color.DARK_GRAY);
 		lblLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblLinea.setBounds(108, 264, 135, 39);
 		paneMostrarCompra.add(lblLinea);
 		
-		JLabel lblFechaIda = new JLabel("Fecha Ida :");
+		lblFechaIda = new JLabel("Fecha Ida :");
 		lblFechaIda.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblFechaIda.setForeground(Color.DARK_GRAY);
 		lblFechaIda.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblFechaIda.setBounds(108, 314, 135, 39);
 		paneMostrarCompra.add(lblFechaIda);
 		
-		JLabel lblFechaVuelta = new JLabel("Fecha Vuelta :");
+		lblFechaVuelta = new JLabel("Fecha Vuelta :");
 		lblFechaVuelta.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblFechaVuelta.setForeground(Color.DARK_GRAY);
 		lblFechaVuelta.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblFechaVuelta.setBounds(108, 363, 135, 39);
 		paneMostrarCompra.add(lblFechaVuelta);
 		
-		JLabel lblPrecio = new JLabel("Precio :");
+		lblPrecio = new JLabel("Precio :");
 		lblPrecio.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblPrecio.setForeground(Color.DARK_GRAY);
 		lblPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));

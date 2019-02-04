@@ -37,7 +37,7 @@ public class PanePago {
 	public JLabel lblaPagar;
 	public JLabel lblPorPagar;
 	public JLabel lblCambio;
-	public double aPagar;
+	public float aPagar;
 	
 	public PanePago(Frame1 frame1)
 	{
