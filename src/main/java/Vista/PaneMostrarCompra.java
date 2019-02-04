@@ -166,9 +166,5 @@ public class PaneMostrarCompra {
 		fieldPrecio.setBounds(253, 413, 236, 37);
 		paneMostrarCompra.add(fieldPrecio);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(508, 176, 262, 276);
-		paneMostrarCompra.add(lblNewLabel);
-		
 	}
 }
