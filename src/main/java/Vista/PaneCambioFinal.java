@@ -17,7 +17,9 @@ import javax.swing.JList;
 
 import java.awt.Color;
 import java.awt.Font;
-
+/*
+ * Clase PaneCambioFinal
+ */
 public class PaneCambioFinal {
 	
 	public JPanel paneCambioFinal;

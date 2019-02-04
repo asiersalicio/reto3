@@ -20,7 +20,11 @@ import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-
+/**
+ * Clase PaneRegister
+ * @author IN1DM3B_18
+ *
+ */
 public class PaneRegister {
 
 	public JPanel paneRegister;
@@ -116,6 +120,7 @@ public class PaneRegister {
 		paneRegister.add(fieldPassword);
 		
 		JDateChooser fechaNac = new JDateChooser();
+		fechaNac.setDateFormatString("yyyy-MM-dd");
 	    fechaNac.setBounds(200, 328, 236, 35);
 	    paneRegister.add(fechaNac);
 		

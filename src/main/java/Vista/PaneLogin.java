@@ -13,7 +13,9 @@ import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-
+/*
+ * Clase PaneLogin
+ */
 public class PaneLogin {
 	
 	public JPanel paneLogin;

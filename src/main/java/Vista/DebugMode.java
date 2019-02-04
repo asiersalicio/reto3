@@ -15,7 +15,11 @@ import java.awt.BorderLayout;
 
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
-
+/**
+ * Clase DebugMode: una pantalla de comandos para controlar las diferentes vistas de manera rápida.
+ * @author IN1DM3B_18
+ *
+ */
 public class DebugMode {
 	
 	public JPanel esteJPanel;

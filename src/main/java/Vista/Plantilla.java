@@ -7,7 +7,11 @@ import Controlador.ControlInterfaz;
 import javax.swing.JLabel;
 
 import java.awt.Font;
-
+/**
+ * Clase Plantilla para las vistas
+ * @author IN1DM3B_18
+ *
+ */
 public class Plantilla {
 	
 	public JPanel panel;

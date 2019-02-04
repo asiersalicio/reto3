@@ -8,7 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.SwingConstants;
-
+/** 
+ * Clase: PanePago
+ * @author IN1DM3B_18
+ *
+ */
 public class PanePago {
 
 	public JPanel panePago;
