@@ -44,8 +44,9 @@ public class ControlModelo {
 		String apellidos=paneRegister.fieldApellidos.getText();
 		//Date fechaNac=paneRegister.fechaNac.getDate();
 		//String sexo=(String) paneRegister.comboBoxSexo.getSelectedItem();
-		String contrasena=paneRegister.fieldPassword.getText();
-			try {
+		String contrasena=ControladorContrasena.encriptarContrasena(String.valueOf(paneRegister.fieldPassword.getPassword()));
+		System.out.println("Registrando usuario: " + DNI + "/" + contrasena);
+		try {
 				Llamadas.insertarCliente(BBDD.connection, DNI, nombreCliente, apellidos, contrasena);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

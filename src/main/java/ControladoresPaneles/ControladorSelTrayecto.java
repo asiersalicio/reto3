@@ -172,7 +172,7 @@ public class ControladorSelTrayecto {
 				System.out.println("Fecha: " + ControlModelo.fechaIda);
 				ControlModelo.CalcularDatosCompra();
 				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.paneMostrarCompra);
-				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra);
+				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra, ControlInterfaz.panePago);
 			}
 		});
 		

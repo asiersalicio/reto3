@@ -1,6 +1,7 @@
 package Vista;
 
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -32,7 +33,7 @@ public class PaneRegister {
 	public JTextField fieldNombre;
 	public JButton btnVolverALogin;
 	public JTextField fieldApellidos;
-	public JTextField fieldPassword;
+	public JPasswordField fieldPassword;
 	public JButton btnRegistarse;
 	public JLabel lblFechaNacimiento;
 	public JDateChooser fechaNac;
@@ -113,7 +114,7 @@ public class PaneRegister {
 		fieldApellidos.setBounds(200, 280, 236, 37);
 		paneRegister.add(fieldApellidos);
 		
-		fieldPassword = new JTextField();
+		fieldPassword = new JPasswordField();
 		fieldPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldPassword.setColumns(10);
 		fieldPassword.setBounds(200, 374, 236, 37);

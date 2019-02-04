@@ -6,16 +6,17 @@ import javax.swing.JTextField;
 public class Pagar {
 	
 
-		public static double porPagar(int dineroIntroducido,double aPagar,JTextField txtCambio2,JTextField txtfaltaporpagar,JButton BotonValidar)
+		public static double porPagar(int dineroIntroducido,double aPagar,double faltaPorPagar, double totalPagado, JTextField txtCambio2,JTextField txtfaltaporpagar,JButton BotonValidar)
 		{
 			float valorBillete=0;
 			switch (dineroIntroducido)            // Restamos la cantidad de dinero introducido a la cantidad total.
 			{
 				case 1: valorBillete=200;
 					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0) // Cogemos el valor del txt lo pasamos a float, le pasamos el formateador y le restamos la cantidad introducida.
+					if (faltaPorPagar - valorBillete>0) // Cogemos el valor del txt lo pasamos a float, le pasamos el formateador y le restamos la cantidad introducida.
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+						txtfaltaporpagar.setText(Float.toString((float) (faltaPorPagar - valorBillete)));
+						System.out.print("200");
 					}
 					else
 					{
@@ -135,15 +136,15 @@ public class Pagar {
 				
 				case 8: valorBillete=1;
 					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
+					if ((faltaPorPagar - valorBillete)>0)
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
+						txtfaltaporpagar.setText(Float.toString((float) (faltaPorPagar - valorBillete)));
 					}
 					else
 					{
 						if (Float.parseFloat(txtCambio2.getText())==0)
 						{
-						txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
+						txtCambio2.setText(Float.toString((float) ((faltaPorPagar - valorBillete)*-1)));
 						txtfaltaporpagar.setText("0");
 						BotonValidar.setVisible(true);
 						}

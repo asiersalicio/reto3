@@ -263,8 +263,7 @@ public class Llamadas {
 	public static void insertarCliente(Connection con, String DNI, String nombreCliente, String apellidos, String contrasena) throws SQLException {
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
-		String query="INSERT INTO cliente(DNI, Nombre, Apellidos, Contrasena) values ('" + DNI + "', '" + nombreCliente + "', '" + apellidos + "', '" + contrasena + "'); ";
-		System.out.println(query);
+		String query="INSERT INTO cliente(DNI, Nombre, Apellidos, fecha_nac, sexo, Contrasena) values ('" + DNI + "', '" + nombreCliente + "', '" + apellidos + "', 20000101, 'V', '" + contrasena + "'); ";		System.out.println(query);
 		//Inicio programa:	
 		try {
 			stmt = con.createStatement();
