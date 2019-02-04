@@ -1,22 +1,21 @@
 package Vista;
 
+import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.Color;
 import javax.swing.SwingConstants;
-
-import Controlador.ControlModelo;
 
 public class PanePago {
 
 	public JPanel panePago;
 	public JTextField txtfaltaporpagar;
 	public JTextField txtaPagar2;
-	public JTextField txtCambio2;
+	public static JTextField txtCambio2;
 	public JButton btnImpresionBillete;
 	public JButton Boton1euro;
 	public JButton Boton1cent;

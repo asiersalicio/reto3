@@ -11,7 +11,13 @@ import Controlador.ControladorContrasena;
 import Modelo.Llamadas;
 import Vista.PaneLogin;
 import Vista.PaneSelTrayecto;
-
+/**
+ * Clase: ControladorLogin: contiene btnRegister y btnLogin
+ * en el btnRegister, cuando se pulsa dirige al usuario al paneRegister
+ * en el btnLogin, cuando se pulsa, valida el DNI y la contraseña y dirige al usuario al paneLogin
+ * @author IN1DM3B_18
+ *
+ */
 public class ControladorLogin {
 	
 	public ControladorLogin(PaneLogin paneLogin)
@@ -32,7 +38,7 @@ public class ControladorLogin {
 				dniValido=Llamadas.validarDNI(dni);
 				System.out.println("El dni es valido? " + dniValido);
 				String contrasena=String.valueOf(paneLogin.fieldPassword.getPassword());
-				contrasenaValida=ControladorContrasena.CombrobarContrasena(ControladorContrasena.encriptarContrasena(contrasena), dni);
+				contrasenaValida=ControladorContrasena.combrobarContrasena(ControladorContrasena.encriptarContrasena(contrasena), dni);
 				
 				if(dniValido && contrasenaValida)
 				{

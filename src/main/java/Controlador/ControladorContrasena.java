@@ -4,7 +4,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import Modelo.Llamadas;
-
+/**
+ * Clase: ControladorContrasena
+ * Contiene los métodos: encriptarContrasena y combrobarContrasena
+ * 
+ * @author IN1DM3B_18
+ *
+ */
 public class ControladorContrasena {
 	
 	public static String encriptarContrasena(String contrasena)
@@ -29,7 +35,7 @@ public class ControladorContrasena {
 		
 	}
 	
-	public static boolean CombrobarContrasena(String contrasenaEncriptada, String dni)
+	public static boolean combrobarContrasena(String contrasenaEncriptada, String dni)
 	{
 		if(Llamadas.ObtenerContrasena(dni).equals(contrasenaEncriptada))		
 		return true;

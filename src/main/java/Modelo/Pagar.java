@@ -15,8 +15,7 @@ public class Pagar {
 					aPagar=aPagar-valorBillete;
 					if (faltaPorPagar - valorBillete>0) // Cogemos el valor del txt lo pasamos a float, le pasamos el formateador y le restamos la cantidad introducida.
 					{
-						txtfaltaporpagar.setText(Float.toString((float) (faltaPorPagar - valorBillete)));
-						System.out.print("200");
+						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
 					}
 					else
 					{

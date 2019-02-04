@@ -13,7 +13,11 @@ import javax.swing.SwingConstants;
 import Controlador.ControlInterfaz;
 
 import java.awt.Color;
-
+/**
+ * Clase PaneBienvenida
+ * @author IN1DM3B_18
+ *
+ */
 public class PaneBienvenida {
 	
 	public JPanel paneBienvenida;

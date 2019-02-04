@@ -12,7 +12,11 @@ import Modelo.LineaParada;
 import Modelo.Llamadas;
 import Modelo.Parada;
 import Vista.PaneRegister;
-
+/**
+ * Clase: ControlModelo: contiene las instancias del modelo, incluye las instancias de los objetos así como métodos relacionados con estas funciones.
+ * @author IN1DM3B_18
+ *
+ */
 public class ControlModelo {
 	
 	public static Cliente cliente;
@@ -28,12 +32,14 @@ public class ControlModelo {
 	public static Date fechaVuelta;
 	public static boolean viajeDeVuelta;
 	
+	//EstablecerClienteActual: rellena el objeto cliente con el cliente al que pertenece el dni que se pasa por parámetro. 
 	public static void EstablecerClienteActual(String dni)
 	{
 		cliente = new Cliente();
 		Llamadas.RellenarCliente(BBDD.connection, cliente, dni);
 	}
 	
+	//RegistrarCliente: Introduce los datos introducidos por el usuario en el paneRegister en la BBDD.
 	public static void RegistrarCliente(PaneRegister paneRegister)
 	{
 		String DNI=paneRegister.fieldDNI.getText();
@@ -49,15 +55,16 @@ public class ControlModelo {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
 	}
 	
+	//EstablecerLinea: se realiza la llamada al método RellenarLinea de la clase Llamadas en el paquete Modelo y se rellena el atributo linea del objeto Linea. 
 	public static void EstablecerLinea(String codLinea)
 	{
 		linea = new Linea();
 		Llamadas.RellenarLinea(BBDD.connection, linea, codLinea);
 	}
 	
+	//EstablecerParadaOrigen: se realiza la llamada al método RellenarParada de la clase Llamadas en el paquete Modelo y se rellena el atributo paradaOrigen del objeto Parada. 
 	public static void EstablecerParadaOrigen(String codParadaOrigen)
 	{
 		paradaOrigen = new Parada();
@@ -65,6 +72,7 @@ public class ControlModelo {
 		System.out.println("Parada origen: " + paradaOrigen.getNombreParada());
 	}
 	
+	//EstablecerParadaDestino: se realiza la llamada al método RellenarParada de la clase Llamadas en el paquete Modelo y se rellena el atributo paradaDestino del objeto Parada. 
 	public static void EstablecerParadaDestino(String codParadaDestino)
 	{
 		paradaDestino = new Parada();
@@ -72,6 +80,7 @@ public class ControlModelo {
 		System.out.println("Parada destino: " + paradaDestino.getNombreParada());
 	}
 
+	//clase CalcularDatosCompra: se calcula el código autobús y el precio del Billete
 	public static void CalcularDatosCompra() {
 		int codBus;
 		codBus=Llamadas.SeleccionarAutobus(BBDD.connection);
@@ -81,7 +90,7 @@ public class ControlModelo {
 		precio=Llamadas.CalcularPrecioBillete(BBDD.connection);
 	}
 	
-
+	//Clase GenerarBillete: se actualiza el codBillete mediante el método CalcularCodBillete de la clase Llamadas en el paquete Modelo
 	public static void GenerarBilletes()
 	{
 		int codBillete;
@@ -94,5 +103,5 @@ public class ControlModelo {
 		billeteVuelta = new Billete(codBillete, 1, linea.getCodLinea(), autobus, paradaOrigen, paradaDestino, fechaIda, cliente, precio);
 		Llamadas.insertarBillete(BBDD.connection, billeteVuelta, viajeDeVuelta);
 		}
-	}
+}
 }

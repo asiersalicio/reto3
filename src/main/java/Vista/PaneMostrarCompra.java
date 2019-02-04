@@ -22,7 +22,11 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFormattedTextField;
-
+/**
+ * Clase PaneMostrarCompra
+ * @author IN1DM3B_18
+ *
+ */
 public class PaneMostrarCompra {
 	
 	public JPanel paneMostrarCompra;
@@ -165,10 +169,6 @@ public class PaneMostrarCompra {
 		fieldPrecio.setColumns(10);
 		fieldPrecio.setBounds(253, 413, 236, 37);
 		paneMostrarCompra.add(fieldPrecio);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(508, 176, 262, 276);
-		paneMostrarCompra.add(lblNewLabel);
 		
 	}
 }

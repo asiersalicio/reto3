@@ -16,7 +16,7 @@ public class BBDD {
 	public static Statement s = null;
 	ResultSet rs = null;
 
-
+	
 	public static void Conectar(String urlBBDD, String username, String password)
 	{
 		System.out.println("Intentando conectarse a la BBDD " + urlBBDD + " con el nombre de usuario " + username + "...");

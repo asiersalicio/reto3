@@ -7,9 +7,15 @@ import java.awt.event.MouseEvent;
 
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
+import Modelo.Devolucion;
+import Modelo.ManejoBilletes;
 import Modelo.Pagar;
 import Vista.PanePago;
-
+/**
+ * Clase: ControladorPago
+ * @author IN1DM3B_18
+ *
+ */
 
 public class ControladorPago {
 	public ControladorPago controladorPago;
@@ -18,14 +24,19 @@ public class ControladorPago {
 	public double faltaPorPagar;
 	public double totalPagado;
 	
+	
 	public ControladorPago(PanePago panePago)
 	{	
 		controladorPago=this;
 		this.panePago=panePago;
+		
+		
 		panePago.btnImpresionBillete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ControlInterfaz.setPanel(ControlInterfaz.paneCambioFinal.paneCambioFinal);
+				ManejoBilletes.rellenarLista();
+				
 			}
 		});
 		panePago.Boton1euro.addActionListener(new ActionListener() {

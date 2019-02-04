@@ -18,9 +18,14 @@ import Vista.PaneMostrarCompra;
 import Vista.PaneSelTrayecto;
 import java.io.IOException;
 import java.util.Calendar;
-
+/**
+ * Clase: ControladorSelTrayecto. contiene las instancias de los botones, los JTextField, y los arrays del paneSelTrayecto
+ * @author IN1DM3B_18
+ *
+ */
 public class ControladorSelTrayecto {
 	
+	public ControladorSelTrayecto controladorSelTrayecto;
 	public JTextField activeTextfield;
 	public String busqueda;
 	public String[] resultadoBusqueda;
@@ -28,7 +33,6 @@ public class ControladorSelTrayecto {
 	public String codLinea;
 	public String codParadaOrigen;
 	public String codParadaDestino;
-	public ControladorSelTrayecto controladorSelTrayecto;
 	public String nombreTabla;
 	public String codTabla;
 	public PaneSelTrayecto paneSelTrayecto;
@@ -39,11 +43,13 @@ public class ControladorSelTrayecto {
 	boolean btnOrigenEnabled = false;
 	boolean btnDestinoEnabled = false;
 	
-	//Listeners de los botones
+	
 	public ControladorSelTrayecto(PaneSelTrayecto paneSelTrayecto, PaneMostrarCompra paneMostrarCompra)
 	{
 		controladorSelTrayecto=this;
 		this.paneSelTrayecto=paneSelTrayecto;
+		
+		//btnSelLinea: botón para seleccionar la Línea
 		paneSelTrayecto.btnSelLinea.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -59,6 +65,7 @@ public class ControladorSelTrayecto {
 			}
 		});
 		
+		//btnSelOrigen: botón para seleccionar Origen
 		paneSelTrayecto.btnSelOrigen.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -70,6 +77,7 @@ public class ControladorSelTrayecto {
 			}
 		});
 		
+		//btnSelDestino: botón seleccionar Destino
 		paneSelTrayecto.btnSelDestino.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -112,9 +120,7 @@ public class ControladorSelTrayecto {
 			public void changedUpdate(DocumentEvent e) {}
 		});
 		
-		
-		
-		
+		//
 		paneSelTrayecto.comboBoxBusqueda.addActionListener (new ActionListener () {
 		    @Override
 			public void actionPerformed(ActionEvent e) {

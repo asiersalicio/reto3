@@ -17,6 +17,9 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 
+/*
+ * Clase PaneLogin
+ */
 public class PaneLogin {
 	
 	public JPanel paneLogin;

@@ -12,7 +12,6 @@ import java.util.BitSet;
 import Controlador.ControlModelo;
 import ControladoresPaneles.ControladorSelTrayecto;
 
-
 	/**
 	 *Clase Llamadas: Se encarga de la llamada a los datos de la BBDD: búsquedas, consultas, actualizaciones, etc. 
 	 *Realizar una consultas a la BBDD: Recuperar información
@@ -25,7 +24,7 @@ public class Llamadas {
 	
 	public static final float precioGasolina = 0.8F;
 	
-	//Realizar una consulta a la BBDD: Recuperar información:
+	//Realizar una consulta a la BBDD: Recuperar información del Cliente
 	public static void RellenarCliente (Connection con, Cliente cliente, String dni)
 	{
 		//Declaración e inicialización de variables:
@@ -39,7 +38,7 @@ public class Llamadas {
 			System.out.println("Execute query");
 			ResultSet rs = stmt.executeQuery (query);
 			System.out.println("PRUEBA"); 
-			while (rs.next()) {
+			while (rs.next()) { //rs.next(): mientras exista otro rs, se pasa al siguiente con next()
 				cliente.setDNI(rs.getString("DNI"));
 				cliente.setNombreCliente(rs.getString("Nombre"));
 				cliente.setApellidos(rs.getString("Apellidos"));
@@ -127,7 +126,9 @@ public class Llamadas {
 	}
 
 
-	public static void verLinea (Connection con) 
+/*
+	 * public static void verLinea (Connection con) 
+
 	{
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
@@ -152,6 +153,7 @@ public class Llamadas {
 		}
 	}
 
+		 */
 	
 	public static void verLineas (Connection con)
 	{
