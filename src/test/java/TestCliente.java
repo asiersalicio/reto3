@@ -2,6 +2,9 @@
 import static org.junit.Assert.*;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import org.junit.Test;
 
@@ -22,7 +25,10 @@ public class TestCliente {
 	private String DNI="15236985K";
 	private String nombreCliente="Popeye";
 	private String apellidos="El marino";
-	private String fechaNac="1956-01-17";
+	
+	Calendar c = Calendar.getInstance();
+	Date fechaNac = new java.sql.Date(c.getTimeInMillis());
+	
 	private String sexo="V";
 	private String contrasena="ec5287c45f0e70ec22d52e8bcbeeb640";
 
