@@ -17,8 +17,10 @@ public class BBDD {
 	ResultSet rs = null;
 
 	
-	public static void Conectar(String urlBBDD, String username, String password)
+	public static boolean Conectar(String urlBBDD, String username, String password)
 	{
+		boolean error = false;
+		
 		System.out.println("Intentando conectarse a la BBDD " + urlBBDD + " con el nombre de usuario " + username + "...");
 		try
 		{
@@ -34,10 +36,11 @@ public class BBDD {
 			} catch (com.mysql.jdbc.exceptions.jdbc4.CommunicationsException e) {
 				e.printStackTrace();
 				System.out.println("Error en conexion con BBDD");
+				error = true;
 			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-
+				error = true;
+			} 
+			return error;
 	}
 	
 	//Se utilizan SQLException, es decir, el tratamiento de excepciones se realiza en la función printSQLException:

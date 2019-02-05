@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.event.DocumentEvent;
@@ -31,6 +34,7 @@ public class ControladorRegister {
 		paneRegister.btnVolverALogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				BorrarCampos();
 				ControlInterfaz.setPanel(paneLogin.paneLogin);
 			}
 		});
@@ -43,6 +47,7 @@ public class ControladorRegister {
 				if(ValidarCampos())
 				{
 					ControlModelo.RegistrarCliente(paneRegister);
+					BorrarCampos();
 					ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
 				}
 			}
@@ -70,6 +75,25 @@ public class ControladorRegister {
 			}
 			
 		
+	
+	
+		public void BorrarCampos()
+		{
+			//paneRegister.fechaNac.setDate(new Date());
+			paneRegister.comboBoxSexo.setSelectedIndex(0);
+			paneRegister.fieldApellidos.setText(null);
+			paneRegister.fieldDNI.setText(null);
+			paneRegister.fieldNombre.setText(null);
+			paneRegister.fieldPassword.setText(null);
+			paneRegister.fieldPassword2.setText(null);
+			paneRegister.lblErrApe.setVisible(false);
+			paneRegister.lblErrCont.setVisible(false);
+			paneRegister.lblErrFechaNac.setVisible(false);
+			paneRegister.lblErrNom.setVisible(false);
+			paneRegister.lblErrSexo.setVisible(false);
+			paneRegister.lblErrUs.setVisible(false);
+			paneRegister.progSegCont.setValue(0);
+		}
 	
 		public boolean ValidarCampos() {
 			boolean resultado=true;

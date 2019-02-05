@@ -6,26 +6,17 @@ import java.sql.SQLException;
 import Modelo.BBDD;
 import Modelo.Llamadas;
 import Vista.DebugMode;
+import Vista.SelectorBBDD;
 
 public class Main {
 
+	public static ControlInterfaz controlInterfaz;
+	public static ControlModelo controlModelo;
 		
 	public static void main(String[] args) {
 		
-		boolean debug = true;
 
-		BBDD.Conectar("mysql://192.168.101.16/termibus","hr","hr");
-		ControlModelo controlModelo = new ControlModelo();
-		
-		
-		//Crea un controlador de interfaz
-		ControlInterfaz controlInterfaz = new ControlInterfaz();
-		//Ejecuta el proceso para la creacion de la interfaz
-		ControlInterfaz.InicializarInterfaz();
-		if(debug)
-		{
-			new DebugMode(controlInterfaz);
-		}
+		SelectorBBDD selectorBBDD = new SelectorBBDD();
 		
 	}
 }
