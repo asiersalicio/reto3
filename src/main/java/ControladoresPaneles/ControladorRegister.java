@@ -1,20 +1,15 @@
 package ControladoresPaneles;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Calendar;
-import java.util.Date;
-
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
 import Controlador.ControladorContrasena;
-import Modelo.BBDD;
 import Modelo.Llamadas;
 import Vista.PaneLogin;
 import Vista.PaneRegister;
@@ -34,6 +29,7 @@ public class ControladorRegister {
 		paneRegister.btnVolverALogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				BorrarCampos();
 				ControlInterfaz.setPanel(paneLogin.paneLogin);
 			}
 		});
@@ -45,6 +41,7 @@ public class ControladorRegister {
 			public void mouseClicked(MouseEvent arg0) {
 				if(ValidarCampos())
 				{
+
 					String DNI=paneRegister.fieldDNI.getText();
 					String nombreCliente=paneRegister.fieldNombre.getText();
 					String apellidos=paneRegister.fieldApellidos.getText();
@@ -60,6 +57,7 @@ public class ControladorRegister {
 						break;
 					}
 					ControlModelo.RegistrarCliente(DNI, nombreCliente, apellidos, fechaNac, sexo, contrasena);
+					BorrarCampos();
 					ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
 				}
 			}
@@ -87,6 +85,25 @@ public class ControladorRegister {
 			}
 			
 		
+	
+	
+		public void BorrarCampos()
+		{
+			//paneRegister.fechaNac.setDate(new Date());
+			paneRegister.comboBoxSexo.setSelectedIndex(0);
+			paneRegister.fieldApellidos.setText(null);
+			paneRegister.fieldDNI.setText(null);
+			paneRegister.fieldNombre.setText(null);
+			paneRegister.fieldPassword.setText(null);
+			paneRegister.fieldPassword2.setText(null);
+			paneRegister.lblErrApe.setVisible(false);
+			paneRegister.lblErrCont.setVisible(false);
+			paneRegister.lblErrFechaNac.setVisible(false);
+			paneRegister.lblErrNom.setVisible(false);
+			paneRegister.lblErrSexo.setVisible(false);
+			paneRegister.lblErrUs.setVisible(false);
+			paneRegister.progSegCont.setValue(0);
+		}
 	
 		public boolean ValidarCampos() {
 			boolean resultado=true;
