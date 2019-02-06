@@ -61,7 +61,6 @@ public class ControlInterfaz {
 		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
 		controladorLogin = new ControladorLogin(paneLogin);
 		controladorPago = new ControladorPago(panePago);
-		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
 		paneRegister = new PaneRegister(frame1);
 		controladorRegister = new ControladorRegister(paneRegister, paneLogin);
 
