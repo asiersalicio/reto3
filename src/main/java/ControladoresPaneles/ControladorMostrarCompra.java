@@ -6,6 +6,7 @@ import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
 import Controlador.ControladorFecha;
 import Modelo.Formato2dec;
+import Vista.PaneCambioFinal;
 import Vista.PaneMostrarCompra;
 
 /**

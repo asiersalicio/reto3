@@ -7,6 +7,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 
 import Controlador.ControlInterfaz;
+import ControladoresPaneles.ControladorCambioFinal;
 import Modelo.Devolucion;
 import Modelo.Formato2dec;
 import Modelo.ManejoBilletes;
@@ -30,8 +31,18 @@ public class PaneCambioFinal {
 	public static DefaultListModel<String> modelo2;
 	public JList<String> listaCambio;
 	public JLabel lblGraciasYBuen;
+	public JLabel lblTipo;
+	public static JLabel lblparaTipo;
+	public JLabel lblLinea;
+	public static JLabel lblparaLinea;
+	public JLabel lblTrayecto;
+	public static JLabel lblparaTrayecto;
+	public JLabel lblBillete;
+	public JLabel lblPrecio;
+	public static JLabel lblparaPrecio;
+	public static JLabel lblCodigo;
+	public JLabel lblSuBillete;
 
-	
 	
 	public PaneCambioFinal(Frame1 frame1)
 	{
@@ -49,8 +60,56 @@ public class PaneCambioFinal {
 		listaCambio.setBackground(Color.WHITE);
 		listaCambio.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, new Color(212, 208, 200), null, null, null), "Su Cambio :", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(153, 0, 0)));
 		listaCambio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		listaCambio.setBounds(73, 141, 239, 244);
+		listaCambio.setBounds(74, 179, 239, 244);
 		paneCambioFinal.add(listaCambio);
+		
+		lblTipo = new JLabel("Tipo:");
+		lblTipo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
+		lblTipo.setBounds(391, 253, 62, 14);
+		paneCambioFinal.add(lblTipo);
+		
+		lblparaTipo = new JLabel("");
+		lblparaTipo.setForeground(Color.GRAY);
+		lblparaTipo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
+		lblparaTipo.setBounds(447, 253, 216, 14);
+		paneCambioFinal.add(lblparaTipo);
+		
+		lblLinea = new JLabel("Linea");
+		lblLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
+		lblLinea.setBounds(391, 277, 62, 14);
+		paneCambioFinal.add(lblLinea);
+		
+		lblparaLinea = new JLabel("");
+		lblparaLinea.setForeground(Color.GRAY);
+		lblparaLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
+		lblparaLinea.setBounds(447, 277, 216, 14);
+		paneCambioFinal.add(lblparaLinea);
+		
+		lblTrayecto = new JLabel("Trayecto:");
+		lblTrayecto.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
+		lblTrayecto.setBounds(391, 302, 62, 14);
+		paneCambioFinal.add(lblTrayecto);
+		
+		lblPrecio = new JLabel("Precio:");
+		lblPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
+		lblPrecio.setBounds(391, 327, 62, 14);
+		paneCambioFinal.add(lblPrecio);
+		
+		lblparaPrecio = new JLabel("");
+		lblparaPrecio.setForeground(Color.GRAY);
+		lblparaPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
+		lblparaPrecio.setBounds(447, 327, 216, 14);
+		paneCambioFinal.add(lblparaPrecio);
+		
+		lblparaTrayecto = new JLabel("");
+		lblparaTrayecto.setForeground(Color.GRAY);
+		lblparaTrayecto.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
+		lblparaTrayecto.setBounds(447, 302, 216, 14);
+		paneCambioFinal.add(lblparaTrayecto);
+		
+		lblCodigo = new JLabel("");
+		lblCodigo.setBounds(391, 367, 294, 14);
+		paneCambioFinal.add(lblCodigo);
 		
 		JLabel lblLogoGrande = new JLabel("");
 		lblLogoGrande.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/logo-termibus.png")));
@@ -61,16 +120,24 @@ public class PaneCambioFinal {
 		lblLogoPeke.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
 		lblLogoPeke.setBounds(10, 505, 70, 64);
 		paneCambioFinal.add(lblLogoPeke);
-		
+
 		lblGraciasYBuen = new JLabel("Gracias y buen viaje ! Imprimiendo sus billetes....");
 		lblGraciasYBuen.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGraciasYBuen.setForeground(new Color(0, 51, 102));
 		lblGraciasYBuen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblGraciasYBuen.setBounds(190, 505, 397, 25);
 		paneCambioFinal.add(lblGraciasYBuen);
+						
+		lblBillete = new JLabel("");
+		lblBillete.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/billete-termibus.png")));
+		lblBillete.setBounds(381, 209, 314, 184);
+		paneCambioFinal.add(lblBillete);
 		
-		
-		
+		lblSuBillete = new JLabel("Su Billete :");
+		lblSuBillete.setForeground(new Color(153, 0, 0));
+		lblSuBillete.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
+		lblSuBillete.setBounds(381, 184, 101, 14);
+		paneCambioFinal.add(lblSuBillete);
 		paneCambioFinal.setVisible(false);
 	}
 }
