@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import ControladoresPaneles.ControladorCambioFinal;
 import ControladoresPaneles.ControladorLogin;
 import ControladoresPaneles.ControladorMostrarCompra;
 import ControladoresPaneles.ControladorPago;
@@ -42,6 +43,8 @@ public class ControlInterfaz {
 	public static ControladorMostrarCompra controladorMostrarCompra;
 	public static ControladorPago controladorPago;
 	public static ControladorRegister controladorRegister;
+	public static ControladorCambioFinal controladorCambioFinal;
+	
 
 	
 	public static void InicializarInterfaz()
@@ -61,10 +64,9 @@ public class ControlInterfaz {
 		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
 		controladorLogin = new ControladorLogin(paneLogin);
 		controladorPago = new ControladorPago(panePago);
-		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
 		paneRegister = new PaneRegister(frame1);
 		controladorRegister = new ControladorRegister(paneRegister, paneLogin);
-
+		controladorCambioFinal = new ControladorCambioFinal(paneCambioFinal,panePago);
 		
 		//Establece como visible el JFrame
 		frame1.frame1.setVisible(true);

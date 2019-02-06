@@ -1,6 +1,7 @@
 package Controlador;
 
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Date;
 
 import Modelo.Autobus;
@@ -40,27 +41,14 @@ public class ControlModelo {
 	}
 	
 	//RegistrarCliente: Introduce los datos introducidos por el usuario en el paneRegister en la BBDD.
-	public static void RegistrarCliente(PaneRegister paneRegister)
+	public static void RegistrarCliente(String DNI, String nombreCliente, String apellidos, Calendar fechaNac, String sexo, String contrasena)
 	{
-		String DNI=paneRegister.fieldDNI.getText();
-		String nombreCliente=paneRegister.fieldNombre.getText();
-		String apellidos=paneRegister.fieldApellidos.getText();
-		//Date fechaNac=paneRegister.fechaNac.getDate();
-		String sexo = null;
 		
-		switch (paneRegister.comboBoxSexo.getSelectedIndex()) {
-		case 1: sexo="M";
-			break;
-		case 2: sexo="H";
-			break;
-		case 3: sexo="O";
-			break;
-		}
+		System.out.println(fechaNac);
 
-		String contrasena=ControladorContrasena.encriptarContrasena(String.valueOf(paneRegister.fieldPassword.getPassword()));
 		System.out.println("Registrando usuario: " + DNI + "/" + contrasena);
 		try {
-				Llamadas.insertarCliente(BBDD.connection, DNI, nombreCliente, apellidos, contrasena, sexo);
+				Llamadas.insertarCliente(BBDD.connection, DNI, nombreCliente, apellidos, contrasena, sexo, fechaNac);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

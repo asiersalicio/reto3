@@ -15,7 +15,7 @@ public class PanePago {
 	public JPanel panePago;
 	public JTextField txtfaltaporpagar;
 	public JTextField txtaPagar2;
-	public static JTextField txtCambio2;
+	public JTextField txtCambio2;
 	public JButton btnImpresionBillete;
 	public JButton Boton1euro;
 	public JButton Boton1cent;

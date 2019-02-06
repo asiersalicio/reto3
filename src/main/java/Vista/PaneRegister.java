@@ -134,8 +134,7 @@ public class PaneRegister {
 		fieldPassword.setBounds(200, 374, 236, 37);
 		paneRegister.add(fieldPassword);
 		
-		JDateChooser fechaNac = new JDateChooser();
-		fechaNac.setDateFormatString("yyyy-MM-dd");
+		fechaNac = new JDateChooser();
 	    fechaNac.setBounds(200, 328, 236, 35);
 	    paneRegister.add(fechaNac);
 		

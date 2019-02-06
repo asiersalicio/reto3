@@ -1,20 +1,15 @@
 package ControladoresPaneles;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.swing.DefaultComboBoxModel;
+import java.util.Calendar;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
-import Modelo.BBDD;
+import Controlador.ControladorContrasena;
 import Modelo.Llamadas;
 import Vista.PaneLogin;
 import Vista.PaneRegister;
@@ -46,7 +41,22 @@ public class ControladorRegister {
 			public void mouseClicked(MouseEvent arg0) {
 				if(ValidarCampos())
 				{
-					ControlModelo.RegistrarCliente(paneRegister);
+
+					String DNI=paneRegister.fieldDNI.getText();
+					String nombreCliente=paneRegister.fieldNombre.getText();
+					String apellidos=paneRegister.fieldApellidos.getText();
+					String contrasena=ControladorContrasena.encriptarContrasena(String.valueOf(paneRegister.fieldPassword.getPassword()));
+					Calendar fechaNac=paneRegister.fechaNac.getCalendar();
+					String sexo = null;
+					switch (paneRegister.comboBoxSexo.getSelectedIndex()) {
+					case 1: sexo="M";
+						break;
+					case 2: sexo="H";
+						break;
+					case 3: sexo="O";
+						break;
+					}
+					ControlModelo.RegistrarCliente(DNI, nombreCliente, apellidos, fechaNac, sexo, contrasena);
 					BorrarCampos();
 					ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
 				}

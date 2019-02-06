@@ -6,10 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.BitSet;
+import java.util.Calendar;
+
+import javax.swing.text.MaskFormatter;
 
 import Controlador.ControlModelo;
+import Controlador.ControladorFecha;
 import ControladoresPaneles.ControladorSelTrayecto;
 
 	/**
@@ -261,10 +266,12 @@ public class Llamadas {
 	
 	
 	
-	public static void insertarCliente(Connection con, String DNI, String nombreCliente, String apellidos, String contrasena, String sexo) throws SQLException {
+	public static void insertarCliente(Connection con, String DNI, String nombreCliente, String apellidos, String contrasena, String sexo, Calendar fechaNac) throws SQLException {
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
-		String query="INSERT INTO cliente(DNI, Nombre, Apellidos, fecha_nac, sexo, Contrasena) values ('" + DNI + "', '" + nombreCliente + "', '" + apellidos + "', 20000101, '" + sexo +"', '" + contrasena + "'); ";		System.out.println(query);
+		String fechaconcatenada=ControladorFecha.CalendarToString(fechaNac);
+		System.out.println("Fecha de nacimiento: " + fechaconcatenada);
+		String query="INSERT INTO cliente(DNI, Nombre, Apellidos, fecha_nac, sexo, Contrasena) values ('" + DNI + "', '" + nombreCliente + "', '" + apellidos + "', " + fechaconcatenada +", '" + sexo +"', '" + contrasena + "'); ";		System.out.println(query);
 		//Inicio programa:	
 		try {
 			stmt = con.createStatement();

@@ -29,7 +29,7 @@ public class ManejoBilletes {
 			System.out.print(this.contadorBillete+" "+this.contadorBillete);
 		
 		}
-		public static void rellenarLista()
+		public static void rellenarLista(PanePago panePago)
 		{
 
 			ManejoBilletes[] listaBilletes=new ManejoBilletes[14];
@@ -48,7 +48,7 @@ public class ManejoBilletes {
 			listaBilletes[12]=new ManejoBilletes("Moneda de 2c",0);
 			listaBilletes[13]=new ManejoBilletes("Moneda de 1c",0);
 			
-			float cambio=Float.parseFloat(PanePago.txtCambio2.getText());
+			float cambio=Float.parseFloat(panePago.txtCambio2.getText());
 			Devolucion.Dinero(cambio, listaBilletes);
 			
 			

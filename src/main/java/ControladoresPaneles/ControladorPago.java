@@ -35,89 +35,83 @@ public class ControladorPago {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ControlInterfaz.setPanel(ControlInterfaz.paneCambioFinal.paneCambioFinal);
-				ManejoBilletes.rellenarLista();
+				ManejoBilletes.rellenarLista(panePago);
 				
-			}
-		});
-		panePago.Boton1euro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panePago.txtfaltaporpagar.setText(Double.toString(Pagar.porPagar(8,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete)));
 			}
 		});
 		panePago.Boton1cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(13,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(14,panePago);
 			}
 		});
 		panePago.Boton50cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(8,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(9,panePago);
 			}
 		});
 		panePago.Boton20cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(9,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(10,panePago);
 			}
 		});
 		panePago.Boton10cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(10,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(11,panePago);
 			}
 		});
 		panePago.Boton5cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(11,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(12,panePago);
 			}
 		});
 		panePago.Boton2cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(12,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(13,panePago);
 			}
 		});
 		panePago.Boton1euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(7,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(8,panePago);
 			}
 		});
 		panePago.Boton2euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(8,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(7,panePago);
 	
 			}
 		});
 		panePago.Boton200euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(1,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(1,panePago);
 				
 			}
 		});
 		panePago.Boton100euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(2,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(2,panePago);
 
 			}
 		});
 		panePago.Boton50euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				Pagar.porPagar(3,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);	
-
+				Pagar.pagar(3,panePago);
 			}
 		});
 		panePago.Boton20euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(4,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(4,panePago);
 
 
 				
@@ -126,15 +120,14 @@ public class ControladorPago {
 		panePago.Boton10euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(5,aPagar, faltaPorPagar, totalPagado, panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
+				Pagar.pagar(5,panePago);
 
 			}
 		});
 		panePago.Boton5euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.porPagar(6,aPagar, faltaPorPagar, totalPagado,panePago.txtCambio2,panePago.txtfaltaporpagar,panePago.btnImpresionBillete);
-
+				Pagar.pagar(6,panePago);
 				
 			}
 		});

@@ -2,263 +2,275 @@ package Modelo;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import Vista.PanePago;
+import Vista.PaneSelTrayecto;
 
 public class Pagar {
 	
 
-		public static double porPagar(int dineroIntroducido,double aPagar,double faltaPorPagar, double totalPagado, JTextField txtCambio2,JTextField txtfaltaporpagar,JButton BotonValidar)
+		public static void pagar(int dineroIntroducido,PanePago panePago)
 		{
+			float aPagar=Float.parseFloat(panePago.txtfaltaporpagar.getText());
+			System.out.println("aPagar "+aPagar);
 			float valorBillete=0;
 			switch (dineroIntroducido)            // Restamos la cantidad de dinero introducido a la cantidad total.
 			{
-				case 1: valorBillete=200;
-					aPagar=aPagar-valorBillete;
-					if (faltaPorPagar - valorBillete>0) // Cogemos el valor del txt lo pasamos a float, le pasamos el formateador y le restamos la cantidad introducida.
+
+					
+					case 1: valorBillete=200;
+					if (aPagar>0)
 					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
 						{
-							txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-							txtfaltaporpagar.setText("0");
-							BotonValidar.setVisible(true);
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
 						}
-					}
-					break;
-				
-				case 2: valorBillete=100;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
+						else
 						{
-							txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-							txtfaltaporpagar.setText("0");
-							BotonValidar.setVisible(true);
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
 						}
-					}
-					break;
-				
-				case 3: valorBillete=50;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-							txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-							txtfaltaporpagar.setText("0");
-							BotonValidar.setVisible(true);
-						}
-					}
-					break;
-				
-				case 4: valorBillete=20;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-							txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-							txtfaltaporpagar.setText("0");
-							BotonValidar.setVisible(true);
-						}
-					}
-					break;
-				
-				case 5: valorBillete=10;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-						txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-						txtfaltaporpagar.setText("0");
-						BotonValidar.setVisible(true);
-						}
-						
-					}
-					break;
-				
-				case 6: valorBillete=5;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-							txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-							txtfaltaporpagar.setText("0");
-							BotonValidar.setVisible(true);
-						}
-						
-					}
-					break;
-				
-				case 7: valorBillete=2;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-							txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-							txtfaltaporpagar.setText("0");
-							BotonValidar.setVisible(true);
-						}
-						
-					}
-					break;
-				
-				case 8: valorBillete=1;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-						txtCambio2.setText(Float.toString((float) ((faltaPorPagar - valorBillete)*-1)));
-						txtfaltaporpagar.setText("0");
-						BotonValidar.setVisible(true);
-						}
-						
-					}
-					break;
-				
-				case 9: valorBillete=(float) 0.5;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-							txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-							txtfaltaporpagar.setText("0");
-							BotonValidar.setVisible(true);
-						}
-						
-					}
-					break;
-				
-				case 10: valorBillete=(float) 0.2;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-						txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-						txtfaltaporpagar.setText("0");
-						BotonValidar.setVisible(true);
-						}
-						
-					}
-					break;
-				
-				case 11: valorBillete=(float) 0.1;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-							txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-							txtfaltaporpagar.setText("0");
-							BotonValidar.setVisible(true);
-						}
-						
-					}
-					break;
-				
-				case 12: valorBillete=(float) 0.05;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-						txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-						txtfaltaporpagar.setText("0");
-						BotonValidar.setVisible(true);
-						}
-						
-					}
-					break;
-				
-				case 13: valorBillete=(float) 0.02;
-					aPagar=aPagar-valorBillete;
-					if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-					{
-						txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
-					}
-					else
-					{
-						if (Float.parseFloat(txtCambio2.getText())==0)
-						{
-							txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-							txtfaltaporpagar.setText("0");
-							BotonValidar.setVisible(true);
-						}
-						
-					}
-					break;
-				
-				case 14: valorBillete=(float) 0.01;
-					aPagar=aPagar-valorBillete;
-				if (Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)>0)
-				{
-					txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
-				}
-				else
-				{
-					if (Float.parseFloat(txtCambio2.getText())==0)
-					{
-						txtCambio2.setText(String.valueOf(Formato2dec.formateador(Float.parseFloat(txtfaltaporpagar.getText()) - valorBillete)*-1));
-						txtfaltaporpagar.setText("0");
-						BotonValidar.setVisible(true);
 					}
 					
-				}
-				break;
+					break;
+					case 2: valorBillete=100;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					case 3: valorBillete=50;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					case 4: valorBillete=20;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					case 5: valorBillete=10;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					case 6: valorBillete=5;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					case 7: valorBillete=2;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					case 8: valorBillete=1;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					
+					case 9: valorBillete=(float)0.50;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+			
+					break;
+					case 10: valorBillete=(float)0.20;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					case 11: valorBillete=(float)0.10;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					break;
+					
+					case 12: valorBillete=(float)0.05;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					case 13: valorBillete=(float)0.02;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
+					case 14: valorBillete=(float)0.01;
+					if (aPagar>0)
+					{
+						aPagar=aPagar-valorBillete;
+						if (aPagar>0)
+						{
+							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+						}
+						else
+						{
+							panePago.txtfaltaporpagar.setText("0");
+							aPagar=aPagar*-1;
+							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.btnImpresionBillete.setVisible(true);
+						}
+					}
+					
+					break;
 			}
-			return valorBillete;
 		}
 }
+
