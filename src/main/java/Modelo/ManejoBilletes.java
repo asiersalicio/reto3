@@ -1,6 +1,7 @@
 package Modelo;
 
 
+import Controlador.ControlModelo;
 import Vista.PaneCambioFinal;
 import Vista.PanePago;
 
@@ -60,5 +61,27 @@ public class ManejoBilletes {
 					PaneCambioFinal.modelo2.addElement(listaBilletes[i].contadorBillete+" x "+listaBilletes[i].nombreBillete);
 				}
 			}
+		}
+		
+		public static void RellenarDatosBillete(PanePago panePago) {
+			float precio = ControlModelo.precio;
+			if(ControlModelo.viajeDeVuelta) {
+				PaneCambioFinal.lblparaTipo.setText("Ida y vuelta");
+				precio=precio*2;
+			}
+			else
+			{
+				PaneCambioFinal.lblparaTipo.setText("Solo ida");
+				
+			}
+
+			PaneCambioFinal.lblparaLinea.setText(ControlModelo.linea.getCodLinea() + ": " + ControlModelo.linea.getNombreLinea());
+			PaneCambioFinal.lblparaTrayecto.setText(ControlModelo.paradaOrigen.getNombreParada() + " -> " + ControlModelo.paradaDestino.getNombreParada());
+			PaneCambioFinal.lblparaPrecio.setText(precio + "€");
+			System.out.println(ControlModelo.billeteIda.codBillete);
+			PaneCambioFinal.lblCodigo.setText("<<<<<<<<"+ControlModelo.billeteIda.codBillete+">>>>>>>>>");
+			//paneMostrarCompra.fieldFechaIda.setText(ControlModelo.fechaIda.toLocaleString());
+			//panePago.txtaPagar2.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precio)));
+			//panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precio)));
 		}
 }

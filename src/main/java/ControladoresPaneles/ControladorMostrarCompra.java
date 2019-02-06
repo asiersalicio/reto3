@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
 import Modelo.Formato2dec;
+import Vista.PaneCambioFinal;
 import Vista.PaneMostrarCompra;
 
 /**
