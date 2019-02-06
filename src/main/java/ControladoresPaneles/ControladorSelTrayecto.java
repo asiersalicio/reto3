@@ -102,8 +102,10 @@ public class ControladorSelTrayecto {
 				resultadoBusquedaCod = new String[1];
 				if(operationMode<0)
 					Llamadas.busquedaLinea(BBDD.connection, paneSelTrayecto.FieldBusqueda.getText(), controladorSelTrayecto);
-				else
+				else if (operationMode==0)
 					Llamadas.busquedaParada(BBDD.connection, paneSelTrayecto.FieldBusqueda.getText(), controladorSelTrayecto, codLinea);
+				else
+					Llamadas.busquedaParadaEvitando(BBDD.connection, paneSelTrayecto.FieldBusqueda.getText(), controladorSelTrayecto, codLinea, codParadaOrigen);
 				
 				DefaultComboBoxModel model = new DefaultComboBoxModel(controladorSelTrayecto.resultadoBusqueda);
 				paneSelTrayecto.comboBoxBusqueda.setModel(model);
@@ -174,11 +176,11 @@ public class ControladorSelTrayecto {
 				ControlModelo.EstablecerLinea(codLinea);
 				ControlModelo.EstablecerParadaOrigen(codParadaOrigen);
 				ControlModelo.EstablecerParadaDestino(codParadaDestino);
-				ControlModelo.fechaIda=paneSelTrayecto.dateChooserIda.getCalendar().getTime();
+				ControlModelo.fechaIda=paneSelTrayecto.dateChooserIda.getCalendar();
 				System.out.println("Fecha de ida: " + ControlModelo.fechaIda);
 				if(paneSelTrayecto.chckbxVuelta.isSelected())
 				{
-				ControlModelo.fechaVuelta=paneSelTrayecto.dateChooserVuelta.getCalendar().getTime();
+				ControlModelo.fechaVuelta=paneSelTrayecto.dateChooserVuelta.getCalendar();
 				System.out.println("Fecha de vuelta: " + ControlModelo.fechaVuelta);
 				}
 				ControlModelo.CalcularDatosCompra();

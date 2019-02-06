@@ -29,8 +29,8 @@ public class ControlModelo {
 	public static Billete billeteVuelta;
 	public static Autobus autobus;
 	public static float precio;
-	public static Date fechaIda;
-	public static Date fechaVuelta;
+	public static Calendar fechaIda;
+	public static Calendar fechaVuelta;
 	public static boolean viajeDeVuelta;
 	
 	//EstablecerClienteActual: rellena el objeto cliente con el cliente al que pertenece el dni que se pasa por parámetro. 

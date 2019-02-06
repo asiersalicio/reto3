@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JCalendar;
@@ -136,6 +137,10 @@ public class PaneRegister {
 		
 		fechaNac = new JDateChooser();
 	    fechaNac.setBounds(200, 328, 236, 35);
+	    
+	    Calendar LimitadorFecha = Calendar.getInstance(); LimitadorFecha.add(Calendar.YEAR, 18); LimitadorFecha.add(Calendar.DATE, -1); Date date = LimitadorFecha.getTime();
+	    
+	    fechaNac.getJCalendar().setMinSelectableDate(date);
 	    paneRegister.add(fechaNac);
 		
 		JLabel lblFechaNacimiento = new JLabel("Fecha Nacimiento :");
