@@ -18,7 +18,7 @@ import Modelo. Billete;
  * @param fecha
  * @param hora
  * @param DNI
- * @param precio
+ * @param precioIda
  * 
  */
 

@@ -28,6 +28,8 @@ import ControladoresPaneles.ControladorSelTrayecto;
 public class Llamadas {
 	
 	public static final float precioGasolina = 0.8F;
+	public static final float beneficio = 1.2F;
+	public static final float IVA = 1.21F;
 	
 	//Realizar una consulta a la BBDD: Recuperar información del Cliente
 	public static void RellenarCliente (Connection con, Cliente cliente, String dni)
@@ -71,6 +73,40 @@ public class Llamadas {
 				int contador = 1;
 				String query;
 				query = "select nombre, cod_linea from linea where upper(nombre) like '%" + busqueda.toUpperCase() + "%'";	
+				System.out.println("Query: " + query);
+					//Inicio programa:
+				try {
+					stmt = con.createStatement(); 
+					ResultSet rs = stmt.executeQuery (query);
+					while (rs.next()) {
+
+						controladorSelTrayecto.resultadoBusqueda=Arrays.copyOf(controladorSelTrayecto.resultadoBusqueda, contador); 
+						controladorSelTrayecto.resultadoBusquedaCod=Arrays.copyOf(controladorSelTrayecto.resultadoBusquedaCod, contador);
+						controladorSelTrayecto.resultadoBusquedaCod[contador-1]=rs.getString("cod_linea");
+						controladorSelTrayecto.resultadoBusqueda[contador-1]=rs.getString("nombre");
+						contador++;
+					}
+					
+				} catch (SQLException ex){
+					printSQLException(ex);
+				} finally {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+	}
+	
+	
+	public static void TodasLasLineas(Connection con, ControladorSelTrayecto controladorSelTrayecto)
+	{
+		//Declaración e inicialización de variables:
+				Statement stmt = null;
+				int contador = 1;
+				String query;
+				query = "select nombre, cod_linea from linea;";	
 				System.out.println("Query: " + query);
 					//Inicio programa:
 				try {
@@ -506,7 +542,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 	
 }
 
-	public static int SeleccionarAutobus(Connection con)
+	public static int SeleccionarAutobus(Connection con, Calendar fecha)
 	{
 		
 		//Declaración e inicialización de variables:
@@ -549,7 +585,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 				stmt = null;
 				
 				
-				query = "select count(*) from billete where cod_bus=" + codautobus[y] + ";";
+				query = "select count(*) from billete where cod_bus=" + codautobus[y] + " and fecha="+ ControladorFecha.CalendarToString(fecha) +";";
 				//Inicio programa:
 				try {
 					stmt = con.createStatement(); 
@@ -573,8 +609,9 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 				}while(pLibres<=0&&y<i);
 				
 				
-				if(pLibres>=1)
-					return codautobus[y];
+				if(pLibres>=1) {
+					System.out.println("Autobus seleccionado Nº" + codautobus[y]);
+					return codautobus[y];}
 				else
 					return -1;
 				
@@ -672,18 +709,18 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 		return codBillete;
 	}
 	
-	public static float CalcularPrecioBus()
+	public static float CalcularPrecioBus(Autobus autobus)
 	{
-		float consumoBus = ControlModelo.autobus.getConsumoKM();
-		return consumoBus*precioGasolina;
+		float consumoBus = autobus.getConsumoKM();
+		return consumoBus*precioGasolina*beneficio*IVA;
 	}
 
-	public static float CalcularPrecioBillete(Connection connection) {
+	public static float CalcularPrecioBillete(Connection connection, Autobus autobus) {
 			float distancia;
 			float precioKM;
 			float precio;
 			distancia=CalcularDistanciaEuclidea(BBDD.connection);
-			precioKM=CalcularPrecioBus();
+			precioKM=CalcularPrecioBus(autobus);
 			System.out.println("Distancia: " + distancia);
 			System.out.println("PrecioKM: " + precioKM);
 			precio=precioKM*distancia;

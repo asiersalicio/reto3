@@ -27,8 +27,10 @@ public class ControlModelo {
 	public static LineaParada lineaParada;
 	public static Billete billeteIda;
 	public static Billete billeteVuelta;
-	public static Autobus autobus;
-	public static float precio;
+	public static Autobus autobusIda;
+	public static Autobus autobusVuelta;
+	public static float precioIda = 0;
+	public static float precioVuelta = 0;
 	public static Calendar fechaIda;
 	public static Calendar fechaVuelta;
 	public static boolean viajeDeVuelta;
@@ -79,15 +81,31 @@ public class ControlModelo {
 	}
 
 	//clase CalcularDatosCompra: se calcula el código autobús y el precio del Billete
-	public static boolean CalcularDatosCompra() {
-		int codBus;
-		codBus=Llamadas.SeleccionarAutobus(BBDD.connection);
-		if(!(codBus==-1))
+	public static boolean CalcularDatosCompra(Calendar fechaIda, boolean vuelta, Calendar fechaVuelta) {
+		int codBusIda = 0;
+		int codBusVuelta = 0;
+		boolean noErrorVuelta=true;
+		codBusIda=Llamadas.SeleccionarAutobus(BBDD.connection, fechaIda);
+		if(vuelta)
 		{
-		autobus = new Autobus();
-		autobus=Llamadas.RellenarAutobus(BBDD.connection, codBus, autobus);
+		codBusVuelta=Llamadas.SeleccionarAutobus(BBDD.connection, fechaVuelta);
+		}
+		
+		if(!(codBusIda==-1))
+		{
+		autobusIda = new Autobus();
+		autobusIda=Llamadas.RellenarAutobus(BBDD.connection, codBusIda, autobusIda);
 		System.out.println("Calulando distancia entre " + paradaOrigen.getNombreParada() + " y " + paradaDestino.getNombreParada() + "...");
-		precio=Llamadas.CalcularPrecioBillete(BBDD.connection);
+		precioIda=Llamadas.CalcularPrecioBillete(BBDD.connection, autobusIda);
+		
+		if(!(codBusVuelta==-1)&&vuelta)
+		{
+			autobusVuelta = new Autobus();
+			autobusVuelta=Llamadas.RellenarAutobus(BBDD.connection, codBusVuelta, autobusVuelta);
+			System.out.println("Calulando distancia entre " + paradaDestino.getNombreParada() + " y " + paradaOrigen.getNombreParada() + "...");
+			precioVuelta=Llamadas.CalcularPrecioBillete(BBDD.connection, autobusVuelta);
+		}
+		
 		return true;
 		}
 		else
@@ -102,12 +120,12 @@ public class ControlModelo {
 	{
 		int codBillete;
 		codBillete=Llamadas.CalcularCodBillete(BBDD.connection);
-		billeteIda = new Billete(codBillete, 0, linea.getCodLinea(), autobus, paradaOrigen, paradaDestino, fechaIda, cliente, precio);
+		billeteIda = new Billete(codBillete, 0, linea.getCodLinea(), autobusIda, paradaOrigen, paradaDestino, fechaIda, cliente, precioIda);
 		Llamadas.insertarBillete(BBDD.connection, billeteIda, viajeDeVuelta);
 		
 		if(ControlModelo.viajeDeVuelta) {
 		codBillete=Llamadas.CalcularCodBillete(BBDD.connection);
-		billeteVuelta = new Billete(codBillete, 1, linea.getCodLinea(), autobus, paradaOrigen, paradaDestino, fechaIda, cliente, precio);
+		billeteVuelta = new Billete(codBillete, 1, linea.getCodLinea(), autobusIda, paradaOrigen, paradaDestino, fechaIda, cliente, precioIda);
 		Llamadas.insertarBillete(BBDD.connection, billeteVuelta, viajeDeVuelta);
 		}
 }

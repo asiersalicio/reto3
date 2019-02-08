@@ -15,7 +15,7 @@ import java.util.Calendar;
  * @param fecha
  * @param hora
  * @param DNI
- * @param precio
+ * @param precioIda
  * 
  */
 

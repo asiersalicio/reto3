@@ -147,9 +147,9 @@ public class PaneRegister {
 
 	    fechaNac.setBounds(264, 303, 236, 35);
 	    
-	    Calendar LimitadorFecha = Calendar.getInstance(); LimitadorFecha.add(Calendar.YEAR, 18); LimitadorFecha.add(Calendar.DATE, -1); Date date = LimitadorFecha.getTime();
+	    Calendar LimitadorFecha = Calendar.getInstance(); LimitadorFecha.add(Calendar.YEAR, -18); LimitadorFecha.add(Calendar.DATE, -1); Date date = LimitadorFecha.getTime();
 	    
-	    fechaNac.getJCalendar().setMinSelectableDate(date);
+	    fechaNac.getJCalendar().setMaxSelectableDate(date);
 	    paneRegister.add(fechaNac);
 		
 		lblFechaNacimiento = new JLabel("Fecha Nacimiento :");

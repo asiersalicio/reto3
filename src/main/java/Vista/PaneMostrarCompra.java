@@ -47,6 +47,7 @@ public class PaneMostrarCompra {
 	public JLabel lblPrecio;
 	public JLabel logoGrande;
 	public JLabel logoPeke;
+	public JLabel lblidaYVuelta;
 	
 	public PaneMostrarCompra(Frame1 frame1)
 	{
@@ -166,18 +167,26 @@ public class PaneMostrarCompra {
 		paneMostrarCompra.add(fieldFechaVuelta);
 		
 		MaskFormatter mfCC = null;
-		try {
+		/*try {
 			mfCC = new MaskFormatter("#.##€");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mfCC.setPlaceholderCharacter('0');
+		mfCC.setPlaceholderCharacter('0');*/
 		fieldPrecio = new JFormattedTextField(mfCC);
 		fieldPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldPrecio.setColumns(10);
 		fieldPrecio.setBounds(333, 415, 236, 37);
 		paneMostrarCompra.add(fieldPrecio);
+		
+		lblidaYVuelta = new JLabel("(Ida y Vuelta)");
+		lblidaYVuelta.setVisible(false);
+		lblidaYVuelta.setForeground(new Color(0, 51, 102));
+		lblidaYVuelta.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblidaYVuelta.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblidaYVuelta.setBounds(191, 445, 129, 21);
+		paneMostrarCompra.add(lblidaYVuelta);
 		
 	}
 }

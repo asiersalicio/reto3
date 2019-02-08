@@ -60,6 +60,7 @@ public class PaneSelTrayecto {
 	public JLabel lblSeleccioneLineaDe;
 	public JLabel lbllogoPeke ;
 	public JLabel lbllogoGrande;
+	public JLabel lblCamposSinCompletar;
 	
 	public PaneSelTrayecto(Frame1 frame1)
 	{
@@ -226,12 +227,19 @@ public class PaneSelTrayecto {
 		lbllogoGrande.setBounds(10, 505, 70, 64);
 		pane.add(lbllogoGrande);
 		
-		lblNoHayBuses = new JLabel("No hay buses disponbibles para esa fecha");
+		lblNoHayBuses = new JLabel("*No hay buses disponbibles para esa fecha");
 		lblNoHayBuses.setVisible(false);
 		lblNoHayBuses.setFont(new Font("Arial", Font.PLAIN, 13));
 		lblNoHayBuses.setForeground(Color.RED);
 		lblNoHayBuses.setBounds(149, 430, 325, 25);
 		pane.add(lblNoHayBuses);
+		
+		lblCamposSinCompletar = new JLabel("*Hay campos sin completar");
+		lblCamposSinCompletar.setVisible(false);
+		lblCamposSinCompletar.setForeground(Color.RED);
+		lblCamposSinCompletar.setFont(new Font("Arial", Font.PLAIN, 13));
+		lblCamposSinCompletar.setBounds(149, 457, 329, 25);
+		pane.add(lblCamposSinCompletar);
 		
 		pane.setVisible(false);
 	}
