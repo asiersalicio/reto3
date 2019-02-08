@@ -111,9 +111,9 @@ public class ControladorRegister {
 			paneRegister.lblErrApe.setVisible(false);paneRegister.lblErrCont.setVisible(false);
 			paneRegister.lblErrFechaNac.setVisible(false);paneRegister.lblErrNom.setVisible(false);
 			paneRegister.lblErrUs.setVisible(false);paneRegister.lblErrSexo.setVisible(false);
+			String dni=paneRegister.fieldDNI.getText();
 			
-			
-			if(paneRegister.fieldDNI.getText().length()!=9 || Llamadas.validarDNI(paneRegister.fieldDNI.getText()))
+			if(ControladorContrasena.validarFormatoDNI(dni)==false || Llamadas.validarDNI(dni))
 			{
 				paneRegister.lblErrUs.setVisible(true); resultado=false;
 			}
