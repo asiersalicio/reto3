@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Date;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import com.toedter.calendar.JDateChooser;
@@ -50,7 +51,15 @@ public class PaneSelTrayecto {
 	public JCheckBox chckbxVuelta;
 	public JButton btnBuscar;
 	public JButton btnCerrarBusqueda;
-	
+	public JLabel lblNoHayBuses;
+	public JLabel lblLinea;
+	public JLabel lblOrigen;
+	public JLabel lblDestino;
+	public Label lblFechaIda;
+	public Label lblFechaVuelta;
+	public JLabel lblSeleccioneLineaDe;
+	public JLabel lbllogoPeke ;
+	public JLabel lbllogoGrande;
 	
 	public PaneSelTrayecto(Frame1 frame1)
 	{
@@ -78,21 +87,21 @@ public class PaneSelTrayecto {
 		
 		pane.add(comboBoxBusqueda);
 		
-		JLabel lblLinea = new JLabel("Linea :");
+		lblLinea = new JLabel("Linea :");
 		lblLinea.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblLinea.setForeground(new Color(0, 51, 102));
 		lblLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblLinea.setBounds(91, 223, 126, 25);
 		pane.add(lblLinea);
 		
-		JLabel lblOrigen = new JLabel("Origen :");
+		lblOrigen = new JLabel("Origen :");
 		lblOrigen.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblOrigen.setForeground(new Color(0, 51, 102));
 		lblOrigen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblOrigen.setBounds(91, 264, 126, 25);
 		pane.add(lblOrigen);
 		
-		JLabel lblDestino = new JLabel("Destino :");
+		lblDestino = new JLabel("Destino :");
 		lblDestino.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblDestino.setForeground(new Color(0, 51, 102));
 		lblDestino.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
@@ -111,30 +120,33 @@ public class PaneSelTrayecto {
 		dateChooserIda = new JDateChooser();
 		dateChooserIda.setForeground(new Color(0, 51, 102));
 		dateChooserIda.setBackground(Color.WHITE);
-		dateChooserIda.setBounds(306, 351, 153, 29);
+		dateChooserIda.setBounds(312, 351, 153, 29);
+		dateChooserIda.getJCalendar().setMinSelectableDate(new Date());
 		pane.add(dateChooserIda);
 		
-		Label label = new Label("Fecha de Ida :");
-		label.setForeground(new Color(0, 51, 102));
-		label.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 14));
-		label.setBounds(185, 356, 115, 24);
-		pane.add(label);
+		lblFechaIda = new Label("Fecha de Ida :");
+		lblFechaIda.setForeground(new Color(0, 51, 102));
+		lblFechaIda.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 14));
+		lblFechaIda.setBounds(191, 356, 115, 24);
+		pane.add(lblFechaIda);
 		
 		dateChooserVuelta = new JDateChooser();
 		dateChooserVuelta.setForeground(new Color(0, 51, 102));
 		dateChooserVuelta.setBackground(Color.WHITE);
 		dateChooserVuelta.setEnabled(false);
-		dateChooserVuelta.setBounds(306, 387, 153, 29);
+		dateChooserVuelta.setBounds(312, 390, 153, 29);
+		dateChooserVuelta.getJCalendar().setMinSelectableDate(new Date());
+
 		pane.add(dateChooserVuelta);
 		
-		Label label_1 = new Label("Fecha de vuelta :");
-		label_1.setForeground(new Color(0, 51, 102));
-		label_1.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 14));
-		label_1.setBackground(Color.WHITE);
-		label_1.setBounds(162, 386, 148, 24);
-		pane.add(label_1);
+		lblFechaVuelta = new Label("Fecha de vuelta :");
+		lblFechaVuelta.setForeground(new Color(0, 51, 102));
+		lblFechaVuelta.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 14));
+		lblFechaVuelta.setBackground(Color.WHITE);
+		lblFechaVuelta.setBounds(168, 395, 148, 24);
+		pane.add(lblFechaVuelta);
 		
-		JLabel lblSeleccioneLineaDe = new JLabel("Seleccione su trayecto :");
+		lblSeleccioneLineaDe = new JLabel("Seleccione su trayecto :");
 		lblSeleccioneLineaDe.setForeground(new Color(204, 0, 0));
 		lblSeleccioneLineaDe.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
 		lblSeleccioneLineaDe.setBounds(10, 89, 303, 36);
@@ -204,15 +216,22 @@ public class PaneSelTrayecto {
 		chckbxVuelta.setBounds(478, 369, 159, 25);
 		pane.add(chckbxVuelta);
 		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/logo-termibus.png")));
-		label_2.setBounds(489, 8, 301, 117);
-		pane.add(label_2);
+		lbllogoPeke = new JLabel("");
+		lbllogoPeke.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/logo-termibus.png")));
+		lbllogoPeke.setBounds(489, 8, 301, 117);
+		pane.add(lbllogoPeke);
 		
-		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
-		label_3.setBounds(10, 505, 70, 64);
-		pane.add(label_3);
+		lbllogoGrande = new JLabel("");
+		lbllogoGrande.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
+		lbllogoGrande.setBounds(10, 505, 70, 64);
+		pane.add(lbllogoGrande);
+		
+		lblNoHayBuses = new JLabel("No hay buses disponbibles para esa fecha");
+		lblNoHayBuses.setVisible(false);
+		lblNoHayBuses.setFont(new Font("Arial", Font.PLAIN, 13));
+		lblNoHayBuses.setForeground(Color.RED);
+		lblNoHayBuses.setBounds(149, 430, 325, 25);
+		pane.add(lblNoHayBuses);
 		
 		pane.setVisible(false);
 	}

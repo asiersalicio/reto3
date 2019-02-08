@@ -33,6 +33,7 @@ public class PaneLogin {
 	private JLabel logoGrande;
 	private JLabel logoPeke;
 	public JLabel lblUsConNoValido;
+	public JLabel lblBienvenidaLogin;
 	
 	public PaneLogin(Frame1 frame1)
 	{
@@ -105,7 +106,7 @@ public class PaneLogin {
 		lblUsConNoValido.setBounds(307, 181, 246, 29);
 		paneLogin.add(lblUsConNoValido);
 		
-		JLabel lblBienvenidaLogin = new JLabel("Bienvenido, entre en su perfil :");
+		lblBienvenidaLogin = new JLabel("Bienvenido, entre en su perfil :");
 		lblBienvenidaLogin.setForeground(new Color(204, 0, 0));
 		lblBienvenidaLogin.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
 		lblBienvenidaLogin.setBounds(10, 83, 378, 45);

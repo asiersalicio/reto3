@@ -45,6 +45,8 @@ public class PaneMostrarCompra {
 	public JLabel lblFechaIda;
 	public JLabel lblFechaVuelta;
 	public JLabel lblPrecio;
+	public JLabel logoGrande;
+	public JLabel logoPeke;
 	
 	public PaneMostrarCompra(Frame1 frame1)
 	{
@@ -55,12 +57,12 @@ public class PaneMostrarCompra {
 		
 		frame1.frame1.getContentPane().add(paneMostrarCompra);
 		
-		JLabel logoGrande = new JLabel("");
+		logoGrande = new JLabel("");
 		logoGrande.setIcon(new ImageIcon(PaneMostrarCompra.class.getResource("/ImagenesVista/logo-termibus.png")));
 		logoGrande.setBounds(489, 11, 301, 117);
 		paneMostrarCompra.add(logoGrande);
 		
-		JLabel logoPeke = new JLabel("");
+		logoPeke = new JLabel("");
 		logoPeke.setIcon(new ImageIcon(PaneMostrarCompra.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
 		logoPeke.setBounds(10, 505, 70, 64);
 		paneMostrarCompra.add(logoPeke);

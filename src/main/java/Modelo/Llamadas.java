@@ -47,7 +47,7 @@ public class Llamadas {
 				cliente.setDNI(rs.getString("DNI"));
 				cliente.setNombreCliente(rs.getString("Nombre"));
 				cliente.setApellidos(rs.getString("Apellidos"));
-				cliente.setFechaNac(rs.getDate("Fecha_nac"));
+				//cliente.setFechaNac(rs.getDate("Fecha_nac"));
 				cliente.setSexo(rs.getString("sexo"));
 				cliente.setContrasena(rs.getString("Contrasena"));
 			}
@@ -104,6 +104,39 @@ public class Llamadas {
 				int contador = 1;
 				String query;
 				query = "select nombre, cod_parada from parada where upper(nombre) like '%" + busqueda.toUpperCase() + "%' and cod_parada in(select cod_parada from linea_parada where cod_linea='" + codLinea + "');";
+				System.out.println("Query: " + query);
+					//Inicio programa:
+				try {
+					stmt = con.createStatement(); 
+					ResultSet rs = stmt.executeQuery (query);
+					while (rs.next()) {
+
+						controladorSelTrayecto.resultadoBusqueda=Arrays.copyOf(controladorSelTrayecto.resultadoBusqueda, contador); 
+						controladorSelTrayecto.resultadoBusquedaCod=Arrays.copyOf(controladorSelTrayecto.resultadoBusquedaCod, contador);
+						controladorSelTrayecto.resultadoBusquedaCod[contador-1]=rs.getString("cod_parada");
+						controladorSelTrayecto.resultadoBusqueda[contador-1]=rs.getString("nombre");
+						contador++;
+					}
+					
+				} catch (SQLException ex){
+					printSQLException(ex);
+				} finally {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+	}
+	
+	public static void busquedaParadaEvitando(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto, String codLinea, String CodParadaEvitar)
+	{
+		//Declaración e inicialización de variables:
+				Statement stmt = null;
+				int contador = 1;
+				String query;
+				query = "select nombre, cod_parada from parada where upper(nombre) like '%" + busqueda.toUpperCase() + "%' and cod_parada in(select cod_parada from linea_parada where cod_linea='" + codLinea + "') AND NOT COD_PARADA =" + CodParadaEvitar +";";
 				System.out.println("Query: " + query);
 					//Inicio programa:
 				try {
@@ -478,16 +511,25 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 		
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
-				int codBus = 0;
-				String query = "select cod_bus from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + ControlModelo.linea.getCodLinea() + "') order by n_plazas desc;";
+				int codautobus[]=new int[1];
+				int nplazasbus[]=new int[1];
+				int i=0;
+				boolean sinBuses = false;
+				String query = "select cod_bus, n_plazas from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + ControlModelo.linea.getCodLinea() + "') group by cod_bus;";
 				//Inicio programa:
 				try {
 					stmt = con.createStatement(); 
 					ResultSet rs = stmt.executeQuery (query);
 					while (rs.next()) {
-						codBus = rs.getInt(1);
+						codautobus=Arrays.copyOf(codautobus, i+1);
+						nplazasbus=Arrays.copyOf(nplazasbus, i+1);
+						
+						codautobus[i]=rs.getInt("cod_bus");
+						nplazasbus[i]=rs.getInt("n_plazas");
+						System.out.println(codautobus[i] + " asientos: " + nplazasbus[i]);
+						i++;
 					}
-					
+					i--;
 				} catch (SQLException ex){
 					printSQLException(ex);
 				} finally {
@@ -498,7 +540,44 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 					e.printStackTrace();
 				}
 				}
-				return codBus;
+				
+				int pOcupadas = 0;
+				int pLibres = 0;
+				int y=-1;
+				do {
+					y++;
+				stmt = null;
+				
+				
+				query = "select count(*) from billete where cod_bus=" + codautobus[y] + ";";
+				//Inicio programa:
+				try {
+					stmt = con.createStatement(); 
+					ResultSet rs = stmt.executeQuery (query);
+					rs.next();
+					pOcupadas=rs.getInt(1);
+					System.out.println("Bus n: " + y + " cod: " + codautobus[y] + " plazas: " +  nplazasbus[y] + " ocupadas: " + pOcupadas);
+					pLibres=nplazasbus[y]-pOcupadas;		
+				} catch (SQLException ex){
+					printSQLException(ex);
+				} finally {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				
+				
+				}while(pLibres<=0&&y<i);
+				
+				
+				if(pLibres>=1)
+					return codautobus[y];
+				else
+					return -1;
+				
 
 	}
 	
@@ -611,7 +690,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 			System.out.println("Precio del billete: " + precio + "€");
 		return precio;
 	}
-	
+
 	
 	
 }

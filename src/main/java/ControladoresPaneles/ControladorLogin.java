@@ -32,15 +32,18 @@ public class ControladorLogin {
 		paneLogin.btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				boolean formatoDNIValido=false;
 				boolean dniValido = false;
 				boolean contrasenaValida = false;
 				String dni = paneLogin.textfieldUsername.getText();
+				formatoDNIValido=ControladorContrasena.validarFormatoDNI(dni);
+				System.out.println("El formato del dni es válido? " + formatoDNIValido);
 				dniValido=Llamadas.validarDNI(dni);
-				System.out.println("El dni es valido? " + dniValido);
+				System.out.println("El dni está en la BBDD? " + dniValido);
 				String contrasena=String.valueOf(paneLogin.fieldPassword.getPassword());
 				contrasenaValida=ControladorContrasena.combrobarContrasena(ControladorContrasena.encriptarContrasena(contrasena), dni);
 				
-				if(dniValido && contrasenaValida)
+				if(formatoDNIValido && dniValido && contrasenaValida)
 				{
 					System.out.println("El dni es valido " + paneLogin.textfieldUsername.getText());
 					ControlModelo.EstablecerClienteActual(paneLogin.textfieldUsername.getText());

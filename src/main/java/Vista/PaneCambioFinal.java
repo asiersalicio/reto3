@@ -43,6 +43,8 @@ public class PaneCambioFinal {
 	public static JLabel lblCodigo;
 	public JLabel lblSuBillete;
 	private JLabel lblCompraRealizadaCon;
+	public JLabel lblLogoGrande;
+	public JLabel lblLogoPeke;
 
 	
 	public PaneCambioFinal(Frame1 frame1)
@@ -112,12 +114,12 @@ public class PaneCambioFinal {
 		lblCodigo.setBounds(391, 367, 294, 14);
 		paneCambioFinal.add(lblCodigo);
 		
-		JLabel lblLogoGrande = new JLabel("");
+		lblLogoGrande = new JLabel("");
 		lblLogoGrande.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/logo-termibus.png")));
 		lblLogoGrande.setBounds(489, 11, 301, 117);
 		paneCambioFinal.add(lblLogoGrande);
 		
-		JLabel lblLogoPeke = new JLabel("");
+		lblLogoPeke = new JLabel("");
 		lblLogoPeke.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
 		lblLogoPeke.setBounds(10, 505, 70, 64);
 		paneCambioFinal.add(lblLogoPeke);

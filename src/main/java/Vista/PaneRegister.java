@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JCalendar;
@@ -50,7 +51,15 @@ public class PaneRegister {
 	public JLabel lblSeguridad;
 	public JLabel lblErrCont;
 	public JLabel lblErrSexo;
-	
+	public JLabel logoPeke;
+	public JLabel logoGrande;
+	public JLabel lblUsuariodni;
+	public JLabel lblNombre;
+	public JLabel lblApellidos;
+	public JLabel lblRegistrese; 
+	public JLabel lblSexo;
+	public JLabel lblNotaTodosLos;
+	public JLabel lblPassword;
 	
 	public PaneRegister(Frame1 frame1)
 	{
@@ -84,38 +93,38 @@ public class PaneRegister {
 		btnVolverALogin.setBounds(82, 505, 185, 39);
 		paneRegister.add(btnVolverALogin);
 		
-		JLabel logoGrande = new JLabel("");
+		logoGrande = new JLabel("");
 		logoGrande.setIcon(new ImageIcon(PaneRegister.class.getResource("/ImagenesVista/logo-termibus.png")));
 		logoGrande.setBounds(489, 11, 301, 117);
 		paneRegister.add(logoGrande);
 		
-		JLabel logoPeke = new JLabel("");
+		logoPeke = new JLabel("");
 		logoPeke.setIcon(new ImageIcon(PaneRegister.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
 		logoPeke.setBounds(10, 505, 70, 64);
 		paneRegister.add(logoPeke);
 		
-		JLabel lblUsuariodni = new JLabel("Usuario(DNI) :");
+		lblUsuariodni = new JLabel("Usuario(DNI) :");
 		lblUsuariodni.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblUsuariodni.setForeground(new Color(0, 51, 102));
 		lblUsuariodni.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblUsuariodni.setBounds(119, 156, 135, 39);
 		paneRegister.add(lblUsuariodni);
 		
-		JLabel lblNombre = new JLabel("Nombre :");
+		lblNombre = new JLabel("Nombre :");
 		lblNombre.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblNombre.setForeground(new Color(0, 51, 102));
 		lblNombre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblNombre.setBounds(119, 204, 135, 39);
 		paneRegister.add(lblNombre);
 		
-		JLabel lblApellidos = new JLabel("Apellidos :");
+		lblApellidos = new JLabel("Apellidos :");
 		lblApellidos.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblApellidos.setForeground(new Color(0, 51, 102));
 		lblApellidos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblApellidos.setBounds(119, 252, 135, 39);
 		paneRegister.add(lblApellidos);
 		
-		JLabel lblPassword = new JLabel("Contrase\u00F1a :");
+		lblPassword = new JLabel("Contrase\u00F1a :");
 		lblPassword.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblPassword.setForeground(new Color(0, 51, 102));
 		lblPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
@@ -135,17 +144,22 @@ public class PaneRegister {
 		paneRegister.add(fieldPassword);
 		
 		fechaNac = new JDateChooser();
+
 	    fechaNac.setBounds(264, 303, 236, 35);
+	    
+	    Calendar LimitadorFecha = Calendar.getInstance(); LimitadorFecha.add(Calendar.YEAR, 18); LimitadorFecha.add(Calendar.DATE, -1); Date date = LimitadorFecha.getTime();
+	    
+	    fechaNac.getJCalendar().setMinSelectableDate(date);
 	    paneRegister.add(fechaNac);
 		
-		JLabel lblFechaNacimiento = new JLabel("Fecha Nacimiento :");
+		lblFechaNacimiento = new JLabel("Fecha Nacimiento :");
 		lblFechaNacimiento.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblFechaNacimiento.setForeground(new Color(0, 51, 102));
 		lblFechaNacimiento.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblFechaNacimiento.setBounds(119, 302, 135, 39);
 		paneRegister.add(lblFechaNacimiento);
 		
-		JLabel lblRegistrese = new JLabel("Reg\u00EDstrese ahora :");
+		lblRegistrese = new JLabel("Reg\u00EDstrese ahora :");
 		lblRegistrese.setForeground(new Color(204, 0, 0));
 		lblRegistrese.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
 		lblRegistrese.setBounds(10, 83, 229, 45);
@@ -167,7 +181,7 @@ public class PaneRegister {
 		comboBoxSexo.setBounds(265, 443, 146, 20);
 		paneRegister.add(comboBoxSexo);
 		
-		JLabel lblSexo = new JLabel("Sexo :");
+		lblSexo = new JLabel("Sexo :");
 		lblSexo.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblSexo.setForeground(new Color(0, 51, 102));
 		lblSexo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
@@ -181,7 +195,7 @@ public class PaneRegister {
 		lblErrUs.setBounds(506, 170, 257, 20);
 		paneRegister.add(lblErrUs);
 		
-		JLabel lblNotaTodosLos = new JLabel("Nota: Todos los campos son obligatorios");
+		lblNotaTodosLos = new JLabel("Nota: Todos los campos son obligatorios");
 		lblNotaTodosLos.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblNotaTodosLos.setBounds(182, 97, 546, 20);
 		paneRegister.add(lblNotaTodosLos);
