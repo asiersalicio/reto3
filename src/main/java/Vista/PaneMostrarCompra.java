@@ -78,51 +78,51 @@ public class PaneMostrarCompra {
 		paneMostrarCompra.add(btnVolverALogin);
 		
 		lblDetalles = new JLabel("Detalles de su compra :");
-		lblDetalles.setForeground(new Color(0, 51, 102));
+		lblDetalles.setForeground(new Color(204, 0, 0));
 		lblDetalles.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
-		lblDetalles.setBounds(32, 108, 229, 45);
+		lblDetalles.setBounds(10, 83, 229, 45);
 		paneMostrarCompra.add(lblDetalles);
 		
 		lblTipoDeBillete = new JLabel("Tipo de Billete :");
 		lblTipoDeBillete.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblTipoDeBillete.setForeground(Color.DARK_GRAY);
-		lblTipoDeBillete.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblTipoDeBillete.setBounds(108, 164, 135, 39);
+		lblTipoDeBillete.setForeground(new Color(0, 51, 102));
+		lblTipoDeBillete.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblTipoDeBillete.setBounds(162, 166, 161, 39);
 		paneMostrarCompra.add(lblTipoDeBillete);
 		
 		lblTrayetoria = new JLabel("Trayetoria :");
 		lblTrayetoria.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblTrayetoria.setForeground(Color.DARK_GRAY);
-		lblTrayetoria.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblTrayetoria.setBounds(108, 214, 135, 39);
+		lblTrayetoria.setForeground(new Color(0, 51, 102));
+		lblTrayetoria.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblTrayetoria.setBounds(162, 216, 161, 39);
 		paneMostrarCompra.add(lblTrayetoria);
 		
 		lblLinea = new JLabel("Linea :");
 		lblLinea.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblLinea.setForeground(Color.DARK_GRAY);
-		lblLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblLinea.setBounds(108, 264, 135, 39);
+		lblLinea.setForeground(new Color(0, 51, 102));
+		lblLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblLinea.setBounds(162, 266, 161, 39);
 		paneMostrarCompra.add(lblLinea);
 		
 		lblFechaIda = new JLabel("Fecha Ida :");
 		lblFechaIda.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblFechaIda.setForeground(Color.DARK_GRAY);
-		lblFechaIda.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblFechaIda.setBounds(108, 314, 135, 39);
+		lblFechaIda.setForeground(new Color(0, 51, 102));
+		lblFechaIda.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblFechaIda.setBounds(162, 316, 161, 39);
 		paneMostrarCompra.add(lblFechaIda);
 		
 		lblFechaVuelta = new JLabel("Fecha Vuelta :");
 		lblFechaVuelta.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblFechaVuelta.setForeground(Color.DARK_GRAY);
-		lblFechaVuelta.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblFechaVuelta.setBounds(108, 363, 135, 39);
+		lblFechaVuelta.setForeground(new Color(0, 51, 102));
+		lblFechaVuelta.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblFechaVuelta.setBounds(162, 365, 161, 39);
 		paneMostrarCompra.add(lblFechaVuelta);
 		
 		lblPrecio = new JLabel("Precio :");
 		lblPrecio.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblPrecio.setForeground(Color.DARK_GRAY);
-		lblPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblPrecio.setBounds(108, 413, 135, 39);
+		lblPrecio.setForeground(new Color(0, 51, 102));
+		lblPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblPrecio.setBounds(162, 415, 161, 39);
 		paneMostrarCompra.add(lblPrecio);
 		
 		btnSiguiente = new JButton("Confirmar");
@@ -136,31 +136,31 @@ public class PaneMostrarCompra {
 		fieldTipoBillete = new JTextField();
 		fieldTipoBillete.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldTipoBillete.setColumns(10);
-		fieldTipoBillete.setBounds(253, 166, 236, 37);
+		fieldTipoBillete.setBounds(333, 168, 236, 37);
 		paneMostrarCompra.add(fieldTipoBillete);
 		
 		fieldTrayectoria = new JTextField();
 		fieldTrayectoria.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldTrayectoria.setColumns(10);
-		fieldTrayectoria.setBounds(253, 214, 236, 37);
+		fieldTrayectoria.setBounds(333, 216, 236, 37);
 		paneMostrarCompra.add(fieldTrayectoria);
 		
 		fieldLinea = new JTextField();
 		fieldLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldLinea.setColumns(10);
-		fieldLinea.setBounds(253, 264, 236, 37);
+		fieldLinea.setBounds(333, 266, 236, 37);
 		paneMostrarCompra.add(fieldLinea);
 		
 		fieldFechaIda = new JTextField();
 		fieldFechaIda.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldFechaIda.setColumns(10);
-		fieldFechaIda.setBounds(253, 314, 236, 37);
+		fieldFechaIda.setBounds(333, 316, 236, 37);
 		paneMostrarCompra.add(fieldFechaIda);
 		
 		fieldFechaVuelta = new JTextField();
 		fieldFechaVuelta.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldFechaVuelta.setColumns(10);
-		fieldFechaVuelta.setBounds(253, 365, 236, 37);
+		fieldFechaVuelta.setBounds(333, 367, 236, 37);
 		paneMostrarCompra.add(fieldFechaVuelta);
 		
 		MaskFormatter mfCC = null;
@@ -174,7 +174,7 @@ public class PaneMostrarCompra {
 		fieldPrecio = new JFormattedTextField(mfCC);
 		fieldPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldPrecio.setColumns(10);
-		fieldPrecio.setBounds(253, 413, 236, 37);
+		fieldPrecio.setBounds(333, 415, 236, 37);
 		paneMostrarCompra.add(fieldPrecio);
 		
 	}

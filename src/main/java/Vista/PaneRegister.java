@@ -64,13 +64,13 @@ public class PaneRegister {
 		
 		fieldDNI = new JTextField();
 		fieldDNI.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		fieldDNI.setBounds(200, 184, 236, 37);
+		fieldDNI.setBounds(264, 159, 236, 37);
 		paneRegister.add(fieldDNI);
 		fieldDNI.setColumns(10);
 		
 		fieldNombre = new JTextField();
 		fieldNombre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		fieldNombre.setBounds(200, 232, 236, 37);
+		fieldNombre.setBounds(264, 207, 236, 37);
 		paneRegister.add(fieldNombre);
 		fieldNombre.setColumns(10);
 		
@@ -81,7 +81,7 @@ public class PaneRegister {
 		btnVolverALogin.setForeground(new Color(0, 51, 102));
 		btnVolverALogin.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		
-		btnVolverALogin.setBounds(92, 530, 185, 39);
+		btnVolverALogin.setBounds(82, 505, 185, 39);
 		paneRegister.add(btnVolverALogin);
 		
 		JLabel logoGrande = new JLabel("");
@@ -96,155 +96,158 @@ public class PaneRegister {
 		
 		JLabel lblUsuariodni = new JLabel("Usuario(DNI) :");
 		lblUsuariodni.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblUsuariodni.setForeground(Color.DARK_GRAY);
-		lblUsuariodni.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblUsuariodni.setBounds(55, 181, 135, 39);
+		lblUsuariodni.setForeground(new Color(0, 51, 102));
+		lblUsuariodni.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblUsuariodni.setBounds(119, 156, 135, 39);
 		paneRegister.add(lblUsuariodni);
 		
 		JLabel lblNombre = new JLabel("Nombre :");
 		lblNombre.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNombre.setForeground(Color.DARK_GRAY);
-		lblNombre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblNombre.setBounds(55, 229, 135, 39);
+		lblNombre.setForeground(new Color(0, 51, 102));
+		lblNombre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblNombre.setBounds(119, 204, 135, 39);
 		paneRegister.add(lblNombre);
 		
 		JLabel lblApellidos = new JLabel("Apellidos :");
 		lblApellidos.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblApellidos.setForeground(Color.DARK_GRAY);
-		lblApellidos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblApellidos.setBounds(55, 277, 135, 39);
+		lblApellidos.setForeground(new Color(0, 51, 102));
+		lblApellidos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblApellidos.setBounds(119, 252, 135, 39);
 		paneRegister.add(lblApellidos);
 		
 		JLabel lblPassword = new JLabel("Contrase\u00F1a :");
 		lblPassword.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblPassword.setForeground(Color.DARK_GRAY);
-		lblPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblPassword.setBounds(55, 371, 135, 39);
+		lblPassword.setForeground(new Color(0, 51, 102));
+		lblPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblPassword.setBounds(119, 346, 135, 39);
 		paneRegister.add(lblPassword);
 		
 		fieldApellidos = new JTextField();
 		fieldApellidos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldApellidos.setColumns(10);
-		fieldApellidos.setBounds(200, 280, 236, 37);
+		fieldApellidos.setBounds(264, 255, 236, 37);
 		paneRegister.add(fieldApellidos);
 		
 		fieldPassword = new JPasswordField();
 		fieldPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldPassword.setColumns(10);
-		fieldPassword.setBounds(200, 374, 236, 37);
+		fieldPassword.setBounds(264, 349, 236, 37);
 		paneRegister.add(fieldPassword);
 		
 		fechaNac = new JDateChooser();
-	    fechaNac.setBounds(200, 328, 236, 35);
+	    fechaNac.setBounds(264, 303, 236, 35);
 	    paneRegister.add(fechaNac);
 		
 		JLabel lblFechaNacimiento = new JLabel("Fecha Nacimiento :");
 		lblFechaNacimiento.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblFechaNacimiento.setForeground(Color.DARK_GRAY);
-		lblFechaNacimiento.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblFechaNacimiento.setBounds(55, 327, 135, 39);
+		lblFechaNacimiento.setForeground(new Color(0, 51, 102));
+		lblFechaNacimiento.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblFechaNacimiento.setBounds(119, 302, 135, 39);
 		paneRegister.add(lblFechaNacimiento);
 		
 		JLabel lblRegistrese = new JLabel("Reg\u00EDstrese ahora :");
-		lblRegistrese.setForeground(new Color(0, 51, 102));
+		lblRegistrese.setForeground(new Color(204, 0, 0));
 		lblRegistrese.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
-		lblRegistrese.setBounds(32, 108, 229, 45);
+		lblRegistrese.setBounds(10, 83, 229, 45);
 		paneRegister.add(lblRegistrese);
 		
 		btnRegistarse = new JButton("Registarse");
 		btnRegistarse.setForeground(new Color(0, 51, 102));
 		btnRegistarse.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnRegistarse.setBackground(Color.WHITE);
-		btnRegistarse.setBounds(542, 530, 185, 39);
+		btnRegistarse.setBounds(585, 505, 185, 39);
 		paneRegister.add(btnRegistarse);
 		
 		comboBoxSexo = new JComboBox();
+		comboBoxSexo.setBackground(Color.WHITE);
+		comboBoxSexo.setForeground(new Color(0, 51, 102));
+		comboBoxSexo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
 		comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"-Seleccione uno-", "Mujer", "Hombre", "Otros"}));
 		comboBoxSexo.setSelectedIndex(0);
-		comboBoxSexo.setBounds(209, 487, 146, 20);
+		comboBoxSexo.setBounds(265, 443, 146, 20);
 		paneRegister.add(comboBoxSexo);
 		
-		JLabel lblSexo = new JLabel("Sexo:");
+		JLabel lblSexo = new JLabel("Sexo :");
 		lblSexo.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblSexo.setForeground(Color.DARK_GRAY);
-		lblSexo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblSexo.setBounds(55, 478, 135, 39);
+		lblSexo.setForeground(new Color(0, 51, 102));
+		lblSexo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblSexo.setBounds(121, 432, 135, 39);
 		paneRegister.add(lblSexo);
 		
 		lblErrUs = new JLabel("*El usuario ya existe o el formato es incorrecto");
 		lblErrUs.setVisible(false);
 		lblErrUs.setForeground(Color.RED);
-		lblErrUs.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblErrUs.setBounds(448, 195, 307, 20);
+		lblErrUs.setFont(new Font("Dialog", Font.PLAIN, 11));
+		lblErrUs.setBounds(506, 170, 257, 20);
 		paneRegister.add(lblErrUs);
 		
 		JLabel lblNotaTodosLos = new JLabel("Nota: Todos los campos son obligatorios");
 		lblNotaTodosLos.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblNotaTodosLos.setBounds(209, 122, 546, 20);
+		lblNotaTodosLos.setBounds(182, 97, 546, 20);
 		paneRegister.add(lblNotaTodosLos);
 		
 		lblErrNom = new JLabel("*El nombre debe tener 3 o mas caracteres");
 		lblErrNom.setVisible(false);
 		lblErrNom.setForeground(Color.RED);
-		lblErrNom.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblErrNom.setBounds(448, 243, 250, 20);
+		lblErrNom.setFont(new Font("Dialog", Font.PLAIN, 11));
+		lblErrNom.setBounds(506, 218, 250, 20);
 		paneRegister.add(lblErrNom);
 		
 		fieldPassword2 = new JPasswordField();
 		fieldPassword2.setFont(new Font("Dialog", Font.PLAIN, 14));
 		fieldPassword2.setColumns(10);
-		fieldPassword2.setBounds(200, 428, 236, 37);
+		fieldPassword2.setBounds(264, 397, 236, 37);
 		paneRegister.add(fieldPassword2);
 		
 		lblRepitaSuContrasea = new JLabel("Repita su contrase\u00F1a :");
 		lblRepitaSuContrasea.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblRepitaSuContrasea.setForeground(Color.DARK_GRAY);
-		lblRepitaSuContrasea.setFont(new Font("Dialog", Font.PLAIN, 14));
-		lblRepitaSuContrasea.setBounds(12, 425, 178, 39);
+		lblRepitaSuContrasea.setForeground(new Color(0, 51, 102));
+		lblRepitaSuContrasea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblRepitaSuContrasea.setBounds(40, 392, 216, 39);
 		paneRegister.add(lblRepitaSuContrasea);
 		
 		lblErrApe = new JLabel("*El apellido debe tener 3 o mas caracteres");
 		lblErrApe.setVisible(false);
 		lblErrApe.setForeground(Color.RED);
-		lblErrApe.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblErrApe.setBounds(448, 289, 250, 20);
+		lblErrApe.setFont(new Font("Dialog", Font.PLAIN, 11));
+		lblErrApe.setBounds(506, 264, 250, 20);
 		paneRegister.add(lblErrApe);
 		
 		lblErrFechaNac = new JLabel("*Es obligatorio introducir una fecha de nacimiento");
 		lblErrFechaNac.setVisible(false);
 		lblErrFechaNac.setForeground(Color.RED);
-		lblErrFechaNac.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblErrFechaNac.setBounds(448, 337, 307, 20);
+		lblErrFechaNac.setFont(new Font("Dialog", Font.PLAIN, 11));
+		lblErrFechaNac.setBounds(506, 312, 250, 20);
 		paneRegister.add(lblErrFechaNac);
 		
 		lblTamanoCont = new JLabel("*La contrase\u00F1a debe tener entre 8 y 16 caracteres");
 		lblTamanoCont.setForeground(Color.BLACK);
-		lblTamanoCont.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblTamanoCont.setBounds(448, 371, 307, 20);
+		lblTamanoCont.setFont(new Font("Dialog", Font.PLAIN, 11));
+		lblTamanoCont.setBounds(506, 346, 257, 20);
 		paneRegister.add(lblTamanoCont);
 		
 		progSegCont = new JProgressBar();
 		progSegCont.setMaximum(16);
-		progSegCont.setBounds(448, 396, 146, 14);
+		progSegCont.setBounds(506, 371, 146, 14);
 		paneRegister.add(progSegCont);
 		
 		lblSeguridad = new JLabel("");
 		lblSeguridad.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 13));
-		lblSeguridad.setBounds(606, 394, 92, 16);
+		lblSeguridad.setBounds(604, 377, 92, 16);
 		paneRegister.add(lblSeguridad);
 		
-		lblErrCont = new JLabel("*Las contrase\u00F1as no coinciden o no cumplen los requisitos");
+		lblErrCont = new JLabel("*La contrase\u00F1a no coincide o no cumple los requisitos");
 		lblErrCont.setVisible(false);
 		lblErrCont.setForeground(Color.RED);
-		lblErrCont.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblErrCont.setBounds(448, 409, 342, 20);
+		lblErrCont.setFont(new Font("Dialog", Font.PLAIN, 11));
+		lblErrCont.setBounds(508, 401, 292, 20);
 		paneRegister.add(lblErrCont);
 		
 		lblErrSexo = new JLabel("*Seleccione un sexo");
-		lblErrSexo.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblErrSexo.setFont(new Font("Dialog", Font.PLAIN, 11));
 		lblErrSexo.setVisible(false);
 		lblErrSexo.setForeground(Color.RED);
-		lblErrSexo.setBounds(367, 487, 250, 20);
+		lblErrSexo.setBounds(420, 444, 250, 20);
 		paneRegister.add(lblErrSexo);
 		
 	}

@@ -77,9 +77,9 @@ public class ManejoBilletes {
 
 			PaneCambioFinal.lblparaLinea.setText(ControlModelo.linea.getCodLinea() + ": " + ControlModelo.linea.getNombreLinea());
 			PaneCambioFinal.lblparaTrayecto.setText(ControlModelo.paradaOrigen.getNombreParada() + " -> " + ControlModelo.paradaDestino.getNombreParada());
-			PaneCambioFinal.lblparaPrecio.setText(precio + "€");
-			System.out.println(ControlModelo.billeteIda.codBillete);
-			PaneCambioFinal.lblCodigo.setText("<<<<<<<<"+ControlModelo.billeteIda.codBillete+">>>>>>>>>");
+			PaneCambioFinal.lblparaPrecio.setText(Modelo.Formato2dec.formateador(precio)+ "€");
+			//System.out.println(ControlModelo.billeteIda.codBillete);
+			//PaneCambioFinal.lblCodigo.setText("<<<<<<<<"+ControlModelo.billeteIda.codBillete+">>>>>>>>>");
 			//paneMostrarCompra.fieldFechaIda.setText(ControlModelo.fechaIda.toLocaleString());
 			//panePago.txtaPagar2.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precio)));
 			//panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precio)));

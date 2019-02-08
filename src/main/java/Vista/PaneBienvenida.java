@@ -21,6 +21,12 @@ import java.awt.Color;
 public class PaneBienvenida {
 	
 	public JPanel paneBienvenida;
+	public JButton btnTocaParaEmpezar;
+	public JLabel lblAsalba;
+	public JLabel logoGrande;
+	public JLabel logoPeke;
+	
+	
 	
 	public PaneBienvenida(Frame1 frame1)
 	{
@@ -31,34 +37,28 @@ public class PaneBienvenida {
 		
 		frame1.frame1.getContentPane().add(paneBienvenida);
 		
-		JButton btnTocaParaEmpezar = new JButton("TOCA PARA EMPEZAR");
+		btnTocaParaEmpezar = new JButton("TOCA PARA EMPEZAR");
 		btnTocaParaEmpezar.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 15));
-		btnTocaParaEmpezar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
-			}
-		});
 		btnTocaParaEmpezar.setForeground(new Color(0, 51, 102));
 		btnTocaParaEmpezar.setBackground(Color.WHITE);
 		btnTocaParaEmpezar.setBounds(263, 227, 280, 64);
 		paneBienvenida.add(btnTocaParaEmpezar);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/ImagenesVista/logo-termibus.png")));
-		lblNewLabel.setBounds(489, 11, 301, 117);
-		paneBienvenida.add(lblNewLabel);
+		logoGrande = new JLabel("");
+		logoGrande.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/ImagenesVista/logo-termibus.png")));
+		logoGrande.setBounds(489, 11, 301, 117);
+		paneBienvenida.add(logoGrande);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
-		lblNewLabel_1.setBounds(10, 505, 70, 64);
-		paneBienvenida.add(lblNewLabel_1);
+		logoPeke = new JLabel("");
+		logoPeke.setIcon(new ImageIcon(PaneBienvenida.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
+		logoPeke.setBounds(10, 505, 70, 64);
+		paneBienvenida.add(logoPeke);
 		
-		JLabel lblNewLabel_2 = new JLabel("ASALBA Solutions");
-		lblNewLabel_2.setForeground(new Color(0, 51, 102));
-		lblNewLabel_2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(608, 539, 116, 14);
-		paneBienvenida.add(lblNewLabel_2);
+		lblAsalba = new JLabel("ASALBA Solutions");
+		lblAsalba.setForeground(new Color(0, 51, 102));
+		lblAsalba.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
+		lblAsalba.setBounds(608, 539, 116, 14);
+		paneBienvenida.add(lblAsalba);
 		paneBienvenida.setVisible(false);
 	}
 	

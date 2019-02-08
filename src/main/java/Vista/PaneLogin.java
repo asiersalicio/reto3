@@ -42,40 +42,40 @@ public class PaneLogin {
 		paneLogin.setLayout(null);
 		
 		textfieldUsername = new JTextField();
-		textfieldUsername.setBounds(204, 183, 308, 39);
+		textfieldUsername.setBounds(278, 212, 308, 39);
 		paneLogin.add(textfieldUsername);
 		textfieldUsername.setColumns(10);
 		
 		lblUsername = new JLabel("Usuario(DNI) :");
 		lblUsername.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblUsername.setForeground(Color.DARK_GRAY);
-		lblUsername.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblUsername.setBounds(30, 181, 135, 39);
+		lblUsername.setForeground(new Color(0, 51, 102));
+		lblUsername.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblUsername.setBounds(133, 209, 135, 39);
 		paneLogin.add(lblUsername);
 		
 		lblPassword = new JLabel("Contrase\u00F1a :");
 		lblPassword.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblPassword.setForeground(Color.DARK_GRAY);
-		lblPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblPassword.setBounds(30, 233, 135, 39);
+		lblPassword.setForeground(new Color(0, 51, 102));
+		lblPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblPassword.setBounds(133, 261, 135, 39);
 		paneLogin.add(lblPassword);
 		
 		fieldPassword = new JPasswordField();
-		fieldPassword.setBounds(204, 235, 308, 35);
+		fieldPassword.setBounds(278, 262, 308, 39);
 		paneLogin.add(fieldPassword);
 		
 		btnLogin = new JButton("Iniciar sesion");
 		btnLogin.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnLogin.setForeground(new Color(0, 51, 102));
 		btnLogin.setBackground(Color.WHITE);
-		btnLogin.setBounds(308, 286, 210, 39);
+		btnLogin.setBounds(378, 321, 210, 39);
 		paneLogin.add(btnLogin);
 		
 		lblNewLabel = new JLabel("\u00BFNo dispone de cuenta?");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel.setForeground(Color.DARK_GRAY);
+		lblNewLabel.setForeground(new Color(0, 51, 102));
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblNewLabel.setBounds(30, 417, 254, 39);
+		lblNewLabel.setBounds(110, 474, 254, 39);
 		paneLogin.add(lblNewLabel);
 		
 		btnRegister = new JButton("Registrese Ahora");
@@ -83,7 +83,7 @@ public class PaneLogin {
 		btnRegister.setForeground(new Color(0, 51, 102));
 		btnRegister.setBackground(Color.WHITE);
 		
-		btnRegister.setBounds(308, 417, 210, 39);
+		btnRegister.setBounds(378, 474, 210, 39);
 		paneLogin.add(btnRegister);
 		
 		frame1.frame1.getContentPane().add(paneLogin);
@@ -102,8 +102,14 @@ public class PaneLogin {
 		lblUsConNoValido.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblUsConNoValido.setVisible(false);
 		lblUsConNoValido.setForeground(Color.RED);
-		lblUsConNoValido.setBounds(204, 153, 246, 29);
+		lblUsConNoValido.setBounds(307, 181, 246, 29);
 		paneLogin.add(lblUsConNoValido);
+		
+		JLabel lblBienvenidaLogin = new JLabel("Bienvenido, entre en su perfil :");
+		lblBienvenidaLogin.setForeground(new Color(204, 0, 0));
+		lblBienvenidaLogin.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
+		lblBienvenidaLogin.setBounds(10, 83, 378, 45);
+		paneLogin.add(lblBienvenidaLogin);
 		paneLogin.setVisible(false);
 	}
 }
