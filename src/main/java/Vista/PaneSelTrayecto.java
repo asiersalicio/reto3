@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Date;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import com.toedter.calendar.JDateChooser;
@@ -112,6 +113,7 @@ public class PaneSelTrayecto {
 		dateChooserIda.setForeground(new Color(0, 51, 102));
 		dateChooserIda.setBackground(Color.WHITE);
 		dateChooserIda.setBounds(215, 352, 153, 29);
+		dateChooserIda.getJCalendar().setMinSelectableDate(new Date());
 		pane.add(dateChooserIda);
 		
 		Label label = new Label("Fecha de Ida :");
@@ -125,6 +127,7 @@ public class PaneSelTrayecto {
 		dateChooserVuelta.setBackground(Color.WHITE);
 		dateChooserVuelta.setEnabled(false);
 		dateChooserVuelta.setBounds(215, 388, 153, 29);
+		dateChooserVuelta.getJCalendar().setMinSelectableDate(new Date());
 		pane.add(dateChooserVuelta);
 		
 		Label label_1 = new Label("Fecha de vuelta :");

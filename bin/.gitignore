@@ -1,4 +1,22 @@
+<<<<<<< HEAD
+/ControladoresPaneles/
+/Library.class
+/LibraryTest.class
+/Modelo/
+/TestAutobus.class
+/TestBillete.class
+/TestCliente.class
+/TestLinea.class
+/TestLineaAutobus.class
+/TestLineaParada.class
+/TestParada.class
+/TestPoblacion.class
+/TestPoblacionParada.class
+/Vista/
+/org/
+=======
 /Controlador/
 /Vista/
 /ControladoresPaneles/
 /Modelo/
+>>>>>>> e1c22116c3298ff4dbece8037727f544d0800a7b

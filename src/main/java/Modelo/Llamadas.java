@@ -129,6 +129,39 @@ public class Llamadas {
 				}
 				}
 	}
+	
+	public static void busquedaParadaEvitando(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto, String codLinea, String CodParadaEvitar)
+	{
+		//Declaración e inicialización de variables:
+				Statement stmt = null;
+				int contador = 1;
+				String query;
+				query = "select nombre, cod_parada from parada where upper(nombre) like '%" + busqueda.toUpperCase() + "%' and cod_parada in(select cod_parada from linea_parada where cod_linea='" + codLinea + "') AND NOT COD_PARADA =" + CodParadaEvitar +";";
+				System.out.println("Query: " + query);
+					//Inicio programa:
+				try {
+					stmt = con.createStatement(); 
+					ResultSet rs = stmt.executeQuery (query);
+					while (rs.next()) {
+
+						controladorSelTrayecto.resultadoBusqueda=Arrays.copyOf(controladorSelTrayecto.resultadoBusqueda, contador); 
+						controladorSelTrayecto.resultadoBusquedaCod=Arrays.copyOf(controladorSelTrayecto.resultadoBusquedaCod, contador);
+						controladorSelTrayecto.resultadoBusquedaCod[contador-1]=rs.getString("cod_parada");
+						controladorSelTrayecto.resultadoBusqueda[contador-1]=rs.getString("nombre");
+						contador++;
+					}
+					
+				} catch (SQLException ex){
+					printSQLException(ex);
+				} finally {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+	}
 
 
 /*
@@ -611,7 +644,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 			System.out.println("Precio del billete: " + precio + "€");
 		return precio;
 	}
-	
+
 	
 	
 }

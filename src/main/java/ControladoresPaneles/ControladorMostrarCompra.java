@@ -4,7 +4,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
+import Controlador.ControladorFecha;
 import Modelo.Formato2dec;
+import Vista.PaneCambioFinal;
 import Vista.PaneMostrarCompra;
 
 /**
@@ -44,7 +46,7 @@ public class ControladorMostrarCompra {
 			paneMostrarCompra.fieldTipoBillete.setText("Ida y vuelta");
 			paneMostrarCompra.fieldFechaVuelta.setEnabled(true);
 			precio=precio*2;
-			paneMostrarCompra.fieldFechaVuelta.setText(ControlModelo.fechaVuelta.toLocaleString());
+			paneMostrarCompra.fieldFechaVuelta.setText(ControladorFecha.CalendarToStringVisual(ControlModelo.fechaVuelta));
 		}
 		else
 		{
@@ -55,7 +57,7 @@ public class ControladorMostrarCompra {
 		paneMostrarCompra.fieldLinea.setText(ControlModelo.linea.getCodLinea() + ": " + ControlModelo.linea.getNombreLinea());
 		paneMostrarCompra.fieldTrayectoria.setText(ControlModelo.paradaOrigen.getNombreParada() + " -> " + ControlModelo.paradaDestino.getNombreParada());
 		paneMostrarCompra.fieldPrecio.setText(precio + "€");
-		paneMostrarCompra.fieldFechaIda.setText(ControlModelo.fechaIda.toLocaleString());
+		paneMostrarCompra.fieldFechaIda.setText(ControladorFecha.CalendarToStringVisual(ControlModelo.fechaIda));
 		panePago.txtaPagar2.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precio)));
 		panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precio)));
 	}

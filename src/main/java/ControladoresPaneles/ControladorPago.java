@@ -36,6 +36,7 @@ public class ControladorPago {
 			public void mouseClicked(MouseEvent e) {
 				ControlInterfaz.setPanel(ControlInterfaz.paneCambioFinal.paneCambioFinal);
 				ManejoBilletes.rellenarLista(panePago);
+				ManejoBilletes.RellenarDatosBillete(panePago);
 				
 			}
 		});
