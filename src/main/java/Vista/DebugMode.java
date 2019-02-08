@@ -16,6 +16,8 @@ import java.awt.BorderLayout;
 
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
+import Modelo.BBDD;
+import Modelo.Llamadas;
 /**
  * Clase DebugMode: una pantalla de comandos para controlar las diferentes vistas de manera rápida.
  * @author IN1DM3B_18
@@ -108,6 +110,16 @@ public class DebugMode {
 		});
 		btnImprimirBillete.setBounds(10, 200, 131, 25);
 		panel.add(btnImprimirBillete);
+		
+		JButton btnNewButton = new JButton("Calcular Bus");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Llamadas.SeleccionarAutobus(BBDD.connection);
+			}
+		});
+		btnNewButton.setBounds(153, 200, 118, 25);
+		panel.add(btnNewButton);
 		esteJPanel.setVisible(true);
 		debugFrame.setVisible(true);
 		System.out.println("Debug mode started!");

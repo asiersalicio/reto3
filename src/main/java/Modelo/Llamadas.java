@@ -511,16 +511,25 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 		
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
-				int codBus = 0;
-				String query = "select cod_bus from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + ControlModelo.linea.getCodLinea() + "') order by n_plazas desc;";
+				int codautobus[]=new int[1];
+				int nplazasbus[]=new int[1];
+				int i=0;
+				boolean sinBuses = false;
+				String query = "select cod_bus, n_plazas from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + ControlModelo.linea.getCodLinea() + "') group by cod_bus;";
 				//Inicio programa:
 				try {
 					stmt = con.createStatement(); 
 					ResultSet rs = stmt.executeQuery (query);
 					while (rs.next()) {
-						codBus = rs.getInt(1);
+						codautobus=Arrays.copyOf(codautobus, i+1);
+						nplazasbus=Arrays.copyOf(nplazasbus, i+1);
+						
+						codautobus[i]=rs.getInt("cod_bus");
+						nplazasbus[i]=rs.getInt("n_plazas");
+						System.out.println(codautobus[i] + " asientos: " + nplazasbus[i]);
+						i++;
 					}
-					
+					i--;
 				} catch (SQLException ex){
 					printSQLException(ex);
 				} finally {
@@ -531,7 +540,44 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 					e.printStackTrace();
 				}
 				}
-				return codBus;
+				
+				int pOcupadas = 0;
+				int pLibres = 0;
+				int y=-1;
+				do {
+					y++;
+				stmt = null;
+				
+				
+				query = "select count(*) from billete where cod_bus=" + codautobus[y] + ";";
+				//Inicio programa:
+				try {
+					stmt = con.createStatement(); 
+					ResultSet rs = stmt.executeQuery (query);
+					rs.next();
+					pOcupadas=rs.getInt(1);
+					System.out.println("Bus n: " + y + " cod: " + codautobus[y] + " plazas: " +  nplazasbus[y] + " ocupadas: " + pOcupadas);
+					pLibres=nplazasbus[y]-pOcupadas;		
+				} catch (SQLException ex){
+					printSQLException(ex);
+				} finally {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				
+				
+				}while(pLibres<=0&&y<i);
+				
+				
+				if(pLibres>=1)
+					return codautobus[y];
+				else
+					return -1;
+				
 
 	}
 	

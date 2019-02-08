@@ -51,6 +51,7 @@ public class PaneSelTrayecto {
 	public JCheckBox chckbxVuelta;
 	public JButton btnBuscar;
 	public JButton btnCerrarBusqueda;
+	public JLabel lblNoHayBuses;
 	
 	
 	public PaneSelTrayecto(Frame1 frame1)
@@ -215,6 +216,13 @@ public class PaneSelTrayecto {
 		label_3.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
 		label_3.setBounds(10, 505, 70, 64);
 		pane.add(label_3);
+		
+		lblNoHayBuses = new JLabel("No hay buses disponbibles para esa fecha");
+		lblNoHayBuses.setVisible(false);
+		lblNoHayBuses.setFont(new Font("Arial", Font.PLAIN, 13));
+		lblNoHayBuses.setForeground(Color.RED);
+		lblNoHayBuses.setBounds(149, 430, 325, 25);
+		pane.add(lblNoHayBuses);
 		
 		pane.setVisible(false);
 	}

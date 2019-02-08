@@ -79,13 +79,22 @@ public class ControlModelo {
 	}
 
 	//clase CalcularDatosCompra: se calcula el código autobús y el precio del Billete
-	public static void CalcularDatosCompra() {
+	public static boolean CalcularDatosCompra() {
 		int codBus;
 		codBus=Llamadas.SeleccionarAutobus(BBDD.connection);
+		if(!(codBus==-1))
+		{
 		autobus = new Autobus();
 		autobus=Llamadas.RellenarAutobus(BBDD.connection, codBus, autobus);
 		System.out.println("Calulando distancia entre " + paradaOrigen.getNombreParada() + " y " + paradaDestino.getNombreParada() + "...");
 		precio=Llamadas.CalcularPrecioBillete(BBDD.connection);
+		return true;
+		}
+		else
+		{
+			System.out.println("No hay buses disponibles para esa fecha");
+			return false;
+		}
 	}
 	
 	//Clase GenerarBillete: se actualiza el codBillete mediante el método CalcularCodBillete de la clase Llamadas en el paquete Modelo
