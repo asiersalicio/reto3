@@ -1,7 +1,7 @@
 package Controlador;
 
+import java.sql.Date;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class ControladorFecha {
@@ -35,6 +35,20 @@ public class ControladorFecha {
 		return year+month+day;
 	}
 	
+	public static Calendar DateToCalendar(Date date){ 
+		  Calendar cal = Calendar.getInstance();
+		  cal.setTime(date);
+		  return cal;
+		}
+	
+	public static Date CalendarToDate(Calendar calendar){ 
+		Calendar cal = Calendar.getInstance();
+	    cal.clear();
+	    java.util.Date utilDate = cal.getTime();
+	    System.out.println(utilDate);
+	    return (Date) utilDate;
+	}
+
 	public static String CalendarToStringVisual(Calendar fecha)
 	{
 		String year=Integer.toString(fecha.get(Calendar.YEAR));
@@ -43,5 +57,6 @@ public class ControladorFecha {
 		String monthVisual = fecha.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
 		
 		return day + " de " + monthVisual + " del " + year;
+
 	}
 }

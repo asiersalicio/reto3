@@ -1,6 +1,6 @@
 package Modelo;
 
-import java.sql.Date;
+import java.util.Calendar;
 
 /**
  *Clase Cliente: 
@@ -18,13 +18,13 @@ public class Cliente{
 	private String DNI;
 	private String nombreCliente;
 	private String apellidos;
-	private Date fechaNac;
+	private Calendar fechaNac;
 	private String sexo;
 	private String contrasena;
 
 	//Métodos 
 	//constructor1: 
-	public Cliente(String DNI, String nombreCliente, String apellidos, Date fechaNac, String sexo, String contrasena) {
+	public Cliente(String DNI, String nombreCliente, String apellidos, Calendar fechaNac, String sexo, String contrasena) {
 		this.DNI=DNI;
 		this.nombreCliente=nombreCliente;
 		this.apellidos=apellidos;
@@ -60,11 +60,11 @@ public class Cliente{
 		this.apellidos = apellidos;
 	}
 
-	public Date getFechaNac() {
+	public Calendar getFechaNac() {
 		return fechaNac;
 	}
 
-	public void setFechaNac(Date date) {
+	public void setFechaNac(Calendar date) {
 		this.fechaNac = date;
 	}
 

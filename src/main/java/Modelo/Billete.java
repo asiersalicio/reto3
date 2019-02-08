@@ -1,8 +1,8 @@
 package Modelo;
 
-import java.sql.Date;
-import java.sql.Time;
+
 import java.util.Calendar;
+
 
 /**
  *Clase Billete: 
