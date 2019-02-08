@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.Calendar;
 
 import org.junit.Test;
 
