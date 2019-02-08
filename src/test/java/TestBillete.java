@@ -29,7 +29,7 @@ public class TestBillete {
 	private int codBus=1001;
 	private int codParadaInicio=1;
 	private int codParadaFin=9;
-	private String fecha="2019-01-28";
+	private Calendar fecha="2019-01-28";
 	private String DNI="15236985K";
 	private float precio=(float) 30.5;
 

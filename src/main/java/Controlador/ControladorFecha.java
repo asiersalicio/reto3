@@ -1,5 +1,6 @@
 package Controlador;
 
+import java.sql.Date;
 import java.util.Calendar;
 
 public class ControladorFecha {
@@ -31,5 +32,19 @@ public class ControladorFecha {
 			month=Integer.toString(monthInt);
 		}
 		return year+month+day;
+	}
+	
+	public static Calendar DateToCalendar(Date date){ 
+		  Calendar cal = Calendar.getInstance();
+		  cal.setTime(date);
+		  return cal;
+		}
+	
+	public static Date CalendarToDate(Calendar calendar){ 
+		Calendar cal = Calendar.getInstance();
+	    cal.clear();
+	    java.util.Date utilDate = cal.getTime();
+	    System.out.println(utilDate);
+	    return (Date) utilDate;
 	}
 }

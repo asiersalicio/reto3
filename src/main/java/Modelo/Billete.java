@@ -1,7 +1,7 @@
 package Modelo;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  *Clase Billete: 
@@ -26,13 +26,13 @@ public class Billete{
 	public Autobus autobus;
 	public Parada paradaInicio;
 	public Parada paradaFin;
-	public java.util.Date fecha;
+	public Calendar fecha;
 	public float precio;
 	public Cliente cliente;
 	
 	//Métodos 
 	//constructor1: 
-	public Billete(int codBillete, int nTrayecto, String codLinea, Autobus autobus, Parada paradaInicio, Parada paradaFin, java.util.Date fechaIda, Cliente cliente, float precio) {
+	public Billete(int codBillete, int nTrayecto, String codLinea, Autobus autobus, Parada paradaInicio, Parada paradaFin, Calendar fechaIda, Cliente cliente, float precio) {
 		this.codBillete=codBillete;
 		this.nTrayecto=nTrayecto;
 		this.codLinea=codLinea;	
@@ -93,11 +93,11 @@ public class Billete{
 		this.paradaFin = paradaFin;
 	}
 
-	public java.util.Date getFecha() {
+	public Calendar getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(Calendar fecha) {
 		this.fecha = fecha;
 	}
 

@@ -47,7 +47,7 @@ public class Llamadas {
 				cliente.setDNI(rs.getString("DNI"));
 				cliente.setNombreCliente(rs.getString("Nombre"));
 				cliente.setApellidos(rs.getString("Apellidos"));
-				cliente.setFechaNac(rs.getDate("Fecha_nac"));
+				//cliente.setFechaNac(rs.getDate("Fecha_nac"));
 				cliente.setSexo(rs.getString("sexo"));
 				cliente.setContrasena(rs.getString("Contrasena"));
 			}
