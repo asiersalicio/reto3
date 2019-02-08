@@ -229,106 +229,7 @@ public class Llamadas {
 
 		 */
 	
-	public static void verLineas (Connection con)
-	{
-		//Declaración e inicialización de variables:
-		Statement stmt = null;
-		String query = "select Cod_Linea, Nombre from linea";
-		//Inicio programa:
-		try {
-			stmt = con.createStatement(); 
-			ResultSet rs = stmt.executeQuery (query);
-			while (rs.next()) {
-				String codLinea = rs.getString("Cod_Linea");
-				 System.out.println("codLinea es: " + codLinea);
-			}
-		} catch (SQLException ex){
-			printSQLException(ex);
-		} finally {
-		try {
-			stmt.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		}
-	}
-	
-	
-	//Podría hacerse verParadaL1, verParadaL2, verParadaL3, verParadaL4
-	//El select creo que sería así pero no funciona en XAMPP
-	//SELECT parada.nombre FROM linea, linea-parada, parada WHERE linea.Cod_Linea = linea-parada. Cod_Linea and linea-parada.Cod_Parada = parada.Cod_Parada and Cod_Linea=`L1`
-	public static void verParada (Connection con, String termibus) throws SQLException
-	{
-		//Declaración e inicialización de variables:
-		Statement stmt = null;
-		String query = "select Cod_Linea, Nombre" + "from" + termibus + ".linea";
-		//Inicio programa:
-		try {
-			stmt = con.createStatement(); 
-			ResultSet rs = stmt.executeQuery (query);
-			while (rs.next()) {
-				String nombreParada = rs.getString("Nombre");
-			}
-		} catch (SQLException ex){
-			printSQLException(ex);
-		} finally {
-		stmt.close();
-		}
-	}
-	
-	public static void verBillete (Connection con, String termibus) throws SQLException
-	{
-		//Declaración e inicialización de variables:
-		Statement stmt = null;
-		//Inicio programa:
-		try {
-			stmt = con.createStatement(); 
-			ResultSet rs = stmt.executeQuery ("select * from" + termibus + ".billete");
-			while (rs.next()) {
-				int codBillete = rs.getInt("Cod_Billete");
-				int nTrayecto = rs.getInt("NTrayecto");
-				int codLinea = rs.getInt("Cod_Linea");
-				int codBus = rs.getInt("Cod_Bus");
-				int codParadaInicio = rs.getInt("Cod_Parada_Inicio");
-				int codParadaFin = rs.getInt("Cod_Parada_Fin");
-				Date fecha = rs.getDate("Fecha");
-				Time hora = rs.getTime("Hora");
-				String DNI = rs.getString("DNI");
-				float precio = rs.getFloat("Precio");
-			}
-		} catch (SQLException ex){
-			printSQLException(ex);
-		} finally {
-		stmt.close();
-		}
-	}
-	
-	//Modificar datos en las tablas utlizando Resultset
-	//Para modificar el nPlazas del autobus ((también podría ser una transacción!!!!Pag246 libro Programación(RaMa))
-	
-	public static void modificarNumeroPlazasLibres(Connection con) throws SQLException {
-		//Declaración e inicialización de variables:
-		int ocupaPlaza=1;
-		Statement stmt = null;
-					
-		//Inicio programa:	
-		try {
-			//ResultSet.TYPE_SCROLL_SENSITIVE: trabaja datos actuales
-			//ResultSet.CONCUR_UPDATABLE:para que ResultSet pueda ser actualizado
-			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			ResultSet rs = stmt.executeQuery("select N_plazas from autobus ");
-			while(rs.next()) {
-				int i = rs.getInt("N_plazas");
-				rs.updateInt("N_plazas", i + ocupaPlaza);//modifica l
-				rs.updateRow();//actualiza la BBDD
-				}
-		} catch (SQLException e) {
-			printSQLException(e);
-		} finally {
-			stmt.close(); 
-		}
-	}
+
 	
 	//Insertar datos en las tablas utilizando Resulset
 	//para añadir cliente o billetes de autobus
@@ -352,7 +253,7 @@ public class Llamadas {
 		}
 	}
 	
-	public static void insertarBillete(Connection con, Billete billete, boolean billeteVuelta){
+	public static void insertarBillete(Connection con, Billete billete, boolean billeteVuelta, Calendar fecha){
 		//Declaración e inicialización de variables:
 		int codBillete=billete.getCodBillete();
 		int nTrayecto = billete.getnTrayecto();
@@ -360,12 +261,11 @@ public class Llamadas {
 		int codBus=billete.getAutobus().getCodBus();
 		int codParadaInicio=billete.getCodParadaInicio().getCodParada();
 		int codParadaFin=billete.getCodParadaFin().getCodParada();
-		String fecha="20000101";
 		String hora="0000";
 		String dni=billete.getCliente().getDNI();
 		float precio=billete.getPrecio();
 
-		String query="INSERT INTO billete(Cod_Billete, Ntrayecto, COD_LINEA, COD_BUS, COD_PARADA_INICIO, COD_PARADA_FIN, FECHA, HORA, DNI, PRECIO) values (" + codBillete + ", " + nTrayecto + ", '" + codLinea + "', " + codBus + ", " + codParadaInicio  + ", " + codParadaFin + ", " + fecha + ", " + hora + ", '" + dni + "', " + precio + ");";		System.out.println(query);
+		String query="INSERT INTO billete(Cod_Billete, Ntrayecto, COD_LINEA, COD_BUS, COD_PARADA_INICIO, COD_PARADA_FIN, FECHA, HORA, DNI, PRECIO) values (" + codBillete + ", " + nTrayecto + ", '" + codLinea + "', " + codBus + ", " + codParadaInicio  + ", " + codParadaFin + ", " + ControladorFecha.CalendarToString(fecha) + ", " + hora + ", '" + dni + "', " + precio + ");";		System.out.println(query);
 		
 		Statement stmt = null;
 
@@ -456,26 +356,6 @@ public class Llamadas {
 				return resultado;
 	}
 
-
-
-public static void verParadasOrdenadasL1 (Connection con, String termibus) throws SQLException
-	{
-		//Declaración e inicialización de variables:
-		Statement stmt = null;
-		String query = "SELECT NOMBRE, (SQRT(POWER((LATITUD-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=1)),2) + POWER((LONGITUD-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=1)),2))) \"DISTANCIA\" FROM PARADA WHERE COD_PARADA IN(SELECT COD_PARADA FROM LINEA_PARADA WHERE COD_LINEA ='L1') ORDER BY DISTANCIA ASC;";
-		//Inicio programa:
-		try {
-			stmt = con.createStatement(); 
-			ResultSet rs = stmt.executeQuery (query);
-			while (rs.next()) {
-				String paradasOrdenadasL1 = rs.getString("Nombre");
-			}
-		} catch (SQLException ex){
-			printSQLException(ex);
-		} finally {
-		stmt.close();
-		}
-	}
 
 
 
