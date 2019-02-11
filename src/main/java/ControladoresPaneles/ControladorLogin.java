@@ -20,8 +20,13 @@ import Vista.PaneSelTrayecto;
  */
 public class ControladorLogin {
 	
+	/**
+	 * Método:ControladorLogin. 
+	 * @param paneLogin
+	 */
 	public ControladorLogin(PaneLogin paneLogin)
 	{
+		//Botón "Registrese Ahora"
 		paneLogin.btnRegister.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -29,6 +34,7 @@ public class ControladorLogin {
 			}
 		});
 		
+		//Botón "Login"
 		paneLogin.btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -53,9 +59,7 @@ public class ControladorLogin {
 				{
 					System.out.println("El dni o la contraseña no es valida " + paneLogin.textfieldUsername.getText());
 					paneLogin.lblUsConNoValido.setVisible(true);
-				}
-				
-				
+				}	
 			}
 		});
 	}

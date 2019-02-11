@@ -31,7 +31,7 @@ import Vista.PaneSelTrayecto;
 public class ControlInterfaz {
 	
 	public static Frame1 frame1;
-	public static PaneBienvenida paneBienvenida;
+	public static PaneBienvenida paneBienvenida; 
 	public static PaneLogin paneLogin;
 	public static PaneRegister paneRegister;
 	public static PaneSelTrayecto paneSelTrayecto;
@@ -48,7 +48,9 @@ public class ControlInterfaz {
 	public static ControladorBienvenida controladorBienvenida;
 	
 
-	
+	/**
+	 * Método: InicializarInterfaz()
+	 */
 	public static void InicializarInterfaz()
 	{
 		//Crea el frame pero no visible
@@ -77,19 +79,30 @@ public class ControlInterfaz {
 		frame1.setPane(paneBienvenida.paneBienvenida);
 	}
 	
-	
-	//Cambia de un pane a otro
+	/**
+	 * Método: setPanel: permite cambiar de un panel a otro
+	 * @param paneNuevo
+	 */
 	public static void setPanel(JPanel paneNuevo)
 	{
 		frame1.setPane(paneNuevo);
 	}
 	
+	/**
+	 * Método: ActualizarTextoJLabel: permite actualizar el texto del JLabel
+	 * @param label
+	 * @param texto
+	 */
 	public static void ActualizarTextoJLabel(JLabel label, String texto)
 	{
 		label.setText(texto);
 	}
 	
-	
+	/**
+	 * Método: ActualizarListaJCombobox: permite actualizar la lista del JCombobox
+	 * @param combobox
+	 * @param texto
+	 */
 	public static void ActualizarListaJCombobox(JComboBox combobox, String[] texto)
 	{
 		combobox.setModel(new DefaultComboBoxModel(texto));

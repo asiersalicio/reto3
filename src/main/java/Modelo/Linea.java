@@ -17,10 +17,6 @@ public class Linea {
 			this.nombreLinea=nombreLinea;	
 		}
 
-		public Linea() {
-			
-		}
-
 		public String getCodLinea() {
 			return codLinea;
 		}

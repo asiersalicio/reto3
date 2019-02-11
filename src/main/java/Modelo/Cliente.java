@@ -14,7 +14,7 @@ import java.util.Calendar;
  */
 
 public class Cliente{
-	//Atributos o propiedades:
+	//Atributos o propiedades: 
 	private String DNI;
 	private String nombreCliente;
 	private String apellidos;

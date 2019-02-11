@@ -20,6 +20,7 @@ import Modelo.Cliente;
  * 
  */
 
+/**
 public class TestCliente {
 	//Atributos o propiedades:
 	private String DNI="15236985K";
@@ -78,3 +79,4 @@ public class TestCliente {
 
 
 }
+*/

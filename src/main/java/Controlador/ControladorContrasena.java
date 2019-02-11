@@ -11,9 +11,13 @@ import Modelo.Llamadas;
  * @author IN1DM3B_18
  *
  */
-public class ControladorContrasena {
+public class ControladorContrasena {  
 	
-	//Método que permite encriptar la contraseña:
+	/**
+	 * Método: encriptarContrasena. permite encriptar la contraseña:
+	 * @param contrasena
+	 * @return
+	 */
 	public static String encriptarContrasena(String contrasena)
 	{
 		String contrasenaEncriptada=null;
@@ -31,12 +35,15 @@ public class ControladorContrasena {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		
 		return contrasenaEncriptada;
-		
 	}
 	
-	//Método qe comprueba que la contraseña introducida es igual a la contraseña de la BBDD
+	/**
+	 * Método: combrobarContrasena: comprueba que la contraseña introducida es igual a la contraseña de la BBDD
+	 * @param contrasenaEncriptada
+	 * @param dni
+	 * @return
+	 */
 	public static boolean combrobarContrasena(String contrasenaEncriptada, String dni)
 	{
 		if(Llamadas.ObtenerContrasena(dni).equals(contrasenaEncriptada))		
@@ -45,11 +52,16 @@ public class ControladorContrasena {
 		return false;
 	}
 	
-	//Método que valida el formato del DNI: valida el DNI utilizando --> Expresiones Regulares
-	/*.matches("") --> 
+	/**
+	 * Método: validarFormatoDNI. 
+	 * Método que valida el formato del DNI: valida el DNI utilizando --> Expresiones Regulares
+	 * Explicación:
+	 * .matches("") --> 
 	 * [0-9]{8}: o lo que es lo mismo:  \d{8} -->  Permite coger 8 dígitos.
 	 * [-]? : permite introducir un guión opcional.
 	 * [A-Z]{1} : coge la ultima letra, solo puede ser una.
+	 * @param dni
+	 * @return
 	 */
 	public static boolean validarFormatoDNI (String dni) {
 		if(dni.matches("([0-9]{8})([-]?)([A-Z]{1})"))

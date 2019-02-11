@@ -6,7 +6,10 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
+import Modelo.Autobus;
 import Modelo. Billete;
+import Modelo.Cliente;
+import Modelo.Parada;
 /** 
  *Clase TestBillete: 
  * @param codBillete
@@ -21,21 +24,28 @@ import Modelo. Billete;
  * @param precioIda
  * 
  */
-
+/**
 public class TestBillete {
 	//Atributos o propiedades:
-	private int codBillete=1;
-	private int nTrayecto=1;
-	private String codLinea="L1";
+	public int codBillete=1;
+	public int nTrayecto=1;
+	public String codLinea="L1";
+	public Autobus autobus= {1001,40,0.32,"Rojo"};
+	public Parada paradaInicio;
+	public Parada paradaFin;
+	public Calendar fecha;
+	public float precio;
+	public Cliente cliente;
+
 	private int codBus=1001;
 	private int codParadaInicio=1;
 	private int codParadaFin=9;
-	private Calendar fecha="2019-01-28";
+	private String fecha="2019-01-28";
 	private String DNI="15236985K";
 	private float precio=(float) 30.5;
 
 	//para el test del Constructor:
-	public Billete billeteTest1 = new Billete(codBillete, nTrayecto, codLinea, codBus, codParadaInicio, codParadaFin, fecha, DNI, precio);
+	public Billete billeteTest1 = new Billete(codBillete, nTrayecto, codLinea, autobus, paradaInicio, paradaFin, fechaIda, cliente, precio);
 	
 	@Test
 	public void testConstructor() {
@@ -51,7 +61,7 @@ public class TestBillete {
 		assertEquals(billeteTest.getPrecio(), precio, 0.01);
 	}
 	
-	@Test
+	@Test 
 	public void testCodBillete() {
 		billeteTest1.setCodBillete(codBillete);
 		assertEquals(billeteTest1.getCodBillete(), codBillete);
@@ -99,3 +109,4 @@ public class TestBillete {
 	}
 
 }
+*/

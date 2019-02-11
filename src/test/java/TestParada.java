@@ -13,7 +13,7 @@ import Modelo.Parada;
  * @param longitud
  * 
  */
-
+/*
 	public class TestParada {
 	//Atributos o propiedades:
 	public String codParada="1";
@@ -60,6 +60,5 @@ import Modelo.Parada;
 	paradaTest1.setLongitud (longitud);
 	assertEquals(paradaTest1.getLongitud (), longitud,0.01);
 	}
-
-
 }
+*/

@@ -8,8 +8,6 @@ import java.sql.*;
  *
  * @param 
  */
-
-
 public class BBDD {
 	
 	public static Connection connection;
