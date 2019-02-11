@@ -20,16 +20,12 @@ import Modelo.Cliente;
  * 
  */
 
-/**
 public class TestCliente {
 	//Atributos o propiedades:
 	private String DNI="15236985K";
 	private String nombreCliente="Popeye";
 	private String apellidos="El marino";
-	
-	Calendar c = Calendar.getInstance();
-	Date fechaNac = new java.sql.Date(c.getTimeInMillis());
-	
+	Calendar fechaNac = Calendar.getInstance();
 	private String sexo="V";
 	private String contrasena="ec5287c45f0e70ec22d52e8bcbeeb640";
 
@@ -79,4 +75,4 @@ public class TestCliente {
 
 
 }
-*/
+

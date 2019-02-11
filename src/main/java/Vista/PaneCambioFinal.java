@@ -20,11 +20,11 @@ import javax.swing.JList;
 import java.awt.Color;
 import java.awt.Font;
 
-
-/*
+/**
  * Clase PaneCambioFinal
+ * @author IN1DM3B_18
+ *
  */
-
 public class PaneCambioFinal {
 	
 	public JPanel paneCambioFinal;
@@ -46,7 +46,10 @@ public class PaneCambioFinal {
 	public JLabel lblLogoPeke;
 	private JLabel imgCambio;
 
-	
+	/**
+	 * Método: PaneCambioFinal
+	 * @param frame1
+	 */
 	public PaneCambioFinal(Frame1 frame1)
 	{
 		paneCambioFinal = new JPanel();
