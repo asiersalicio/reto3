@@ -1,17 +1,11 @@
 package Modelo;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
-import java.text.ParseException;
 import java.util.Arrays;
-import java.util.BitSet;
 import java.util.Calendar;
-
-import javax.swing.text.MaskFormatter;
 
 import Controlador.ControlModelo;
 import Controlador.ControladorFecha;

@@ -1,13 +1,8 @@
 package Vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.xml.crypto.Data;
-
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
 import Controlador.Main;
@@ -21,7 +16,6 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

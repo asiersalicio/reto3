@@ -43,7 +43,11 @@ public class ControladorSelTrayecto {
 	boolean btnOrigenEnabled = false;
 	boolean btnDestinoEnabled = false;
 	
-	
+	/**
+	 * Método: ControladorSelTrayecto
+	 * @param paneSelTrayecto
+	 * @param paneMostrarCompra
+	 */
 	public ControladorSelTrayecto(PaneSelTrayecto paneSelTrayecto, PaneMostrarCompra paneMostrarCompra)
 	{
 		controladorSelTrayecto=this;
@@ -226,7 +230,12 @@ public class ControladorSelTrayecto {
 			}
 		});
 	}
-	//Hace visible o invisible la barra de busqueda
+	
+	/**
+	 * Método: setBuscadorVisible
+	 * Hace visible o invisible la barra de busqueda
+	 * @param truefalse
+	 */
 	void setBuscadorVisible(boolean truefalse)
 	{
 		if(truefalse) {
@@ -243,7 +252,6 @@ public class ControladorSelTrayecto {
 			e.printStackTrace();
 		}
 
-		
 		}
 		else
 		{
@@ -259,6 +267,11 @@ public class ControladorSelTrayecto {
 		}
 	}
 	
+	/**
+	 * Método: ValidarCampos
+	 * Valida que los campos de la parada de origen y la parada destino (que se encuentran en el paneSelTrayecto) hayan sido seleccionado. 
+	 * @return
+	 */
 	public boolean ValidarCampos() {
 		if(paneSelTrayecto.FieldOrigen.getText().equals(""))
 			return false;
