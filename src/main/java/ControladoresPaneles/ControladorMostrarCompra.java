@@ -2,10 +2,11 @@ package ControladoresPaneles;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import Controlador.ControlFormato;
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
 import Controlador.ControladorFecha;
-import Modelo.Formato2dec;
 import Vista.PaneCambioFinal;
 import Vista.PaneMostrarCompra;
 
@@ -49,22 +50,22 @@ public class ControladorMostrarCompra {
 			System.out.println("Ida y vuelta");
 			paneMostrarCompra.fieldFechaVuelta.setEnabled(true);
 			paneMostrarCompra.fieldFechaVuelta.setText(ControladorFecha.CalendarToStringVisual(ControlModelo.fechaVuelta));
-			precioAMostrar = Formato2dec.formateador(precioIda + precioVuelta) + "€";
+			precioAMostrar = ControlFormato.Formateado2Dec(precioIda + precioVuelta) + "€";
 		}
 		else
 		{
 			paneMostrarCompra.fieldTipoBillete.setText("Solo ida");
 			System.out.println("Solo ida");
 			paneMostrarCompra.fieldFechaVuelta.setEnabled(false);
-			precioAMostrar = Formato2dec.formateador(precioIda) + "€";
+			precioAMostrar = ControlFormato.Formateado2Dec(precioIda) + "€";
 		}
 		System.out.println("Precio ida: " + ControlModelo.precioIda + "Precio vuelta: " + ControlModelo.precioVuelta);
 		paneMostrarCompra.fieldLinea.setText(ControlModelo.linea.getCodLinea() + ": " + ControlModelo.linea.getNombreLinea());
 		paneMostrarCompra.fieldTrayectoria.setText(ControlModelo.paradaOrigen.getNombreParada() + " -> " + ControlModelo.paradaDestino.getNombreParada());
 		paneMostrarCompra.fieldPrecio.setText(precioAMostrar);
 		paneMostrarCompra.fieldFechaIda.setText(ControladorFecha.CalendarToStringVisual(ControlModelo.fechaIda));
-		panePago.txtaPagar2.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precioIda + ControlModelo.precioVuelta)));
-		panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precioIda + ControlModelo.precioVuelta)));
+		panePago.txtaPagar2.setText(String.valueOf(ControlFormato.Formateado2Dec(ControlModelo.precioIda + ControlModelo.precioVuelta)));
+		panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(ControlModelo.precioIda + ControlModelo.precioVuelta)));
 	}
 	
 }

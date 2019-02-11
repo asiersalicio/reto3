@@ -13,12 +13,36 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.font.FontRenderContext;
+import java.awt.font.GlyphVector;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+import java.awt.image.ImageObserver;
+import java.awt.image.RenderedImage;
+import java.awt.image.renderable.RenderableImage;
+import java.text.AttributedCharacterIterator;
 import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.util.Map;
 import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.Image;
+import java.awt.Paint;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.Shape;
+import java.awt.Stroke;
+import java.awt.RenderingHints.Key;
 import java.awt.Color;
+import java.awt.Composite;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFormattedTextField;
@@ -27,7 +51,7 @@ import javax.swing.JFormattedTextField;
  * @author IN1DM3B_18
  *
  */
-public class PaneMostrarCompra {
+public class PaneMostrarCompra extends JComponent {
 	
 	public JPanel paneMostrarCompra;
 	public JTextField fieldTipoBillete;
@@ -186,6 +210,6 @@ public class PaneMostrarCompra {
 		imgResumen.setIcon(new ImageIcon(PaneMostrarCompra.class.getResource("/ImagenesVista/Resumen.png")));
 		imgResumen.setBounds(12, 60, 465, 93);
 		paneMostrarCompra.add(imgResumen);
-		
-	}
+	
+}
 }

@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.concurrent.TimeUnit;
 
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
+import Controlador.Main;
 import Modelo.BBDD;
 import Modelo.Devolucion;
 import Modelo.Llamadas;
@@ -37,9 +39,9 @@ public class ControladorPago {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ControlInterfaz.setPanel(ControlInterfaz.paneCambioFinal.paneCambioFinal);
+				ControlModelo.GenerarBilletes();
 				ManejoBilletes.rellenarLista(panePago);
 				ManejoBilletes.RellenarDatosBillete(panePago);
-				ControlModelo.GenerarBilletes();
 			}
 		});
 		panePago.Boton1cent.addActionListener(new ActionListener() {

@@ -131,4 +131,22 @@ public class ControlModelo {
 		System.out.println(ControlModelo.precioVuelta);
 		}
 }
+
+	public static void Reset() {
+		cliente=null;  
+		linea=null;
+		paradaOrigen=null;
+		paradaDestino=null;
+		lineaParada=null;
+		billeteIda=null;
+		billeteVuelta=null;
+		autobusIda=null;
+		autobusVuelta=null;
+		precioIda = 0;
+		precioVuelta = 0;
+		fechaIda=null;
+		fechaVuelta=null;
+		viajeDeVuelta=false;
+		
+	}
 }

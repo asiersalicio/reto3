@@ -23,4 +23,10 @@ public class Main {
 		SelectorBBDD selectorBBDD = new SelectorBBDD();
 		
 	}
+
+	public static void ResetAll() {
+		ControlInterfaz.setPanel(ControlInterfaz.paneBienvenida.paneBienvenida);
+		ControlModelo.Reset();
+		
+	}
 }

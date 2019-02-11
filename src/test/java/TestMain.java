@@ -3,7 +3,14 @@
 public class TestMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		new TestControladorContrasena();
+		new TestAutobus();
+		new TestLinea();
+		new TestLineaAutobus();
+		new TestLineaParada();
+		new TestPagar();
+		new TestPoblacion();
+		
 	
 	}
 

@@ -2,6 +2,8 @@ package Modelo;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
+
+import Controlador.ControlFormato;
 import Vista.PanePago;
 import Vista.PaneSelTrayecto;
 /**
@@ -30,13 +32,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -48,13 +50,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -66,13 +68,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -84,13 +86,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -102,13 +104,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -120,13 +122,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -138,13 +140,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -156,13 +158,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -175,13 +177,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -193,13 +195,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -211,13 +213,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -229,13 +231,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -247,13 +249,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}
@@ -265,13 +267,13 @@ public class Pagar {
 						aPagar=aPagar-valorBillete;
 						if (aPagar>0)
 						{
-							panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 						}
 						else
 						{
 							panePago.txtfaltaporpagar.setText("0");
 							aPagar=aPagar*-1;
-							panePago.txtCambio2.setText(String.valueOf(Formato2dec.formateador(aPagar)));
+							panePago.txtCambio2.setText(String.valueOf(ControlFormato.Formateado2Dec(aPagar)));
 							panePago.btnImpresionBillete.setVisible(true);
 						}
 					}

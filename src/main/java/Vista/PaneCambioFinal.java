@@ -5,11 +5,12 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.MaskFormatter;
 
+import Controlador.ControlFormato;
 import Controlador.ControlInterfaz;
 import ControladoresPaneles.ControladorCambioFinal;
 import Modelo.Devolucion;
-import Modelo.Formato2dec;
 import Modelo.ManejoBilletes;
 
 import javax.swing.DefaultListModel;
@@ -19,6 +20,12 @@ import javax.swing.JList;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.text.ParseException;
+
+import javax.swing.JFormattedTextField;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 /*
@@ -40,15 +47,20 @@ public class PaneCambioFinal {
 	public JLabel lblBillete;
 	public JLabel lblPrecio;
 	public static JLabel lblparaPrecio;
-	public static JLabel lblCodigo;
 	public JLabel lblSuBillete;
 	public JLabel lblLogoGrande;
 	public JLabel lblLogoPeke;
-	private JLabel imgCambio;
+	public JLabel imgCambio;
+	public JLabel label;
+	public static JLabel lblCodIda;
+	public static JLabel lblCodVuelta;
+	public JButton btnVolver;
 
 	
 	public PaneCambioFinal(Frame1 frame1)
 	{
+		
+		
 		paneCambioFinal = new JPanel();
 		paneCambioFinal.setBackground(Color.WHITE);
 		paneCambioFinal.setBounds(0, 0, 800, 600);
@@ -65,6 +77,19 @@ public class PaneCambioFinal {
 		listaCambio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		listaCambio.setBounds(74, 179, 239, 244);
 		paneCambioFinal.add(listaCambio);
+		
+		lblCodIda = new JLabel("00000000");
+		lblCodIda.setForeground(Color.GRAY);
+		lblCodIda.setFont(new Font("Consolas", Font.PLAIN, 20));
+		lblCodIda.setBounds(391, 354, 108, 29);
+		paneCambioFinal.add(lblCodIda);
+		
+		lblCodVuelta = new JLabel("00000000");
+		lblCodVuelta.setForeground(Color.GRAY);
+		lblCodVuelta.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCodVuelta.setFont(new Font("Consolas", Font.PLAIN, 20));
+		lblCodVuelta.setBounds(574, 354, 108, 29);
+		paneCambioFinal.add(lblCodVuelta);
 		
 		lblTipo = new JLabel("Tipo:");
 		lblTipo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
@@ -110,10 +135,6 @@ public class PaneCambioFinal {
 		lblparaTrayecto.setBounds(447, 302, 216, 14);
 		paneCambioFinal.add(lblparaTrayecto);
 		
-		lblCodigo = new JLabel("");
-		lblCodigo.setBounds(391, 367, 294, 14);
-		paneCambioFinal.add(lblCodigo);
-		
 		lblLogoGrande = new JLabel("");
 		lblLogoGrande.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/logo-termibus.png")));
 		lblLogoGrande.setBounds(489, 11, 301, 117);
@@ -146,6 +167,14 @@ public class PaneCambioFinal {
 		imgCambio.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/Gracias.png")));
 		imgCambio.setBounds(10, 60, 505, 106);
 		paneCambioFinal.add(imgCambio);
+		
+		btnVolver = new JButton("Volver a inicio");
+		
+		btnVolver.setBounds(637, 523, 153, 46);
+		paneCambioFinal.add(btnVolver);
+		
+		
+		
 		paneCambioFinal.setVisible(false);
 	}
 }
