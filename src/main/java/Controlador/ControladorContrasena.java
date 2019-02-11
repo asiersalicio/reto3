@@ -11,7 +11,7 @@ import Modelo.Llamadas;
  * @author IN1DM3B_18
  *
  */
-public class ControladorContrasena {
+public class ControladorContrasena {  
 	
 	//Método que permite encriptar la contraseña:
 	public static String encriptarContrasena(String contrasena)

@@ -4,10 +4,17 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import Vista.PanePago;
 import Vista.PaneSelTrayecto;
-
+/**
+ * Clase: Pagar. Se gestiona el pago de los billetes.
+ * @author IN1DM3B_18
+ *
+ */
 public class Pagar {
-	
-
+	/**
+	 * Método pagar:
+	 * @param dineroIntroducido
+	 * @param panePago
+	 */
 		public static void pagar(int dineroIntroducido,PanePago panePago)
 		{
 			float aPagar=Float.parseFloat(panePago.txtfaltaporpagar.getText());

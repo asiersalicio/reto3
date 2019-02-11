@@ -173,7 +173,6 @@ public class ControladorSelTrayecto {
 		paneSelTrayecto.btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				boolean busDisponible=false;
 				ControlModelo.EstablecerLinea(codLinea);
 				ControlModelo.EstablecerParadaOrigen(codParadaOrigen);
 				ControlModelo.EstablecerParadaDestino(codParadaDestino);
@@ -184,18 +183,9 @@ public class ControladorSelTrayecto {
 				ControlModelo.fechaVuelta=paneSelTrayecto.dateChooserVuelta.getCalendar();
 				System.out.println("Fecha de vuelta: " + ControlModelo.fechaVuelta);
 				}
-				busDisponible=ControlModelo.CalcularDatosCompra();
-				if(busDisponible)
-				{
-					paneSelTrayecto.lblNoHayBuses.setVisible(false);
-					ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.paneMostrarCompra);
-					ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra, ControlInterfaz.panePago);
-					
-				}
-				else
-				{
-					paneSelTrayecto.lblNoHayBuses.setVisible(true);
-				}
+				ControlModelo.CalcularDatosCompra();
+				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.paneMostrarCompra);
+				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra, ControlInterfaz.panePago);
 			}
 		});
 		

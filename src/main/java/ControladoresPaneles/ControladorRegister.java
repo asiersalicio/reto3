@@ -117,6 +117,7 @@ public class ControladorRegister {
 			{
 				paneRegister.lblErrUs.setVisible(true); resultado=false;
 			}
+		
 			if(!(paneRegister.fieldNombre.getText().length()>=3))
 			{
 				paneRegister.lblErrNom.setVisible(true); resultado=false;

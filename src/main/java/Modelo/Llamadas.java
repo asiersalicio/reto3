@@ -22,7 +22,7 @@ import ControladoresPaneles.ControladorSelTrayecto;
 	 *Realizar una consultas a la BBDD: Recuperar información
 	 *Modificar datos en las tablas de la BBDD
 	 *Insertar datos en las tablas de la BBDD
-	 * @param 
+	 * @param precioGasolina
 	 */
 	
 public class Llamadas {

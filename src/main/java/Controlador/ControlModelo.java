@@ -20,7 +20,7 @@ import Vista.PaneRegister;
  */
 public class ControlModelo {
 	
-	public static Cliente cliente;
+	public static Cliente cliente;  
 	public static Linea linea;
 	public static Parada paradaOrigen;
 	public static Parada paradaDestino;
@@ -57,9 +57,9 @@ public class ControlModelo {
 	
 	//EstablecerLinea: se realiza la llamada al método RellenarLinea de la clase Llamadas en el paquete Modelo y se rellena el atributo linea del objeto Linea. 
 	public static void EstablecerLinea(String codLinea)
-	{
-		linea = new Linea();
-		Llamadas.RellenarLinea(BBDD.connection, linea, codLinea);
+	{ 
+		linea = new Linea(codLinea, codLinea);
+		Llamadas.RellenarLinea(BBDD.connection, linea, codLinea); 
 	}
 	
 	//EstablecerParadaOrigen: se realiza la llamada al método RellenarParada de la clase Llamadas en el paquete Modelo y se rellena el atributo paradaOrigen del objeto Parada. 

@@ -31,7 +31,7 @@ import Vista.PaneSelTrayecto;
 public class ControlInterfaz {
 	
 	public static Frame1 frame1;
-	public static PaneBienvenida paneBienvenida;
+	public static PaneBienvenida paneBienvenida; 
 	public static PaneLogin paneLogin;
 	public static PaneRegister paneRegister;
 	public static PaneSelTrayecto paneSelTrayecto;

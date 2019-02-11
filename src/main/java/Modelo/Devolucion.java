@@ -1,7 +1,15 @@
 package Modelo;
-
+/**
+ * Clase: Devolucion, se gestiona la devolución que recibirá el cliente tras realizar su pago.
+ * @author IN1DM3B_18
+ *
+ */
 public class Devolucion {
-	
+	/**
+	 * Método Dinero
+	 * @param cambio
+	 * @param listaBilletes
+	 */
 	public static void Dinero (double cambio,ManejoBilletes[] listaBilletes)
 	{
 		int billetes=0;

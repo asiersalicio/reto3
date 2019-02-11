@@ -4,7 +4,12 @@ package Modelo;
 import Controlador.ControlModelo;
 import Vista.PaneCambioFinal;
 import Vista.PanePago;
-
+/**
+ * Clase: ManejoBilletes
+ * @author IN1DM3B_18
+ * @param nombreBillete
+ * @param contadorBillete
+ */
 public class ManejoBilletes {
 
 		public String nombreBillete;
@@ -24,12 +29,13 @@ public class ManejoBilletes {
 		{
 			return contadorBillete;
 		}
+		
 		public void sumarBillete()
 		{
 			this.contadorBillete=this.contadorBillete + 1;
 			System.out.print(this.contadorBillete+" "+this.contadorBillete);
-		
 		}
+		
 		public static void rellenarLista(PanePago panePago)
 		{
 
@@ -51,8 +57,6 @@ public class ManejoBilletes {
 			
 			float cambio=Float.parseFloat(panePago.txtCambio2.getText());
 			Devolucion.Dinero(cambio, listaBilletes);
-			
-			
 			
 			for (int i=0;i<listaBilletes.length;i++)
 			{
