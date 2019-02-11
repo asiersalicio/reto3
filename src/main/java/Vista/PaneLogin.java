@@ -33,7 +33,6 @@ public class PaneLogin {
 	private JLabel logoGrande;
 	private JLabel logoPeke;
 	public JLabel lblUsConNoValido;
-	public JLabel lblBienvenidaLogin;
 	
 	public PaneLogin(Frame1 frame1)
 	{
@@ -41,6 +40,11 @@ public class PaneLogin {
 		paneLogin.setBackground(Color.WHITE);
 		paneLogin.setBounds(0, 0, 800, 600);
 		paneLogin.setLayout(null);
+		
+		JLabel imgIniciarSesion = new JLabel("");
+		imgIniciarSesion.setIcon(new ImageIcon(PaneLogin.class.getResource("/ImagenesVista/IniciarSesion.png")));
+		imgIniciarSesion.setBounds(10, 60, 497, 97);
+		paneLogin.add(imgIniciarSesion);
 		
 		textfieldUsername = new JTextField();
 		textfieldUsername.setBounds(278, 212, 308, 39);
@@ -105,12 +109,6 @@ public class PaneLogin {
 		lblUsConNoValido.setForeground(Color.RED);
 		lblUsConNoValido.setBounds(307, 181, 246, 29);
 		paneLogin.add(lblUsConNoValido);
-		
-		lblBienvenidaLogin = new JLabel("Bienvenido, entre en su perfil :");
-		lblBienvenidaLogin.setForeground(new Color(204, 0, 0));
-		lblBienvenidaLogin.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
-		lblBienvenidaLogin.setBounds(10, 83, 378, 45);
-		paneLogin.add(lblBienvenidaLogin);
 		paneLogin.setVisible(false);
 	}
 }

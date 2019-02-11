@@ -38,7 +38,6 @@ public class PaneMostrarCompra {
 	public JFormattedTextField fieldPrecio;
 	public JButton btnVolverALogin;
 	public JButton btnSiguiente;
-	public JLabel lblDetalles;
 	public JLabel lblTipoDeBillete;
 	public JLabel lblTrayetoria;
 	public JLabel lblLinea;
@@ -48,6 +47,7 @@ public class PaneMostrarCompra {
 	public JLabel logoGrande;
 	public JLabel logoPeke;
 	public JLabel lblidaYVuelta;
+	private JLabel imgResumen;
 	
 	public PaneMostrarCompra(Frame1 frame1)
 	{
@@ -79,12 +79,6 @@ public class PaneMostrarCompra {
 		
 		btnVolverALogin.setBounds(82, 505, 185, 39);
 		paneMostrarCompra.add(btnVolverALogin);
-		
-		lblDetalles = new JLabel("Detalles de su compra :");
-		lblDetalles.setForeground(new Color(204, 0, 0));
-		lblDetalles.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
-		lblDetalles.setBounds(10, 83, 229, 45);
-		paneMostrarCompra.add(lblDetalles);
 		
 		lblTipoDeBillete = new JLabel("Tipo de Billete :");
 		lblTipoDeBillete.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -187,6 +181,11 @@ public class PaneMostrarCompra {
 		lblidaYVuelta.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblidaYVuelta.setBounds(191, 445, 129, 21);
 		paneMostrarCompra.add(lblidaYVuelta);
+		
+		imgResumen = new JLabel("");
+		imgResumen.setIcon(new ImageIcon(PaneMostrarCompra.class.getResource("/ImagenesVista/Resumen.png")));
+		imgResumen.setBounds(12, 60, 465, 93);
+		paneMostrarCompra.add(imgResumen);
 		
 	}
 }

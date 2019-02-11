@@ -33,11 +33,11 @@ public class PanePago {
 	public JButton Boton20euro;
 	public JButton Boton10euro;
 	public JButton Boton5euro;
-	public JLabel lblSeleccionePago;
 	public JLabel lblaPagar;
 	public JLabel lblPorPagar;
 	public JLabel lblCambio;
 	public float aPagar;
+	private JLabel lblNewLabel;
 	
 	public PanePago(Frame1 frame1)
 	{
@@ -63,7 +63,7 @@ public class PanePago {
 		Boton1cent.setBackground(Color.WHITE);
 		Boton1cent.setBorder(null);//Quitar borde negro al boton
 		Boton1cent.setIcon(new ImageIcon(PanePago.class.getResource("/ImagenesVista/1cent.png")));
-		Boton1cent.setBounds(650, 342, 92, 88);
+		Boton1cent.setBounds(651, 357, 92, 88);
 		panePago.add(Boton1cent);
 		
 		Boton50cent = new JButton("");
@@ -71,7 +71,7 @@ public class PanePago {
 		Boton50cent.setForeground(Color.WHITE);
 		Boton50cent.setBorder(null);
 		Boton50cent.setBackground(Color.WHITE);
-		Boton50cent.setBounds(465, 254, 92, 88);
+		Boton50cent.setBounds(466, 269, 92, 88);
 		panePago.add(Boton50cent);
 		
 		Boton20cent = new JButton("");
@@ -79,7 +79,7 @@ public class PanePago {
 		Boton20cent.setForeground(Color.WHITE);
 		Boton20cent.setBorder(null);
 		Boton20cent.setBackground(Color.WHITE);
-		Boton20cent.setBounds(557, 254, 92, 88);
+		Boton20cent.setBounds(558, 269, 92, 88);
 		panePago.add(Boton20cent);
 		
 		Boton10cent = new JButton("");
@@ -87,7 +87,7 @@ public class PanePago {
 		Boton10cent.setForeground(Color.WHITE);
 		Boton10cent.setBorder(null);
 		Boton10cent.setBackground(Color.WHITE);
-		Boton10cent.setBounds(650,254, 92, 88);
+		Boton10cent.setBounds(651,269, 92, 88);
 		panePago.add(Boton10cent);
 		
 		Boton5cent = new JButton("");
@@ -95,7 +95,7 @@ public class PanePago {
 		Boton5cent.setForeground(Color.WHITE);
 		Boton5cent.setBorder(null);
 		Boton5cent.setBackground(Color.WHITE);
-		Boton5cent.setBounds(465, 342, 92, 88);
+		Boton5cent.setBounds(466, 357, 92, 88);
 		panePago.add(Boton5cent);
 		
 		Boton2cent = new JButton("");
@@ -103,7 +103,7 @@ public class PanePago {
 		Boton2cent.setForeground(Color.WHITE);
 		Boton2cent.setBorder(null);
 		Boton2cent.setBackground(Color.WHITE);
-		Boton2cent.setBounds(557, 342, 92, 88);
+		Boton2cent.setBounds(558, 357, 92, 88);
 		panePago.add(Boton2cent);
 		
 		Boton1euro = new JButton("");
@@ -111,7 +111,7 @@ public class PanePago {
 		Boton1euro.setForeground(Color.WHITE);
 		Boton1euro.setBorder(null);
 		Boton1euro.setBackground(Color.WHITE);
-		Boton1euro.setBounds(598, 156, 99, 98);
+		Boton1euro.setBounds(599, 171, 99, 98);
 		panePago.add(Boton1euro);
 		
 		Boton2euro = new JButton("");
@@ -119,7 +119,7 @@ public class PanePago {
 		Boton2euro.setForeground(Color.WHITE);
 		Boton2euro.setBorder(null);
 		Boton2euro.setBackground(Color.WHITE);
-		Boton2euro.setBounds(499, 156, 99, 98);
+		Boton2euro.setBounds(500, 171, 99, 98);
 		panePago.add(Boton2euro);
 		
 		Boton200euro = new JButton("");
@@ -127,7 +127,7 @@ public class PanePago {
 		Boton200euro.setForeground(Color.WHITE);
 		Boton200euro.setBorder(null);
 		Boton200euro.setBackground(Color.WHITE);
-		Boton200euro.setBounds(57, 156, 142, 75);
+		Boton200euro.setBounds(58, 171, 142, 75);
 		panePago.add(Boton200euro);
 		
 		Boton100euro = new JButton("");
@@ -135,7 +135,7 @@ public class PanePago {
 		Boton100euro.setForeground(Color.WHITE);
 		Boton100euro.setBorder(null);
 		Boton100euro.setBackground(Color.WHITE);
-		Boton100euro.setBounds(209, 156, 142, 75);
+		Boton100euro.setBounds(210, 171, 142, 75);
 		panePago.add(Boton100euro);
 		
 		Boton50euro = new JButton("");
@@ -143,7 +143,7 @@ public class PanePago {
 		Boton50euro.setForeground(Color.WHITE);
 		Boton50euro.setBorder(null);
 		Boton50euro.setBackground(Color.WHITE);
-		Boton50euro.setBounds(57, 254, 142, 75);
+		Boton50euro.setBounds(58, 269, 142, 75);
 		panePago.add(Boton50euro);
 		
 		Boton20euro = new JButton("");
@@ -151,7 +151,7 @@ public class PanePago {
 		Boton20euro.setForeground(Color.WHITE);
 		Boton20euro.setBorder(null);
 		Boton20euro.setBackground(Color.WHITE);
-		Boton20euro.setBounds(209, 254, 142, 75);
+		Boton20euro.setBounds(210, 269, 142, 75);
 		panePago.add(Boton20euro);
 		
 		Boton10euro = new JButton("");
@@ -159,7 +159,7 @@ public class PanePago {
 		Boton10euro.setForeground(Color.WHITE);
 		Boton10euro.setBorder(null);
 		Boton10euro.setBackground(Color.WHITE);
-		Boton10euro.setBounds(57, 353, 142, 75);
+		Boton10euro.setBounds(58, 368, 142, 75);
 		panePago.add(Boton10euro);
 		
 		Boton5euro = new JButton("");
@@ -167,7 +167,7 @@ public class PanePago {
 		Boton5euro.setForeground(Color.WHITE);
 		Boton5euro.setBorder(null);
 		Boton5euro.setBackground(Color.WHITE);
-		Boton5euro.setBounds(209, 353, 142, 75);
+		Boton5euro.setBounds(210, 368, 142, 75);
 		panePago.add(Boton5euro);
 		
 		txtfaltaporpagar = new JTextField();
@@ -190,12 +190,6 @@ public class PanePago {
 		txtCambio2.setColumns(10);
 		txtCambio2.setBounds(480, 496, 85, 28);
 		panePago.add(txtCambio2);
-		
-		lblSeleccionePago = new JLabel("Introduzca pago:");
-		lblSeleccionePago.setForeground(new Color(204, 0, 0));
-		lblSeleccionePago.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
-		lblSeleccionePago.setBounds(10, 83, 229, 45);
-		panePago.add(lblSeleccionePago);
 		
 		btnImpresionBillete = new JButton("Siguiente");
 		btnImpresionBillete.setForeground(new Color(0, 51, 102));
@@ -225,6 +219,11 @@ public class PanePago {
 		lblCambio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblCambio.setBounds(335, 493, 135, 39);
 		panePago.add(lblCambio);
+		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(PanePago.class.getResource("/ImagenesVista/Pago.png")));
+		lblNewLabel.setBounds(10, 60, 467, 98);
+		panePago.add(lblNewLabel);
 	
 		panePago.setVisible(false);
 	}

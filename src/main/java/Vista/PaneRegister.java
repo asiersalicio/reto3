@@ -56,10 +56,10 @@ public class PaneRegister {
 	public JLabel lblUsuariodni;
 	public JLabel lblNombre;
 	public JLabel lblApellidos;
-	public JLabel lblRegistrese; 
 	public JLabel lblSexo;
 	public JLabel lblNotaTodosLos;
 	public JLabel lblPassword;
+	private JLabel ImgRegistro;
 	
 	public PaneRegister(Frame1 frame1)
 	{
@@ -73,13 +73,13 @@ public class PaneRegister {
 		
 		fieldDNI = new JTextField();
 		fieldDNI.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		fieldDNI.setBounds(264, 159, 236, 37);
+		fieldDNI.setBounds(264, 180, 236, 37);
 		paneRegister.add(fieldDNI);
 		fieldDNI.setColumns(10);
 		
 		fieldNombre = new JTextField();
 		fieldNombre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		fieldNombre.setBounds(264, 207, 236, 37);
+		fieldNombre.setBounds(264, 228, 236, 37);
 		paneRegister.add(fieldNombre);
 		fieldNombre.setColumns(10);
 		
@@ -107,45 +107,45 @@ public class PaneRegister {
 		lblUsuariodni.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblUsuariodni.setForeground(new Color(0, 51, 102));
 		lblUsuariodni.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblUsuariodni.setBounds(119, 156, 135, 39);
+		lblUsuariodni.setBounds(119, 177, 135, 39);
 		paneRegister.add(lblUsuariodni);
 		
 		lblNombre = new JLabel("Nombre :");
 		lblNombre.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblNombre.setForeground(new Color(0, 51, 102));
 		lblNombre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblNombre.setBounds(119, 204, 135, 39);
+		lblNombre.setBounds(119, 225, 135, 39);
 		paneRegister.add(lblNombre);
 		
 		lblApellidos = new JLabel("Apellidos :");
 		lblApellidos.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblApellidos.setForeground(new Color(0, 51, 102));
 		lblApellidos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblApellidos.setBounds(119, 252, 135, 39);
+		lblApellidos.setBounds(119, 273, 135, 39);
 		paneRegister.add(lblApellidos);
 		
 		lblPassword = new JLabel("Contrase\u00F1a :");
 		lblPassword.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblPassword.setForeground(new Color(0, 51, 102));
 		lblPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblPassword.setBounds(119, 346, 135, 39);
+		lblPassword.setBounds(119, 367, 135, 39);
 		paneRegister.add(lblPassword);
 		
 		fieldApellidos = new JTextField();
 		fieldApellidos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldApellidos.setColumns(10);
-		fieldApellidos.setBounds(264, 255, 236, 37);
+		fieldApellidos.setBounds(264, 276, 236, 37);
 		paneRegister.add(fieldApellidos);
 		
 		fieldPassword = new JPasswordField();
 		fieldPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldPassword.setColumns(10);
-		fieldPassword.setBounds(264, 349, 236, 37);
+		fieldPassword.setBounds(264, 370, 236, 37);
 		paneRegister.add(fieldPassword);
 		
 		fechaNac = new JDateChooser();
 
-	    fechaNac.setBounds(264, 303, 236, 35);
+	    fechaNac.setBounds(264, 324, 236, 35);
 	    
 	    Calendar LimitadorFecha = Calendar.getInstance(); LimitadorFecha.add(Calendar.YEAR, -18); LimitadorFecha.add(Calendar.DATE, -1); Date date = LimitadorFecha.getTime();
 	    
@@ -156,14 +156,8 @@ public class PaneRegister {
 		lblFechaNacimiento.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblFechaNacimiento.setForeground(new Color(0, 51, 102));
 		lblFechaNacimiento.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblFechaNacimiento.setBounds(119, 302, 135, 39);
+		lblFechaNacimiento.setBounds(119, 323, 135, 39);
 		paneRegister.add(lblFechaNacimiento);
-		
-		lblRegistrese = new JLabel("Reg\u00EDstrese ahora :");
-		lblRegistrese.setForeground(new Color(204, 0, 0));
-		lblRegistrese.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
-		lblRegistrese.setBounds(10, 83, 229, 45);
-		paneRegister.add(lblRegistrese);
 		
 		btnRegistarse = new JButton("Registarse");
 		btnRegistarse.setForeground(new Color(0, 51, 102));
@@ -178,71 +172,71 @@ public class PaneRegister {
 		comboBoxSexo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 11));
 		comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"-Seleccione uno-", "Mujer", "Hombre", "Otros"}));
 		comboBoxSexo.setSelectedIndex(0);
-		comboBoxSexo.setBounds(265, 443, 146, 20);
+		comboBoxSexo.setBounds(265, 464, 146, 20);
 		paneRegister.add(comboBoxSexo);
 		
 		lblSexo = new JLabel("Sexo :");
 		lblSexo.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblSexo.setForeground(new Color(0, 51, 102));
 		lblSexo.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblSexo.setBounds(121, 432, 135, 39);
+		lblSexo.setBounds(121, 453, 135, 39);
 		paneRegister.add(lblSexo);
 		
 		lblErrUs = new JLabel("*El usuario ya existe o el formato es incorrecto");
 		lblErrUs.setVisible(false);
 		lblErrUs.setForeground(Color.RED);
 		lblErrUs.setFont(new Font("Dialog", Font.PLAIN, 11));
-		lblErrUs.setBounds(506, 170, 257, 20);
+		lblErrUs.setBounds(506, 191, 257, 20);
 		paneRegister.add(lblErrUs);
 		
 		lblNotaTodosLos = new JLabel("Nota: Todos los campos son obligatorios");
 		lblNotaTodosLos.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblNotaTodosLos.setBounds(182, 97, 546, 20);
+		lblNotaTodosLos.setBounds(264, 147, 546, 20);
 		paneRegister.add(lblNotaTodosLos);
 		
 		lblErrNom = new JLabel("*El nombre debe tener 3 o mas caracteres");
 		lblErrNom.setVisible(false);
 		lblErrNom.setForeground(Color.RED);
 		lblErrNom.setFont(new Font("Dialog", Font.PLAIN, 11));
-		lblErrNom.setBounds(506, 218, 250, 20);
+		lblErrNom.setBounds(506, 239, 250, 20);
 		paneRegister.add(lblErrNom);
 		
 		fieldPassword2 = new JPasswordField();
 		fieldPassword2.setFont(new Font("Dialog", Font.PLAIN, 14));
 		fieldPassword2.setColumns(10);
-		fieldPassword2.setBounds(264, 397, 236, 37);
+		fieldPassword2.setBounds(264, 418, 236, 37);
 		paneRegister.add(fieldPassword2);
 		
 		lblRepitaSuContrasea = new JLabel("Repita su contrase\u00F1a :");
 		lblRepitaSuContrasea.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblRepitaSuContrasea.setForeground(new Color(0, 51, 102));
 		lblRepitaSuContrasea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblRepitaSuContrasea.setBounds(40, 392, 216, 39);
+		lblRepitaSuContrasea.setBounds(40, 413, 216, 39);
 		paneRegister.add(lblRepitaSuContrasea);
 		
 		lblErrApe = new JLabel("*El apellido debe tener 3 o mas caracteres");
 		lblErrApe.setVisible(false);
 		lblErrApe.setForeground(Color.RED);
 		lblErrApe.setFont(new Font("Dialog", Font.PLAIN, 11));
-		lblErrApe.setBounds(506, 264, 250, 20);
+		lblErrApe.setBounds(506, 285, 250, 20);
 		paneRegister.add(lblErrApe);
 		
 		lblErrFechaNac = new JLabel("*Es obligatorio introducir una fecha de nacimiento");
 		lblErrFechaNac.setVisible(false);
 		lblErrFechaNac.setForeground(Color.RED);
 		lblErrFechaNac.setFont(new Font("Dialog", Font.PLAIN, 11));
-		lblErrFechaNac.setBounds(506, 312, 250, 20);
+		lblErrFechaNac.setBounds(506, 333, 250, 20);
 		paneRegister.add(lblErrFechaNac);
 		
 		lblTamanoCont = new JLabel("*La contrase\u00F1a debe tener entre 8 y 16 caracteres");
 		lblTamanoCont.setForeground(Color.BLACK);
 		lblTamanoCont.setFont(new Font("Dialog", Font.PLAIN, 11));
-		lblTamanoCont.setBounds(506, 346, 257, 20);
+		lblTamanoCont.setBounds(506, 367, 257, 20);
 		paneRegister.add(lblTamanoCont);
 		
 		progSegCont = new JProgressBar();
 		progSegCont.setMaximum(16);
-		progSegCont.setBounds(506, 371, 146, 14);
+		progSegCont.setBounds(506, 392, 146, 14);
 		paneRegister.add(progSegCont);
 		
 		lblSeguridad = new JLabel("");
@@ -254,15 +248,20 @@ public class PaneRegister {
 		lblErrCont.setVisible(false);
 		lblErrCont.setForeground(Color.RED);
 		lblErrCont.setFont(new Font("Dialog", Font.PLAIN, 11));
-		lblErrCont.setBounds(508, 401, 292, 20);
+		lblErrCont.setBounds(508, 422, 292, 20);
 		paneRegister.add(lblErrCont);
 		
 		lblErrSexo = new JLabel("*Seleccione un sexo");
 		lblErrSexo.setFont(new Font("Dialog", Font.PLAIN, 11));
 		lblErrSexo.setVisible(false);
 		lblErrSexo.setForeground(Color.RED);
-		lblErrSexo.setBounds(420, 444, 250, 20);
+		lblErrSexo.setBounds(420, 465, 250, 20);
 		paneRegister.add(lblErrSexo);
+		
+		ImgRegistro = new JLabel("New label");
+		ImgRegistro.setIcon(new ImageIcon(PaneRegister.class.getResource("/ImagenesVista/Registrarse.png")));
+		ImgRegistro.setBounds(10, 60, 488, 102);
+		paneRegister.add(ImgRegistro);
 		
 	}
 }

@@ -57,10 +57,10 @@ public class PaneSelTrayecto {
 	public JLabel lblDestino;
 	public Label lblFechaIda;
 	public Label lblFechaVuelta;
-	public JLabel lblSeleccioneLineaDe;
 	public JLabel lbllogoPeke ;
 	public JLabel lbllogoGrande;
 	public JLabel lblCamposSinCompletar;
+	private JLabel imgTrayecto;
 	
 	public PaneSelTrayecto(Frame1 frame1)
 	{
@@ -79,7 +79,7 @@ public class PaneSelTrayecto {
 		btnCerrarBusqueda.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnCerrarBusqueda.setVisible(false);
 		btnCerrarBusqueda.setBackground(Color.WHITE);
-		btnCerrarBusqueda.setBounds(740, 8, 50, 50);
+		btnCerrarBusqueda.setBounds(724, 0, 76, 64);
 		pane.add(btnCerrarBusqueda);
 		
 		comboBoxBusqueda.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -146,12 +146,6 @@ public class PaneSelTrayecto {
 		lblFechaVuelta.setBackground(Color.WHITE);
 		lblFechaVuelta.setBounds(168, 395, 148, 24);
 		pane.add(lblFechaVuelta);
-		
-		lblSeleccioneLineaDe = new JLabel("Seleccione su trayecto :");
-		lblSeleccioneLineaDe.setForeground(new Color(204, 0, 0));
-		lblSeleccioneLineaDe.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
-		lblSeleccioneLineaDe.setBounds(10, 89, 303, 36);
-		pane.add(lblSeleccioneLineaDe);
 		
 		FieldLinea = new JTextField();
 		FieldLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
@@ -240,6 +234,11 @@ public class PaneSelTrayecto {
 		lblCamposSinCompletar.setFont(new Font("Arial", Font.PLAIN, 13));
 		lblCamposSinCompletar.setBounds(149, 457, 329, 25);
 		pane.add(lblCamposSinCompletar);
+		
+		imgTrayecto = new JLabel("");
+		imgTrayecto.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/Trayecto.png")));
+		imgTrayecto.setBounds(10, 63, 467, 93);
+		pane.add(imgTrayecto);
 		
 		pane.setVisible(false);
 	}

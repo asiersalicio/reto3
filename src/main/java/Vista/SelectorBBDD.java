@@ -162,6 +162,7 @@ public class SelectorBBDD {
 			if(true)
 			{
 				new DebugMode(Main.controlInterfaz);
+				
 			}
 			
 			PrintWriter writer = null;

@@ -7,7 +7,9 @@ import java.awt.event.MouseEvent;
 
 import Controlador.ControlInterfaz;
 import Controlador.ControlModelo;
+import Modelo.BBDD;
 import Modelo.Devolucion;
+import Modelo.Llamadas;
 import Modelo.ManejoBilletes;
 import Modelo.Pagar;
 import Vista.PanePago;
@@ -37,7 +39,7 @@ public class ControladorPago {
 				ControlInterfaz.setPanel(ControlInterfaz.paneCambioFinal.paneCambioFinal);
 				ManejoBilletes.rellenarLista(panePago);
 				ManejoBilletes.RellenarDatosBillete(panePago);
-				
+				ControlModelo.GenerarBilletes();
 			}
 		});
 		panePago.Boton1cent.addActionListener(new ActionListener() {
