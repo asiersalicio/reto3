@@ -1,9 +1,10 @@
-package Controlador;
+package Funciones;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import Modelo.Llamadas;
+import Modelo.Modelo;
 /**
  * Clase: ControladorContrasena
  * Contiene los métodos: encriptarContrasena y combrobarContrasena
@@ -11,14 +12,19 @@ import Modelo.Llamadas;
  * @author IN1DM3B_18
  *
  */
-public class ControladorContrasena {  
+public class FuncionesContrasena {  
+	public Modelo modelo;
 	
+	public FuncionesContrasena(Modelo modelo) {
+		this.modelo=modelo;
+	}
+
 	/**
 	 * Método: encriptarContrasena. permite encriptar la contraseña:
 	 * @param contrasena
 	 * @return
 	 */
-	public static String encriptarContrasena(String contrasena)
+	public String encriptarContrasena(String contrasena)
 	{
 		String contrasenaEncriptada=null;
 		try {
@@ -44,9 +50,9 @@ public class ControladorContrasena {
 	 * @param dni
 	 * @return
 	 */
-	public static boolean combrobarContrasena(String contrasenaEncriptada, String dni)
+	public boolean combrobarContrasena(String contrasenaEncriptada, String dni)
 	{
-		if(Llamadas.ObtenerContrasena(dni).equals(contrasenaEncriptada))		
+		if(modelo.llamadas.ObtenerContrasena(dni).equals(contrasenaEncriptada))		
 		return true;
 		else
 		return false;
@@ -63,7 +69,7 @@ public class ControladorContrasena {
 	 * @param dni
 	 * @return
 	 */
-	public static boolean validarFormatoDNI (String dni) {
+	public boolean validarFormatoDNI (String dni) {
 		if(dni.matches("([0-9]{8})([-]?)([A-Z]{1})"))
 		{
 			System.out.println("1el formato del dni esta validado");

@@ -1,47 +1,51 @@
-package Controlador;
+package Modelo;
 
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 
-import Modelo.Autobus;
-import Modelo.BBDD;
-import Modelo.Billete;
-import Modelo.Cliente;
-import Modelo.Linea;
-import Modelo.LineaParada;
-import Modelo.Llamadas;
-import Modelo.Parada;
+import Funciones.FuncionesContrasena;
 import Vista.PaneRegister;
 /**
  * Clase: ControlModelo: contiene las instancias del modelo, incluye las instancias de los objetos así como métodos relacionados con estas funciones.
  * @author IN1DM3B_18
  *
  */
-public class ControlModelo {
+public class Modelo {
 	
-	public static Cliente cliente;  
-	public static Linea linea;
-	public static Parada paradaOrigen;
-	public static Parada paradaDestino;
-	public static LineaParada lineaParada;
-	public static Billete billeteIda;
-	public static Billete billeteVuelta;
-	public static Autobus autobusIda;
-	public static Autobus autobusVuelta;
-	public static float precioIda = 0;
-	public static float precioVuelta = 0;
-	public static Calendar fechaIda;
-	public static Calendar fechaVuelta;
-	public static boolean viajeDeVuelta;
+	public Cliente cliente;  
+	public Linea linea;
+	public Parada paradaOrigen;
+	public Parada paradaDestino;
+	public LineaParada lineaParada;
+	public Billete billeteIda;
+	public Billete billeteVuelta;
+	public Autobus autobusIda;
+	public Autobus autobusVuelta;
+	public float precioIda = 0;
+	public float precioVuelta = 0;
+	public Calendar fechaIda;
+	public Calendar fechaVuelta;
+	public boolean viajeDeVuelta;
+	public Llamadas llamadas;
+	public ManejoBilletes manejoBilletes;
+	public FuncionesContrasena funcionesContrasena;
 	/**
 	 * Método: EstablecerClienteActual: rellena el objeto cliente con el cliente al que pertenece el dni que se pasa por parámetro. 
 	 * @param dni
 	 */
-	public static void EstablecerClienteActual(String dni)
+	
+	public Modelo()
+	{
+		llamadas = new Llamadas(this);
+		manejoBilletes = new ManejoBilletes();
+		funcionesContrasena = new FuncionesContrasena(this);		
+	}
+	
+	public void EstablecerClienteActual(String dni)
 	{
 		cliente = new Cliente();
-		Llamadas.RellenarCliente(BBDD.connection, cliente, dni);
+		llamadas.RellenarCliente(BBDD.connection, cliente, dni);
 	}
 	
 	/**
@@ -53,12 +57,12 @@ public class ControlModelo {
 	 * @param sexo
 	 * @param contrasena
 	 */
-	public static void RegistrarCliente(String DNI, String nombreCliente, String apellidos, Calendar fechaNac, String sexo, String contrasena)
+	public void RegistrarCliente(String DNI, String nombreCliente, String apellidos, Calendar fechaNac, String sexo, String contrasena)
 	{
 		System.out.println(fechaNac);
 		System.out.println("Registrando usuario: " + DNI + "/" + contrasena);
 		try {
-				Llamadas.insertarCliente(BBDD.connection, DNI, nombreCliente, apellidos, contrasena, sexo, fechaNac);
+				llamadas.insertarCliente(BBDD.connection, DNI, nombreCliente, apellidos, contrasena, sexo, fechaNac);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -69,20 +73,20 @@ public class ControlModelo {
 	 * Método: EstablecerLinea: se realiza la llamada al método RellenarLinea de la clase Llamadas en el paquete Modelo y se rellena el atributo linea del objeto Linea. 
 	 * @param codLinea
 	 */
-	public static void EstablecerLinea(String codLinea)
+	public void EstablecerLinea(String codLinea)
 	{ 
 		linea = new Linea(codLinea, codLinea);
-		Llamadas.RellenarLinea(BBDD.connection, linea, codLinea); 
+		llamadas.RellenarLinea(BBDD.connection, linea, codLinea); 
 	}
 	
 	/**
 	 * Método: EstablecerParadaOrigen: se realiza la llamada al método RellenarParada de la clase Llamadas en el paquete Modelo y se rellena el atributo paradaOrigen del objeto Parada. 
 	 * @param codParadaOrigen
 	 */
-	public static void EstablecerParadaOrigen(String codParadaOrigen)
+	public void EstablecerParadaOrigen(String codParadaOrigen)
 	{
 		paradaOrigen = new Parada();
-		paradaOrigen=Llamadas.RellenarParada(BBDD.connection, paradaOrigen, codParadaOrigen);
+		paradaOrigen=llamadas.RellenarParada(BBDD.connection, paradaOrigen, codParadaOrigen);
 		System.out.println("Parada origen: " + paradaOrigen.getNombreParada());
 	}
 	
@@ -90,10 +94,10 @@ public class ControlModelo {
 	 * Método: EstablecerParadaDestino: se realiza la llamada al método RellenarParada de la clase Llamadas en el paquete Modelo y se rellena el atributo paradaDestino del objeto Parada. 
 	 * @param codParadaDestino
 	 */
-	public static void EstablecerParadaDestino(String codParadaDestino)
+	public void EstablecerParadaDestino(String codParadaDestino)
 	{
 		paradaDestino = new Parada();
-		paradaDestino=Llamadas.RellenarParada(BBDD.connection, paradaDestino, codParadaDestino);
+		paradaDestino=llamadas.RellenarParada(BBDD.connection, paradaDestino, codParadaDestino);
 		System.out.println("Parada destino: " + paradaDestino.getNombreParada());
 	}
 
@@ -104,29 +108,29 @@ public class ControlModelo {
 	 * @param fechaVuelta
 	 * @return
 	 */
-	public static boolean CalcularDatosCompra(Calendar fechaIda, boolean vuelta, Calendar fechaVuelta) {
+	public boolean CalcularDatosCompra(Calendar fechaIda, boolean vuelta, Calendar fechaVuelta) {
 		int codBusIda = 0;
 		int codBusVuelta = 0;
 		boolean noErrorVuelta=true;
-		codBusIda=Llamadas.SeleccionarAutobus(BBDD.connection, fechaIda);
+		codBusIda=llamadas.SeleccionarAutobus(BBDD.connection, fechaIda);
 		if(vuelta)
 		{
-		codBusVuelta=Llamadas.SeleccionarAutobus(BBDD.connection, fechaVuelta);
+		codBusVuelta=llamadas.SeleccionarAutobus(BBDD.connection, fechaVuelta);
 		}
 		
 		if(!(codBusIda==-1))
 		{
 		autobusIda = new Autobus();
-		autobusIda=Llamadas.RellenarAutobus(BBDD.connection, codBusIda, autobusIda);
+		autobusIda=llamadas.RellenarAutobus(BBDD.connection, codBusIda, autobusIda);
 		System.out.println("Calulando distancia entre " + paradaOrigen.getNombreParada() + " y " + paradaDestino.getNombreParada() + "...");
-		precioIda=Llamadas.CalcularPrecioBillete(BBDD.connection, autobusIda);
+		precioIda=llamadas.CalcularPrecioBillete(BBDD.connection, autobusIda);
 		
 		if(!(codBusVuelta==-1)&&vuelta)
 		{
 			autobusVuelta = new Autobus();
-			autobusVuelta=Llamadas.RellenarAutobus(BBDD.connection, codBusVuelta, autobusVuelta);
+			autobusVuelta=llamadas.RellenarAutobus(BBDD.connection, codBusVuelta, autobusVuelta);
 			System.out.println("Calulando distancia entre " + paradaDestino.getNombreParada() + " y " + paradaOrigen.getNombreParada() + "...");
-			precioVuelta=Llamadas.CalcularPrecioBillete(BBDD.connection, autobusVuelta);
+			precioVuelta=llamadas.CalcularPrecioBillete(BBDD.connection, autobusVuelta);
 		}
 		
 		return true;
@@ -141,23 +145,23 @@ public class ControlModelo {
 	/**
 	 *Método: Clase GenerarBillete: se actualiza el codBillete mediante el método CalcularCodBillete de la clase Llamadas en el paquete Modelo
 	 */
-	public static void GenerarBilletes()
+	public void GenerarBilletes()
 	{
 		int codBillete;
-		codBillete=Llamadas.CalcularCodBillete(BBDD.connection);
+		codBillete=llamadas.CalcularCodBillete(BBDD.connection);
 		billeteIda = new Billete(codBillete, 0, linea.getCodLinea(), autobusIda, paradaOrigen, paradaDestino, fechaIda, cliente, precioIda);
-		Llamadas.insertarBillete(BBDD.connection, billeteIda, viajeDeVuelta, fechaIda);
-		System.out.println(ControlModelo.precioIda);
+		llamadas.insertarBillete(BBDD.connection, billeteIda, viajeDeVuelta, fechaIda);
+		System.out.println(precioIda);
 		
-		if(ControlModelo.viajeDeVuelta) {
-		codBillete=Llamadas.CalcularCodBillete(BBDD.connection);
+		if(viajeDeVuelta) {
+		codBillete=llamadas.CalcularCodBillete(BBDD.connection);
 		billeteVuelta = new Billete(codBillete, 1, linea.getCodLinea(), autobusIda, paradaDestino, paradaOrigen, fechaVuelta, cliente, precioVuelta);
-		Llamadas.insertarBillete(BBDD.connection, billeteVuelta, viajeDeVuelta, fechaVuelta);
-		System.out.println(ControlModelo.precioVuelta);
+		llamadas.insertarBillete(BBDD.connection, billeteVuelta, viajeDeVuelta, fechaVuelta);
+		System.out.println(precioVuelta);
 		}
 }
 
-	public static void Reset() {
+	public void Reset() {
 		cliente=null;  
 		linea=null;
 		paradaOrigen=null;

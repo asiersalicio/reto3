@@ -7,12 +7,12 @@ import java.util.Calendar;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import Controlador.ControlInterfaz;
-import Controlador.ControlModelo;
-import Controlador.ControladorContrasena;
+import Funciones.FuncionesContrasena;
 import Modelo.Llamadas;
+import Modelo.Modelo;
 import Vista.PaneLogin;
 import Vista.PaneRegister;
+import Vista.Vista;
 /**
  * Clase ControladorRegister: Mediante esta clase se controlan los botones de la clase Register:  btnVolverALogin y btnRegistarse.
  * @author IN1DM3B_18
@@ -21,20 +21,25 @@ import Vista.PaneRegister;
 public class ControladorRegister {
 	
 	public PaneRegister paneRegister;
+	public Vista vista;
+	public Modelo modelo;
 	/**
 	 * Método: ControladorRegister
-	 * @param paneRegister
-	 * @param paneLogin
+	 * @param modelo 
+	 * @param panel
+	 * @param pane
 	 */
-	public ControladorRegister(PaneRegister paneRegister, PaneLogin paneLogin)
+	public ControladorRegister(Vista vista, Modelo modelo)
 	{
-		this.paneRegister=paneRegister;
+		this.vista=vista;
+		this.modelo=modelo;
+		this.paneRegister=vista.paneRegister;
 		//Botón VolverALogin en paneRegister: cuando se clica en el botón "Volver", aparece la ventana: paneLogin
 		paneRegister.btnVolverALogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				BorrarCampos();
-				ControlInterfaz.setPanel(paneLogin.paneLogin);
+				vista.setPanel(vista.paneLogin.pane);
 			}
 		});
 		
@@ -48,7 +53,7 @@ public class ControladorRegister {
 					String DNI=paneRegister.fieldDNI.getText();
 					String nombreCliente=paneRegister.fieldNombre.getText();
 					String apellidos=paneRegister.fieldApellidos.getText();
-					String contrasena=ControladorContrasena.encriptarContrasena(String.valueOf(paneRegister.fieldPassword.getPassword()));
+					String contrasena=modelo.funcionesContrasena.encriptarContrasena(String.valueOf(paneRegister.fieldPassword.getPassword()));
 					Calendar fechaNac=paneRegister.fechaNac.getCalendar();
 					String sexo = null;
 					switch (paneRegister.comboBoxSexo.getSelectedIndex()) {
@@ -59,9 +64,9 @@ public class ControladorRegister {
 					case 3: sexo="O";
 						break;
 					}
-					ControlModelo.RegistrarCliente(DNI, nombreCliente, apellidos, fechaNac, sexo, contrasena);
+					modelo.RegistrarCliente(DNI, nombreCliente, apellidos, fechaNac, sexo, contrasena);
 					BorrarCampos();
-					ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
+					vista.setPanel(vista.paneLogin.pane);
 				}
 			}
 			
@@ -120,7 +125,7 @@ public class ControladorRegister {
 			paneRegister.lblErrUs.setVisible(false);paneRegister.lblErrSexo.setVisible(false);
 			String dni=paneRegister.fieldDNI.getText();
 			
-			if(ControladorContrasena.validarFormatoDNI(dni)==false || Llamadas.validarDNI(dni))
+			if(modelo.funcionesContrasena.validarFormatoDNI(dni)==false || modelo.llamadas.validarDNI(dni))
 			{
 				paneRegister.lblErrUs.setVisible(true); resultado=false;
 			}

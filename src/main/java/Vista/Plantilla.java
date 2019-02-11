@@ -2,7 +2,6 @@ package Vista;
 
 import javax.swing.JPanel;
 
-import Controlador.ControlInterfaz;
 
 import javax.swing.JLabel;
 
@@ -16,7 +15,7 @@ public class Plantilla {
 	
 	public JPanel panel;
 	
-	public Plantilla(ControlInterfaz controlInterfaz, Frame1 frame1)
+	public Plantilla(Vista vista, Frame1 frame1)
 	{
 		panel = new JPanel();
 		panel.setBounds(0, 0, 800, 600);

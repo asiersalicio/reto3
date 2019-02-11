@@ -1,6 +1,6 @@
 package Modelo;
 
-import Controlador.ControlFormato;
+import Funciones.FuncionesFormato;
 
 /**
  * Clase: Devolucion, se gestiona la devolución que recibirá el cliente tras realizar su pago.
@@ -21,7 +21,7 @@ public class Devolucion {
 		
 		parteEntera=(int) cambio; 						// Casteammos cambio a int para coger solo la parte entera
 		parteDecimal=cambio-parteEntera;				// Restamos la parte entera a la parte total, nos quedamos solo con los decimales.
-		parteDecimal=ControlFormato.Formateado2Dec(parteDecimal); // Pasamos el formateador para reducir a dos decimales
+		parteDecimal=FuncionesFormato.Formateado2Dec(parteDecimal); // Pasamos el formateador para reducir a dos decimales
 		parteEntera=(int) cambio; 							// Casteammos cambio a int para coger solo la parte entera
 		parteDecimal=cambio-parteEntera;					// Restamos la parte entera a la parte total, nos quedamos solo con los decimales.
 		parteDecimal=parteDecimal*100; 				  		// Convertimos en un numero entero la parte decimal para trabajar con ella.

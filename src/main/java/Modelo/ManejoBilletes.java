@@ -1,9 +1,10 @@
 package Modelo;
 
 
-import Controlador.ControlModelo;
+import Funciones.FuncionesFormato;
 import Vista.PaneCambioFinal;
 import Vista.PanePago;
+import Vista.Vista;
 /**
  * Clase: ManejoBilletes
  * @author IN1DM3B_18
@@ -15,11 +16,24 @@ public class ManejoBilletes {
 		public String nombreBillete;
 		public int contadorBillete;
 		
+		public Vista vista;
+		public Modelo modelo;
+		
+		public ManejoBilletes(Vista vista, Modelo modelo)
+		{
+			this.vista=vista;
+			this.modelo=modelo;
+		}
+		
 		public ManejoBilletes(String nombreBillete,int contadorBillete)
 		{
 			this.nombreBillete=nombreBillete;
 			this.contadorBillete=contadorBillete;
 		}
+
+		public ManejoBilletes() {
+		}
+
 		public String getnombreBillete()
 		{
 			return nombreBillete;
@@ -43,7 +57,7 @@ public class ManejoBilletes {
 		 * Método. rellenarLista
 		 * @param panePago
 		 */
-		public static void rellenarLista(PanePago panePago)
+		public void rellenarLista(PanePago panePago)
 		{
 
 			ManejoBilletes[] listaBilletes=new ManejoBilletes[14];
@@ -69,7 +83,7 @@ public class ManejoBilletes {
 			{
 				if (listaBilletes[i].contadorBillete>0)
 				{ 
-					PaneCambioFinal.modelo2.addElement(listaBilletes[i].contadorBillete+" x "+listaBilletes[i].nombreBillete);
+					vista.paneCambioFinal.modelo2.addElement(listaBilletes[i].contadorBillete+" x "+listaBilletes[i].nombreBillete);
 				}
 			}
 		}
@@ -78,24 +92,24 @@ public class ManejoBilletes {
 		 * Método: RellenarDatosBillete
 		 * @param panePago
 		 */
-		public static void RellenarDatosBillete(PanePago panePago) {
-			float precio = ControlModelo.precioIda;
-			if(ControlModelo.viajeDeVuelta) {
-				PaneCambioFinal.lblparaTipo.setText("Ida y vuelta");
+		public void RellenarDatosBillete(PanePago panePago) {
+			float precio = modelo.precioIda;
+			if(modelo.viajeDeVuelta) {
+				vista.paneCambioFinal.lblparaTipo.setText("Ida y vuelta");
 				precio=precio*2;
 			}
 			else
 			{
-				PaneCambioFinal.lblparaTipo.setText("Solo ida");
+				vista.paneCambioFinal.lblparaTipo.setText("Solo ida");
 				
 			}
 
-			PaneCambioFinal.lblparaLinea.setText(ControlModelo.linea.getCodLinea() + ": " + ControlModelo.linea.getNombreLinea());
-			PaneCambioFinal.lblparaTrayecto.setText(ControlModelo.paradaOrigen.getNombreParada() + " -> " + ControlModelo.paradaDestino.getNombreParada());
-			PaneCambioFinal.lblparaPrecio.setText(Controlador.ControlFormato.Formateado2Dec(precio)+ "€");
-			PaneCambioFinal.lblCodIda.setText(Controlador.ControlFormato.FormatoBillete(ControlModelo.billeteIda.getCodBillete()));
-			if(ControlModelo.viajeDeVuelta)
-			PaneCambioFinal.lblCodVuelta.setText(Controlador.ControlFormato.FormatoBillete(ControlModelo.billeteVuelta.getCodBillete()));
+			vista.paneCambioFinal.lblparaLinea.setText(modelo.linea.getCodLinea() + ": " + modelo.linea.getNombreLinea());
+			vista.paneCambioFinal.lblparaTrayecto.setText(modelo.paradaOrigen.getNombreParada() + " -> " + modelo.paradaDestino.getNombreParada());
+			vista.paneCambioFinal.lblparaPrecio.setText(FuncionesFormato.Formateado2Dec(precio)+ "€");
+			vista.paneCambioFinal.lblCodIda.setText(FuncionesFormato.FormatoBillete(modelo.billeteIda.getCodBillete()));
+			if(modelo.viajeDeVuelta)
+				vista.paneCambioFinal.lblCodVuelta.setText(FuncionesFormato.FormatoBillete(modelo.billeteVuelta.getCodBillete()));
 			//System.out.println(ControlModelo.billeteIda.codBillete);
 			//PaneCambioFinal.lblCodigo.setText("<<<<<<<<"+ControlModelo.billeteIda.codBillete+">>>>>>>>>");
 			//paneMostrarCompra.fieldFechaIda.setText(ControlModelo.fechaIda.toLocaleString());

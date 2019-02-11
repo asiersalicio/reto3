@@ -16,8 +16,6 @@ import java.awt.Font;
 import javax.swing.JComboBox;
 import com.toedter.calendar.JDateChooser;
 
-import Controlador.ControlInterfaz;
-
 import java.awt.Label;
 
 import javax.swing.ComboBoxModel;

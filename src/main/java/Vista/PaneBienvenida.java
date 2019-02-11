@@ -10,7 +10,6 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
-import Controlador.ControlInterfaz;
 
 import java.awt.Color;
 /**

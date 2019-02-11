@@ -3,10 +3,9 @@ package Vista;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import Controlador.ControlInterfaz;
-import Controlador.ControlModelo;
-import Controlador.Main;
+
 import Modelo.BBDD;
+import Modelo.Modelo;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -33,12 +32,14 @@ public class SelectorBBDD {
 	private JTextField DatabaseUser;
 	private JFrame frame;
 	private JButton btnLogin;
-
+	private Vista vista;
 
 	/**
 	 * Create the frame.
+	 * @param vista 
 	 */
-	public SelectorBBDD() {
+	public SelectorBBDD(Vista vista) {
+		this.vista=vista;
 		String url = "";
 		String user = "";
 		String pass = "";
@@ -152,16 +153,10 @@ public class SelectorBBDD {
 		error=BBDD.Conectar("mysql://" + DatabaseURL.getText() ,DatabaseUser.getText(),String.valueOf(DatabasePassword.getPassword()));
 		if(!error)
 		{
-			ControlModelo controlModelo = new ControlModelo();
 			//Crea un controlador de interfaz
-			Main.controlInterfaz = new ControlInterfaz();
 			//Ejecuta el proceso para la creacion de la interfaz
-			ControlInterfaz.InicializarInterfaz();
-			if(true)
-			{
-				new DebugMode(Main.controlInterfaz);
-				
-			}
+			vista.frame1.frame1.setVisible(true);
+			vista.setPanel(vista.paneBienvenida.paneBienvenida);
 			
 			PrintWriter writer = null;
 			try {

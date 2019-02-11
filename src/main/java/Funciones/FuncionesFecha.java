@@ -1,4 +1,4 @@
-package Controlador;
+package Funciones;
 
 import java.sql.Date;
 import java.util.Calendar;
@@ -8,7 +8,7 @@ import java.util.Locale;
  * @author IN1DM3B_18
  *
  */
-public class ControladorFecha {
+public class FuncionesFecha {
 	/**
 	 * Método: CalendarToString
 	 * @param fecha
@@ -46,7 +46,7 @@ public class ControladorFecha {
 	 * @param date
 	 * @return
 	 */
-	public static Calendar DateToCalendar(Date date){ 
+	public Calendar DateToCalendar(Date date){ 
 		  Calendar cal = Calendar.getInstance();
 		  cal.setTime(date);
 		  return cal;
@@ -56,7 +56,7 @@ public class ControladorFecha {
 	 * @param calendar
 	 * @return
 	 */
-	public static Date CalendarToDate(Calendar calendar){ 
+	public Date CalendarToDate(Calendar calendar){ 
 		Calendar cal = Calendar.getInstance();
 	    cal.clear();
 	    java.util.Date utilDate = cal.getTime();

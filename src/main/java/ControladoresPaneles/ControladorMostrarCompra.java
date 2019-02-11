@@ -3,10 +3,9 @@ package ControladoresPaneles;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import Controlador.ControlFormato;
-import Controlador.ControlInterfaz;
-import Controlador.ControlModelo;
-import Controlador.ControladorFecha;
+import Funciones.FuncionesFecha;
+import Funciones.FuncionesFormato;
+import Modelo.Modelo;
 import Vista.PaneCambioFinal;
 import Vista.PaneMostrarCompra;
 
@@ -17,6 +16,7 @@ import Vista.PaneMostrarCompra;
  */
 
 import Vista.PanePago;
+import Vista.Vista;
 
 /**
  * Clase:ControladorMostrarCompra
@@ -27,22 +27,27 @@ public class ControladorMostrarCompra {
 
 	/**
 	 * Método:ControladorMostrarCompra
-	 * @param paneMostrarCompra
+	 * @param vista
+	 * @param modelo 
 	 */
-	public ControladorMostrarCompra(PaneMostrarCompra paneMostrarCompra)
+	public Modelo modelo;
+	public Vista vista;
+	public ControladorMostrarCompra(Vista vista, Modelo modelo)
 	{
+		this.vista=vista;
+		this.modelo=modelo;
 		//botón para volver a paneSelTrayecto
-		paneMostrarCompra.btnVolverALogin.addMouseListener(new MouseAdapter() {
+		vista.paneMostrarCompra.btnVolverALogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneSelTrayecto.pane);
+				vista.setPanel(vista.paneSelTrayecto.pane);
 			}
 		});
 		//boton para ir a panePago
-		paneMostrarCompra.btnSiguiente.addMouseListener(new MouseAdapter() {
+		vista.paneMostrarCompra.btnSiguiente.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ControlInterfaz.setPanel(ControlInterfaz.panePago.panePago);
+				vista.setPanel(vista.panePago.pane);
 			}
 		});
 	}
@@ -53,30 +58,30 @@ public class ControladorMostrarCompra {
 	 * @param panePago
 	 */
 	public void RellenarDatos(PaneMostrarCompra paneMostrarCompra, PanePago panePago) {
-		float precioIda = ControlModelo.precioIda;
-		float precioVuelta = ControlModelo.precioVuelta;
+		float precioIda = modelo.precioIda;
+		float precioVuelta = modelo.precioVuelta;
 		String precioAMostrar = null;
-		if(ControlModelo.viajeDeVuelta) {
+		if(modelo.viajeDeVuelta) {
 			paneMostrarCompra.fieldTipoBillete.setText("Ida y vuelta");
 			System.out.println("Ida y vuelta");
 			paneMostrarCompra.fieldFechaVuelta.setEnabled(true);
-			paneMostrarCompra.fieldFechaVuelta.setText(ControladorFecha.CalendarToStringVisual(ControlModelo.fechaVuelta));
-			precioAMostrar = ControlFormato.Formateado2Dec(precioIda + precioVuelta) + "€";
+			paneMostrarCompra.fieldFechaVuelta.setText(FuncionesFecha.CalendarToStringVisual(modelo.fechaVuelta));
+			precioAMostrar = FuncionesFormato.Formateado2Dec(precioIda + precioVuelta) + "€";
 		}
 		else
 		{
 			paneMostrarCompra.fieldTipoBillete.setText("Solo ida");
 			System.out.println("Solo ida");
 			paneMostrarCompra.fieldFechaVuelta.setEnabled(false);
-			precioAMostrar = ControlFormato.Formateado2Dec(precioIda) + "€";
+			precioAMostrar = FuncionesFormato.Formateado2Dec(precioIda) + "€";
 		}
-		System.out.println("Precio ida: " + ControlModelo.precioIda + "Precio vuelta: " + ControlModelo.precioVuelta);
-		paneMostrarCompra.fieldLinea.setText(ControlModelo.linea.getCodLinea() + ": " + ControlModelo.linea.getNombreLinea());
-		paneMostrarCompra.fieldTrayectoria.setText(ControlModelo.paradaOrigen.getNombreParada() + " -> " + ControlModelo.paradaDestino.getNombreParada());
+		System.out.println("Precio ida: " + modelo.precioIda + "Precio vuelta: " + modelo.precioVuelta);
+		paneMostrarCompra.fieldLinea.setText(modelo.linea.getCodLinea() + ": " + modelo.linea.getNombreLinea());
+		paneMostrarCompra.fieldTrayectoria.setText(modelo.paradaOrigen.getNombreParada() + " -> " + modelo.paradaDestino.getNombreParada());
 		paneMostrarCompra.fieldPrecio.setText(precioAMostrar);
-		paneMostrarCompra.fieldFechaIda.setText(ControladorFecha.CalendarToStringVisual(ControlModelo.fechaIda));
-		panePago.txtaPagar2.setText(String.valueOf(ControlFormato.Formateado2Dec(ControlModelo.precioIda + ControlModelo.precioVuelta)));
-		panePago.txtfaltaporpagar.setText(String.valueOf(ControlFormato.Formateado2Dec(ControlModelo.precioIda + ControlModelo.precioVuelta)));
+		paneMostrarCompra.fieldFechaIda.setText(FuncionesFecha.CalendarToStringVisual(modelo.fechaIda));
+		panePago.txtaPagar2.setText(String.valueOf(FuncionesFormato.Formateado2Dec(modelo.precioIda + modelo.precioVuelta)));
+		panePago.txtfaltaporpagar.setText(String.valueOf(FuncionesFormato.Formateado2Dec(modelo.precioIda + modelo.precioVuelta)));
 	}
 	
 }

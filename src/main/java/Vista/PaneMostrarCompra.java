@@ -7,7 +7,6 @@ import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import javax.swing.text.NumberFormatter;
 
-import Controlador.ControlInterfaz;
 
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -53,7 +52,7 @@ import javax.swing.JFormattedTextField;
  */
 public class PaneMostrarCompra extends JComponent {
 	
-	public JPanel paneMostrarCompra;
+	public JPanel pane;
 	public JTextField fieldTipoBillete;
 	public JTextField fieldTrayectoria;
 	public JTextField fieldLinea;
@@ -75,23 +74,23 @@ public class PaneMostrarCompra extends JComponent {
 	
 	public PaneMostrarCompra(Frame1 frame1)
 	{
-		paneMostrarCompra = new JPanel();
-		paneMostrarCompra.setBackground(Color.WHITE);
-		paneMostrarCompra.setBounds(0, 0, 800, 600);
-		paneMostrarCompra.setLayout(null);
+		pane = new JPanel();
+		pane.setBackground(Color.WHITE);
+		pane.setBounds(0, 0, 800, 600);
+		pane.setLayout(null);
 		
-		frame1.frame1.getContentPane().add(paneMostrarCompra);
+		frame1.frame1.getContentPane().add(pane);
 		
 		logoGrande = new JLabel("");
 		logoGrande.setIcon(new ImageIcon(PaneMostrarCompra.class.getResource("/ImagenesVista/logo-termibus.png")));
 		logoGrande.setBounds(489, 11, 301, 117);
-		paneMostrarCompra.add(logoGrande);
+		pane.add(logoGrande);
 		
 		logoPeke = new JLabel("");
 		logoPeke.setIcon(new ImageIcon(PaneMostrarCompra.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
 		logoPeke.setBounds(10, 505, 70, 64);
-		paneMostrarCompra.add(logoPeke);
-		paneMostrarCompra.setVisible(false);
+		pane.add(logoPeke);
+		pane.setVisible(false);
 		
 		
 		btnVolverALogin = new JButton("Volver");
@@ -102,49 +101,49 @@ public class PaneMostrarCompra extends JComponent {
 		btnVolverALogin.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		
 		btnVolverALogin.setBounds(82, 505, 185, 39);
-		paneMostrarCompra.add(btnVolverALogin);
+		pane.add(btnVolverALogin);
 		
 		lblTipoDeBillete = new JLabel("Tipo de Billete :");
 		lblTipoDeBillete.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblTipoDeBillete.setForeground(new Color(0, 51, 102));
 		lblTipoDeBillete.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblTipoDeBillete.setBounds(162, 166, 161, 39);
-		paneMostrarCompra.add(lblTipoDeBillete);
+		pane.add(lblTipoDeBillete);
 		
 		lblTrayetoria = new JLabel("Trayetoria :");
 		lblTrayetoria.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblTrayetoria.setForeground(new Color(0, 51, 102));
 		lblTrayetoria.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblTrayetoria.setBounds(162, 216, 161, 39);
-		paneMostrarCompra.add(lblTrayetoria);
+		pane.add(lblTrayetoria);
 		
 		lblLinea = new JLabel("Linea :");
 		lblLinea.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblLinea.setForeground(new Color(0, 51, 102));
 		lblLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblLinea.setBounds(162, 266, 161, 39);
-		paneMostrarCompra.add(lblLinea);
+		pane.add(lblLinea);
 		
 		lblFechaIda = new JLabel("Fecha Ida :");
 		lblFechaIda.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblFechaIda.setForeground(new Color(0, 51, 102));
 		lblFechaIda.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblFechaIda.setBounds(162, 316, 161, 39);
-		paneMostrarCompra.add(lblFechaIda);
+		pane.add(lblFechaIda);
 		
 		lblFechaVuelta = new JLabel("Fecha Vuelta :");
 		lblFechaVuelta.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblFechaVuelta.setForeground(new Color(0, 51, 102));
 		lblFechaVuelta.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblFechaVuelta.setBounds(162, 365, 161, 39);
-		paneMostrarCompra.add(lblFechaVuelta);
+		pane.add(lblFechaVuelta);
 		
 		lblPrecio = new JLabel("Precio :");
 		lblPrecio.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblPrecio.setForeground(new Color(0, 51, 102));
 		lblPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		lblPrecio.setBounds(162, 415, 161, 39);
-		paneMostrarCompra.add(lblPrecio);
+		pane.add(lblPrecio);
 		
 		btnSiguiente = new JButton("Confirmar");
 		btnSiguiente.setBackground(Color.WHITE);
@@ -152,37 +151,37 @@ public class PaneMostrarCompra extends JComponent {
 		btnSiguiente.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnSiguiente.setBackground(Color.WHITE);
 		btnSiguiente.setBounds(585, 505, 185, 39);
-		paneMostrarCompra.add(btnSiguiente);
+		pane.add(btnSiguiente);
 		
 		fieldTipoBillete = new JTextField();
 		fieldTipoBillete.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldTipoBillete.setColumns(10);
 		fieldTipoBillete.setBounds(333, 168, 236, 37);
-		paneMostrarCompra.add(fieldTipoBillete);
+		pane.add(fieldTipoBillete);
 		
 		fieldTrayectoria = new JTextField();
 		fieldTrayectoria.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldTrayectoria.setColumns(10);
 		fieldTrayectoria.setBounds(333, 216, 236, 37);
-		paneMostrarCompra.add(fieldTrayectoria);
+		pane.add(fieldTrayectoria);
 		
 		fieldLinea = new JTextField();
 		fieldLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldLinea.setColumns(10);
 		fieldLinea.setBounds(333, 266, 236, 37);
-		paneMostrarCompra.add(fieldLinea);
+		pane.add(fieldLinea);
 		
 		fieldFechaIda = new JTextField();
 		fieldFechaIda.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldFechaIda.setColumns(10);
 		fieldFechaIda.setBounds(333, 316, 236, 37);
-		paneMostrarCompra.add(fieldFechaIda);
+		pane.add(fieldFechaIda);
 		
 		fieldFechaVuelta = new JTextField();
 		fieldFechaVuelta.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldFechaVuelta.setColumns(10);
 		fieldFechaVuelta.setBounds(333, 367, 236, 37);
-		paneMostrarCompra.add(fieldFechaVuelta);
+		pane.add(fieldFechaVuelta);
 		
 		MaskFormatter mfCC = null;
 		/*try {
@@ -196,7 +195,7 @@ public class PaneMostrarCompra extends JComponent {
 		fieldPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldPrecio.setColumns(10);
 		fieldPrecio.setBounds(333, 415, 236, 37);
-		paneMostrarCompra.add(fieldPrecio);
+		pane.add(fieldPrecio);
 		
 		lblidaYVuelta = new JLabel("(Ida y Vuelta)");
 		lblidaYVuelta.setVisible(false);
@@ -204,12 +203,12 @@ public class PaneMostrarCompra extends JComponent {
 		lblidaYVuelta.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblidaYVuelta.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblidaYVuelta.setBounds(191, 445, 129, 21);
-		paneMostrarCompra.add(lblidaYVuelta);
+		pane.add(lblidaYVuelta);
 		
 		imgResumen = new JLabel("");
 		imgResumen.setIcon(new ImageIcon(PaneMostrarCompra.class.getResource("/ImagenesVista/Resumen.png")));
 		imgResumen.setBounds(12, 60, 465, 93);
-		paneMostrarCompra.add(imgResumen);
+		pane.add(imgResumen);
 	
 }
 }

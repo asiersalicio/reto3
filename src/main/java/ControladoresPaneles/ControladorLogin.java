@@ -5,12 +5,12 @@ import java.awt.event.MouseEvent;
 
 import javax.security.auth.login.LoginContext;
 
-import Controlador.ControlInterfaz;
-import Controlador.ControlModelo;
-import Controlador.ControladorContrasena;
+import Funciones.FuncionesContrasena;
 import Modelo.Llamadas;
+import Modelo.Modelo;
 import Vista.PaneLogin;
 import Vista.PaneSelTrayecto;
+import Vista.Vista;
 /**
  * Clase: ControladorLogin: contiene btnRegister y btnLogin
  * en el btnRegister, cuando se pulsa dirige al usuario al paneRegister
@@ -18,47 +18,56 @@ import Vista.PaneSelTrayecto;
  * @author IN1DM3B_18
  *
  */
+
+
+
 public class ControladorLogin {
+	
+	public Vista vista;
+	public Modelo modelo;
 	
 	/**
 	 * Método:ControladorLogin. 
-	 * @param paneLogin
+	 * @param modelo 
+	 * @param pane
 	 */
-	public ControladorLogin(PaneLogin paneLogin)
+	public ControladorLogin(Vista vista, Modelo modelo)
 	{
+		this.vista=vista;
+		this.modelo=modelo;
 		//Botón "Registrese Ahora"
-		paneLogin.btnRegister.addMouseListener(new MouseAdapter() {
+		vista.paneLogin.btnRegister.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneRegister.paneRegister);
+				vista.setPanel(vista.paneRegister.pane);
 			}
 		});
 		
 		//Botón "Login"
-		paneLogin.btnLogin.addMouseListener(new MouseAdapter() {
+		vista.paneLogin.btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				boolean formatoDNIValido=false;
 				boolean dniValido = false;
 				boolean contrasenaValida = false;
-				String dni = paneLogin.textfieldUsername.getText();
-				formatoDNIValido=ControladorContrasena.validarFormatoDNI(dni);
+				String dni = vista.paneLogin.textfieldUsername.getText();
+				formatoDNIValido=modelo.funcionesContrasena.validarFormatoDNI(dni);
 				System.out.println("El formato del dni es válido? " + formatoDNIValido);
-				dniValido=Llamadas.validarDNI(dni);
+				dniValido=modelo.llamadas.validarDNI(dni);
 				System.out.println("El dni está en la BBDD? " + dniValido);
-				String contrasena=String.valueOf(paneLogin.fieldPassword.getPassword());
-				contrasenaValida=ControladorContrasena.combrobarContrasena(ControladorContrasena.encriptarContrasena(contrasena), dni);
+				String contrasena=String.valueOf(vista.paneLogin.fieldPassword.getPassword());
+				contrasenaValida=modelo.funcionesContrasena.combrobarContrasena(modelo.funcionesContrasena.encriptarContrasena(contrasena), dni);
 				
 				if(formatoDNIValido && dniValido && contrasenaValida)
 				{
-					System.out.println("El dni es valido " + paneLogin.textfieldUsername.getText());
-					ControlModelo.EstablecerClienteActual(paneLogin.textfieldUsername.getText());
-					ControlInterfaz.setPanel(ControlInterfaz.paneSelTrayecto.pane);
+					System.out.println("El dni es valido " + vista.paneLogin.textfieldUsername.getText());
+					modelo.EstablecerClienteActual(vista.paneLogin.textfieldUsername.getText());
+					vista.setPanel(vista.paneSelTrayecto.pane);
 				}
 				else
 				{
-					System.out.println("El dni o la contraseña no es valida " + paneLogin.textfieldUsername.getText());
-					paneLogin.lblUsConNoValido.setVisible(true);
+					System.out.println("El dni o la contraseña no es valida " + vista.paneLogin.textfieldUsername.getText());
+					vista.paneLogin.lblUsConNoValido.setVisible(true);
 				}	
 			}
 		});

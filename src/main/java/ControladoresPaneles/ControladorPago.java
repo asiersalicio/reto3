@@ -6,15 +6,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.concurrent.TimeUnit;
 
-import Controlador.ControlInterfaz;
-import Controlador.ControlModelo;
-import Controlador.Main;
 import Modelo.BBDD;
 import Modelo.Devolucion;
 import Modelo.Llamadas;
 import Modelo.ManejoBilletes;
+import Modelo.Modelo;
 import Modelo.Pagar;
 import Vista.PanePago;
+import Vista.Vista;
 /**
  * Clase: ControladorPago
  * @author IN1DM3B_18
@@ -30,111 +29,112 @@ public class ControladorPago {
 	
 	/**
 	 * Método: ControladorPago
-	 * @param panePago
+	 * @param vista
+	 * @param modelo 
 	 */
-	public ControladorPago(PanePago panePago)
+	public ControladorPago(Vista vista, Modelo modelo)
 	{	
 		controladorPago=this;
-		this.panePago=panePago;
+		this.panePago=vista.panePago;
 		
-		panePago.btnImpresionBillete.addMouseListener(new MouseAdapter() {
+		vista.panePago.btnImpresionBillete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneCambioFinal.paneCambioFinal);
-				ControlModelo.GenerarBilletes();
-				ManejoBilletes.rellenarLista(panePago);
-				ManejoBilletes.RellenarDatosBillete(panePago);
+				vista.setPanel(vista.paneCambioFinal.paneCambioFinal);
+				modelo.GenerarBilletes();
+				modelo.manejoBilletes.rellenarLista(vista.panePago);
+				modelo.manejoBilletes.RellenarDatosBillete(vista.panePago);
 			}
 		});
-		panePago.Boton1cent.addActionListener(new ActionListener() {
+		vista.panePago.Boton1cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(14,panePago);
+				Pagar.pagar(14,vista.panePago);
 			}
 		});
-		panePago.Boton50cent.addActionListener(new ActionListener() {
+		vista.panePago.Boton50cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(9,panePago);
+				Pagar.pagar(9,vista.panePago);
 			}
 		});
-		panePago.Boton20cent.addActionListener(new ActionListener() {
+		vista.panePago.Boton20cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(10,panePago);
+				Pagar.pagar(10,vista.panePago);
 			}
 		});
-		panePago.Boton10cent.addActionListener(new ActionListener() {
+		vista.panePago.Boton10cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(11,panePago);
+				Pagar.pagar(11,vista.panePago);
 			}
 		});
-		panePago.Boton5cent.addActionListener(new ActionListener() {
+		vista.panePago.Boton5cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(12,panePago);
+				Pagar.pagar(12,vista.panePago);
 			}
 		});
-		panePago.Boton2cent.addActionListener(new ActionListener() {
+		vista.panePago.Boton2cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(13,panePago);
+				Pagar.pagar(13,vista.panePago);
 			}
 		});
-		panePago.Boton1euro.addActionListener(new ActionListener() {
+		vista.panePago.Boton1euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(8,panePago);
+				Pagar.pagar(8,vista.panePago);
 			}
 		});
-		panePago.Boton2euro.addActionListener(new ActionListener() {
+		vista.panePago.Boton2euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(7,panePago);
+				Pagar.pagar(7,vista.panePago);
 	
 			}
 		});
-		panePago.Boton200euro.addActionListener(new ActionListener() {
+		vista.panePago.Boton200euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(1,panePago);
+				Pagar.pagar(1,vista.panePago);
 				
 			}
 		});
-		panePago.Boton100euro.addActionListener(new ActionListener() {
+		vista.panePago.Boton100euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(2,panePago);
+				Pagar.pagar(2,vista.panePago);
 
 			}
 		});
-		panePago.Boton50euro.addActionListener(new ActionListener() {
+		vista.panePago.Boton50euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				Pagar.pagar(3,panePago);
+				Pagar.pagar(3,vista.panePago);
 			}
 		});
-		panePago.Boton20euro.addActionListener(new ActionListener() {
+		vista.panePago.Boton20euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(4,panePago);
+				Pagar.pagar(4,vista.panePago);
 
 
 				
 			}
 		});
-		panePago.Boton10euro.addActionListener(new ActionListener() {
+		vista.panePago.Boton10euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(5,panePago);
+				Pagar.pagar(5,vista.panePago);
 
 			}
 		});
-		panePago.Boton5euro.addActionListener(new ActionListener() {
+		vista.panePago.Boton5euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(6,panePago);
+				Pagar.pagar(6,vista.panePago);
 				
 			}
 		});

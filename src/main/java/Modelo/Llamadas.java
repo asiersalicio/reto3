@@ -7,9 +7,9 @@ import java.sql.Statement;
 import java.util.Arrays;
 import java.util.Calendar;
 
-import Controlador.ControlModelo;
-import Controlador.ControladorFecha;
 import ControladoresPaneles.ControladorSelTrayecto;
+import Funciones.FuncionesFecha;
+import Vista.Vista;
 
 	/**
 	 *Clase Llamadas: Se encarga de la llamada a los datos de la BBDD: búsquedas, consultas, actualizaciones, etc. 
@@ -21,12 +21,19 @@ import ControladoresPaneles.ControladorSelTrayecto;
 	
 public class Llamadas {
 	
-	public static final float precioGasolina = 0.8F;
-	public static final float beneficio = 1.2F;
-	public static final float IVA = 1.21F;
+	public final float precioGasolina = 0.8F;
+	public final float beneficio = 1.2F;
+	public final float IVA = 1.21F;
+	
+	public Modelo modelo;
+	
+	public Llamadas(Modelo modelo)
+	{
+		this.modelo=modelo;
+	}
 	
 	//Realizar una consulta a la BBDD: Recuperar información del Cliente
-	public static void RellenarCliente (Connection con, Cliente cliente, String dni)
+	public void RellenarCliente (Connection con, Cliente cliente, String dni)
 	{
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
@@ -60,7 +67,7 @@ public class Llamadas {
 		}
 	}
 	
-	public static void busquedaLinea(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto)
+	public void busquedaLinea(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto)
 	{
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
@@ -94,7 +101,7 @@ public class Llamadas {
 	}
 	
 	
-	public static void TodasLasLineas(Connection con, ControladorSelTrayecto controladorSelTrayecto)
+	public void TodasLasLineas(Connection con, ControladorSelTrayecto controladorSelTrayecto)
 	{
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
@@ -127,7 +134,7 @@ public class Llamadas {
 				}
 	}
 	
-	public static void busquedaParada(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto, String codLinea)
+	public void busquedaParada(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto, String codLinea)
 	{
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
@@ -160,7 +167,7 @@ public class Llamadas {
 				}
 	}
 	
-	public static void busquedaParadaEvitando(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto, String codLinea, String CodParadaEvitar)
+	public void busquedaParadaEvitando(Connection con, String busqueda, ControladorSelTrayecto controladorSelTrayecto, String codLinea, String CodParadaEvitar)
 	{
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
@@ -195,7 +202,7 @@ public class Llamadas {
 
 
 /*
-	 * public static void verLinea (Connection con) 
+	 * public void verLinea (Connection con) 
 
 	{
 		//Declaración e inicialización de variables:
@@ -230,10 +237,10 @@ public class Llamadas {
 	
 	
 	
-	public static void insertarCliente(Connection con, String DNI, String nombreCliente, String apellidos, String contrasena, String sexo, Calendar fechaNac) throws SQLException {
+	public void insertarCliente(Connection con, String DNI, String nombreCliente, String apellidos, String contrasena, String sexo, Calendar fechaNac) throws SQLException {
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
-		String fechaconcatenada=ControladorFecha.CalendarToString(fechaNac);
+		String fechaconcatenada=FuncionesFecha.CalendarToString(fechaNac);
 		System.out.println("Fecha de nacimiento: " + fechaconcatenada);
 		String query="INSERT INTO cliente(DNI, Nombre, Apellidos, fecha_nac, sexo, Contrasena) values ('" + DNI + "', '" + nombreCliente + "', '" + apellidos + "', " + fechaconcatenada +", '" + sexo +"', '" + contrasena + "'); ";		System.out.println(query);
 		//Inicio programa:	
@@ -247,7 +254,7 @@ public class Llamadas {
 		}
 	}
 	
-	public static void insertarBillete(Connection con, Billete billete, boolean billeteVuelta, Calendar fecha){
+	public void insertarBillete(Connection con, Billete billete, boolean billeteVuelta, Calendar fecha){
 		//Declaración e inicialización de variables:
 		int codBillete=billete.getCodBillete();
 		int nTrayecto = billete.getnTrayecto();
@@ -259,7 +266,7 @@ public class Llamadas {
 		String dni=billete.getCliente().getDNI();
 		float precio=billete.getPrecio();
 
-		String query="INSERT INTO billete(Cod_Billete, Ntrayecto, COD_LINEA, COD_BUS, COD_PARADA_INICIO, COD_PARADA_FIN, FECHA, HORA, DNI, PRECIO) values (" + codBillete + ", " + nTrayecto + ", '" + codLinea + "', " + codBus + ", " + codParadaInicio  + ", " + codParadaFin + ", " + ControladorFecha.CalendarToString(fecha) + ", " + hora + ", '" + dni + "', " + precio + ");";		System.out.println(query);
+		String query="INSERT INTO billete(Cod_Billete, Ntrayecto, COD_LINEA, COD_BUS, COD_PARADA_INICIO, COD_PARADA_FIN, FECHA, HORA, DNI, PRECIO) values (" + codBillete + ", " + nTrayecto + ", '" + codLinea + "', " + codBus + ", " + codParadaInicio  + ", " + codParadaFin + ", " + FuncionesFecha.CalendarToString(fecha) + ", " + hora + ", '" + dni + "', " + precio + ");";		System.out.println(query);
 		
 		Statement stmt = null;
 
@@ -282,12 +289,12 @@ public class Llamadas {
 	
 	
 	
-	private static void printSQLException(SQLException e) {
+	private void printSQLException(SQLException e) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public static boolean validarDNI(String dni) {
+	public boolean validarDNI(String dni) {
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
 				boolean resultado = false;
@@ -323,7 +330,7 @@ public class Llamadas {
 				return resultado;
 	}
 	
-	public static String ObtenerContrasena(String dni) {
+	public String ObtenerContrasena(String dni) {
 		//Declaración e inicialización de variables:
 				Statement stmt = null;
 				String resultado = "";
@@ -353,7 +360,7 @@ public class Llamadas {
 
 
 
-public static void RellenarLinea(Connection con, Linea linea, String codLinea) {
+public void RellenarLinea(Connection con, Linea linea, String codLinea) {
 	//Declaración e inicialización de variables:
 			Statement stmt = null;
 			
@@ -382,7 +389,7 @@ public static void RellenarLinea(Connection con, Linea linea, String codLinea) {
 	
 }
 
-public static Parada RellenarParada(Connection con, Parada parada, String codParada) {
+public Parada RellenarParada(Connection con, Parada parada, String codParada) {
 	//Declaración e inicialización de variables:
 	Statement stmt = null;
 	
@@ -416,7 +423,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 	
 }
 
-	public static int SeleccionarAutobus(Connection con, Calendar fecha)
+	public int SeleccionarAutobus(Connection con, Calendar fecha)
 	{
 		
 		//Declaración e inicialización de variables:
@@ -425,7 +432,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 				int nplazasbus[]=new int[1];
 				int i=0;
 				boolean sinBuses = false;
-				String query = "select cod_bus, n_plazas from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + ControlModelo.linea.getCodLinea() + "') group by cod_bus;";
+				String query = "select cod_bus, n_plazas from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + modelo.linea.getCodLinea() + "') group by cod_bus;";
 				//Inicio programa:
 				try {
 					stmt = con.createStatement(); 
@@ -459,7 +466,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 				stmt = null;
 				
 				
-				query = "select count(*) from billete where cod_bus=" + codautobus[y] + " and fecha="+ ControladorFecha.CalendarToString(fecha) +";";
+				query = "select count(*) from billete where cod_bus=" + codautobus[y] + " and fecha="+ FuncionesFecha.CalendarToString(fecha) +";";
 				//Inicio programa:
 				try {
 					stmt = con.createStatement(); 
@@ -492,7 +499,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 
 	}
 	
-	public static Autobus RellenarAutobus(Connection con, int codBus, Autobus autobus)
+	public Autobus RellenarAutobus(Connection con, int codBus, Autobus autobus)
 	{
 		//Declaración e inicialización de variables:
 		Statement stmt = null;
@@ -523,12 +530,12 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 		return autobus;
 	}
 	
-	public static float CalcularDistanciaEuclidea(Connection con)
+	public float CalcularDistanciaEuclidea(Connection con)
 	{
 			//Declaración e inicialización de variables:
 			Statement stmt = null;
 			float distancia = 0;
-			String query = "SELECT (SQRT(POWER(((SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + ControlModelo.paradaDestino.getCodParada() + ")-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + ControlModelo.paradaOrigen.getCodParada() + ")),2) + POWER(((SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + ControlModelo.paradaDestino.getCodParada() + ")-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + ControlModelo.paradaOrigen.getCodParada() + ")),2))) \"DISTANCIA\" FROM DUAL;";
+			String query = "SELECT (SQRT(POWER(((SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + modelo.paradaDestino.getCodParada() + ")-(SELECT LATITUD FROM PARADA WHERE COD_PARADA=" + modelo.paradaOrigen.getCodParada() + ")),2) + POWER(((SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + modelo.paradaDestino.getCodParada() + ")-(SELECT LONGITUD FROM PARADA WHERE COD_PARADA=" + modelo.paradaOrigen.getCodParada() + ")),2))) \"DISTANCIA\" FROM DUAL;";
 			System.out.println("Query: " + query);
 			//Inicio programa:
 			try {
@@ -553,7 +560,7 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 		return distancia;
 	}
 	
-	public static int CalcularCodBillete(Connection con)
+	public int CalcularCodBillete(Connection con)
 	{
 			//Declaración e inicialización de variables:
 			Statement stmt = null;
@@ -583,13 +590,13 @@ public static Parada RellenarParada(Connection con, Parada parada, String codPar
 		return codBillete;
 	}
 	
-	public static float CalcularPrecioBus(Autobus autobus)
+	public float CalcularPrecioBus(Autobus autobus)
 	{
 		float consumoBus = autobus.getConsumoKM();
 		return consumoBus*precioGasolina*beneficio*IVA;
 	}
 
-	public static float CalcularPrecioBillete(Connection connection, Autobus autobus) {
+	public float CalcularPrecioBillete(Connection connection, Autobus autobus) {
 			float distancia;
 			float precioKM;
 			float precio;

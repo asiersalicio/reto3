@@ -16,7 +16,7 @@ public class TestControladorContrasena {
 	public void test()
 	{
 		String contrasenaEncriptada;
-		contrasenaEncriptada=ControladorContrasena.encriptarContrasena("TEST");
+		contrasenaEncriptada=FuncionesContrasena.encriptarContrasena("TEST");
 		assertEquals("033bd94b1168d7e4f0d644c3c95e35bf", contrasenaEncriptada);
 	}
 

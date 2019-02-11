@@ -14,10 +14,9 @@ import java.awt.Window.Type;
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 
-import Controlador.ControlInterfaz;
-import Controlador.ControlModelo;
 import Modelo.BBDD;
 import Modelo.Llamadas;
+import Modelo.Modelo;
 /**
  * Clase DebugMode: una pantalla de comandos para controlar las diferentes vistas de manera rápida.
  * @author IN1DM3B_18
@@ -30,7 +29,7 @@ public class DebugMode {
 	 * Método: DebugMode
 	 * @param controlInterfaz
 	 */
-	public DebugMode(ControlInterfaz controlInterfaz)
+	public DebugMode(Vista vista, Modelo modelo)
 	{
 		System.out.println("Starting debug mode...");
 		JFrame debugFrame = new JFrame();
@@ -54,7 +53,7 @@ public class DebugMode {
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneLogin.paneLogin);
+				vista.setPanel(vista.paneLogin.pane);
 			}
 		});
 		btnLogin.setBounds(10, 29, 89, 23);
@@ -64,7 +63,7 @@ public class DebugMode {
 		btnRegistro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneRegister.paneRegister);
+				vista.setPanel(vista.paneRegister.pane);
 			}
 		});
 		btnRegistro.setBounds(116, 29, 89, 23);
@@ -74,7 +73,7 @@ public class DebugMode {
 		btnSelecciontr.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneSelTrayecto.pane);
+				vista.setPanel(vista.paneSelTrayecto.pane);
 			}
 		});
 		btnSelecciontr.setBounds(10, 63, 89, 23);
@@ -88,7 +87,7 @@ public class DebugMode {
 		btnMostrarCompra.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.paneMostrarCompra);
+				vista.setPanel(vista.paneMostrarCompra.pane);
 			}
 		});
 		btnMostrarCompra.setBounds(116, 62, 89, 23);
@@ -98,7 +97,7 @@ public class DebugMode {
 		btnPago.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ControlInterfaz.setPanel(ControlInterfaz.panePago.panePago);
+				vista.setPanel(vista.panePago.pane);
 			}
 		});
 		btnPago.setBounds(221, 28, 89, 23);
@@ -108,7 +107,7 @@ public class DebugMode {
 		btnImprimirBillete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ControlModelo.GenerarBilletes();
+				modelo.GenerarBilletes();
 			}
 		});
 		btnImprimirBillete.setBounds(10, 200, 131, 25);
@@ -118,7 +117,7 @@ public class DebugMode {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Llamadas.SeleccionarAutobus(BBDD.connection, ControlModelo.fechaIda);
+				modelo.llamadas.SeleccionarAutobus(BBDD.connection, modelo.fechaIda);
 			}
 		});
 		btnNewButton.setBounds(153, 200, 118, 25);

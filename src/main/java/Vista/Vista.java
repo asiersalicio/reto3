@@ -1,4 +1,4 @@
-package Controlador;
+package Vista;
 
 
 import javax.swing.DefaultComboBoxModel;
@@ -28,30 +28,18 @@ import Vista.PaneSelTrayecto;
  *
  */
 
-public class ControlInterfaz {
+public class Vista {
 	
-	public static Frame1 frame1;
-	public static PaneBienvenida paneBienvenida; 
-	public static PaneLogin paneLogin;
-	public static PaneRegister paneRegister;
-	public static PaneSelTrayecto paneSelTrayecto;
-	public static PanePago panePago;
-	public static PaneCambioFinal paneCambioFinal;
-	public static PaneMostrarCompra paneMostrarCompra;
-
-	public static ControladorLogin controladorLogin;
-	public static ControladorSelTrayecto controladorSelTrayecto;
-	public static ControladorMostrarCompra controladorMostrarCompra;
-	public static ControladorPago controladorPago;
-	public static ControladorRegister controladorRegister;
-	public static ControladorCambioFinal controladorCambioFinal;
-	public static ControladorBienvenida controladorBienvenida;
+	public Frame1 frame1;
+	public PaneBienvenida paneBienvenida; 
+	public PaneLogin paneLogin;
+	public PaneRegister paneRegister;
+	public PaneSelTrayecto paneSelTrayecto;
+	public PanePago panePago;
+	public PaneCambioFinal paneCambioFinal;
+	public PaneMostrarCompra paneMostrarCompra;
 	
-
-	/**
-	 * Método: InicializarInterfaz()
-	 */
-	public static void InicializarInterfaz()
+	public Vista()
 	{
 		//Crea el frame pero no visible
 		frame1 = new Frame1();
@@ -59,19 +47,19 @@ public class ControlInterfaz {
 		paneBienvenida = new PaneBienvenida(frame1);
 		paneLogin = new PaneLogin(frame1);
 		paneCambioFinal = new PaneCambioFinal(frame1);
-		
 		panePago= new PanePago(frame1);
 		paneMostrarCompra = new PaneMostrarCompra(frame1);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
-		
-		controladorMostrarCompra = new ControladorMostrarCompra(paneMostrarCompra);
-		controladorSelTrayecto = new ControladorSelTrayecto(paneSelTrayecto, paneMostrarCompra);
-		controladorLogin = new ControladorLogin(paneLogin);
-		controladorPago = new ControladorPago(panePago);
+
 		paneRegister = new PaneRegister(frame1);
-		controladorRegister = new ControladorRegister(paneRegister, paneLogin);
-		controladorCambioFinal = new ControladorCambioFinal(paneCambioFinal,panePago);
-		controladorBienvenida =new ControladorBienvenida(paneBienvenida);
+	}
+
+	/**
+	 * Método: InicializarInterfaz()
+	 */
+	public void InicializarInterfaz()
+	{
+	
 		
 		//Establece como visible el JFrame
 		frame1.frame1.setVisible(true);
@@ -83,7 +71,7 @@ public class ControlInterfaz {
 	 * Método: setPanel: permite cambiar de un panel a otro
 	 * @param paneNuevo
 	 */
-	public static void setPanel(JPanel paneNuevo)
+	public void setPanel(JPanel paneNuevo)
 	{
 		frame1.setPane(paneNuevo);
 	}
@@ -93,7 +81,7 @@ public class ControlInterfaz {
 	 * @param label
 	 * @param texto
 	 */
-	public static void ActualizarTextoJLabel(JLabel label, String texto)
+	public void ActualizarTextoJLabel(JLabel label, String texto)
 	{
 		label.setText(texto);
 	}
@@ -103,7 +91,7 @@ public class ControlInterfaz {
 	 * @param combobox
 	 * @param texto
 	 */
-	public static void ActualizarListaJCombobox(JComboBox combobox, String[] texto)
+	public void ActualizarListaJCombobox(JComboBox combobox, String[] texto)
 	{
 		combobox.setModel(new DefaultComboBoxModel(texto));
 	}

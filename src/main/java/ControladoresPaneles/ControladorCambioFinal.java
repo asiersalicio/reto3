@@ -4,11 +4,10 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
 
-import Controlador.ControlFormato;
-import Controlador.ControlModelo;
-import Controlador.Main;
+import Modelo.Modelo;
 import Vista.PaneCambioFinal;
 import Vista.PanePago;
+import Vista.Vista;
 
 /**
  * Clase: ControladorCambioFinal
@@ -21,18 +20,19 @@ public class ControladorCambioFinal {
 	
 	/**
 	 * Método: ControladorCambioFinal
+	 * @param modelo 
 	 * @param paneCambioFinal
 	 * @param panePago
 	 */
-	public ControladorCambioFinal(PaneCambioFinal paneCambioFinal, PanePago panePago)
+	public ControladorCambioFinal(Vista vista, Modelo modelo)
 	{
 		controladorCambioFinal=this;
-		this.paneCambioFinal=paneCambioFinal;
+		this.paneCambioFinal=vista.paneCambioFinal;
 		
 		paneCambioFinal.btnVolver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Main.ResetAll();
+				//Main.ResetAll();
 			}
 		});
 	}

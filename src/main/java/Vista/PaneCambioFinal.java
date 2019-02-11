@@ -7,8 +7,6 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
-import Controlador.ControlFormato;
-import Controlador.ControlInterfaz;
 import ControladoresPaneles.ControladorCambioFinal;
 import Modelo.Devolucion;
 import Modelo.ManejoBilletes;
@@ -35,25 +33,25 @@ import java.awt.event.MouseEvent;
 public class PaneCambioFinal {
 	
 	public JPanel paneCambioFinal;
-	public static DefaultListModel<String> modelo2;
+	public DefaultListModel<String> modelo2;
 	public JList<String> listaCambio;
 	public JLabel lblGraciasYBuen;
 	public JLabel lblTipo;
-	public static JLabel lblparaTipo;
+	public JLabel lblparaTipo;
 	public JLabel lblLinea;
-	public static JLabel lblparaLinea;
+	public JLabel lblparaLinea;
 	public JLabel lblTrayecto;
-	public static JLabel lblparaTrayecto;
+	public JLabel lblparaTrayecto;
 	public JLabel lblBillete;
 	public JLabel lblPrecio;
-	public static JLabel lblparaPrecio;
+	public JLabel lblparaPrecio;
 	public JLabel lblSuBillete;
 	public JLabel lblLogoGrande;
 	public JLabel lblLogoPeke;
 	public JLabel imgCambio;
 	public JLabel label;
-	public static JLabel lblCodIda;
-	public static JLabel lblCodVuelta;
+	public JLabel lblCodIda;
+	public JLabel lblCodVuelta;
 	public JButton btnVolver;
 
 	/**
