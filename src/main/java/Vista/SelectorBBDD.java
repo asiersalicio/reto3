@@ -26,7 +26,11 @@ import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*; 
-
+/**
+ * Clase SelectorBBDD
+ * @author IN1DM3B_18
+ *
+ */
 public class SelectorBBDD {
 
 	private JPanel contentPane;
@@ -162,6 +166,7 @@ public class SelectorBBDD {
 			if(true)
 			{
 				new DebugMode(Main.controlInterfaz);
+				
 			}
 			
 			PrintWriter writer = null;

@@ -68,7 +68,7 @@ public class ManejoBilletes {
 		}
 		
 		public static void RellenarDatosBillete(PanePago panePago) {
-			float precio = ControlModelo.precio;
+			float precio = ControlModelo.precioIda;
 			if(ControlModelo.viajeDeVuelta) {
 				PaneCambioFinal.lblparaTipo.setText("Ida y vuelta");
 				precio=precio*2;

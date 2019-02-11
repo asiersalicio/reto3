@@ -42,9 +42,9 @@ public class PaneCambioFinal {
 	public static JLabel lblparaPrecio;
 	public static JLabel lblCodigo;
 	public JLabel lblSuBillete;
-	private JLabel lblCompraRealizadaCon;
 	public JLabel lblLogoGrande;
 	public JLabel lblLogoPeke;
+	private JLabel imgCambio;
 
 	
 	public PaneCambioFinal(Frame1 frame1)
@@ -142,11 +142,10 @@ public class PaneCambioFinal {
 		lblSuBillete.setBounds(381, 184, 101, 14);
 		paneCambioFinal.add(lblSuBillete);
 		
-		lblCompraRealizadaCon = new JLabel("Compra realizada con \u00E9xito :");
-		lblCompraRealizadaCon.setForeground(new Color(204, 0, 0));
-		lblCompraRealizadaCon.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 18));
-		lblCompraRealizadaCon.setBounds(10, 92, 303, 36);
-		paneCambioFinal.add(lblCompraRealizadaCon);
+		imgCambio = new JLabel("");
+		imgCambio.setIcon(new ImageIcon(PaneCambioFinal.class.getResource("/ImagenesVista/Gracias.png")));
+		imgCambio.setBounds(10, 60, 505, 106);
+		paneCambioFinal.add(imgCambio);
 		paneCambioFinal.setVisible(false);
 	}
 }

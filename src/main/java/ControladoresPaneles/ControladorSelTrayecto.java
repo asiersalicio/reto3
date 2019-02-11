@@ -61,6 +61,14 @@ public class ControladorSelTrayecto {
 				codLinea="";codParadaOrigen="";codParadaDestino="";
 				btnOrigenEnabled=false;paneSelTrayecto.btnSelOrigen.setEnabled(false);paneSelTrayecto.FieldOrigen.setText("");paneSelTrayecto.btnSelDestino.setEnabled(false);paneSelTrayecto.FieldDestino.setText("");btnDestinoEnabled=false;
 				setBuscadorVisible(true);
+				
+				resultadoBusqueda = new String[1];
+				resultadoBusquedaCod = new String[1];
+				
+				Llamadas.TodasLasLineas(BBDD.connection, controladorSelTrayecto);
+				DefaultComboBoxModel model = new DefaultComboBoxModel(controladorSelTrayecto.resultadoBusqueda);
+				paneSelTrayecto.comboBoxBusqueda.setModel(model);
+				paneSelTrayecto.comboBoxBusqueda.showPopup();
 				}
 			}
 		});
@@ -173,6 +181,11 @@ public class ControladorSelTrayecto {
 		paneSelTrayecto.btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				paneSelTrayecto.lblCamposSinCompletar.setVisible(false);
+				paneSelTrayecto.lblNoHayBuses.setVisible(false);
+				if(ValidarCampos())
+				{
+				boolean busDisponible=false;
 				ControlModelo.EstablecerLinea(codLinea);
 				ControlModelo.EstablecerParadaOrigen(codParadaOrigen);
 				ControlModelo.EstablecerParadaDestino(codParadaDestino);
@@ -183,9 +196,26 @@ public class ControladorSelTrayecto {
 				ControlModelo.fechaVuelta=paneSelTrayecto.dateChooserVuelta.getCalendar();
 				System.out.println("Fecha de vuelta: " + ControlModelo.fechaVuelta);
 				}
-				ControlModelo.CalcularDatosCompra();
-				ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.paneMostrarCompra);
-				ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra, ControlInterfaz.panePago);
+				else
+				{
+				ControlModelo.precioVuelta=0;
+				}
+				busDisponible=ControlModelo.CalcularDatosCompra(ControlModelo.fechaIda, paneSelTrayecto.chckbxVuelta.isSelected(), ControlModelo.fechaVuelta);
+				if(busDisponible)
+				{
+					ControlInterfaz.setPanel(ControlInterfaz.paneMostrarCompra.paneMostrarCompra);
+					ControlInterfaz.controladorMostrarCompra.RellenarDatos(paneMostrarCompra, ControlInterfaz.panePago);
+					
+				}
+				else
+				{
+					paneSelTrayecto.lblNoHayBuses.setVisible(true);
+				}
+				}
+				else 
+				{
+					paneSelTrayecto.lblCamposSinCompletar.setVisible(true);
+				}
 			}
 		});
 		
@@ -228,4 +258,20 @@ public class ControladorSelTrayecto {
 		}
 		}
 	}
+	
+	public boolean ValidarCampos() {
+		if(paneSelTrayecto.FieldOrigen.getText().equals(""))
+			return false;
+		else if (paneSelTrayecto.FieldDestino.getText().equals(""))
+			return false;
+		else if (paneSelTrayecto.dateChooserIda.getDate()==null)
+			return false;
+		else if(paneSelTrayecto.chckbxVuelta.isSelected()&&paneSelTrayecto.dateChooserVuelta.getDate()==null)
+		{
+			return false;
+		}
+		else
+			return true;
+	}
+	
 }

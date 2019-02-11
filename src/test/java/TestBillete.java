@@ -21,7 +21,7 @@ import Modelo.Parada;
  * @param fecha
  * @param hora
  * @param DNI
- * @param precio
+ * @param precioIda
  * 
  */
 /**

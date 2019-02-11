@@ -115,7 +115,7 @@ public class DebugMode {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Llamadas.SeleccionarAutobus(BBDD.connection);
+				Llamadas.SeleccionarAutobus(BBDD.connection, ControlModelo.fechaIda);
 			}
 		});
 		btnNewButton.setBounds(153, 200, 118, 25);
