@@ -26,8 +26,10 @@ public class PaneBienvenida {
 	public JLabel logoGrande;
 	public JLabel logoPeke;
 	
-	
-	
+	/**
+	 * Método:PaneBienvenida 
+	 * @param frame1
+	 */
 	public PaneBienvenida(Frame1 frame1)
 	{
 		paneBienvenida = new JPanel();

@@ -1,17 +1,11 @@
 package Modelo;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
-import java.text.ParseException;
 import java.util.Arrays;
-import java.util.BitSet;
 import java.util.Calendar;
-
-import javax.swing.text.MaskFormatter;
 
 import Controlador.ControlModelo;
 import Controlador.ControladorFecha;
@@ -259,8 +253,8 @@ public class Llamadas {
 		int nTrayecto = billete.getnTrayecto();
 		String codLinea=billete.getCodLinea();
 		int codBus=billete.getAutobus().getCodBus();
-		int codParadaInicio=billete.getCodParadaInicio().getCodParada();
-		int codParadaFin=billete.getCodParadaFin().getCodParada();
+		int codParadaInicio=billete.getParadaInicio().getCodParada();
+		int codParadaFin=billete.getParadaFin().getCodParada();
 		String hora="0000";
 		String dni=billete.getCliente().getDNI();
 		float precio=billete.getPrecio();

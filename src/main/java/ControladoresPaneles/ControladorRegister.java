@@ -21,7 +21,11 @@ import Vista.PaneRegister;
 public class ControladorRegister {
 	
 	public PaneRegister paneRegister;
-	
+	/**
+	 * Método: ControladorRegister
+	 * @param paneRegister
+	 * @param paneLogin
+	 */
 	public ControladorRegister(PaneRegister paneRegister, PaneLogin paneLogin)
 	{
 		this.paneRegister=paneRegister;
@@ -33,7 +37,6 @@ public class ControladorRegister {
 				ControlInterfaz.setPanel(paneLogin.paneLogin);
 			}
 		});
-		
 		
 		//Botón Registrarse en paneLogin: Cuando se clica en el botón "Registrarse", aparece la ventana paneRegister
 		paneRegister.btnRegistarse.addMouseListener(new MouseAdapter() {
@@ -78,15 +81,15 @@ public class ControladorRegister {
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
 
 			});
 			}
 			
-		
-	
-	
+		/**
+		 * Método: BorrarCampos. 
+		 * Permite que los campos en los que se había escrito algún caracter se queden en blanco.
+		 */
 		public void BorrarCampos()
 		{
 			//paneRegister.fechaNac.setDate(new Date());
@@ -105,6 +108,10 @@ public class ControladorRegister {
 			paneRegister.progSegCont.setValue(0);
 		}
 	
+		/**
+		 * Método: ValidarCampos
+		 * @return
+		 */
 		public boolean ValidarCampos() {
 			boolean resultado=true;
 			
@@ -146,6 +153,10 @@ public class ControladorRegister {
 			
 			return resultado;
 		}
+		
+		/**
+		 * Método: ActualizarBarraSeguridad
+		 */
 		public void ActualizarBarraSeguridad()
 		{
 			int passLength=String.valueOf(paneRegister.fieldPassword.getPassword()).length();

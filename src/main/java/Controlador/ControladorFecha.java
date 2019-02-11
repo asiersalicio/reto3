@@ -3,10 +3,17 @@ package Controlador;
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.Locale;
-
+/**
+ * Clase ControladorFecha: contiene los métodos para cambiar el formato de las variables de fechas.
+ * @author IN1DM3B_18
+ *
+ */
 public class ControladorFecha {
-
-	
+	/**
+	 * Método: CalendarToString
+	 * @param fecha
+	 * @return
+	 */
 	public static String CalendarToString(Calendar fecha)
 	{
 		String year=Integer.toString(fecha.get(Calendar.YEAR));
@@ -34,13 +41,21 @@ public class ControladorFecha {
 		}
 		return year+month+day;
 	}
-	
+	/**
+	 * Método: DateToCalendar
+	 * @param date
+	 * @return
+	 */
 	public static Calendar DateToCalendar(Date date){ 
 		  Calendar cal = Calendar.getInstance();
 		  cal.setTime(date);
 		  return cal;
 		}
-	
+	/** 
+	 * Método: CalendarToDate
+	 * @param calendar
+	 * @return
+	 */
 	public static Date CalendarToDate(Calendar calendar){ 
 		Calendar cal = Calendar.getInstance();
 	    cal.clear();
@@ -48,7 +63,11 @@ public class ControladorFecha {
 	    System.out.println(utilDate);
 	    return (Date) utilDate;
 	}
-
+	/**
+	 * Método: CalendarToStringVisual
+	 * @param fecha
+	 * @return
+	 */
 	public static String CalendarToStringVisual(Calendar fecha)
 	{
 		String year=Integer.toString(fecha.get(Calendar.YEAR));

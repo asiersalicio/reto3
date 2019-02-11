@@ -30,12 +30,19 @@ public class ManejoBilletes {
 			return contadorBillete;
 		}
 		
+		/**
+		 * Método: sumarBillete
+		 */
 		public void sumarBillete()
 		{
 			this.contadorBillete=this.contadorBillete + 1;
 			System.out.print(this.contadorBillete+" "+this.contadorBillete);
 		}
 		
+		/**
+		 * Método. rellenarLista
+		 * @param panePago
+		 */
 		public static void rellenarLista(PanePago panePago)
 		{
 
@@ -67,6 +74,10 @@ public class ManejoBilletes {
 			}
 		}
 		
+		/**
+		 * Método: RellenarDatosBillete
+		 * @param panePago
+		 */
 		public static void RellenarDatosBillete(PanePago panePago) {
 			float precio = ControlModelo.precioIda;
 			if(ControlModelo.viajeDeVuelta) {

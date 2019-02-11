@@ -5,7 +5,6 @@ import javax.swing.JTextField;
 
 import Controlador.ControlFormato;
 import Vista.PanePago;
-import Vista.PaneSelTrayecto;
 /**
  * Clase: Pagar. Se gestiona el pago de los billetes.
  * @author IN1DM3B_18

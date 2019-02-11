@@ -26,7 +26,10 @@ import Modelo.Llamadas;
 public class DebugMode {
 	
 	public JPanel esteJPanel;
-	
+	/**
+	 * Método: DebugMode
+	 * @param controlInterfaz
+	 */
 	public DebugMode(ControlInterfaz controlInterfaz)
 	{
 		System.out.println("Starting debug mode...");

@@ -14,7 +14,6 @@ import java.util.Calendar;
  * @param codParadaFin
  * @param fecha
  * @param hora
- * @param DNI
  * @param precioIda
  * 
  */
@@ -78,19 +77,19 @@ public class Billete{
 		this.autobus = autobus;
 	}
 
-	public Parada getCodParadaInicio() {
+	public Parada getParadaInicio() {
 		return paradaInicio;
 	}
 
-	public void setCodParadaInicio(Parada codParadaInicio) {
-		this.paradaInicio = codParadaInicio;
+	public void setParadaInicio(Parada paradaInicio) {
+		this.paradaInicio = paradaInicio;
 	}
 
-	public Parada getCodParadaFin() {
+	public Parada getParadaFin() {
 		return paradaFin;
 	}
 
-	public void setCodParadaFin(Parada paradaFin) {
+	public void setParadaFin(Parada paradaFin) {
 		this.paradaFin = paradaFin;
 	}
 

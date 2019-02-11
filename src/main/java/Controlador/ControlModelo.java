@@ -34,20 +34,28 @@ public class ControlModelo {
 	public static Calendar fechaIda;
 	public static Calendar fechaVuelta;
 	public static boolean viajeDeVuelta;
-	
-	//EstablecerClienteActual: rellena el objeto cliente con el cliente al que pertenece el dni que se pasa por parámetro. 
+	/**
+	 * Método: EstablecerClienteActual: rellena el objeto cliente con el cliente al que pertenece el dni que se pasa por parámetro. 
+	 * @param dni
+	 */
 	public static void EstablecerClienteActual(String dni)
 	{
 		cliente = new Cliente();
 		Llamadas.RellenarCliente(BBDD.connection, cliente, dni);
 	}
 	
-	//RegistrarCliente: Introduce los datos introducidos por el usuario en el paneRegister en la BBDD.
+	/**
+	 * Método:RegistrarCliente: Introduce los datos introducidos por el usuario en el paneRegister en la BBDD.
+	 * @param DNI
+	 * @param nombreCliente
+	 * @param apellidos
+	 * @param fechaNac
+	 * @param sexo
+	 * @param contrasena
+	 */
 	public static void RegistrarCliente(String DNI, String nombreCliente, String apellidos, Calendar fechaNac, String sexo, String contrasena)
 	{
-		
 		System.out.println(fechaNac);
-
 		System.out.println("Registrando usuario: " + DNI + "/" + contrasena);
 		try {
 				Llamadas.insertarCliente(BBDD.connection, DNI, nombreCliente, apellidos, contrasena, sexo, fechaNac);
@@ -57,14 +65,20 @@ public class ControlModelo {
 			}
 	}
 	
-	//EstablecerLinea: se realiza la llamada al método RellenarLinea de la clase Llamadas en el paquete Modelo y se rellena el atributo linea del objeto Linea. 
+	/**
+	 * Método: EstablecerLinea: se realiza la llamada al método RellenarLinea de la clase Llamadas en el paquete Modelo y se rellena el atributo linea del objeto Linea. 
+	 * @param codLinea
+	 */
 	public static void EstablecerLinea(String codLinea)
 	{ 
 		linea = new Linea(codLinea, codLinea);
 		Llamadas.RellenarLinea(BBDD.connection, linea, codLinea); 
 	}
 	
-	//EstablecerParadaOrigen: se realiza la llamada al método RellenarParada de la clase Llamadas en el paquete Modelo y se rellena el atributo paradaOrigen del objeto Parada. 
+	/**
+	 * Método: EstablecerParadaOrigen: se realiza la llamada al método RellenarParada de la clase Llamadas en el paquete Modelo y se rellena el atributo paradaOrigen del objeto Parada. 
+	 * @param codParadaOrigen
+	 */
 	public static void EstablecerParadaOrigen(String codParadaOrigen)
 	{
 		paradaOrigen = new Parada();
@@ -72,7 +86,10 @@ public class ControlModelo {
 		System.out.println("Parada origen: " + paradaOrigen.getNombreParada());
 	}
 	
-	//EstablecerParadaDestino: se realiza la llamada al método RellenarParada de la clase Llamadas en el paquete Modelo y se rellena el atributo paradaDestino del objeto Parada. 
+	/**
+	 * Método: EstablecerParadaDestino: se realiza la llamada al método RellenarParada de la clase Llamadas en el paquete Modelo y se rellena el atributo paradaDestino del objeto Parada. 
+	 * @param codParadaDestino
+	 */
 	public static void EstablecerParadaDestino(String codParadaDestino)
 	{
 		paradaDestino = new Parada();
@@ -80,7 +97,13 @@ public class ControlModelo {
 		System.out.println("Parada destino: " + paradaDestino.getNombreParada());
 	}
 
-	//clase CalcularDatosCompra: se calcula el código autobús y el precio del Billete
+	/**
+	 * Método: CalcularDatosCompra: se calcula el código autobús y el precio del Billete
+	 * @param fechaIda
+	 * @param vuelta
+	 * @param fechaVuelta
+	 * @return
+	 */
 	public static boolean CalcularDatosCompra(Calendar fechaIda, boolean vuelta, Calendar fechaVuelta) {
 		int codBusIda = 0;
 		int codBusVuelta = 0;
@@ -115,7 +138,9 @@ public class ControlModelo {
 		}
 	}
 	
-	//Clase GenerarBillete: se actualiza el codBillete mediante el método CalcularCodBillete de la clase Llamadas en el paquete Modelo
+	/**
+	 *Método: Clase GenerarBillete: se actualiza el codBillete mediante el método CalcularCodBillete de la clase Llamadas en el paquete Modelo
+	 */
 	public static void GenerarBilletes()
 	{
 		int codBillete;

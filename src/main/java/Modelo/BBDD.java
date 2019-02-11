@@ -8,15 +8,19 @@ import java.sql.*;
  *
  * @param 
  */
-
-
 public class BBDD {
 	
 	public static Connection connection;
 	public static Statement s = null;
 	ResultSet rs = null;
 
-	
+	/**
+	 * Método: Conectar
+	 * @param urlBBDD
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public static boolean Conectar(String urlBBDD, String username, String password)
 	{
 		boolean error = false;

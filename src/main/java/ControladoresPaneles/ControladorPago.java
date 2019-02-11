@@ -28,12 +28,14 @@ public class ControladorPago {
 	public double faltaPorPagar;
 	public double totalPagado;
 	
-	
+	/**
+	 * Método: ControladorPago
+	 * @param panePago
+	 */
 	public ControladorPago(PanePago panePago)
 	{	
 		controladorPago=this;
 		this.panePago=panePago;
-		
 		
 		panePago.btnImpresionBillete.addMouseListener(new MouseAdapter() {
 			@Override

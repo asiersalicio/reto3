@@ -16,13 +16,17 @@ public class Devolucion {
 	public static void Dinero (double cambio,ManejoBilletes[] listaBilletes)
 	{
 		int billetes=0;
-
-		// Inicio
+		int parteEntera=0;
+		double parteDecimal=0.0;
 		
-		int parteEntera=(int) cambio; 						// Casteammos cambio a int para coger solo la parte entera
-		double parteDecimal=cambio-parteEntera;				// Restamos la parte entera a la parte total, nos quedamos solo con los decimales.
+		parteEntera=(int) cambio; 						// Casteammos cambio a int para coger solo la parte entera
+		parteDecimal=cambio-parteEntera;				// Restamos la parte entera a la parte total, nos quedamos solo con los decimales.
 		parteDecimal=ControlFormato.Formateado2Dec(parteDecimal); // Pasamos el formateador para reducir a dos decimales
-		parteDecimal=parteDecimal*100;
+		parteEntera=(int) cambio; 							// Casteammos cambio a int para coger solo la parte entera
+		parteDecimal=cambio-parteEntera;					// Restamos la parte entera a la parte total, nos quedamos solo con los decimales.
+		parteDecimal=parteDecimal*100; 				  		// Convertimos en un numero entero la parte decimal para trabajar con ella.
+		
+														// Disponemos de un Array de 13 posiciones correspondientes a cada billete y moneda soportado 
 
 		if (parteEntera>=100)
 		{
@@ -30,11 +34,9 @@ public class Devolucion {
 			switch (billetes)
 			{
 				case 1: billetes=1;
-					System.out.println("Billete de 100€");
 					listaBilletes[1].sumarBillete();				
 					break;
 				case 2: billetes=2;
-					System.out.println("Billete de 200€");
 					listaBilletes[0].sumarBillete();
 					
 					break;
@@ -46,53 +48,36 @@ public class Devolucion {
 			switch (billetes)
 			{
 				case 1: billetes=1;
-					System.out.println("Billete de 10€");
 					listaBilletes[4].sumarBillete();
 					break;
 				case 2: billetes=2;
-					System.out.println("Billete de 20€");
 					listaBilletes[3].sumarBillete();
 					break;
 				case 3: billetes=3;
-					System.out.println("Billete de 20€");
-					System.out.println("Billete de 10€");
 					listaBilletes[3].sumarBillete();
 					listaBilletes[4].sumarBillete();
 					break;
 				case 4: billetes=4;
-					System.out.println("Billete de 20€");
-					System.out.println("Billete de 20€");
 					listaBilletes[3].sumarBillete();
 					listaBilletes[3].sumarBillete();
 					break;
 				case 5: billetes=5;
-					System.out.println("Billete de 50€");
 					listaBilletes[2].sumarBillete();
 					break;
 				case 6: billetes=6;
-					System.out.println("Billete de 50€");
-					System.out.println("Billete de 10€");
 					listaBilletes[2].sumarBillete();
 					listaBilletes[4].sumarBillete();
 					break;
 				case 7: billetes=7;
-					System.out.println("Billete de 50€");
-					System.out.println("Billete de 20€");
 					listaBilletes[2].sumarBillete();
 					listaBilletes[3].sumarBillete();
 					break;
 				case 8: billetes=8;
-					System.out.println("Billete de 50€");
-					System.out.println("Billete de 20€");
-					System.out.println("Billete de 10€");
 					listaBilletes[2].sumarBillete();
 					listaBilletes[3].sumarBillete();
 					listaBilletes[4].sumarBillete();
 					break;
 				case 9: billetes=9;
-					System.out.println("Billete de 50€");
-					System.out.println("Billete de 20€");
-					System.out.println("Billete de 20€");
 					listaBilletes[2].sumarBillete();
 					listaBilletes[3].sumarBillete();
 					listaBilletes[3].sumarBillete();
@@ -104,54 +89,38 @@ public class Devolucion {
 		switch (billetes)
 		{
 			case 1: billetes=1;
-				System.out.println("Moneda de 1€");
 				listaBilletes[7].sumarBillete();
 				break;
 			case 2: billetes=2;
-				System.out.println("Moneda de 2€");
 				listaBilletes[6].sumarBillete();
 				break;
 			case 3: billetes=3;
-				System.out.println("Moneda de 2€");
-				System.out.println("Moneda de 1€");
 				listaBilletes[6].sumarBillete();
 				listaBilletes[7].sumarBillete();
 
 				break;
 			case 4: billetes=4;
-				System.out.println("Moneda de 2€");
-				System.out.println("Moneda de 2€");
 				listaBilletes[6].sumarBillete();
 				listaBilletes[6].sumarBillete();
 				break;
 			case 5: billetes=5;
-				System.out.println("Billete de 5€");
 				listaBilletes[5].sumarBillete();
 				break;
 			case 6: billetes=6;
-				System.out.println("Billete de 5€");
-				System.out.println("Moneda de 1€");
+
 				listaBilletes[5].sumarBillete();
 				listaBilletes[7].sumarBillete();
 				break;
 			case 7: billetes=7;
-				System.out.println("Billete de 5€");
-				System.out.println("Moneda de 2€");
 				listaBilletes[5].sumarBillete();
 				listaBilletes[6].sumarBillete();
 				break;
 			case 8: billetes=8;
-				System.out.println("Billete de 5€");
-				System.out.println("Moneda de 2€");
-				System.out.println("Moneda de 1€");
 				listaBilletes[5].sumarBillete();
 				listaBilletes[6].sumarBillete();
 				listaBilletes[7].sumarBillete();
 				break;
 			case 9: billetes=9;
-				System.out.println("Billete de 5€");
-				System.out.println("Moneda de 2€");
-				System.out.println("Moneda de 2€");
 				listaBilletes[5].sumarBillete();
 				listaBilletes[6].sumarBillete();
 				listaBilletes[6].sumarBillete();
@@ -163,55 +132,38 @@ public class Devolucion {
 			switch (billetes)
 			{
 				case 1: billetes=1;
-					System.out.println("Moneda de 10c");
 					listaBilletes[10].sumarBillete();
 					
 					break;
 				case 2: billetes=2;
-					System.out.println("Moneda de 20c");
 					listaBilletes[9].sumarBillete();
 					break;
 				case 3: billetes=3;
-					System.out.println("Moneda de 20c");
-					System.out.println("Moneda de 10c");
 					listaBilletes[9].sumarBillete();
 					listaBilletes[10].sumarBillete();
 					break;
 				case 4: billetes=4;
-					System.out.println("Moneda de 20c");
-					System.out.println("Moneda de 20c");
 					listaBilletes[9].sumarBillete();
 					listaBilletes[9].sumarBillete();
 					break;
 				case 5: billetes=5;
-					System.out.println("Moneda de 50c");
 					listaBilletes[8].sumarBillete();
 					
 					break;
 				case 6: billetes=6;
-					System.out.println("Moneda de 50c");
-					System.out.println("Moneda de 10c");
 					listaBilletes[8].sumarBillete();
 					listaBilletes[10].sumarBillete();
 					break;
 				case 7: billetes=7;
-					System.out.println("Moneda de 50c");
-					System.out.println("Moneda de 20c");
 					listaBilletes[8].sumarBillete();
 					listaBilletes[9].sumarBillete();
 					break;
 				case 8: billetes=8;
-					System.out.println("Moneda de 50c");
-					System.out.println("Moneda de 20c");
-					System.out.println("Moneda de 10c");
 					listaBilletes[8].sumarBillete();
 					listaBilletes[9].sumarBillete();
 					listaBilletes[10].sumarBillete();
 					break;
 				case 9: billetes=9;
-					System.out.println("Moneda de 50c");
-					System.out.println("Moneda de 20c");
-					System.out.println("Moneda de 20c");
 					listaBilletes[8].sumarBillete();
 					listaBilletes[9].sumarBillete();
 					listaBilletes[9].sumarBillete();
@@ -224,53 +176,36 @@ public class Devolucion {
 		switch (billetes)
 			{
 				case 1: billetes=1;
-				System.out.println("Moneda de 1c");
 				listaBilletes[13].sumarBillete();
 				break;
 				case 2: billetes=2;
-				System.out.println("Moneda de 2c");
 				listaBilletes[12].sumarBillete();
 				break;
 				case 3: billetes=3;
-				System.out.println("Moneda de 2c");
-				System.out.println("Moneda de 1c");
 				listaBilletes[12].sumarBillete();
 				listaBilletes[13].sumarBillete();
 				break;
 				case 4: billetes=4;
-				System.out.println("Moneda de 2c");
-				System.out.println("Moneda de 2c");
 				listaBilletes[12].sumarBillete();
 				listaBilletes[12].sumarBillete();
 				break;
 				case 5: billetes=5;
-				System.out.println("Moneda de 5c");
 				listaBilletes[11].sumarBillete();
 				break;
 				case 6: billetes=6;
-				System.out.println("Moneda de 5c");
-				System.out.println("Moneda de 1c");
 				listaBilletes[11].sumarBillete();
 				listaBilletes[13].sumarBillete();
 				break;
 				case 7: billetes=7;
-				System.out.println("Moneda de 5c");
-				System.out.println("Moneda de 2c");
 				listaBilletes[11].sumarBillete();
 				listaBilletes[12].sumarBillete();
 				break;
 				case 8: billetes=8;
-				System.out.println("Moneda de 5c");
-				System.out.println("Moneda de 2c");
-				System.out.println("Moneda de 1c");
 				listaBilletes[11].sumarBillete();
 				listaBilletes[12].sumarBillete();
 				listaBilletes[13].sumarBillete();
 				break;
 				case 9: billetes=9;
-				System.out.println("Moneda de 5c");
-				System.out.println("Moneda de 2c");
-				System.out.println("Moneda de 2c");
 				listaBilletes[11].sumarBillete();
 				listaBilletes[12].sumarBillete();
 				listaBilletes[12].sumarBillete();

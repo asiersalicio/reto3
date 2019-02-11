@@ -27,11 +27,11 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
-/*
+/**
  * Clase PaneCambioFinal
+ * @author IN1DM3B_18
+ *
  */
-
 public class PaneCambioFinal {
 	
 	public JPanel paneCambioFinal;
@@ -56,7 +56,10 @@ public class PaneCambioFinal {
 	public static JLabel lblCodVuelta;
 	public JButton btnVolver;
 
-	
+	/**
+	 * Método: PaneCambioFinal
+	 * @param frame1
+	 */
 	public PaneCambioFinal(Frame1 frame1)
 	{
 		

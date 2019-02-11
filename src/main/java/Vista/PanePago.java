@@ -9,7 +9,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
+/**
+ * Clase: PanePago
+ * @author IN1DM3B_18
+ *
+ */
 public class PanePago {
 
 	public JPanel panePago;
@@ -39,6 +43,10 @@ public class PanePago {
 	public float aPagar;
 	private JLabel lblNewLabel;
 	
+	/**
+	 * Método: PanePago
+	 * @param frame1
+	 */
 	public PanePago(Frame1 frame1)
 	{
 		panePago = new JPanel();

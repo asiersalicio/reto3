@@ -17,8 +17,10 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 
-/*
- * Clase PaneLogin
+/**
+ * Clase: PaneLogin
+ * @author IN1DM3B_18
+ *
  */
 public class PaneLogin {
 	
@@ -34,6 +36,10 @@ public class PaneLogin {
 	private JLabel logoPeke;
 	public JLabel lblUsConNoValido;
 	
+	/**
+	 * Método: PaneLogin
+	 * @param frame1
+	 */
 	public PaneLogin(Frame1 frame1)
 	{
 		paneLogin = new JPanel();

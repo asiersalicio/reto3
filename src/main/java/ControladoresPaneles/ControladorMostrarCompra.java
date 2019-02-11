@@ -18,9 +18,17 @@ import Vista.PaneMostrarCompra;
 
 import Vista.PanePago;
 
+/**
+ * Clase:ControladorMostrarCompra
+ * @author IN1DM3B_18
+ *
+ */
 public class ControladorMostrarCompra {
 
-	//ControladorMostrarCompra: contiene botones
+	/**
+	 * Método:ControladorMostrarCompra
+	 * @param paneMostrarCompra
+	 */
 	public ControladorMostrarCompra(PaneMostrarCompra paneMostrarCompra)
 	{
 		//botón para volver a paneSelTrayecto
@@ -39,8 +47,11 @@ public class ControladorMostrarCompra {
 		});
 	}
 	
-
-	//se rellenan y muestran los datos de la compra en el paneMostrarCompra
+	/**
+	 * Método:RellenarDatos: se rellenan y muestran los datos de la compra en el paneMostrarCompra
+	 * @param paneMostrarCompra
+	 * @param panePago
+	 */
 	public void RellenarDatos(PaneMostrarCompra paneMostrarCompra, PanePago panePago) {
 		float precioIda = ControlModelo.precioIda;
 		float precioVuelta = ControlModelo.precioVuelta;
