@@ -2,6 +2,9 @@ package Controlador;
 
 
 import ControladoresPaneles.*;
+import Funciones.FuncionesContrasena;
+import Modelo.Llamadas;
+import Modelo.ManejoBilletes;
 import Modelo.Modelo;
 import Vista.DebugMode;
 import Vista.SelectorBBDD;
@@ -16,13 +19,21 @@ public class Controlador {
 	public ControladorRegister controladorRegister;
 	public ControladorCambioFinal controladorCambioFinal;
 	public ControladorBienvenida controladorBienvenida;
+	
+	
+	public ManejoBilletes manejoBilletes;
+	
 
 	public Controlador(Vista vista, Modelo modelo)
 	{
+		
+		manejoBilletes = new ManejoBilletes(vista, modelo);
+		
+		
 		controladorMostrarCompra = new ControladorMostrarCompra(vista, modelo);
 		controladorSelTrayecto = new ControladorSelTrayecto(vista, modelo, this);
 		controladorLogin = new ControladorLogin(vista, modelo);
-		controladorPago = new ControladorPago(vista, modelo);
+		controladorPago = new ControladorPago(vista, modelo, this);
 		controladorRegister = new ControladorRegister(vista, modelo);
 		controladorCambioFinal = new ControladorCambioFinal(vista, modelo);
 		controladorBienvenida = new ControladorBienvenida(vista, modelo);

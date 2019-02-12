@@ -28,8 +28,8 @@ public class Modelo {
 	public Calendar fechaVuelta;
 	public boolean viajeDeVuelta;
 	public Llamadas llamadas;
-	public ManejoBilletes manejoBilletes;
 	public FuncionesContrasena funcionesContrasena;
+	
 	/**
 	 * Método: EstablecerClienteActual: rellena el objeto cliente con el cliente al que pertenece el dni que se pasa por parámetro. 
 	 * @param dni
@@ -38,7 +38,6 @@ public class Modelo {
 	public Modelo()
 	{
 		llamadas = new Llamadas(this);
-		manejoBilletes = new ManejoBilletes();
 		funcionesContrasena = new FuncionesContrasena(this);		
 	}
 	

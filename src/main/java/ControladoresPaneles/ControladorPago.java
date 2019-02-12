@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.concurrent.TimeUnit;
 
+import Controlador.Controlador;
 import Modelo.BBDD;
 import Modelo.Devolucion;
 import Modelo.Llamadas;
@@ -26,24 +27,26 @@ public class ControladorPago {
 	public double aPagar; // // Valor de ejemplo a cambiar por la cantindad a pagar.
 	public double faltaPorPagar;
 	public double totalPagado;
+	Controlador controlador;
 	
 	/**
 	 * Método: ControladorPago
 	 * @param vista
 	 * @param modelo 
 	 */
-	public ControladorPago(Vista vista, Modelo modelo)
+	public ControladorPago(Vista vista, Modelo modelo, Controlador controlador)
 	{	
 		controladorPago=this;
 		this.panePago=vista.panePago;
+		this.controlador=controlador;
 		
 		vista.panePago.btnImpresionBillete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				vista.setPanel(vista.paneCambioFinal.paneCambioFinal);
 				modelo.GenerarBilletes();
-				modelo.manejoBilletes.rellenarLista(vista.panePago);
-				modelo.manejoBilletes.RellenarDatosBillete(vista.panePago);
+				controlador.manejoBilletes.rellenarLista(vista.panePago);
+				controlador.manejoBilletes.RellenarDatosBillete(vista.panePago);
 			}
 		});
 		vista.panePago.Boton1cent.addActionListener(new ActionListener() {

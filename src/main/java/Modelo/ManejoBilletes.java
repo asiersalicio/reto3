@@ -1,6 +1,7 @@
 package Modelo;
 
 
+import Controlador.Controlador;
 import Funciones.FuncionesFormato;
 import Vista.PaneCambioFinal;
 import Vista.PanePago;
@@ -18,6 +19,7 @@ public class ManejoBilletes {
 		
 		public Vista vista;
 		public Modelo modelo;
+		Controlador controlador;
 		
 		public ManejoBilletes(Vista vista, Modelo modelo)
 		{
@@ -25,13 +27,14 @@ public class ManejoBilletes {
 			this.modelo=modelo;
 		}
 		
-		public ManejoBilletes(String nombreBillete,int contadorBillete)
+		public Dinero InsertarDatos(String nombreBillete,int contadorBillete)
 		{
-			this.nombreBillete=nombreBillete;
-			this.contadorBillete=contadorBillete;
+			Dinero Dinero;
+			return Dinero = new Dinero(nombreBillete, contadorBillete);
 		}
 
-		public ManejoBilletes() {
+		public void InsertarControlador(Controlador controlador) {
+			this.controlador=controlador;
 		}
 
 		public String getnombreBillete()
@@ -47,11 +50,6 @@ public class ManejoBilletes {
 		/**
 		 * Método: sumarBillete
 		 */
-		public void sumarBillete()
-		{
-			this.contadorBillete=this.contadorBillete + 1;
-			System.out.print(this.contadorBillete+" "+this.contadorBillete);
-		}
 		
 		/**
 		 * Método. rellenarLista
@@ -60,24 +58,27 @@ public class ManejoBilletes {
 		public void rellenarLista(PanePago panePago)
 		{
 
-			ManejoBilletes[] listaBilletes=new ManejoBilletes[14];
-			listaBilletes[0]=new ManejoBilletes("Billete de 200",0);
-			listaBilletes[1]=new ManejoBilletes("Billete de 100",0);
-			listaBilletes[2]=new ManejoBilletes("Billete de 50",0);
-			listaBilletes[3]=new ManejoBilletes("Billete de 20",0);
-			listaBilletes[4]=new ManejoBilletes("Billete de 10",0);
-			listaBilletes[5]=new ManejoBilletes("Billete de 5",0);
-			listaBilletes[6]=new ManejoBilletes("Moneda de 2",0);
-			listaBilletes[7]=new ManejoBilletes("Moneda de 1",0);
-			listaBilletes[8]=new ManejoBilletes("Moneda de 50c",0);
-			listaBilletes[9]=new ManejoBilletes("Moneda de 20c",0);
-			listaBilletes[10]=new ManejoBilletes("Moneda de 10c",0);
-			listaBilletes[11]=new ManejoBilletes("Moneda de 5c",0);
-			listaBilletes[12]=new ManejoBilletes("Moneda de 2c",0);
-			listaBilletes[13]=new ManejoBilletes("Moneda de 1c",0);
+			Dinero[] listaBilletes=new Dinero[14];
+			listaBilletes[0]=InsertarDatos("Billete de 200",0);
+			listaBilletes[1]=InsertarDatos("Billete de 100",0);
+			listaBilletes[2]=InsertarDatos("Billete de 50",0);
+			listaBilletes[3]=InsertarDatos("Billete de 20",0);
+			listaBilletes[4]=InsertarDatos("Billete de 10",0);
+			listaBilletes[5]=InsertarDatos("Billete de 5",0);
+			listaBilletes[6]=InsertarDatos("Moneda de 2",0);
+			listaBilletes[7]=InsertarDatos("Moneda de 1",0);
+			listaBilletes[8]=InsertarDatos("Moneda de 50c",0);
+			listaBilletes[9]=InsertarDatos("Moneda de 20c",0);
+			listaBilletes[10]=InsertarDatos("Moneda de 10c",0);
+			listaBilletes[11]=InsertarDatos("Moneda de 5c",0);
+			listaBilletes[12]=InsertarDatos("Moneda de 2c",0);
+			listaBilletes[13]=InsertarDatos("Moneda de 1c",0);
 			
 			float cambio=Float.parseFloat(panePago.txtCambio2.getText());
-			Devolucion.Dinero(cambio, listaBilletes);
+			
+			Devolucion devolucion = new Devolucion();
+			
+			devolucion.Dinero(cambio, listaBilletes);
 			
 			for (int i=0;i<listaBilletes.length;i++)
 			{

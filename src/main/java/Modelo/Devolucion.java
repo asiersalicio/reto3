@@ -13,7 +13,7 @@ public class Devolucion {
 	 * @param cambio
 	 * @param listaBilletes
 	 */
-	public static void Dinero (double cambio,ManejoBilletes[] listaBilletes)
+	public void Dinero (double cambio,Dinero[] listaBilletes)
 	{
 		int billetes=0;
 		int parteEntera=0;
