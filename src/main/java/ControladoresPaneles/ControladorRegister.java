@@ -38,7 +38,7 @@ public class ControladorRegister {
 		paneRegister.btnVolverALogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				BorrarCampos();
+				reset();
 				vista.setPanel(vista.paneLogin.pane);
 			}
 		});
@@ -65,7 +65,7 @@ public class ControladorRegister {
 						break;
 					}
 					modelo.RegistrarCliente(DNI, nombreCliente, apellidos, fechaNac, sexo, contrasena);
-					BorrarCampos();
+					reset();
 					vista.setPanel(vista.paneLogin.pane);
 				}
 			}
@@ -95,7 +95,7 @@ public class ControladorRegister {
 		 * Método: BorrarCampos. 
 		 * Permite que los campos en los que se había escrito algún caracter se queden en blanco.
 		 */
-		public void BorrarCampos()
+		public void reset()
 		{
 			//paneRegister.fechaNac.setDate(new Date());
 			paneRegister.comboBoxSexo.setSelectedIndex(0);

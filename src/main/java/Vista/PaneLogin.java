@@ -116,4 +116,12 @@ public class PaneLogin {
 		pane.add(lblUsConNoValido);
 		pane.setVisible(false);
 	}
+	
+	public void reset()
+	{
+		textfieldUsername.setText("");
+		fieldPassword.setText("");
+		lblUsConNoValido.setVisible(false);
+	}
+
 }

@@ -6,6 +6,7 @@ import java.util.Date;
 
 import Funciones.FuncionesContrasena;
 import Vista.PaneRegister;
+import Vista.Vista;
 /**
  * Clase: ControlModelo: contiene las instancias del modelo, incluye las instancias de los objetos así como métodos relacionados con estas funciones.
  * @author IN1DM3B_18
@@ -160,21 +161,4 @@ public class Modelo {
 		}
 }
 
-	public void Reset() {
-		cliente=null;  
-		linea=null;
-		paradaOrigen=null;
-		paradaDestino=null;
-		lineaParada=null;
-		billeteIda=null;
-		billeteVuelta=null;
-		autobusIda=null;
-		autobusVuelta=null;
-		precioIda = 0;
-		precioVuelta = 0;
-		fechaIda=null;
-		fechaVuelta=null;
-		viajeDeVuelta=false;
-		
-	}
 }
