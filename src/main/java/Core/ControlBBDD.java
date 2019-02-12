@@ -12,20 +12,22 @@ public class ControlBBDD {
 	Statement s = null;
 	ResultSet rs = null;
 	
-
+	/**
+	 * Estas lineas de codigo actualemente estan no estan en uso.
+	 * Servian para realizar una consulta generica a la base de datos
+	 */
 	public String[] ConsultaSQL(String[] resultado, String consultaSQL, String nombreTabla)
 	{
 		int contador = 1;
 		try {
 			s=connection.createStatement();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		try {
 			rs = s.executeQuery (consultaSQL);
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		try {
@@ -36,7 +38,6 @@ public class ControlBBDD {
 				contador++;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return resultado;

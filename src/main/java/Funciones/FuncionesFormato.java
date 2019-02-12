@@ -4,7 +4,9 @@ import java.text.ParseException;
 
 public class FuncionesFormato {
 
-	 
+	/**
+	 * Este metodo formatea los numeros a dos decimales
+	 */
 	public static double Formateado2Dec(double numero)
 	{
 		DecimalFormat formateado2Dec=new DecimalFormat("###0.##");
@@ -17,6 +19,9 @@ public class FuncionesFormato {
 		return numero;
 	}
 	
+	/**
+	 * Este metodo devuelve el formato a mostrar en el billete
+	 */
 	public static String FormatoBillete(int codBillete)
 	{
 		String codBilleteVuelta=String.format("%08d", codBillete);

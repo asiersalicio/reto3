@@ -16,6 +16,11 @@ public class Main {
 		static Modelo modelo;
 		static Controlador controlador;
 		
+		/**
+		 * Estas lineas de codigo son las primeras que se ejecutan al iniciar el programa
+		 * 
+		 *
+		 */
 	public static void main(String[] args) {
 		
 		modelo = new Modelo();
@@ -24,7 +29,11 @@ public class Main {
 		
 		
 	}
-
+	/**
+	 * Estas lineas de codigo sirven para ejecutar los programas que borran todos los campos de todas las pantallas
+	 * 
+	 *
+	 */
 	public static void ResetAll() {
 		vista.setPanel(vista.paneBienvenida.paneBienvenida);
 		new Reset(vista, modelo);

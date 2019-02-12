@@ -21,9 +21,7 @@ public class ControladorLogin {
 	public Modelo modelo;
 	
 	/**
-	 * Método:ControladorLogin. 
-	 * @param modelo 
-	 * @param pane
+	 * Este controlador sirve para controlar el paneLogin
 	 */
 	public ControladorLogin(Vista vista, Modelo modelo)
 	{

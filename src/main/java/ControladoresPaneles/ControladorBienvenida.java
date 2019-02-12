@@ -20,8 +20,6 @@ public class ControladorBienvenida {
 		
 		/** 
 		 * Método ControladorBienvenida
-		 * @param modelo 
-		 * @param paneBienvenida
 		 */
 		public ControladorBienvenida(Vista vista, Modelo modelo)
 		{

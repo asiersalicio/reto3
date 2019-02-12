@@ -22,10 +22,7 @@ public class ControladorRegister {
 	public Vista vista;
 	public Modelo modelo;
 	/**
-	 * Método: ControladorRegister
-	 * @param modelo 
-	 * @param panel
-	 * @param pane
+	 * Este controlador sirve para controlar el paneRegister
 	 */
 	public ControladorRegister(Vista vista, Modelo modelo)
 	{

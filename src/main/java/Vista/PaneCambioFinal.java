@@ -73,7 +73,7 @@ public class PaneCambioFinal {
 		lblCodIda.setBounds(391, 354, 108, 29);
 		paneCambioFinal.add(lblCodIda);
 		
-		lblCodVuelta = new JLabel("00000000");
+		lblCodVuelta = new JLabel("");
 		lblCodVuelta.setForeground(Color.GRAY);
 		lblCodVuelta.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCodVuelta.setFont(new Font("Consolas", Font.PLAIN, 20));
@@ -165,6 +165,11 @@ public class PaneCambioFinal {
 		
 		
 		paneCambioFinal.setVisible(false);
+	}
+
+	public void reset() {
+		lblCodVuelta.setText("");
+		
 	}
 }
 	

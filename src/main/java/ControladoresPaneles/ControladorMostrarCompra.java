@@ -25,9 +25,7 @@ import Vista.Vista;
 public class ControladorMostrarCompra {
 
 	/**
-	 * Método:ControladorMostrarCompra
-	 * @param vista
-	 * @param modelo 
+	 * Este controlador sirve para controlar el paneMostrarCompra
 	 */
 	public Modelo modelo;
 	public Vista vista;
