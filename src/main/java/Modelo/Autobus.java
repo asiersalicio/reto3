@@ -58,6 +58,6 @@ public class Autobus {
 
 	public void setColor(String color) {
 		this.color = color;
-	}
+	} 
 	
 }

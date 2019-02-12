@@ -1,4 +1,5 @@
-import static org.junit.Assert.*;
+package TestModelo;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -13,10 +14,10 @@ import Modelo.Parada;
  * @param longitud
  * 
  */
-/*
+
 	public class TestParada {
 	//Atributos o propiedades:
-	public String codParada="1";
+	public int codParada=1;
 	public String nombreParada="Termibus-Bilbao";
 	public String calle="Luis Briñas";
 	public float latitud=(float) 43.2614;
@@ -27,7 +28,7 @@ import Modelo.Parada;
 	@Test
 	public void testConstructor1() {
 		Parada paradaTest = new Parada (codParada, nombreParada, calle, latitud, longitud);
-		assertEquals(paradaTest.getCodParada (), codParada);
+		assertEquals(paradaTest.getCodParada (), codParada,0);
 		assertEquals(paradaTest.getNombreParada (), nombreParada);
 		assertEquals(paradaTest.getLatitud (), latitud,0.01);
 		assertEquals(paradaTest.getLongitud (), longitud,0.01);
@@ -61,4 +62,3 @@ import Modelo.Parada;
 	assertEquals(paradaTest1.getLongitud (), longitud,0.01);
 	}
 }
-*/
