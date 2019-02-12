@@ -1,7 +1,6 @@
-import static org.junit.Assert.*;
+package TestModelo;
+import static org.junit.Assert.assertEquals;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.util.Calendar;
 
 import org.junit.Test;
@@ -93,7 +92,13 @@ public class TestBillete {
 	public void testPrecio() {
 		billeteTest1.setPrecio(precio);
 		assertEquals(billeteTest1.getPrecio(), precio, 0.01);
-	}
+	} 
+	@Test
+	public void testCliente() {
+		billeteTest1.setCliente(cliente);
+		assertEquals(billeteTest1.getCliente(), cliente);
+	} 
+
 
 }
 

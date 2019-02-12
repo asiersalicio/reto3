@@ -4,9 +4,9 @@
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="lib" path="Librerias/com.mysql.jdbc_5.1.5.jar"/>
-	<classpathentry kind="lib" path="Librerias/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="Librerias/jgoodies-common-1.2.0.jar"/>
-	<classpathentry kind="lib" path="Librerias/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/reto3/Librerias/com.mysql.jdbc_5.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/reto3/Librerias/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/reto3/Librerias/jgoodies-common-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/reto3/Librerias/jgoodies-looks-2.4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
