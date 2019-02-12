@@ -8,5 +8,7 @@
 	<classpathentry kind="lib" path="Librerias/jcalendar-1.4.jar"/>
 	<classpathentry kind="lib" path="Librerias/jgoodies-common-1.2.0.jar"/>
 	<classpathentry kind="lib" path="Librerias/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="lib" path="Librerias/mockito-all-1.8.4.jar"/>
+	<classpathentry kind="lib" path="Librerias/mockito-core-2.7.22.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

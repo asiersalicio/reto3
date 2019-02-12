@@ -29,7 +29,7 @@ public class ControladorPago {
 	 * @param vista
 	 * @param modelo 
 	 */
-	public ControladorPago(Vista vista, Modelo modelo, Controlador controlador)
+	public ControladorPago(Vista vista, Modelo modelo, Controlador controlador, Pagar pagar)
 	{	
 		controladorPago=this;
 		this.panePago=vista.panePago;
@@ -44,79 +44,79 @@ public class ControladorPago {
 				controlador.manejoBilletes.RellenarDatosBillete(vista.panePago);
 			}
 		});
+		
 		vista.panePago.Boton1cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				Pagar.pagar(14,vista.panePago);
+				pagar.Pago(14,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 			}
 		});
 		vista.panePago.Boton50cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(9,vista.panePago);
+				pagar.Pago(9,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 			}
 		});
 		vista.panePago.Boton20cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(10,vista.panePago);
+				pagar.Pago(10,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 			}
 		});
 		vista.panePago.Boton10cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(11,vista.panePago);
+				pagar.Pago(11,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 			}
 		});
 		vista.panePago.Boton5cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(12,vista.panePago);
+				pagar.Pago(12,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 			}
 		});
 		vista.panePago.Boton2cent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(13,vista.panePago);
+				pagar.Pago(13,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 			}
 		});
 		vista.panePago.Boton1euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(8,vista.panePago);
+				pagar.Pago(8,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 			}
 		});
 		vista.panePago.Boton2euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(7,vista.panePago);
+				pagar.Pago(7,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 	
 			}
 		});
 		vista.panePago.Boton200euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(1,vista.panePago);
+				pagar.Pago(1,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 				
 			}
 		});
 		vista.panePago.Boton100euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(2,vista.panePago);
+				pagar.Pago(2,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 
 			}
 		});
 		vista.panePago.Boton50euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				Pagar.pagar(3,vista.panePago);
+				pagar.Pago(3,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 			}
 		});
 		vista.panePago.Boton20euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(4,vista.panePago);
+				pagar.Pago(4,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 
 
 				
@@ -125,14 +125,14 @@ public class ControladorPago {
 		vista.panePago.Boton10euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(5,vista.panePago);
+				pagar.Pago(5,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 
 			}
 		});
 		vista.panePago.Boton5euro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Pagar.pagar(6,vista.panePago);
+				pagar.Pago(6,vista.panePago, Float.parseFloat(panePago.txtfaltaporpagar.getText()));
 				
 			}
 		});

@@ -37,7 +37,7 @@ public class Controlador {
 		controladorMostrarCompra = new ControladorMostrarCompra(vista, modelo);
 		controladorSelTrayecto = new ControladorSelTrayecto(vista, modelo, this);
 		controladorLogin = new ControladorLogin(vista, modelo);
-		controladorPago = new ControladorPago(vista, modelo, this);
+		controladorPago = new ControladorPago(vista, modelo, this, modelo.pagar);
 		controladorRegister = new ControladorRegister(vista, modelo);
 		controladorCambioFinal = new ControladorCambioFinal(vista, modelo);
 		controladorBienvenida = new ControladorBienvenida(vista, modelo);
