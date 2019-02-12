@@ -14,6 +14,7 @@ import Vista.Vista;
  */
 public class Modelo {
 	
+	public Pagar pagar;
 	public Cliente cliente;  
 	public Linea linea;
 	public Parada paradaOrigen;
@@ -38,6 +39,7 @@ public class Modelo {
 	
 	public Modelo()
 	{
+		pagar = new Pagar();
 		llamadas = new Llamadas(this);
 		funcionesContrasena = new FuncionesContrasena(this);		
 	}

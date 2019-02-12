@@ -235,5 +235,9 @@ public class PanePago {
 	
 		pane.setVisible(false);
 	}
+	
+	public void actualizarTexto(JTextField textField, String msg) {
+		textField.setText(msg);
+	}
 }
 
