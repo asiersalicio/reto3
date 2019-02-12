@@ -9,7 +9,6 @@ import java.util.Calendar;
 
 import ControladoresPaneles.ControladorSelTrayecto;
 import Funciones.FuncionesFecha;
-import Vista.Vista;
 
 	/**
 	 *Clase Llamadas: Se encarga de la llamada a los datos de la BBDD: búsquedas, consultas, actualizaciones, etc. 
@@ -431,7 +430,6 @@ public Parada RellenarParada(Connection con, Parada parada, String codParada) {
 				int codautobus[]=new int[1];
 				int nplazasbus[]=new int[1];
 				int i=0;
-				boolean sinBuses = false;
 				String query = "select cod_bus, n_plazas from autobus where cod_bus in(select cod_bus from linea_autobus where cod_linea='" + modelo.linea.getCodLinea() + "') group by cod_bus;";
 				//Inicio programa:
 				try {

@@ -1,21 +1,16 @@
 package Vista;
 
-import javax.swing.JPanel;
-
-
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
+import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ResourceBundle.Control;
-import java.awt.Window.Type;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import java.awt.BorderLayout;
 
 import Modelo.BBDD;
-import Modelo.Llamadas;
 import Modelo.Modelo;
 /**
  * Clase DebugMode: una pantalla de comandos para controlar las diferentes vistas de manera rápida.

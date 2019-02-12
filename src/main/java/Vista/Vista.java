@@ -6,22 +6,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import ControladoresPaneles.ControladorBienvenida;
-import ControladoresPaneles.ControladorCambioFinal;
-import ControladoresPaneles.ControladorLogin;
-import ControladoresPaneles.ControladorMostrarCompra;
-import ControladoresPaneles.ControladorPago;
-import ControladoresPaneles.ControladorRegister;
-import ControladoresPaneles.ControladorSelTrayecto;
-import Vista.Frame1;
-import Vista.PaneBienvenida;
-import Vista.PaneCambioFinal;
-import Vista.PaneLogin;
-import Vista.PaneMostrarCompra;
-import Vista.PanePago;
-import Vista.PaneRegister;
-import Vista.PaneSelTrayecto;
-
 /**
  * Clase ControlInterfaz: contiene las instancias de los Frame, Pane y Controladores de los diferentes paneles de la interfaz
  * @author IN1DM3B_18

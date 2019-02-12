@@ -4,13 +4,11 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Calendar;
+
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import Funciones.FuncionesContrasena;
-import Modelo.Llamadas;
 import Modelo.Modelo;
-import Vista.PaneLogin;
 import Vista.PaneRegister;
 import Vista.Vista;
 /**

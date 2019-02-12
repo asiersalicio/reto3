@@ -1,29 +1,17 @@
 package Vista;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.text.MaskFormatter;
-
-import ControladoresPaneles.ControladorCambioFinal;
-import Modelo.Devolucion;
-import Modelo.ManejoBilletes;
+import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
-
-import java.awt.Color;
-import java.awt.Font;
-import java.text.ParseException;
-
-import javax.swing.JFormattedTextField;
-import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.TitledBorder;
 
 /**
  * Clase PaneCambioFinal

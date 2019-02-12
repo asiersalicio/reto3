@@ -3,13 +3,7 @@ package ControladoresPaneles;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.security.auth.login.LoginContext;
-
-import Funciones.FuncionesContrasena;
-import Modelo.Llamadas;
 import Modelo.Modelo;
-import Vista.PaneLogin;
-import Vista.PaneSelTrayecto;
 import Vista.Vista;
 /**
  * Clase: ControladorLogin: contiene btnRegister y btnLogin

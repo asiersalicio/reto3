@@ -1,9 +1,3 @@
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-import Modelo.Parada;
-
 /**
  *Clase TestParada: 
  * @param codParada

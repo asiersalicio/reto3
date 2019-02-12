@@ -1,9 +1,13 @@
 package Controlador;
 
 
-import ControladoresPaneles.*;
-import Funciones.FuncionesContrasena;
-import Modelo.Llamadas;
+import ControladoresPaneles.ControladorBienvenida;
+import ControladoresPaneles.ControladorCambioFinal;
+import ControladoresPaneles.ControladorLogin;
+import ControladoresPaneles.ControladorMostrarCompra;
+import ControladoresPaneles.ControladorPago;
+import ControladoresPaneles.ControladorRegister;
+import ControladoresPaneles.ControladorSelTrayecto;
 import Modelo.ManejoBilletes;
 import Modelo.Modelo;
 import Vista.DebugMode;

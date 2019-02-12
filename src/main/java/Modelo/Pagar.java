@@ -1,8 +1,5 @@
 package Modelo;
 
-import javax.swing.JButton;
-import javax.swing.JTextField;
-
 import Funciones.FuncionesFormato;
 import Vista.PanePago;
 /**
