@@ -3,7 +3,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
-
+import Core.Main;
 import Modelo.Modelo;
 import Vista.PaneCambioFinal;
 import Vista.PanePago;
@@ -32,7 +32,7 @@ public class ControladorCambioFinal {
 		paneCambioFinal.btnVolver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				//Main.ResetAll();
+				Main.ResetAll();
 			}
 		});
 	}

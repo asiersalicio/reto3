@@ -257,4 +257,18 @@ public class PaneRegister {
 		pane.add(ImgRegistro);
 		
 	}
+	
+	public void reset() {
+		fieldDNI.setText("");
+		fieldApellidos.setText("");
+		fieldNombre.setText("");
+		fieldPassword.setText("");
+		fieldPassword2.setText("");
+		lblErrCont.setVisible(false);
+		lblErrApe.setVisible(false);
+		lblErrFechaNac.setVisible(false);
+		lblErrNom.setVisible(false);
+		lblErrSexo.setVisible(false);
+		lblErrUs.setVisible(false);
+	}
 }

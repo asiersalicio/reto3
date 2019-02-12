@@ -1,9 +1,11 @@
+package Core;
 
 
 
 import java.sql.SQLException;
 
 import Controlador.Controlador;
+import Funciones.Reset;
 import Modelo.BBDD;
 import Modelo.Llamadas;
 import Modelo.Modelo;
@@ -29,9 +31,8 @@ public class Main {
 		
 	}
 
-	public void ResetAll() {
+	public static void ResetAll() {
 		vista.setPanel(vista.paneBienvenida.paneBienvenida);
-		modelo.Reset();
-		
+		new Reset(vista, modelo);
 	}
 }

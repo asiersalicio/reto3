@@ -240,4 +240,13 @@ public class PaneSelTrayecto {
 		
 		pane.setVisible(false);
 	}
+	
+	public void reset()
+	{
+		FieldOrigen.setText("");
+		FieldDestino.setText("");
+		FieldLinea.setText("");
+		dateChooserIda.setDate(new Date());
+		dateChooserVuelta.setDate(new Date());
+	}
 }
