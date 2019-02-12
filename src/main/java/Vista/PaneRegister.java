@@ -270,5 +270,6 @@ public class PaneRegister {
 		lblErrNom.setVisible(false);
 		lblErrSexo.setVisible(false);
 		lblErrUs.setVisible(false);
+		fechaNac.setDate(new Date());
 	}
 }
