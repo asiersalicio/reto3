@@ -1,3 +1,5 @@
+<<<<<<< HEAD:src/test/java/TestParada.java
+=======
 package TestModelo;
 import static org.junit.Assert.assertEquals;
 
@@ -5,6 +7,7 @@ import org.junit.Test;
 
 import Modelo.Parada;
 
+>>>>>>> 6de42a32bad5139295ac4c0f3b8f29241ebc5921:src/test/java/TestModelo/TestParada.java
 /**
  *Clase TestParada: 
  * @param codParada

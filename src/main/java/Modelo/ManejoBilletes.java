@@ -3,7 +3,6 @@ package Modelo;
 
 import Controlador.Controlador;
 import Funciones.FuncionesFormato;
-import Vista.PaneCambioFinal;
 import Vista.PanePago;
 import Vista.Vista;
 /**
@@ -29,8 +28,7 @@ public class ManejoBilletes {
 		
 		public Dinero InsertarDatos(String nombreBillete,int contadorBillete)
 		{
-			Dinero Dinero;
-			return Dinero = new Dinero(nombreBillete, contadorBillete);
+			return new Dinero(nombreBillete, contadorBillete);
 		}
 
 		public void InsertarControlador(Controlador controlador) {

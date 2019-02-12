@@ -1,24 +1,28 @@
 package Vista;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import Modelo.BBDD;
-import Modelo.Modelo;
-
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
-
-import javax.swing.JButton;
-import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.*; 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import Modelo.BBDD; 
 /**
  * Clase SelectorBBDD
  * @author IN1DM3B_18
@@ -44,7 +48,6 @@ public class SelectorBBDD {
 		String user = "";
 		String pass = "";
 		File file = null;
-		boolean error = false;
 		boolean autologin=false;
 		
 		file = new File("./conf.ini"); 
@@ -73,7 +76,6 @@ public class SelectorBBDD {
 		} catch (IOException e1) {}
 		}
 		
-		boolean debug = true;
 		frame = new JFrame();
 		frame.setTitle("Initial configuration");
 		frame.setResizable(false);
@@ -142,7 +144,7 @@ public class SelectorBBDD {
 		
 		frame.setVisible(true);
 		if(autologin)
-		error=conectar();
+			conectar();
 		
 	}
 	

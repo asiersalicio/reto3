@@ -3,7 +3,6 @@ package Funciones;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import Modelo.Llamadas;
 import Modelo.Modelo;
 /**
  * Clase: ControladorContrasena

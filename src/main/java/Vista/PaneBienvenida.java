@@ -1,17 +1,12 @@
 package Vista;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.Font;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-
-
 import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  * Clase PaneBienvenida
  * @author IN1DM3B_18

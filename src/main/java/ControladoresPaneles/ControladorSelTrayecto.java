@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
@@ -12,14 +13,9 @@ import javax.swing.event.DocumentListener;
 
 import Controlador.Controlador;
 import Modelo.BBDD;
-import Modelo.Llamadas;
 import Modelo.Modelo;
-import Vista.PaneMostrarCompra;
 import Vista.PaneSelTrayecto;
 import Vista.Vista;
-
-import java.io.IOException;
-import java.util.Calendar;
 /**
  * Clase: ControladorSelTrayecto. contiene las instancias de los botones, los JTextField, y los arrays del paneSelTrayecto
  * @author IN1DM3B_18

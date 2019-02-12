@@ -1,30 +1,20 @@
 package Vista;
 
-import javax.swing.JPanel;
-
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-
-
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.Date;
-import java.awt.Font;
-import javax.swing.JComboBox;
-import com.toedter.calendar.JDateChooser;
-
-import java.awt.Label;
-
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JCheckBox;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Label;
+import java.util.Date;
 
-import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import com.toedter.calendar.JDateChooser;
 
 
 /**

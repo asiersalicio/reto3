@@ -2,11 +2,8 @@ package Modelo;
 
 import java.sql.SQLException;
 import java.util.Calendar;
-import java.util.Date;
 
 import Funciones.FuncionesContrasena;
-import Vista.PaneRegister;
-import Vista.Vista;
 /**
  * Clase: ControlModelo: contiene las instancias del modelo, incluye las instancias de los objetos así como métodos relacionados con estas funciones.
  * @author IN1DM3B_18
@@ -113,7 +110,6 @@ public class Modelo {
 	public boolean CalcularDatosCompra(Calendar fechaIda, boolean vuelta, Calendar fechaVuelta) {
 		int codBusIda = 0;
 		int codBusVuelta = 0;
-		boolean noErrorVuelta=true;
 		codBusIda=llamadas.SeleccionarAutobus(BBDD.connection, fechaIda);
 		if(vuelta)
 		{

@@ -2,15 +2,9 @@ package Core;
 
 
 
-import java.sql.SQLException;
-
 import Controlador.Controlador;
 import Funciones.Reset;
-import Modelo.BBDD;
-import Modelo.Llamadas;
 import Modelo.Modelo;
-import Vista.DebugMode;
-import Vista.SelectorBBDD;
 import Vista.Vista;
 /**
  * Clase Main

@@ -1,21 +1,22 @@
 package Vista;
 
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
-import javax.swing.JButton;
 import java.awt.Color;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.SwingConstants;
 import java.util.Calendar;
 import java.util.Date;
-import com.toedter.calendar.JDateChooser;
-import javax.swing.JComboBox;
+
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JProgressBar;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import com.toedter.calendar.JDateChooser;
 /**
  * Clase PaneRegister
  * @author IN1DM3B_18

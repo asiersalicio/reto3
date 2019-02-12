@@ -1,11 +1,9 @@
 package Vista;
 
-import javax.swing.JPanel;
-
+import java.awt.Font;
 
 import javax.swing.JLabel;
-
-import java.awt.Font;
+import javax.swing.JPanel;
 /**
  * Clase Plantilla para las vistas
  * @author IN1DM3B_18

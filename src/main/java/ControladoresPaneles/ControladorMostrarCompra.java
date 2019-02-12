@@ -6,7 +6,6 @@ import java.awt.event.MouseEvent;
 import Funciones.FuncionesFecha;
 import Funciones.FuncionesFormato;
 import Modelo.Modelo;
-import Vista.PaneCambioFinal;
 import Vista.PaneMostrarCompra;
 
 /**

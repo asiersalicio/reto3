@@ -1,20 +1,15 @@
 package Vista;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import java.awt.Font;
 import java.awt.Color;
-import javax.swing.UIManager;
+import java.awt.Font;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
 
 /**
  * Clase: PaneLogin
