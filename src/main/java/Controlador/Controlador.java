@@ -1,6 +1,7 @@
 package Controlador;
 
 
+import BBDD.SelectorBBDD;
 import ControladoresPaneles.ControladorBienvenida;
 import ControladoresPaneles.ControladorCambioFinal;
 import ControladoresPaneles.ControladorLogin;
@@ -11,7 +12,6 @@ import ControladoresPaneles.ControladorSelTrayecto;
 import Modelo.ManejoBilletes;
 import Modelo.Modelo;
 import Vista.DebugMode;
-import Vista.SelectorBBDD;
 import Vista.Vista;
 
 public class Controlador {

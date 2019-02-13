@@ -1,4 +1,4 @@
-package Vista;
+package BBDD;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -22,7 +22,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import Modelo.BBDD; 
+import Modelo.BBDD;
+import Vista.Vista; 
 /**
  * Clase SelectorBBDD
  * @author IN1DM3B_18
@@ -162,15 +163,15 @@ public class SelectorBBDD {
 			
 			PrintWriter writer = null;
 			try {
-				writer = new PrintWriter("./conf.ini", "UTF-8");
+				writer = new PrintWriter("./conf.ini", "UTF-8");//crea un fichero .ini
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			}
-			writer.println(DatabaseURL.getText());
-			writer.println(DatabaseUser.getText());
-			writer.println(String.valueOf(DatabasePassword.getPassword()));
+			writer.println(DatabaseURL.getText());// le mete el URL
+			writer.println(DatabaseUser.getText());//le mete el User
+			writer.println(String.valueOf(DatabasePassword.getPassword()));//le mete la Pasword
 			writer.close();
 			
 			frame.dispose();

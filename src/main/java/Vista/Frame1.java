@@ -19,8 +19,7 @@ public class Frame1 {
 	public Frame1()
 	{
 		frame1 = new JFrame();
-		//frame1.setUndecorated(true);
-		frame1.setType(Type.UTILITY);
+		frame1.setResizable(false);
 		frame1.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 12));
 		frame1.setForeground(new Color(0, 51, 102));
 		frame1.setIconImage(Toolkit.getDefaultToolkit().getImage(Frame1.class.getResource("/ImagenesVista/termiLOGOpeke.png")));

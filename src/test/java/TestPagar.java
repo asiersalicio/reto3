@@ -1,9 +1,7 @@
 
 
 import static org.mockito.Mockito.mock;
-
 import org.junit.Test;
-
 import Funciones.FuncionesFormato;
 import Modelo.Pagar;
 import Vista.PanePago;
@@ -23,6 +21,7 @@ public class TestPagar {
 		pagar.actualizarRestante(1, 1, panePagoMock);
 		
 	}
+	
 }
 
 
