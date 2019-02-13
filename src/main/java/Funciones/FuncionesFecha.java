@@ -1,6 +1,6 @@
 package Funciones;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Calendar;
 import java.util.Locale;
 /**
@@ -56,12 +56,11 @@ public class FuncionesFecha {
 	 * @param calendar
 	 * @return
 	 */
-	public Date CalendarToDate(Calendar calendar){ 
-		Calendar cal = Calendar.getInstance();
-	    cal.clear();
+	public Date CalendarToDate(Calendar cal){ 
+		cal = Calendar.getInstance();
 	    java.util.Date utilDate = cal.getTime();
 	    System.out.println(utilDate);
-	    return (Date) utilDate;
+	    return utilDate;
 	}
 	/**
 	 * Método: CalendarToStringVisual

@@ -4,7 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
@@ -12,6 +16,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import Controlador.Controlador;
+import Funciones.FuncionesFecha;
 import Modelo.BBDD;
 import Modelo.Modelo;
 import Vista.PaneSelTrayecto;
@@ -101,6 +106,15 @@ public class ControladorSelTrayecto {
 			}
 		});
 		
+		
+		paneSelTrayecto.dateChooserIda.addPropertyChangeListener("date", new PropertyChangeListener() {
+		    @Override
+		    public void propertyChange(PropertyChangeEvent e) {
+		        System.out.println(e.getPropertyName()+ ": " + e.getNewValue());
+		        paneSelTrayecto.dateChooserVuelta.setMinSelectableDate((Date) e.getNewValue());
+		    }
+		});
+		
 		paneSelTrayecto.FieldBusqueda.getDocument().addDocumentListener(new DocumentListener() {
 			
 			@Override
@@ -133,7 +147,7 @@ public class ControladorSelTrayecto {
 			public void changedUpdate(DocumentEvent e) {}
 		});
 		
-		//
+		
 		paneSelTrayecto.comboBoxBusqueda.addActionListener (new ActionListener () {
 		    @Override
 			public void actionPerformed(ActionEvent e) {
@@ -163,6 +177,7 @@ public class ControladorSelTrayecto {
 				setBuscadorVisible(false);
 		    }
 
+		    
 
 		});
 		paneSelTrayecto.chckbxVuelta.addMouseListener(new MouseAdapter() {
@@ -180,6 +195,7 @@ public class ControladorSelTrayecto {
 				}
 			}
 		});
+		
 		
 		paneSelTrayecto.btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override

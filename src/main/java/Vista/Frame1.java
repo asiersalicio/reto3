@@ -19,13 +19,13 @@ public class Frame1 {
 	public Frame1()
 	{
 		frame1 = new JFrame();
-		frame1.setUndecorated(true);
+		//frame1.setUndecorated(true);
 		frame1.setType(Type.UTILITY);
 		frame1.setFont(new Font("Arial Rounded MT Bold", Font.ITALIC, 12));
 		frame1.setForeground(new Color(0, 51, 102));
 		frame1.setIconImage(Toolkit.getDefaultToolkit().getImage(Frame1.class.getResource("/ImagenesVista/termiLOGOpeke.png")));
 		frame1.setTitle("TermibBus Ticket Station v1.0 by ASAlba Solutions");
-		frame1.setBounds(0, 0, 800, 600);
+		frame1.setBounds(0,0,810,610);
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - frame1.getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - frame1.getHeight()) / 2);
