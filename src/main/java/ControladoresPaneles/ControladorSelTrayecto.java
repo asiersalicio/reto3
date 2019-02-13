@@ -47,33 +47,29 @@ public class ControladorSelTrayecto {
 	boolean btnDestinoEnabled = false;
 	
 	/**
-	 * Método: ControladorSelTrayecto
-	 * @param modelo 
-	 * @param paneSelTrayecto
-	 * @param pane
+	 * Método: ControladorSelTrayecto, es el controlador de la ventana de seleccionar el trayecto.
 	 */
 	public ControladorSelTrayecto(Vista vista, Modelo modelo, Controlador controlador)
 	{
 		controladorSelTrayecto=this;
 		this.paneSelTrayecto=vista.paneSelTrayecto;
 		
-		//btnSelLinea: botón para seleccionar la Línea
+		//Al pulsar el boton seleccionar linea, se ejecutan esta serie de comandos
 		paneSelTrayecto.btnSelLinea.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(btnLineaEnabled)
 				{
-				activeTextfield=paneSelTrayecto.FieldLinea;
-				codLinea="Error";
-				operationMode = -1;
-				codLinea="";codParadaOrigen="";codParadaDestino="";
+				activeTextfield=paneSelTrayecto.FieldLinea;//Establece el campo de texto de seleccionar linea como activo
+				operationMode = -1;//Operacion modo -1, se utiliza para que el resto de las funciones sepan que se esta selecionado una linea
+				codLinea="";codParadaOrigen="";codParadaDestino="";//Resetea las variables y los botones
 				btnOrigenEnabled=false;paneSelTrayecto.btnSelOrigen.setEnabled(false);paneSelTrayecto.FieldOrigen.setText("");paneSelTrayecto.btnSelDestino.setEnabled(false);paneSelTrayecto.FieldDestino.setText("");btnDestinoEnabled=false;
-				setBuscadorVisible(true);
+				setBuscadorVisible(true);//Activa la funcion del buscador
 				
-				resultadoBusqueda = new String[1];
+				resultadoBusqueda = new String[1];//Elimina los resultados obtenidos con busquedas anteriores
 				resultadoBusquedaCod = new String[1];
 				
-				modelo.llamadas.TodasLasLineas(BBDD.connection, controladorSelTrayecto);
+				modelo.llamadas.TodasLasLineas(BBDD.connection, controladorSelTrayecto);//Obtiene todas las lineas de la base de datos de esta forma se muestran
 				DefaultComboBoxModel model = new DefaultComboBoxModel(controladorSelTrayecto.resultadoBusqueda);
 				paneSelTrayecto.comboBoxBusqueda.setModel(model);
 				paneSelTrayecto.comboBoxBusqueda.showPopup();
@@ -86,9 +82,9 @@ public class ControladorSelTrayecto {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(btnOrigenEnabled) {
-				activeTextfield=paneSelTrayecto.FieldOrigen;
-				operationMode = 0;
-				setBuscadorVisible(true);
+				activeTextfield=paneSelTrayecto.FieldOrigen;//Establece el campo de texto de seleccionar parada de origen como activo
+				operationMode = 0;//Operacion modo 0, se utiliza para que el resto de las funciones sepan que se esta selecionado una parada de origen
+				setBuscadorVisible(true);//Activa la funcion del buscador
 				}
 			}
 		});
@@ -99,9 +95,9 @@ public class ControladorSelTrayecto {
 			public void mouseClicked(MouseEvent arg0) {
 				if(btnDestinoEnabled)
 				{
-				activeTextfield=paneSelTrayecto.FieldDestino;
-				operationMode = 1;
-				setBuscadorVisible(true);
+				activeTextfield=paneSelTrayecto.FieldDestino;//Establece el campo de texto de seleccionar parada de origen como activo
+				operationMode = 1;//Operacion modo 0, se utiliza para que el resto de las funciones sepan que se esta selecionado una parada de origen
+				setBuscadorVisible(true);//Activa la funcion del buscador
 				}
 			}
 		});
