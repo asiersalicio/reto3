@@ -10,7 +10,7 @@ import Vista.PanePago;
 
 
 public class TestPagar {
-
+/*
 	@Test
 	public void testPagar() {
 			
@@ -23,6 +23,7 @@ public class TestPagar {
 		pagar.actualizarRestante(1, 1, panePagoMock);
 		
 	}
+	*/
 }
 
 

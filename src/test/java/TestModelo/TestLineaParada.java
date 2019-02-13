@@ -1,12 +1,6 @@
-<<<<<<< HEAD:src/test/java/TestLineaParada.java
-import static org.junit.Assert.assertEquals;
-=======
 package TestModelo;
 import static org.junit.Assert.*;
->>>>>>> 6de42a32bad5139295ac4c0f3b8f29241ebc5921:src/test/java/TestModelo/TestLineaParada.java
-
 import org.junit.Test;
-
 import Modelo. LineaParada;
 /**
  *Clase TestLineaParada: 
