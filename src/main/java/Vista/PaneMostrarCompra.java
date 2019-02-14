@@ -41,8 +41,9 @@ public class PaneMostrarCompra extends JComponent {
 	public JLabel imgL2;
 	public JLabel imgL3;
 	public JLabel imgL4;
-	private JLabel lblParadaOrigen;
-	private JLabel lblParadaDest;
+	public JLabel lblParadaOrigen;
+	public JLabel lblParadaDest;
+	public JLabel lblCodLinea;
 	
 	public PaneMostrarCompra(Frame1 frame1)
 	{
@@ -208,6 +209,13 @@ public class PaneMostrarCompra extends JComponent {
 		lblParadaDest.setHorizontalAlignment(SwingConstants.CENTER);
 		lblParadaDest.setBounds(446, 219, 123, 16);
 		pane.add(lblParadaDest);
+		
+		lblCodLinea = new JLabel("New label");
+		lblCodLinea.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblCodLinea.setForeground(new Color(0, 51, 102));
+		lblCodLinea.setHorizontalAlignment(SwingConstants.LEFT);
+		lblCodLinea.setBounds(530, 244, 74, 16);
+		pane.add(lblCodLinea);
 	
 }
 }
