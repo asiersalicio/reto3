@@ -27,6 +27,7 @@ public class Reset {
 	vista.paneRegister.reset();
 	vista.paneSelTrayecto.reset();
 	vista.paneCambioFinal.reset();
+	vista.panePago.reset();
 	
 	}
 }

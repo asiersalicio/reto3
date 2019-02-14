@@ -239,5 +239,10 @@ public class PanePago {
 	public void actualizarTexto(JTextField textField, String msg) {
 		textField.setText(msg);
 	}
+
+	public void reset() {
+		txtCambio2.setText("0.00");
+		
+	}
 }
 

@@ -16,10 +16,12 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import Controlador.Controlador;
+import Core.Main;
 import Funciones.FuncionesFecha;
 import Modelo.BBDD;
 import Modelo.Modelo;
 import Vista.PaneSelTrayecto;
+import Vista.PaneVistaLineas;
 import Vista.Vista;
 /**
  * Clase: ControladorSelTrayecto. contiene las instancias de los botones, los JTextField, y los arrays del paneSelTrayecto
@@ -45,6 +47,7 @@ public class ControladorSelTrayecto {
 	boolean btnLineaEnabled = true;
 	boolean btnOrigenEnabled = false;
 	boolean btnDestinoEnabled = false;
+	private PaneVistaLineas paneVistaLineas;
 	
 	/**
 	 * Método: ControladorSelTrayecto, es el controlador de la ventana de seleccionar el trayecto.
@@ -74,6 +77,13 @@ public class ControladorSelTrayecto {
 				paneSelTrayecto.comboBoxBusqueda.setModel(model);
 				paneSelTrayecto.comboBoxBusqueda.showPopup();
 				}
+			}
+		});
+		
+		paneSelTrayecto.btnPlanoLineas.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				paneVistaLineas = new PaneVistaLineas();
 			}
 		});
 		
@@ -175,9 +185,15 @@ public class ControladorSelTrayecto {
 				setBuscadorVisible(false);
 		    }
 
-		    
-
 		});
+		
+		paneSelTrayecto.btnCerrarSesion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Main.ResetAll();
+			}
+		});
+		
 		paneSelTrayecto.chckbxVuelta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
