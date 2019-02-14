@@ -103,6 +103,7 @@ public class ControladorSelTrayecto {
 		});
 		
 		
+		//Este procedimiento sirve para que al cambiar la fecha del campo de calendario de ida establezca esta como fecha minima para el campo de vuelta
 		paneSelTrayecto.dateChooserIda.addPropertyChangeListener("date", new PropertyChangeListener() {
 		    @Override
 		    public void propertyChange(PropertyChangeEvent e) {
@@ -119,15 +120,16 @@ public class ControladorSelTrayecto {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				System.out.println("Buscar en BBDD: " + paneSelTrayecto.FieldBusqueda.getText());
-				resultadoBusqueda = new String[1];
-				resultadoBusquedaCod = new String[1];
-				if(operationMode<0)
+				resultadoBusqueda = new String[1];//Resetea las variables de busqueda
+				resultadoBusquedaCod = new String[1];//Resetea las variables de busqueda
+				if(operationMode<0)//En caso que el modo de operacion sea -1, ejecuta el procedimiento de busqueda de linea y le envia el texto del campo de texto
 					modelo.llamadas.busquedaLinea(BBDD.connection, paneSelTrayecto.FieldBusqueda.getText(), controladorSelTrayecto);
-				else if (operationMode==0)
+				else if (operationMode==0)//En caso que sea 0, lo mismo que el anterior pero le envia el codigo de la linea para que muestre las paradas de esa linea
 					modelo.llamadas.busquedaParada(BBDD.connection, paneSelTrayecto.FieldBusqueda.getText(), controladorSelTrayecto, codLinea);
-				else
+				else//En este, lo que realiza es enviarle la parada de origen para que no se pueda seleccionar como parada de vuelta.
 					modelo.llamadas.busquedaParadaEvitando(BBDD.connection, paneSelTrayecto.FieldBusqueda.getText(), controladorSelTrayecto, codLinea, codParadaOrigen);
 				
+				//Estas lineas de codigo establecen y el combobox para 
 				DefaultComboBoxModel model = new DefaultComboBoxModel(controladorSelTrayecto.resultadoBusqueda);
 				paneSelTrayecto.comboBoxBusqueda.setModel(model);
 				paneSelTrayecto.comboBoxBusqueda.showPopup();
