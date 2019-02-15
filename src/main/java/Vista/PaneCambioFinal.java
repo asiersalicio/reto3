@@ -24,8 +24,8 @@ public class PaneCambioFinal {
 	public DefaultListModel<String> modelo2;
 	public JList<String> listaCambio;
 	public JLabel lblGraciasYBuen;
-	public JLabel lblTipo;
-	public JLabel lblparaTipo;
+	public JLabel lblFecha;
+	public JLabel lblparaFecha;
 	public JLabel lblLinea;
 	public JLabel lblparaLinea;
 	public JLabel lblTrayecto;
@@ -80,16 +80,16 @@ public class PaneCambioFinal {
 		lblCodVuelta.setBounds(391, 365, 248, 29);
 		paneCambioFinal.add(lblCodVuelta);
 		
-		lblTipo = new JLabel("Tipo:");
-		lblTipo.setFont(new Font("Dialog", Font.BOLD, 11));
-		lblTipo.setBounds(391, 253, 62, 14);
-		paneCambioFinal.add(lblTipo);
+		lblFecha = new JLabel("Fecha:");
+		lblFecha.setFont(new Font("Dialog", Font.BOLD, 11));
+		lblFecha.setBounds(391, 253, 62, 14);
+		paneCambioFinal.add(lblFecha);
 		
-		lblparaTipo = new JLabel("");
-		lblparaTipo.setForeground(Color.GRAY);
-		lblparaTipo.setFont(new Font("Courier New", Font.PLAIN, 11));
-		lblparaTipo.setBounds(447, 253, 216, 14);
-		paneCambioFinal.add(lblparaTipo);
+		lblparaFecha = new JLabel("");
+		lblparaFecha.setForeground(Color.GRAY);
+		lblparaFecha.setFont(new Font("Courier New", Font.PLAIN, 11));
+		lblparaFecha.setBounds(447, 253, 216, 14);
+		paneCambioFinal.add(lblparaFecha);
 		
 		lblLinea = new JLabel("Linea");
 		lblLinea.setFont(new Font("Dialog", Font.BOLD, 11));

@@ -46,7 +46,7 @@ public class Controlador {
 		
 		new SelectorBBDD(vista);
 		
-		if(true)
+		if(false)
 		{
 			new DebugMode(vista, modelo);
 		}

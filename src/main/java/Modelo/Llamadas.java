@@ -569,11 +569,9 @@ public Parada RellenarParada(Connection con, Parada parada, String codParada) {
 			try {
 				stmt = con.createStatement(); 
 				ResultSet rs = stmt.executeQuery (query);
-				while (rs.next()) {
-					codBillete= rs.getInt(1);
-				}
-				codBillete--;
-				//Convertir distancia en grados a KM
+				rs.next(); 
+				codBillete= rs.getInt(1);
+				
 			} catch (SQLException ex){
 				printSQLException(ex);
 			} finally {

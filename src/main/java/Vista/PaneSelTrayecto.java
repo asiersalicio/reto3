@@ -266,6 +266,7 @@ public class PaneSelTrayecto {
 		FieldOrigen.setText("");
 		FieldDestino.setText("");
 		FieldLinea.setText("");
+		chckbxVuelta.setSelected(false);
 		dateChooserIda.setDate(new Date());
 		dateChooserVuelta.setDate(new Date());
 	}
