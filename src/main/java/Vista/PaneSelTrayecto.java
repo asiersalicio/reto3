@@ -3,6 +3,7 @@ package Vista;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Label;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.ImageIcon;
@@ -121,6 +122,9 @@ public class PaneSelTrayecto {
 		dateChooserIda.setBounds(312, 351, 153, 29);
 		dateChooserIda.getJCalendar().setMinSelectableDate(new Date());
 		pane.add(dateChooserIda);
+		Calendar LimitadorFecha = Calendar.getInstance(); LimitadorFecha.add(Calendar.WEEK_OF_YEAR, 2); LimitadorFecha.add(Calendar.DATE, -1); Date date = LimitadorFecha.getTime();
+		dateChooserIda.getJCalendar().setMaxSelectableDate(date);
+		
 		
 		lblFechaIda = new Label("Fecha de Ida :");
 		lblFechaIda.setForeground(new Color(0, 51, 102));
@@ -134,6 +138,7 @@ public class PaneSelTrayecto {
 		dateChooserVuelta.setEnabled(false);
 		dateChooserVuelta.setBounds(312, 390, 153, 29);
 		dateChooserVuelta.getJCalendar().setMinSelectableDate(new Date());
+		dateChooserIda.getJCalendar().setMaxSelectableDate(date);
 
 		pane.add(dateChooserVuelta);
 		

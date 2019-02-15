@@ -113,6 +113,7 @@ public class ControladorPaneUsuario {
 	public void rellenarDatos() {
 		DefaultListModel<String> model = new DefaultListModel<String>();
 		DefaultListModel<String> model2 = new DefaultListModel<String>();
+		if(modelo.llamadas.nbilletesCliente(BBDD.connection, modelo.cliente)>0) {
 		try {
 		String[] billetes;
 		billetes=modelo.llamadas.ObtenerBilletesPasados(BBDD.connection, modelo.cliente);
@@ -131,12 +132,11 @@ public class ControladorPaneUsuario {
 		}
 		
 		}
-		catch(java.lang.NullPointerException ex) {
-			model.addElement("Todavia no tienes ningun viaje pasado");
-			model2.addElement("Todavia no tienes ningun viaje");
-			model2.addElement("Hoy puede ser el dia ;)");
-			
+		catch(java.lang.NullPointerException ex) {}
 		}
+		else
+		model.addElement("No tienes billetes");
+		model2.addElement("No tienes billetes");
 		
 		vista.paneUser.listaViajesPasados.setModel(model);
 		vista.paneUser.listaViajesFuturos.setModel(model2);

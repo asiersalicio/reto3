@@ -127,24 +127,28 @@ public class PaneMostrarCompra extends JComponent {
 		pane.add(btnSiguiente);
 		
 		fieldTipoBillete = new JTextField();
+		fieldTipoBillete.setEditable(false);
 		fieldTipoBillete.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldTipoBillete.setColumns(10);
 		fieldTipoBillete.setBounds(333, 168, 236, 37);
 		pane.add(fieldTipoBillete);
 		
 		fieldLinea = new JTextField();
+		fieldLinea.setEditable(false);
 		fieldLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldLinea.setColumns(10);
 		fieldLinea.setBounds(333, 286, 236, 37);
 		pane.add(fieldLinea);
 		
 		fieldFechaIda = new JTextField();
+		fieldFechaIda.setEditable(false);
 		fieldFechaIda.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldFechaIda.setColumns(10);
 		fieldFechaIda.setBounds(333, 336, 236, 37);
 		pane.add(fieldFechaIda);
 		
 		fieldFechaVuelta = new JTextField();
+		fieldFechaVuelta.setEditable(false);
 		fieldFechaVuelta.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldFechaVuelta.setColumns(10);
 		fieldFechaVuelta.setBounds(333, 387, 236, 37);
@@ -159,6 +163,7 @@ public class PaneMostrarCompra extends JComponent {
 		}
 		mfCC.setPlaceholderCharacter('0');*/
 		fieldPrecio = new JFormattedTextField(mfCC);
+		fieldPrecio.setEditable(false);
 		fieldPrecio.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		fieldPrecio.setColumns(10);
 		fieldPrecio.setBounds(333, 435, 236, 37);

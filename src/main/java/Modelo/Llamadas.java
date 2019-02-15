@@ -719,6 +719,33 @@ public Parada RellenarParada(Connection con, Parada parada, String codParada) {
 		
 	}
 
+	public int nbilletesCliente(Connection con, Cliente cliente) {
+		Statement stmt = null;
+		String query = "select count(*) from billete where dni='"+cliente.getDNI()+"';";
+		System.out.println("Query: " + query);
+		int resultado=0;
+		//Inicio programa:
+		try {
+			stmt = con.createStatement(); 
+			ResultSet rs = stmt.executeQuery (query);
+			
+			rs.next();
+			resultado=rs.getInt(1);
+
+		} catch (SQLException ex){
+			printSQLException(ex);
+		} finally {
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+	
+	return resultado;
+	}
+
 	
 	
 }
