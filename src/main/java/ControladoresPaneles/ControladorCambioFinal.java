@@ -19,7 +19,7 @@ public class ControladorCambioFinal {
 	/**
 	 * Método: ControladorCambioFinal
 	 * @param modelo 
-	 * @param paneCambioFinal
+	 * @param paneUser
 	 * @param panePago
 	 */
 	public ControladorCambioFinal(Vista vista, Modelo modelo)

@@ -134,7 +134,7 @@ public class PaneCambioFinal {
 		lblLogoPeke.setBounds(10, 505, 70, 64);
 		paneCambioFinal.add(lblLogoPeke);
 
-		lblGraciasYBuen = new JLabel("Gracias y buen viaje ! Imprimiendo sus billetes....");
+		lblGraciasYBuen = new JLabel("Buen viaje ! Imprimiendo sus billetes....");
 		lblGraciasYBuen.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGraciasYBuen.setForeground(new Color(0, 51, 102));
 		lblGraciasYBuen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
@@ -158,8 +158,11 @@ public class PaneCambioFinal {
 		paneCambioFinal.add(imgCambio);
 		
 		btnVolver = new JButton("Volver a inicio");
+		btnVolver.setForeground(new Color(0, 51, 102));
+		btnVolver.setBackground(Color.WHITE);
+		btnVolver.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		
-		btnVolver.setBounds(637, 523, 153, 46);
+		btnVolver.setBounds(586, 505, 172, 42);
 		paneCambioFinal.add(btnVolver);
 		
 		
