@@ -16,6 +16,11 @@ import javax.swing.SwingConstants;
 
 import com.toedter.calendar.JDateChooser;
 
+import Core.Main;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 
 /**
  * Clase PaneSelTrayecto
@@ -49,6 +54,8 @@ public class PaneSelTrayecto {
 	public JLabel lbllogoGrande;
 	public JLabel lblCamposSinCompletar;
 	private JLabel imgTrayecto;
+	public JButton btnPlanoLineas;
+	public JButton btnCerrarSesion;
 	
 	public PaneSelTrayecto(Frame1 frame1)
 	{
@@ -228,6 +235,29 @@ public class PaneSelTrayecto {
 		imgTrayecto.setBounds(10, 63, 467, 93);
 		pane.add(imgTrayecto);
 		
+		btnPlanoLineas = new JButton("");
+		
+		btnPlanoLineas.setFont(new Font("Dialog", Font.BOLD, 13));
+		btnPlanoLineas.setBackground(Color.WHITE);
+		btnPlanoLineas.setBounds(478, 476, 76, 73);
+		btnPlanoLineas.setIcon(new ImageIcon(PaneLogin.class.getResource("/ImagenesVista/mapalogo.png")));
+		pane.add(btnPlanoLineas);
+		
+		JLabel lblVerPlanoDe = new JLabel("Ver plano de lineas:");
+		lblVerPlanoDe.setForeground(new Color(0, 51, 102));
+		lblVerPlanoDe.setBackground(Color.WHITE);
+		lblVerPlanoDe.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblVerPlanoDe.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblVerPlanoDe.setBounds(231, 514, 234, 25);
+		pane.add(lblVerPlanoDe);
+		
+		btnCerrarSesion = new JButton("Cerrar sesion");
+		btnCerrarSesion.setForeground(new Color(0, 51, 102));
+		btnCerrarSesion.setFont(new Font("Dialog", Font.PLAIN, 14));
+		btnCerrarSesion.setBackground(Color.WHITE);
+		btnCerrarSesion.setBounds(82, 505, 186, 44);
+		pane.add(btnCerrarSesion);
+		
 		pane.setVisible(false);
 	}
 	
@@ -236,6 +266,7 @@ public class PaneSelTrayecto {
 		FieldOrigen.setText("");
 		FieldDestino.setText("");
 		FieldLinea.setText("");
+		chckbxVuelta.setSelected(false);
 		dateChooserIda.setDate(new Date());
 		dateChooserVuelta.setDate(new Date());
 	}

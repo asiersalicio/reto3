@@ -2,6 +2,7 @@ package Modelo;
 
 
 import Controlador.Controlador;
+import Funciones.FuncionesFecha;
 import Funciones.FuncionesFormato;
 import Vista.PanePago;
 import Vista.Vista;
@@ -92,23 +93,25 @@ public class ManejoBilletes {
 		 * @param panePago
 		 */
 		public void RellenarDatosBillete(PanePago panePago) {
-			float precio = modelo.precioIda;
 			if(modelo.viajeDeVuelta) {
-				vista.paneCambioFinal.lblparaTipo.setText("Ida y vuelta");
-				precio=precio*2;
+				vista.paneCambioFinal.lblparaFecha.setText(FuncionesFecha.CalendarToString(modelo.fechaIda) + " + " + FuncionesFecha.CalendarToString(modelo.fechaVuelta));
+				
 			}
 			else
 			{
-				vista.paneCambioFinal.lblparaTipo.setText("Solo ida");
+				vista.paneCambioFinal.lblparaFecha.setText(FuncionesFecha.CalendarToString(modelo.fechaIda));
+
 				
 			}
 
 			vista.paneCambioFinal.lblparaLinea.setText(modelo.linea.getCodLinea() + ": " + modelo.linea.getNombreLinea());
 			vista.paneCambioFinal.lblparaTrayecto.setText(modelo.paradaOrigen.getNombreParada() + " -> " + modelo.paradaDestino.getNombreParada());
-			vista.paneCambioFinal.lblparaPrecio.setText(FuncionesFormato.Formateado2Dec(precio)+ "€");
-			vista.paneCambioFinal.lblCodIda.setText(FuncionesFormato.FormatoBillete(modelo.billeteIda.getCodBillete()));
+			vista.paneCambioFinal.lblparaPrecio.setText(FuncionesFormato.Formateado2Dec(modelo.precioIda)+ "€");
+			vista.paneCambioFinal.lblCodIda.setText(FuncionesFormato.FormatoBillete(modelo.billeteIda.getCodBillete()) + " -> BUS: " + modelo.autobusIda.getCodBus());
+			vista.paneCambioFinal.lbldni.setText(modelo.cliente.getDNI());
 			if(modelo.viajeDeVuelta)
-				vista.paneCambioFinal.lblCodVuelta.setText(FuncionesFormato.FormatoBillete(modelo.billeteVuelta.getCodBillete()));
+				vista.paneCambioFinal.lblCodVuelta.setText(FuncionesFormato.FormatoBillete(modelo.billeteVuelta.getCodBillete()) + " -> BUS: " + modelo.autobusVuelta.getCodBus());
+			vista.paneCambioFinal.lblparaPrecio.setText(FuncionesFormato.Formateado2Dec(modelo.precioIda + modelo.precioVuelta)+ "€");
 			//System.out.println(ControlModelo.billeteIda.codBillete);
 			//PaneCambioFinal.lblCodigo.setText("<<<<<<<<"+ControlModelo.billeteIda.codBillete+">>>>>>>>>");
 			//paneMostrarCompra.fieldFechaIda.setText(ControlModelo.fechaIda.toLocaleString());

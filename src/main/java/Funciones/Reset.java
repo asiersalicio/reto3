@@ -1,5 +1,6 @@
 package Funciones;
 
+import Modelo.ManejoBilletes;
 import Modelo.Modelo;
 import Vista.Vista;
 
@@ -23,10 +24,12 @@ public class Reset {
 	modelo.fechaVuelta=null;
 	modelo.viajeDeVuelta=false;
 	
+	
 	vista.paneLogin.reset();
 	vista.paneRegister.reset();
 	vista.paneSelTrayecto.reset();
 	vista.paneCambioFinal.reset();
+	vista.panePago.reset();
 	
 	}
 }

@@ -74,7 +74,27 @@ public class ControladorMostrarCompra {
 		}
 		System.out.println("Precio ida: " + modelo.precioIda + "Precio vuelta: " + modelo.precioVuelta);
 		paneMostrarCompra.fieldLinea.setText(modelo.linea.getCodLinea() + ": " + modelo.linea.getNombreLinea());
-		paneMostrarCompra.fieldTrayectoria.setText(modelo.paradaOrigen.getNombreParada() + " -> " + modelo.paradaDestino.getNombreParada());
+
+		paneMostrarCompra.lblParadaOrigen.setText(modelo.paradaOrigen.nombreParada);
+		paneMostrarCompra.lblParadaDest.setText(modelo.paradaDestino.nombreParada);
+		paneMostrarCompra.lblCodLinea.setText(modelo.linea.codLinea);
+		
+		paneMostrarCompra.imgL1.setVisible(true);
+		paneMostrarCompra.imgL2.setVisible(false);
+		paneMostrarCompra.imgL3.setVisible(false);
+		paneMostrarCompra.imgL4.setVisible(false);
+		System.out.println("Linea: " + modelo.linea.codLinea);
+		if(modelo.linea.codLinea.equals("L2")){
+			paneMostrarCompra.imgL2.setVisible(true);
+			paneMostrarCompra.imgL1.setVisible(false);}
+		else if(modelo.linea.codLinea.equals("L3")) {
+			paneMostrarCompra.imgL3.setVisible(true);
+			paneMostrarCompra.imgL1.setVisible(false);}
+		else if(modelo.linea.codLinea.equals("L4")) {
+			paneMostrarCompra.imgL4.setVisible(true);
+			paneMostrarCompra.imgL1.setVisible(false);}
+
+		
 		paneMostrarCompra.fieldPrecio.setText(precioAMostrar);
 		paneMostrarCompra.fieldFechaIda.setText(FuncionesFecha.CalendarToStringVisual(modelo.fechaIda));
 		panePago.txtaPagar2.setText(String.valueOf(FuncionesFormato.Formateado2Dec(modelo.precioIda + modelo.precioVuelta)));
