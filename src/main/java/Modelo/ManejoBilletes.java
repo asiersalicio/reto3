@@ -106,9 +106,10 @@ public class ManejoBilletes {
 			vista.paneCambioFinal.lblparaLinea.setText(modelo.linea.getCodLinea() + ": " + modelo.linea.getNombreLinea());
 			vista.paneCambioFinal.lblparaTrayecto.setText(modelo.paradaOrigen.getNombreParada() + " -> " + modelo.paradaDestino.getNombreParada());
 			vista.paneCambioFinal.lblparaPrecio.setText(FuncionesFormato.Formateado2Dec(precio)+ "€");
-			vista.paneCambioFinal.lblCodIda.setText(FuncionesFormato.FormatoBillete(modelo.billeteIda.getCodBillete()));
+			vista.paneCambioFinal.lblCodIda.setText(FuncionesFormato.FormatoBillete(modelo.billeteIda.getCodBillete()) + " -> BUS: " + modelo.autobusIda.getCodBus());
+			vista.paneCambioFinal.lbldni.setText(modelo.cliente.getDNI());
 			if(modelo.viajeDeVuelta)
-				vista.paneCambioFinal.lblCodVuelta.setText(FuncionesFormato.FormatoBillete(modelo.billeteVuelta.getCodBillete()));
+				vista.paneCambioFinal.lblCodVuelta.setText(FuncionesFormato.FormatoBillete(modelo.billeteVuelta.getCodBillete()) + " -> BUS: " + modelo.autobusVuelta.getCodBus());
 			//System.out.println(ControlModelo.billeteIda.codBillete);
 			//PaneCambioFinal.lblCodigo.setText("<<<<<<<<"+ControlModelo.billeteIda.codBillete+">>>>>>>>>");
 			//paneMostrarCompra.fieldFechaIda.setText(ControlModelo.fechaIda.toLocaleString());

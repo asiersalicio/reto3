@@ -18,7 +18,7 @@ public class FuncionesFecha {
 	{
 		String year=Integer.toString(fecha.get(Calendar.YEAR));
 		
-		int monthInt=fecha.get(Calendar.MONTH);
+		int monthInt=fecha.get(Calendar.MONTH)+1;
 		int diaInt=fecha.get(Calendar.DAY_OF_MONTH);
 		String day=null;
 		if(diaInt<10)

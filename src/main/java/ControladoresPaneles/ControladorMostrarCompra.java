@@ -79,6 +79,7 @@ public class ControladorMostrarCompra {
 		paneMostrarCompra.lblParadaDest.setText(modelo.paradaDestino.nombreParada);
 		paneMostrarCompra.lblCodLinea.setText(modelo.linea.codLinea);
 		
+		paneMostrarCompra.imgL1.setVisible(true);
 		paneMostrarCompra.imgL2.setVisible(false);
 		paneMostrarCompra.imgL3.setVisible(false);
 		paneMostrarCompra.imgL4.setVisible(false);

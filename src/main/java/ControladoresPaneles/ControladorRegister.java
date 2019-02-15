@@ -23,6 +23,7 @@ public class ControladorRegister {
 	public Modelo modelo;
 	/**
 	 * Este controlador sirve para controlar el paneRegister
+	 * 
 	 */
 	public ControladorRegister(Vista vista, Modelo modelo)
 	{
