@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 /**
- * Clase PaneBienvenida
+ * Clase PaneBienvenida Es la pantalla de Inicio, recibe al usuario.
  * @author IN1DM3B_18
  *
  */

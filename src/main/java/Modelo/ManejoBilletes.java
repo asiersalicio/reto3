@@ -7,7 +7,7 @@ import Funciones.FuncionesFormato;
 import Vista.PanePago;
 import Vista.Vista;
 /**
- * Clase: ManejoBilletes
+ * Clase: ManejoBilletes - Controla la impresion de las listas del panel de la devolucion y el ticket .
  * @author IN1DM3B_18
  * @param nombreBillete
  * @param contadorBillete
@@ -46,17 +46,15 @@ public class ManejoBilletes {
 			return contadorBillete;
 		}
 		
-		/**
-		 * Método: sumarBillete
-		 */
+		
 		
 		/**
-		 * Método. rellenarLista
+		 * Método. rellenarLista : LLama a la funcion de de calcular el cambio y una vez obtenido rellena la imprime la lista en el panel.
 		 * @param panePago
 		 */
 		public void rellenarLista(PanePago panePago)
 		{
-
+			vista.paneCambioFinal.modelo2.clear();
 			Dinero[] listaBilletes=new Dinero[14];
 			listaBilletes[0]=InsertarDatos("Billete de 200",0);
 			listaBilletes[1]=InsertarDatos("Billete de 100",0);
@@ -89,7 +87,7 @@ public class ManejoBilletes {
 		}
 		
 		/**
-		 * Método: RellenarDatosBillete
+		 * Método: RellenarDatosBillete Se utiliza para rellenar el billete virtual que deberia de ser impreso para el cliente.
 		 * @param panePago
 		 */
 		public void RellenarDatosBillete(PanePago panePago) {
@@ -112,10 +110,6 @@ public class ManejoBilletes {
 			if(modelo.viajeDeVuelta)
 				vista.paneCambioFinal.lblCodVuelta.setText(FuncionesFormato.FormatoBillete(modelo.billeteVuelta.getCodBillete()) + " -> BUS: " + modelo.autobusVuelta.getCodBus());
 			vista.paneCambioFinal.lblparaPrecio.setText(FuncionesFormato.Formateado2Dec(modelo.precioIda + modelo.precioVuelta)+ "€");
-			//System.out.println(ControlModelo.billeteIda.codBillete);
-			//PaneCambioFinal.lblCodigo.setText("<<<<<<<<"+ControlModelo.billeteIda.codBillete+">>>>>>>>>");
-			//paneMostrarCompra.fieldFechaIda.setText(ControlModelo.fechaIda.toLocaleString());
-			//panePago.txtaPagar2.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precio)));
-			//panePago.txtfaltaporpagar.setText(String.valueOf(Formato2dec.formateador(ControlModelo.precio)));
+			
 		}
 }

@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
 /**
- * Clase PaneMostrarCompra
+ * Clase PaneMostrarCompra Es la pantalla que Muestra los datos del trayecto seleccionado, incluyendo su precio,fecha,etc.
  * @author IN1DM3B_18
  *
  */

@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 
 import com.toedter.calendar.JDateChooser;
 /**
- * Clase PaneRegister
+ * Clase PaneRegister Es un panel donde se piden los datos necesarios para crear un nuevo usuario.
  * @author IN1DM3B_18
  *
  */
