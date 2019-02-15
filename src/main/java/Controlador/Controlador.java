@@ -7,6 +7,7 @@ import ControladoresPaneles.ControladorCambioFinal;
 import ControladoresPaneles.ControladorLogin;
 import ControladoresPaneles.ControladorMostrarCompra;
 import ControladoresPaneles.ControladorPago;
+import ControladoresPaneles.ControladorPaneUsuario;
 import ControladoresPaneles.ControladorRegister;
 import ControladoresPaneles.ControladorSelTrayecto;
 import Modelo.ManejoBilletes;
@@ -23,6 +24,7 @@ public class Controlador {
 	public ControladorRegister controladorRegister;
 	public ControladorCambioFinal controladorCambioFinal;
 	public ControladorBienvenida controladorBienvenida;
+	public ControladorPaneUsuario controladorPaneUsuario;
 	
 	
 	public ManejoBilletes manejoBilletes;
@@ -41,7 +43,7 @@ public class Controlador {
 		controladorRegister = new ControladorRegister(vista, modelo);
 		controladorCambioFinal = new ControladorCambioFinal(vista, modelo);
 		controladorBienvenida = new ControladorBienvenida(vista, modelo);
-		
+		controladorPaneUsuario = new ControladorPaneUsuario(vista, modelo);
 		
 		
 		new SelectorBBDD(vista);

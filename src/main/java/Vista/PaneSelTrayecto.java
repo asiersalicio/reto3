@@ -56,6 +56,8 @@ public class PaneSelTrayecto {
 	private JLabel imgTrayecto;
 	public JButton btnPlanoLineas;
 	public JButton btnCerrarSesion;
+	public JLabel lblSaludo;
+	public JButton btnMiCuenta;
 	
 	public PaneSelTrayecto(Frame1 frame1)
 	{
@@ -168,6 +170,12 @@ public class PaneSelTrayecto {
 		pane.add(FieldBusqueda);
 		FieldBusqueda.setColumns(10);
 		
+		lblSaludo = new JLabel("Hola, Test:");
+		lblSaludo.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 16));
+		lblSaludo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblSaludo.setBounds(12, 8, 193, 25);
+		pane.add(lblSaludo);
+		
 		btnSelLinea = new JButton("Seleccionar");
 		btnSelLinea.setForeground(new Color(0, 51, 102));
 		btnSelLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
@@ -257,6 +265,10 @@ public class PaneSelTrayecto {
 		btnCerrarSesion.setBackground(Color.WHITE);
 		btnCerrarSesion.setBounds(82, 505, 186, 44);
 		pane.add(btnCerrarSesion);
+		
+		btnMiCuenta = new JButton("Mi cuenta");
+		btnMiCuenta.setBounds(209, 10, 97, 25);
+		pane.add(btnMiCuenta);
 		
 		pane.setVisible(false);
 	}

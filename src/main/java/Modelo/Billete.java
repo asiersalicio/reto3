@@ -43,6 +43,10 @@ public class Billete{
 		this.cliente=cliente;	
 		this.precio=precio;	
 	}
+	
+	public Billete() {
+
+	}
 
 	//Geters y Seters
 	public int getCodBillete() {

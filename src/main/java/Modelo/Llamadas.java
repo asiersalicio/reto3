@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
+
+import javax.swing.JPasswordField;
 
 import ControladoresPaneles.ControladorSelTrayecto;
 import Funciones.FuncionesFecha;
@@ -596,13 +599,124 @@ public Parada RellenarParada(Connection con, Parada parada, String codParada) {
 			float distancia;
 			float precioKM;
 			float precio;
-			distancia=CalcularDistanciaEuclidea(BBDD.connection);
+			distancia=CalcularDistanciaEuclidea(connection);
 			precioKM=CalcularPrecioBus(autobus);
 			System.out.println("Distancia: " + distancia);
 			System.out.println("PrecioKM: " + precioKM);
 			precio=precioKM*distancia;
 			System.out.println("Precio del billete: " + precio + "€");
 		return precio;
+	}
+	
+	public String[] ObtenerBilletesPasados(Connection con, Cliente cliente)
+	{
+		//Declaración e inicialización de variables:
+		
+		Statement stmt = null;
+		int codBillete = 0;
+		Calendar today = Calendar.getInstance();
+		String fechaHoy=FuncionesFecha.CalendarToString(today);
+		String query = "select cod_billete, cod_parada_inicio, cod_parada_fin, precio from billete where fecha<"+fechaHoy+" and DNI='"+ cliente.getDNI() + "' order by fecha desc;";
+		System.out.println("Query: " + query);
+		int contador=0;
+		String[] resultado = new String[1];
+		//Inicio programa:
+		try {
+			stmt = con.createStatement(); 
+			ResultSet rs = stmt.executeQuery (query);
+			
+			while (rs.next()) {
+				
+				resultado=Arrays.copyOf(resultado, contador+1);
+				resultado[contador]=rs.getInt(1) + ": ParadaOrigen: " + rs.getInt(2) + " ParadaOrigen: " + rs.getInt(3) + " ParadaDestino: " + rs.getInt(4);
+				System.out.println(resultado[contador]);
+				contador++;
+			}
+			
+			
+		} catch (SQLException ex){
+			printSQLException(ex);
+		} finally {
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+	
+	return resultado;
+		
+	}
+	
+	public String[] ObtenerBilletesFuturos(Connection con, Cliente cliente)
+	{
+		//Declaración e inicialización de variables:
+		
+		Statement stmt = null;
+		int codBillete = 0;
+		Calendar today = Calendar.getInstance();
+		String fechaHoy=FuncionesFecha.CalendarToString(today);
+		String query = "select cod_billete, cod_parada_inicio, cod_parada_fin, precio from billete where fecha>="+fechaHoy+" and DNI='"+ cliente.getDNI() +"' order by fecha desc;";
+		System.out.println("Query: " + query);
+		int contador=0;
+		String[] resultado = new String[1];
+		//Inicio programa:
+		try {
+			stmt = con.createStatement(); 
+			ResultSet rs = stmt.executeQuery (query);
+			
+			while (rs.next()) {
+				
+				resultado=Arrays.copyOf(resultado, contador+1);
+				resultado[contador]=rs.getInt(1) + ": Origen: " + rs.getInt(2) + " Destino: " + rs.getInt(3) + " Precio: " + rs.getInt(4);
+				System.out.println(resultado[contador]);
+				contador++;
+			}
+			
+			
+		} catch (SQLException ex){
+			printSQLException(ex);
+		} finally {
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+	
+	return resultado;
+		
+	}
+
+	public void cambiarContrasena(Connection con, String passwordNueva, Cliente cliente) {
+		//Declaración e inicialización de variables:
+		
+				Statement stmt = null;
+				String query = "UPDATE cliente SET contrasena = '" + passwordNueva +"' WHERE dni='" + cliente.getDNI() + "';";
+				System.out.println("Query: " + query);
+				String[] resultado = new String[1];
+				//Inicio programa:
+				try {
+					stmt = con.createStatement(); 
+					stmt.executeUpdate (query);
+					}
+					
+					
+				catch (SQLException ex){
+					printSQLException(ex);
+				} finally {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+		
+		
+		
 	}
 
 	

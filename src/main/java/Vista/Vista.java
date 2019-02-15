@@ -22,6 +22,7 @@ public class Vista {
 	public PanePago panePago;
 	public PaneCambioFinal paneCambioFinal;
 	public PaneMostrarCompra paneMostrarCompra;
+	public PaneUser paneUser;
 	
 	public Vista()
 	{
@@ -34,7 +35,7 @@ public class Vista {
 		panePago= new PanePago(frame1);
 		paneMostrarCompra = new PaneMostrarCompra(frame1);
 		paneSelTrayecto = new PaneSelTrayecto(frame1);
-
+		paneUser = new PaneUser(frame1);
 		paneRegister = new PaneRegister(frame1);
 	}
 

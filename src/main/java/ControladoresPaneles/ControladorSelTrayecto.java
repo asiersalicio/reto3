@@ -258,6 +258,14 @@ public class ControladorSelTrayecto {
 				setBuscadorVisible(false);
 			}
 		});
+		
+		paneSelTrayecto.btnMiCuenta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				vista.setPanel(vista.paneUser.pane);
+				controlador.controladorPaneUsuario.rellenarDatos();
+			}
+		});
 	}
 	
 	/**

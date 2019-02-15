@@ -54,6 +54,7 @@ public class ControladorLogin {
 				{
 					System.out.println("El dni es valido " + vista.paneLogin.textfieldUsername.getText());
 					modelo.EstablecerClienteActual(vista.paneLogin.textfieldUsername.getText());
+					vista.paneSelTrayecto.lblSaludo.setText("Hola, " + modelo.cliente.getNombreCliente());
 					vista.setPanel(vista.paneSelTrayecto.pane);
 				}
 				else
