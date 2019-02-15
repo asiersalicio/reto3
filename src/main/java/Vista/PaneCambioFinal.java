@@ -14,7 +14,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 
 /**
- * Clase PaneCambioFinal
+ * Clase PaneCambioFinal : Es la pantalla de despedida, muestra los cambios tras el pago y el billete que sera impreso.
  * @author IN1DM3B_18
  *
  */

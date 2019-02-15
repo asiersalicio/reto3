@@ -23,7 +23,7 @@ import java.awt.event.MouseEvent;
 
 
 /**
- * Clase PaneSelTrayecto
+ * Clase PaneSelTrayecto : En este panel los clientes pueden seleccionar el viaje deseado y la fecha.
  * @author IN1DM3B_18
  *
  */

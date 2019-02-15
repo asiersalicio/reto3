@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 /**
- * Clase: PanePago
+ * Clase: PanePago En esta clase se muestran los botones de los billetes y monedas y las cantidas a pagar, restante y cambio.
  * @author IN1DM3B_18
  *
  */

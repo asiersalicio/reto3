@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 /**
- * Clase: PaneLogin
+ * Clase: PaneLogin : Es el panel continente del login de usuario y contraseña y ofrece la posibilidad de registrar un nuevo usuario.
  * @author IN1DM3B_18
  *
  */
