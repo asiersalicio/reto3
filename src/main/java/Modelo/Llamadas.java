@@ -12,6 +12,7 @@ import javax.swing.JPasswordField;
 
 import ControladoresPaneles.ControladorSelTrayecto;
 import Funciones.FuncionesFecha;
+import Funciones.FuncionesFormato;
 
 	/**
 	 *Clase Llamadas: Se encarga de la llamada a los datos de la BBDD: búsquedas, consultas, actualizaciones, etc. 
@@ -628,7 +629,7 @@ public Parada RellenarParada(Connection con, Parada parada, String codParada) {
 			while (rs.next()) {
 				
 				resultado=Arrays.copyOf(resultado, contador+1);
-				resultado[contador]=rs.getInt(1) + ": ParadaOrigen: " + rs.getInt(2) + " ParadaOrigen: " + rs.getInt(3) + " ParadaDestino: " + rs.getInt(4);
+				resultado[contador]=rs.getInt(1) + ": Origen: " + rs.getInt(2) + " Dest: " + rs.getInt(3) + " Precio: " + FuncionesFormato.Formateado2Dec(rs.getFloat(4)) + "€";
 				System.out.println(resultado[contador]);
 				contador++;
 			}
@@ -669,7 +670,7 @@ public Parada RellenarParada(Connection con, Parada parada, String codParada) {
 			while (rs.next()) {
 				
 				resultado=Arrays.copyOf(resultado, contador+1);
-				resultado[contador]=rs.getInt(1) + ": Origen: " + rs.getInt(2) + " Destino: " + rs.getInt(3) + " Precio: " + rs.getInt(4);
+				resultado[contador]=rs.getInt(1) + ": Origen: " + rs.getInt(2) + " Destino: " + rs.getInt(3) + " Precio: " + FuncionesFormato.Formateado2Dec(rs.getFloat(4)) + "€";
 				System.out.println(resultado[contador]);
 				contador++;
 			}

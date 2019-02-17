@@ -10,6 +10,5 @@
 	<classpathentry kind="lib" path="Librerias/jgoodies-looks-2.4.1.jar"/>
 	<classpathentry kind="lib" path="Librerias/mockito-all-1.8.4.jar"/>
 	<classpathentry kind="lib" path="Librerias/mockito-core-2.7.22.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

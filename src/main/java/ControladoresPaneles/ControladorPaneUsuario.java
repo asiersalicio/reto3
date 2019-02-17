@@ -120,7 +120,7 @@ public class ControladorPaneUsuario {
 		
 		for(int i=0;i<billetes.length;i++)
 		{
-			model.addElement(billetes[i].toString());
+			model.addElement(billetes[i]);
 		}
 		vista.paneUser.listaViajesPasados.setModel(model);
 		
@@ -128,15 +128,17 @@ public class ControladorPaneUsuario {
 		
 		for(int i=0;i<billetes.length;i++)
 		{
-			model2.addElement(billetes[i].toString());
+			model2.addElement(billetes[i]);
 		}
 		
 		}
 		catch(java.lang.NullPointerException ex) {}
 		}
 		else
+		{
 		model.addElement("No tienes billetes");
 		model2.addElement("No tienes billetes");
+		}
 		
 		vista.paneUser.listaViajesPasados.setModel(model);
 		vista.paneUser.listaViajesFuturos.setModel(model2);

@@ -74,7 +74,7 @@ public class PaneUser {
 		listaViajesPasados.setBackground(Color.WHITE);
 		listaViajesPasados.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, new Color(212, 208, 200), null, null, null), "Billetes de Viajes Pasados", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(204, 0, 0)));
 		listaViajesPasados.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		listaViajesPasados.setBounds(75, 308, 239, 181);
+		listaViajesPasados.setBounds(47, 308, 349, 181);
 		pane.add(listaViajesPasados);
 		
 		lblCodVuelta = new JLabel("");
@@ -115,7 +115,7 @@ public class PaneUser {
 		listaViajesFuturos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		listaViajesFuturos.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, new Color(212, 208, 200), null, null, null), "Billetes de Viajes Futuros", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(204, 0, 0)));
 		listaViajesFuturos.setBackground(Color.WHITE);
-		listaViajesFuturos.setBounds(489, 308, 239, 181);
+		listaViajesFuturos.setBounds(398, 308, 356, 181);
 		pane.add(listaViajesFuturos);
 		
 		passwordNueva = new JPasswordField();
