@@ -21,7 +21,7 @@ public class PaneMostrarCompra extends JComponent {
 	
 	public JPanel pane;
 	public JTextField fieldTipoBillete;
-	public JTextField fieldLinea;
+	public JTextField fieldCodBus;
 	public JTextField fieldFechaIda;
 	public JTextField fieldFechaVuelta;
 	public JFormattedTextField fieldPrecio;
@@ -29,7 +29,7 @@ public class PaneMostrarCompra extends JComponent {
 	public JButton btnSiguiente;
 	public JLabel lblTipoDeBillete;
 	public JLabel lblTrayetoria;
-	public JLabel lblAutobus;
+	public JLabel lblCodBus;
 	public JLabel lblFechaIda;
 	public JLabel lblFechaVuelta;
 	public JLabel lblPrecio;
@@ -90,12 +90,12 @@ public class PaneMostrarCompra extends JComponent {
 		lblTrayetoria.setBounds(163, 232, 161, 39);
 		pane.add(lblTrayetoria);
 		
-		lblAutobus = new JLabel("Autobus :");
-		lblAutobus.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblAutobus.setForeground(new Color(0, 51, 102));
-		lblAutobus.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblAutobus.setBounds(162, 286, 161, 39);
-		pane.add(lblAutobus);
+		lblCodBus = new JLabel("Autobus :");
+		lblCodBus.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblCodBus.setForeground(new Color(0, 51, 102));
+		lblCodBus.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		lblCodBus.setBounds(162, 286, 161, 39);
+		pane.add(lblCodBus);
 		
 		lblFechaIda = new JLabel("Fecha Ida :");
 		lblFechaIda.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -133,12 +133,12 @@ public class PaneMostrarCompra extends JComponent {
 		fieldTipoBillete.setBounds(333, 168, 236, 37);
 		pane.add(fieldTipoBillete);
 		
-		fieldLinea = new JTextField();
-		fieldLinea.setEditable(false);
-		fieldLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		fieldLinea.setColumns(10);
-		fieldLinea.setBounds(333, 286, 236, 37);
-		pane.add(fieldLinea);
+		fieldCodBus = new JTextField();
+		fieldCodBus.setEditable(false);
+		fieldCodBus.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+		fieldCodBus.setColumns(10);
+		fieldCodBus.setBounds(333, 286, 236, 37);
+		pane.add(fieldCodBus);
 		
 		fieldFechaIda = new JTextField();
 		fieldFechaIda.setEditable(false);

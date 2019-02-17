@@ -64,6 +64,7 @@ public class ControladorMostrarCompra {
 			paneMostrarCompra.fieldFechaVuelta.setEnabled(true);
 			paneMostrarCompra.fieldFechaVuelta.setText(FuncionesFecha.CalendarToStringVisual(modelo.fechaVuelta));
 			precioAMostrar = FuncionesFormato.Formateado2Dec(precioIda + precioVuelta) + "€";
+			paneMostrarCompra.fieldCodBus.setText("Ida: " + modelo.autobusIda.codBus + " Vuelta: " + modelo.autobusVuelta.codBus);
 		}
 		else
 		{
@@ -71,9 +72,9 @@ public class ControladorMostrarCompra {
 			System.out.println("Solo ida");
 			paneMostrarCompra.fieldFechaVuelta.setEnabled(false);
 			precioAMostrar = FuncionesFormato.Formateado2Dec(precioIda) + "€";
+			paneMostrarCompra.fieldCodBus.setText("Ida: " + modelo.autobusIda.codBus);
 		}
 		System.out.println("Precio ida: " + modelo.precioIda + "Precio vuelta: " + modelo.precioVuelta);
-		paneMostrarCompra.fieldLinea.setText(modelo.linea.getCodLinea() + ": " + modelo.linea.getNombreLinea());
 
 		paneMostrarCompra.lblParadaOrigen.setText(modelo.paradaOrigen.nombreParada);
 		paneMostrarCompra.lblParadaDest.setText(modelo.paradaDestino.nombreParada);
