@@ -167,6 +167,19 @@ public class ControladorSelTrayecto {
 					activeTextfield.setText(codLinea + ": " + resultadoBusqueda[paneSelTrayecto.comboBoxBusqueda.getSelectedIndex()]);
 					btnOrigenEnabled=true;
 					paneSelTrayecto.btnSelOrigen.setEnabled(true);
+					paneSelTrayecto.imgL1.setVisible(false);
+					paneSelTrayecto.imgL2.setVisible(false);
+					paneSelTrayecto.imgL3.setVisible(false);
+					paneSelTrayecto.imgL4.setVisible(false);
+					if(codLinea.equals("L1"))
+						paneSelTrayecto.imgL1.setVisible(true);
+					if(codLinea.equals("L2"))
+						paneSelTrayecto.imgL2.setVisible(true);
+					if(codLinea.equals("L3"))
+						paneSelTrayecto.imgL3.setVisible(true);
+					if(codLinea.equals("L4"))
+						paneSelTrayecto.imgL4.setVisible(true);
+						
 				}
 				else if(operationMode == 0)
 				{

@@ -59,6 +59,10 @@ public class PaneSelTrayecto {
 	public JButton btnCerrarSesion;
 	public JLabel lblSaludo;
 	public JButton btnMiCuenta;
+	public JLabel imgL1;
+	public JLabel imgL2;
+	public JLabel imgL3;
+	public JLabel imgL4;
 	
 	public PaneSelTrayecto(Frame1 frame1)
 	{
@@ -90,21 +94,21 @@ public class PaneSelTrayecto {
 		lblLinea.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblLinea.setForeground(new Color(0, 51, 102));
 		lblLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblLinea.setBounds(91, 223, 126, 25);
+		lblLinea.setBounds(92, 250, 126, 25);
 		pane.add(lblLinea);
 		
 		lblOrigen = new JLabel("Origen :");
 		lblOrigen.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblOrigen.setForeground(new Color(0, 51, 102));
 		lblOrigen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblOrigen.setBounds(91, 264, 126, 25);
+		lblOrigen.setBounds(92, 288, 126, 25);
 		pane.add(lblOrigen);
 		
 		lblDestino = new JLabel("Destino :");
 		lblDestino.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblDestino.setForeground(new Color(0, 51, 102));
 		lblDestino.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		lblDestino.setBounds(91, 306, 126, 25);
+		lblDestino.setBounds(92, 330, 126, 25);
 		pane.add(lblDestino);
 		
 		btnBuscar = new JButton("Buscar");
@@ -119,7 +123,7 @@ public class PaneSelTrayecto {
 		dateChooserIda = new JDateChooser();
 		dateChooserIda.setForeground(new Color(0, 51, 102));
 		dateChooserIda.setBackground(Color.WHITE);
-		dateChooserIda.setBounds(312, 351, 153, 29);
+		dateChooserIda.setBounds(314, 367, 153, 29);
 		dateChooserIda.getJCalendar().setMinSelectableDate(new Date());
 		pane.add(dateChooserIda);
 		Calendar LimitadorFecha = Calendar.getInstance(); LimitadorFecha.add(Calendar.WEEK_OF_YEAR, 2); LimitadorFecha.add(Calendar.DATE, -1); Date date = LimitadorFecha.getTime();
@@ -129,14 +133,14 @@ public class PaneSelTrayecto {
 		lblFechaIda = new Label("Fecha de Ida :");
 		lblFechaIda.setForeground(new Color(0, 51, 102));
 		lblFechaIda.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 14));
-		lblFechaIda.setBounds(191, 356, 115, 24);
+		lblFechaIda.setBounds(193, 372, 115, 24);
 		pane.add(lblFechaIda);
 		
 		dateChooserVuelta = new JDateChooser();
 		dateChooserVuelta.setForeground(new Color(0, 51, 102));
 		dateChooserVuelta.setBackground(Color.WHITE);
 		dateChooserVuelta.setEnabled(false);
-		dateChooserVuelta.setBounds(312, 390, 153, 29);
+		dateChooserVuelta.setBounds(314, 406, 153, 29);
 		dateChooserVuelta.getJCalendar().setMinSelectableDate(new Date());
 		dateChooserIda.getJCalendar().setMaxSelectableDate(date);
 
@@ -146,7 +150,7 @@ public class PaneSelTrayecto {
 		lblFechaVuelta.setForeground(new Color(0, 51, 102));
 		lblFechaVuelta.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 14));
 		lblFechaVuelta.setBackground(Color.WHITE);
-		lblFechaVuelta.setBounds(168, 395, 148, 24);
+		lblFechaVuelta.setBounds(170, 411, 148, 24);
 		pane.add(lblFechaVuelta);
 		
 		FieldLinea = new JTextField();
@@ -154,7 +158,7 @@ public class PaneSelTrayecto {
 		FieldLinea.setBackground(Color.WHITE);
 		FieldLinea.setEditable(false);
 
-		FieldLinea.setBounds(227, 217, 238, 36);
+		FieldLinea.setBounds(228, 250, 238, 30);
 		pane.add(FieldLinea);
 		FieldLinea.setColumns(10);
 		
@@ -162,7 +166,7 @@ public class PaneSelTrayecto {
 		FieldOrigen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		FieldOrigen.setBackground(Color.WHITE);
 		FieldOrigen.setEditable(false);
-		FieldOrigen.setBounds(227, 259, 238, 36);
+		FieldOrigen.setBounds(228, 288, 238, 31);
 		pane.add(FieldOrigen);
 		FieldOrigen.setColumns(10);
 		
@@ -185,7 +189,7 @@ public class PaneSelTrayecto {
 		btnSelLinea.setForeground(new Color(0, 51, 102));
 		btnSelLinea.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnSelLinea.setBackground(Color.WHITE);
-		btnSelLinea.setBounds(468, 217, 159, 36);
+		btnSelLinea.setBounds(469, 250, 159, 30);
 		pane.add(btnSelLinea);
 		
 		btnSelOrigen = new JButton("Seleccionar");
@@ -193,7 +197,7 @@ public class PaneSelTrayecto {
 		btnSelOrigen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnSelOrigen.setBackground(Color.WHITE);
 		btnSelOrigen.setEnabled(false);
-		btnSelOrigen.setBounds(468, 259, 159, 36);
+		btnSelOrigen.setBounds(469, 288, 159, 31);
 		pane.add(btnSelOrigen);
 		
 		FieldDestino = new JTextField();
@@ -201,7 +205,7 @@ public class PaneSelTrayecto {
 		FieldDestino.setBackground(Color.WHITE);
 		FieldDestino.setEditable(false);
 		FieldDestino.setColumns(10);
-		FieldDestino.setBounds(227, 300, 238, 36);
+		FieldDestino.setBounds(228, 330, 238, 30);
 		pane.add(FieldDestino);
 		
 		btnSelDestino = new JButton("Seleccionar");
@@ -209,14 +213,14 @@ public class PaneSelTrayecto {
 		btnSelDestino.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		btnSelDestino.setBackground(Color.WHITE);
 		btnSelDestino.setEnabled(false);
-		btnSelDestino.setBounds(468, 300, 159, 36);
+		btnSelDestino.setBounds(469, 330, 159, 30);
 		pane.add(btnSelDestino);
 		
 		chckbxVuelta = new JCheckBox("Viaje de vuelta");
 		chckbxVuelta.setBackground(Color.WHITE);
 		chckbxVuelta.setForeground(new Color(204, 0, 0));
 		chckbxVuelta.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		chckbxVuelta.setBounds(478, 369, 159, 25);
+		chckbxVuelta.setBounds(480, 385, 159, 25);
 		pane.add(chckbxVuelta);
 		
 		lbllogoPeke = new JLabel("");
@@ -233,14 +237,14 @@ public class PaneSelTrayecto {
 		lblNoHayBuses.setVisible(false);
 		lblNoHayBuses.setFont(new Font("Arial", Font.PLAIN, 13));
 		lblNoHayBuses.setForeground(Color.RED);
-		lblNoHayBuses.setBounds(149, 430, 325, 25);
+		lblNoHayBuses.setBounds(151, 446, 325, 25);
 		pane.add(lblNoHayBuses);
 		
 		lblCamposSinCompletar = new JLabel("*Hay campos sin completar");
 		lblCamposSinCompletar.setVisible(false);
 		lblCamposSinCompletar.setForeground(Color.RED);
 		lblCamposSinCompletar.setFont(new Font("Arial", Font.PLAIN, 13));
-		lblCamposSinCompletar.setBounds(149, 457, 329, 25);
+		lblCamposSinCompletar.setBounds(151, 473, 329, 25);
 		pane.add(lblCamposSinCompletar);
 		
 		imgTrayecto = new JLabel("");
@@ -272,8 +276,33 @@ public class PaneSelTrayecto {
 		pane.add(btnCerrarSesion);
 		
 		btnMiCuenta = new JButton("Mi cuenta");
-		btnMiCuenta.setBounds(209, 10, 97, 25);
+		btnMiCuenta.setBackground(Color.WHITE);
+		btnMiCuenta.setBounds(209, 10, 153, 25);
 		pane.add(btnMiCuenta);
+		
+		imgL1 = new JLabel("L1");
+		imgL1.setBounds(129, 121, 522, 127);
+		imgL1.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/L1Plano.png")));
+		imgL1.setVisible(false);
+		pane.add(imgL1);
+		
+		imgL2 = new JLabel("L2");
+		imgL2.setBounds(129, 121, 522, 127);
+		imgL2.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/L2Plano.png")));
+		imgL2.setVisible(false);
+		pane.add(imgL2);
+		
+		imgL3 = new JLabel("L3");
+		imgL3.setBounds(129, 121, 522, 127);
+		imgL3.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/L3Plano.png")));
+		imgL3.setVisible(false);
+		pane.add(imgL3);
+		
+		imgL4 = new JLabel("L4");
+		imgL4.setBounds(129, 121, 522, 127);
+		imgL4.setIcon(new ImageIcon(PaneSelTrayecto.class.getResource("/ImagenesVista/L4Plano.png")));
+		imgL4.setVisible(false);
+		pane.add(imgL4);
 		
 		pane.setVisible(false);
 	}
