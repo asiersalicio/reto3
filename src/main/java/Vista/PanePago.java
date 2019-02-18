@@ -242,6 +242,7 @@ public class PanePago {
 
 	public void reset() {
 		txtCambio2.setText("0.00");
+		btnImpresionBillete.setVisible(false);
 		
 	}
 }

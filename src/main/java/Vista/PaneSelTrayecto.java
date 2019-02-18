@@ -318,5 +318,9 @@ public class PaneSelTrayecto {
 		chckbxVuelta.setSelected(false);
 		dateChooserIda.setDate(new Date());
 		dateChooserVuelta.setDate(new Date());
+		imgL1.setVisible(false);
+		imgL2.setVisible(false);
+		imgL3.setVisible(false);
+		imgL4.setVisible(false);
 	}
 }
