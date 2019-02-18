@@ -90,8 +90,16 @@ public class Pagar {
 				}
 				else
 				{
-					panePago.txtfaltaporpagar.setText("0");
-					aPagar=aPagar*-1;
+					if (aPagar==0)
+					{
+						panePago.txtfaltaporpagar.setText("0");
+					}
+					else
+					{
+						panePago.txtfaltaporpagar.setText("0");
+						aPagar=aPagar*-1;
+						
+					}
 					panePago.txtCambio2.setText(String.valueOf(FuncionesFormato.Formateado2Dec(aPagar)));
 					panePago.btnImpresionBillete.setVisible(true);
 				}
