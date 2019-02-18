@@ -150,27 +150,35 @@ public class PaneUser {
 		pane.add(btnCambiar);
 		
 		lblTusDatos = new JLabel("Tus datos");
-		lblTusDatos.setBounds(430, 148, 56, 16);
+		lblTusDatos.setForeground(new Color(153, 0, 0));
+		lblTusDatos.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblTusDatos.setBounds(430, 148, 153, 27);
 		pane.add(lblTusDatos);
 		
 		lblDni = new JLabel("DNI:");
-		lblDni.setBounds(424, 188, 114, 16);
+		lblDni.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblDni.setForeground(new Color(0, 51, 102));
+		lblDni.setFont(new Font("Dialog", Font.PLAIN, 18));
+		lblDni.setBounds(424, 188, 173, 16);
 		pane.add(lblDni);
 		
 		lblNombreYApellidos = new JLabel("Nombre y apellidos:");
-		lblNombreYApellidos.setBounds(424, 214, 120, 16);
+		lblNombreYApellidos.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblNombreYApellidos.setFont(new Font("Dialog", Font.PLAIN, 18));
+		lblNombreYApellidos.setForeground(new Color(0, 51, 102));
+		lblNombreYApellidos.setBounds(424, 214, 173, 16);
 		pane.add(lblNombreYApellidos);
 		
 		fieldDNI = new JTextField();
 		fieldDNI.setEditable(false);
 		fieldDNI.setColumns(10);
-		fieldDNI.setBounds(550, 181, 116, 22);
+		fieldDNI.setBounds(609, 181, 116, 22);
 		pane.add(fieldDNI);
 		
 		fieldNombre = new JTextField();
 		fieldNombre.setEditable(false);
 		fieldNombre.setColumns(10);
-		fieldNombre.setBounds(551, 211, 116, 22);
+		fieldNombre.setBounds(609, 214, 116, 22);
 		pane.add(fieldNombre);
 		
 		lblSeguridad = new JLabel("");
